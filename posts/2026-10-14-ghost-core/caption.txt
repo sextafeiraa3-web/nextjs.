@@ -1,0 +1,17 @@
+Um jovem de 19 anos convenceu a Andreessen Horowitz a colocar US$ 11 milhões (uns R$ 55 milhões) numa caixa que deixa a sua IA dentro de casa. 🏠🤖
+
+Zain Javaid, ex-trader quantitativo, passou um ano construindo a Ghost em segredo com três cofundadores de 19 a 24 anos. Agora a startup da Califórnia lançou o Core, um computador pessoal de IA por US$ 3.499 (cerca de R$ 17,4 mil).
+
+A ideia: tudo roda no próprio aparelho. GPU Nvidia RTX Pro 4000 Blackwell, 64 GB de RAM e modelos abertos como Qwen e Gemma. Sem nuvem, sem mensalidade. Ele se conecta ao seu e-mail, agenda, arquivos e casa inteligente, aprende com o tempo e age sozinho, sem esperar comando. E a promessa é que continue funcionando mesmo se a Ghost fechar.
+
+O primeiro lote esgotou em horas. As entregas começam no fim de outubro e já tem fila para o segundo.
+
+É uma aposta contra o modelo de "alugar" IA das big techs pagando com nossos dados. Mas fica a pergunta: vale R$ 17,4 mil quando a IA na nuvem sai por uns R$ 100/mês? E você confiaria seus e-mails, saúde e câmeras a um único aparelho?
+
+Comenta aí o que você acha 👇
+
+🔔 Siga @linoia.br para ficar por dentro do que rola em IA e tecnologia.
+
+Fonte: TechCrunch
+
+#inteligenciaartificial #ia #tecnologia #startup #ai #inovacao #linoia

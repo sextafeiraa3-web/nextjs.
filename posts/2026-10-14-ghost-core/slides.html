@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<style>
+:root{--gold:#F5B400;--amber:#FF8A00;--ink:#0B0B0C;--soft:#B9B9C0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#222;font-family:Inter,sans-serif;color:#fff}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--ink);margin-bottom:20px}
+.hdr{position:absolute;top:56px;left:72px;right:72px;display:flex;align-items:center;gap:20px;z-index:5}
+.av{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--amber));display:flex;align-items:center;justify-content:center;font:900 38px 'Inter Display';color:#000}
+.hn{font:700 30px Inter}.hh{font:400 24px Inter;color:var(--soft)}
+.badge{width:28px;height:28px;border-radius:50%;background:#3897F0;display:inline-flex;align-items:center;justify-content:center;font:900 17px Inter;margin-left:8px;vertical-align:3px}
+.pg{margin-left:auto;font:600 24px Inter;color:var(--soft)}
+.tag{display:inline-block;background:var(--gold);color:#000;font:800 24px Inter;letter-spacing:.08em;padding:10px 20px;border-radius:8px;text-transform:uppercase}
+p.body{font:500 44px/1.38 Inter;color:#EDEDF0}
+p.body b{color:var(--gold);font-weight:800}
+.foot{position:absolute;bottom:56px;left:72px;right:72px;display:flex;justify-content:space-between;font:600 24px Inter;color:var(--soft)}
+/* slide 1 */
+.s1{background:radial-gradient(circle at 50% 38%,#FFD54A 0%,#F5B400 35%,#B77400 75%,#5A3700 100%)}
+.s1 .hn,.s1 .pg{color:#000}.s1 .hh{color:#3a2a00}
+.s1 .av{background:#000;color:var(--gold)}
+.dev{position:absolute;left:50%;top:230px;transform:translateX(-50%)}
+.band{position:absolute;left:0;right:0;bottom:0;height:560px;background:linear-gradient(180deg,rgba(11,11,12,0) 0%,rgba(11,11,12,.92) 22%,#0B0B0C 40%);padding:170px 72px 0}
+.h1{font:900 76px/1.02 'Inter Display';text-transform:uppercase;letter-spacing:-.01em}
+.h1 em{font-style:normal;color:var(--gold)}
+.swipe{margin-top:34px;font:800 28px Inter;letter-spacing:.12em;color:var(--gold)}
+/* slide 2 */
+.s2 .wrap{position:absolute;top:210px;left:72px;right:72px}
+.stat{font:900 210px/0.9 'Inter Display';color:var(--gold);letter-spacing:-.03em;margin:40px 0 6px}
+.statl{font:600 34px Inter;color:var(--soft);margin-bottom:60px}
+.chips{display:flex;gap:16px;margin-top:56px;flex-wrap:wrap}
+.chip{border:2px solid #333;border-radius:999px;padding:14px 26px;font:600 28px Inter;color:#ddd}
+/* slide 3 */
+.s3 .wrap{position:absolute;top:200px;left:72px;right:72px}
+.spec{position:absolute;left:72px;right:72px;bottom:150px;background:#F1EFEA;color:#111;border-radius:28px;padding:44px 48px;display:flex;gap:44px;align-items:center;
+ background-image:linear-gradient(#0000000d 1px,transparent 1px),linear-gradient(90deg,#0000000d 1px,transparent 1px);background-size:36px 36px}
+.spec h4{font:800 34px/1.15 Inter;margin:16px 0 18px}
+.spec li{list-style:none;font:500 28px/1.6 Inter;color:#333}
+.spec li::before{content:"▸ ";color:var(--amber)}
+/* slide 4 */
+.s4 .wrap{position:absolute;top:200px;left:72px;right:72px}
+.notes{position:absolute;left:72px;right:72px;bottom:290px;display:flex;flex-direction:column;gap:18px}
+.note{background:#1A1A1D;border:1px solid #2c2c31;border-radius:24px;padding:22px 28px;display:flex;gap:22px;align-items:center}
+.ni{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--amber));display:flex;align-items:center;justify-content:center;font-size:30px;flex:none}
+.nt{font:500 29px/1.3 Inter;color:#eee}.nt small{display:block;font:600 21px Inter;color:var(--soft);margin-bottom:4px}
+.cta{position:absolute;left:72px;right:72px;bottom:130px;font:800 40px/1.2 'Inter Display';color:var(--gold)}
+</style></head><body>
+
+<!-- 1 -->
+<section class="slide s1" id="s1">
+ <div class="hdr"><div class="av">L</div><div><div class="hn">Lino IA</div><div class="hh">@linoia.br</div></div><div class="pg">1/4</div></div>
+ <svg class="dev" width="720" height="620" viewBox="0 0 720 620">
+  <defs>
+   <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff6c8" stop-opacity=".95"/><stop offset=".5" stop-color="#ffd54a" stop-opacity=".45"/><stop offset="1" stop-color="#ffd54a" stop-opacity="0"/></radialGradient>
+   <linearGradient id="top" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a3a3f"/><stop offset="1" stop-color="#151517"/></linearGradient>
+   <linearGradient id="front" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d1d20"/><stop offset="1" stop-color="#050506"/></linearGradient>
+   <linearGradient id="side" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2a2a2e"/><stop offset="1" stop-color="#0d0d0f"/></linearGradient>
+  </defs>
+  <ellipse cx="360" cy="330" rx="350" ry="290" fill="url(#glow)"/>
+  <ellipse cx="360" cy="540" rx="250" ry="34" fill="#000" opacity=".35"/>
+  <polygon points="180,190 470,130 600,200 310,262" fill="url(#top)"/>
+  <polygon points="180,190 310,262 310,520 180,448" fill="url(#side)"/>
+  <polygon points="310,262 600,200 600,458 310,520" fill="url(#front)"/>
+  <polygon points="330,300 580,246 580,256 330,310" fill="#FFD54A"/>
+  <polygon points="330,300 580,246 580,256 330,310" fill="#FFF3B0" opacity=".6" filter="blur(4px)"/>
+  <circle cx="352" cy="480" r="7" fill="#FFD54A"/>
+  <g stroke="#ffffff22" stroke-width="2">
+   <line x1="350" y1="350" x2="570" y2="303"/><line x1="350" y1="375" x2="570" y2="328"/><line x1="350" y1="400" x2="570" y2="353"/><line x1="350" y1="425" x2="570" y2="378"/>
+  </g>
+  <text x="560" y="440" fill="#ffffff55" font-family="Inter" font-weight="800" font-size="22" text-anchor="end" transform="skewY(-12) translate(0,120)">CORE</text>
+ </svg>
+ <div class="band">
+  <div class="h1">Jovem de 19 anos cria computador de IA de <em>US$ 3.499</em> e esgota o 1º lote em horas</div>
+  <div class="swipe">ARRASTA PRO LADO →</div>
+ </div>
+</section>
+
+<!-- 2 -->
+<section class="slide s2" id="s2">
+ <div class="hdr"><div class="av">L</div><div><div class="hn">Lino IA</div><div class="hh">@linoia.br</div></div><div class="pg">2/4</div></div>
+ <div class="wrap">
+  <span class="tag">A startup</span>
+  <div class="stat">US$ 11 mi</div>
+  <div class="statl">rodada inicial liderada pela Andreessen Horowitz (a16z)</div>
+  <p class="body">Aos 19 anos, o ex-trader quantitativo <b>Zain Javaid</b> passou um ano construindo a <b>Ghost</b> em sigilo, com três cofundadores de 19 a 24 anos.</p>
+  <p class="body" style="margin-top:34px">O produto é o <b>Core</b>: um computador sem tela feito para uma coisa só, rodar a sua IA pessoal.</p>
+  <div class="chips"><span class="chip">📍 Califórnia</span><span class="chip">👥 4 fundadores</span><span class="chip">💰 ~R$ 55 milhões</span></div>
+ </div>
+ <div class="foot"><span>Fonte: TechCrunch</span><span>→</span></div>
+</section>
+
+<!-- 3 -->
+<section class="slide s3" id="s3">
+ <div class="hdr"><div class="av">L</div><div><div class="hn">Lino IA</div><div class="hh">@linoia.br</div></div><div class="pg">3/4</div></div>
+ <div class="wrap">
+  <span class="tag">100% local</span>
+  <p class="body" style="margin-top:40px">Nada vai para a nuvem. O Core roda modelos abertos como <b>Qwen</b> e <b>Gemma</b> direto no aparelho, com <b>64 GB de RAM</b>.</p>
+  <p class="body" style="margin-top:34px">Sem mensalidade. Software e pesos dos modelos ficam na máquina, e a promessa é que ele <b>continue funcionando mesmo se a Ghost fechar</b>.</p>
+ </div>
+ <div class="spec">
+  <svg width="300" height="190" viewBox="0 0 300 190">
+   <rect x="10" y="30" width="270" height="120" rx="14" fill="#151517"/>
+   <rect x="10" y="150" width="200" height="16" fill="#C9A227"/>
+   <g fill="#C9A227">
+    <rect x="22" y="150" width="8" height="16" fill="#8a6d10"/><rect x="40" y="150" width="8" height="16" fill="#8a6d10"/><rect x="58" y="150" width="8" height="16" fill="#8a6d10"/>
+   </g>
+   <circle cx="95" cy="90" r="44" fill="#26262a" stroke="#3a3a40" stroke-width="4"/>
+   <circle cx="200" cy="90" r="44" fill="#26262a" stroke="#3a3a40" stroke-width="4"/>
+   <circle cx="95" cy="90" r="10" fill="#F5B400"/><circle cx="200" cy="90" r="10" fill="#F5B400"/>
+   <rect x="280" y="40" width="12" height="100" rx="3" fill="#888"/>
+  </svg>
+  <div>
+   <span class="tag" style="background:#FF8A00;color:#fff">GPU</span>
+   <h4>NVIDIA RTX PRO 4000 Blackwell SFF</h4>
+   <ul><li>24 GB GDDR7 ECC</li><li>432 GB/s de banda</li></ul>
+  </div>
+ </div>
+ <div class="foot"><span>Fonte: TechCrunch</span><span>→</span></div>
+</section>
+
+<!-- 4 -->
+<section class="slide s4" id="s4">
+ <div class="hdr"><div class="av">L</div><div><div class="hn">Lino IA</div><div class="hh">@linoia.br</div></div><div class="pg">4/4</div></div>
+ <div class="wrap">
+  <span class="tag">Proativo</span>
+  <p class="body" style="margin-top:40px">O Core não espera comando. Ligado 24h, ele aprende com seu <b>e-mail, agenda, arquivos, casa inteligente</b> e wearables, e <b>avisa antes de você pedir</b>.</p>
+ </div>
+ <div class="notes">
+  <div class="note"><div class="ni">🛒</div><div class="nt"><small>CORE · 14:15</small>Seu estoque de mercado está acabando.</div></div>
+  <div class="note"><div class="ni">🌧️</div><div class="nt"><small>CORE · 18:40</small>Chuva amanhã: saia 15 min mais cedo.</div></div>
+  <div class="note"><div class="ni">🔑</div><div class="nt"><small>CORE · 07:52</small>Não esquece as chaves, estão na mesa da sala.</div></div>
+ </div>
+ <div class="cta">Vale R$ 17,4 mil? Comenta aí 👇</div>
+ <div class="foot"><span>Siga @linoia.br</span><span>Fonte: TechCrunch</span></div>
+</section>
+</body></html>
