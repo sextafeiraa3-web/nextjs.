@@ -1,0 +1,11 @@
+{
+  "name": "faq-refund",
+  "main": "src/index.js",
+  "compatibility_date": "2025-10-01",
+  "vars": {
+    // Fill in with your values (dashboard > AI > AI Gateway).
+    "CLOUDFLARE_ACCOUNT_ID": "<your-account-id>",
+    "AI_GATEWAY_ID": "<your-gateway-id>"
+  }
+  // Secret (not here): npx wrangler secret put CLOUDFLARE_API_TOKEN
+}
