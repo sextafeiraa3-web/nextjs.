@@ -3,11 +3,13 @@ import { colors, enter, fonts, pop, safeBand } from "../theme";
 
 type Props = {
   readonly keyword: string;
+  readonly question: string;
+  readonly reward?: string;
 };
 
 // Closing card: asks for the comment keyword that triggers the automatic DM
-// (see src/app/api/instagram/webhook in the Next.js app).
-export const CommentCta: React.FC<Props> = ({ keyword }) => {
+// (rules in src/instagram/automations.ts of the Next.js app).
+export const CommentCta: React.FC<Props> = ({ keyword, question, reward = "no direct" }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const pulse = 1 + 0.04 * Math.sin(Math.max(0, frame - 1.2 * fps) / 5);
@@ -15,8 +17,8 @@ export const CommentCta: React.FC<Props> = ({ keyword }) => {
 
   return (
     <div style={safeBand}>
-      <div style={{ ...enter(frame, fps, 0), fontFamily: fonts.display, fontSize: 96, lineHeight: 1.05, color: colors.ink }}>
-        Quer o resumo completo?
+      <div style={{ ...enter(frame, fps, 0), fontFamily: fonts.display, fontSize: 92, lineHeight: 1.05, color: colors.ink }}>
+        {question}
       </div>
       <div style={{ ...enter(frame, fps, 0.35), fontFamily: fonts.body, fontWeight: 600, fontSize: 48, color: colors.muted, marginTop: 60 }}>
         Comente
@@ -42,7 +44,10 @@ export const CommentCta: React.FC<Props> = ({ keyword }) => {
       <div style={{ ...enter(frame, fps, 1.1), fontFamily: fonts.body, fontWeight: 600, fontSize: 52, color: colors.ink, marginTop: 60, lineHeight: 1.25 }}>
         que eu te mando
         <br />
-        <span style={{ color: colors.accent }}>no direct</span>.
+        <span style={{ color: colors.accent }}>{reward}</span>.
+      </div>
+      <div style={{ ...enter(frame, fps, 1.6), fontFamily: fonts.body, fontSize: 34, color: colors.muted, marginTop: 50 }}>
+        Sua ideia. Nosso próximo projeto.
       </div>
     </div>
   );

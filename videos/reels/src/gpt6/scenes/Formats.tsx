@@ -1,5 +1,5 @@
 import { useCurrentFrame, useVideoConfig } from "remotion";
-import { colors, enter, fonts, pop, safeBand } from "../theme";
+import { colors, enter, fonts, pop, safeBand } from "../../theme";
 
 const formats = ["Comparações lado a lado", "Diagramas", "Calculadoras", "Jogos"];
 

@@ -1,5 +1,5 @@
 import { useCurrentFrame, useVideoConfig } from "remotion";
-import { colors, enter, fonts, pop, safeBand } from "../theme";
+import { colors, enter, fonts, pop, safeBand } from "../../theme";
 
 export const Availability: React.FC = () => {
   const frame = useCurrentFrame();

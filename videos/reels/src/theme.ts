@@ -60,6 +60,20 @@ export const pop = (frame: number, fps: number, start: number, dur = 0.4) => {
   };
 };
 
+// Hook text: fully visible on frame 0 (it is the thumbnail), then a small
+// punch-in so the first second still moves.
+export const punch = (frame: number, fps: number, start = 0, dur = 0.35) => ({
+  scale: interpolate(frame, [start * fps, (start + dur) * fps], [1.08, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: easeOut,
+  }),
+});
+
+// The part of `text` typed by `frame`, at `cps` characters per second.
+export const typed = (text: string, frame: number, fps: number, start: number, cps = 28) =>
+  text.slice(0, Math.max(0, Math.floor(((frame - start * fps) / fps) * cps)));
+
 // Content stays inside the band Instagram leaves free on a 1080×1920 Reel.
 export const safeBand: React.CSSProperties = {
   position: "absolute",

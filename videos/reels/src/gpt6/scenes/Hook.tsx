@@ -1,5 +1,5 @@
 import { interpolate, useCurrentFrame, useVideoConfig } from "remotion";
-import { colors, enter, fonts, pop, safeBand } from "../theme";
+import { colors, enter, fonts, punch, safeBand } from "../../theme";
 
 export const Hook: React.FC = () => {
   const frame = useCurrentFrame();
@@ -13,7 +13,7 @@ export const Hook: React.FC = () => {
     <div style={safeBand}>
       <div
         style={{
-          ...pop(frame, fps, 0.05),
+          ...punch(frame, fps),
           padding: "16px 36px",
           borderRadius: 999,
           border: `3px solid ${colors.accent}`,
@@ -26,12 +26,12 @@ export const Hook: React.FC = () => {
       >
         NOVO · GPT-6 no ChatGPT
       </div>
-      <div style={{ ...enter(frame, fps, 0.15), fontFamily: fonts.display, fontSize: 104, lineHeight: 1.04, color: colors.ink }}>
+      <div style={{ ...punch(frame, fps), fontFamily: fonts.display, fontSize: 104, lineHeight: 1.04, color: colors.ink }}>
         O ChatGPT parou de responder
       </div>
       <div
         style={{
-          ...enter(frame, fps, 0.4),
+          ...punch(frame, fps),
           position: "relative",
           fontFamily: fonts.display,
           fontSize: 104,

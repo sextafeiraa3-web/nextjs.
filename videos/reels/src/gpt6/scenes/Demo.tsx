@@ -1,5 +1,5 @@
 import { interpolate, useCurrentFrame, useVideoConfig } from "remotion";
-import { colors, easeOut, enter, fonts, pop } from "../theme";
+import { colors, easeOut, enter, fonts, pop } from "../../theme";
 
 const TOTAL = 240;
 

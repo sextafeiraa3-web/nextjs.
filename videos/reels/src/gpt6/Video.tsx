@@ -1,29 +1,23 @@
 import { linearTiming, TransitionSeries } from "@remotion/transitions";
 import { fade } from "@remotion/transitions/fade";
 import { slide } from "@remotion/transitions/slide";
-import { AbsoluteFill, useVideoConfig } from "remotion";
+import { useVideoConfig } from "remotion";
+import { CommentCta } from "../components/CommentCta";
+import { Reel } from "../components/Reel";
 import { Availability } from "./scenes/Availability";
-import { CommentCta } from "./scenes/CommentCta";
 import { Demo } from "./scenes/Demo";
 import { Formats } from "./scenes/Formats";
 import { Hook } from "./scenes/Hook";
-import { colors } from "./theme";
 
-export type VideoProps = {
-  readonly keyword: string;
-};
+// 22 s of scenes minus four 0.4 s transitions.
+export const GPT6_DURATION = 612;
 
-export const Video: React.FC<VideoProps> = ({ keyword }) => {
+export const Gpt6: React.FC<{ readonly keyword: string }> = ({ keyword }) => {
   const { fps } = useVideoConfig();
   const cut = linearTiming({ durationInFrames: Math.round(0.4 * fps) });
 
   return (
-    <AbsoluteFill
-      style={{
-        background: `radial-gradient(900px 700px at 85% 10%, rgba(62,230,168,0.14), transparent 70%),
-          radial-gradient(900px 900px at 0% 90%, rgba(123,140,255,0.14), transparent 70%), ${colors.ground}`,
-      }}
-    >
+    <Reel>
       <TransitionSeries>
         <TransitionSeries.Sequence name="Hook" durationInFrames={3.5 * fps}>
           <Hook />
@@ -42,9 +36,9 @@ export const Video: React.FC<VideoProps> = ({ keyword }) => {
         </TransitionSeries.Sequence>
         <TransitionSeries.Transition presentation={fade()} timing={cut} />
         <TransitionSeries.Sequence name="Comment CTA" durationInFrames={4.5 * fps}>
-          <CommentCta keyword={keyword} />
+          <CommentCta question="Quer o resumo completo?" keyword={keyword} />
         </TransitionSeries.Sequence>
       </TransitionSeries>
-    </AbsoluteFill>
+    </Reel>
   );
 };
