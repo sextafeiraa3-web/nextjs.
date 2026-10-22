@@ -1,0 +1,97 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: var(--font-body);
+      color: var(--ink);
+    }
+    #payoff-title {
+      position: absolute;
+      top: 330px;
+      left: 80px;
+      right: 80px;
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 104px;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+    }
+    #payoff-title span {
+      color: var(--accent);
+    }
+    #payoff-list {
+      position: absolute;
+      top: 720px;
+      left: 140px;
+      right: 140px;
+      list-style: none;
+      font-size: 46px;
+      font-weight: 600;
+    }
+    #payoff-list li {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+    #payoff-list b {
+      flex: none;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #0f0f12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+    }
+    #payoff-config {
+      position: absolute;
+      top: 1080px;
+      left: 140px;
+      right: 140px;
+      padding: 26px 30px;
+      border-radius: 20px;
+      background: rgba(245, 241, 232, 0.08);
+      border: 2px solid rgba(245, 241, 232, 0.2);
+      font-family: var(--font-mono);
+      font-size: 34px;
+      text-align: center;
+      color: var(--muted);
+    }
+    #payoff-config span {
+      color: var(--ink);
+    }
+    #payoff-cta {
+      position: absolute;
+      top: 1230px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+  </style>
+  <div id="root" data-composition-id="payoff" data-width="1080" data-height="1920">
+    <h2 id="payoff-title">Você volta e <span>continua na hora.</span></h2>
+    <ul id="payoff-list">
+      <li id="payoff-l1"><b>✓</b>Sem reprocessar tudo</li>
+      <li id="payoff-l2"><b>✓</b>Conversas de 200K+ tokens</li>
+      <li id="payoff-l3"><b>✓</b>Já vem ligado</li>
+    </ul>
+    <div id="payoff-config">desligar: <span>/config → Idle compaction</span></div>
+    <p id="payoff-cta">Siga pra mais novidades de IA →</p>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#payoff-title", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 0);
+    tl.fromTo(["#payoff-l1", "#payoff-l2", "#payoff-l3"], { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.8)", stagger: 0.15 }, 0.45);
+    tl.fromTo("#payoff-config", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 1.1);
+    tl.fromTo("#payoff-cta", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 1.5);
+    tl.fromTo("#payoff-cta", { x: 0 }, { x: 14, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 3 }, 1.9);
+    window.__timelines["payoff"] = tl;
+  </script>
+</template>

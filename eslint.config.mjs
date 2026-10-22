@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Third-party skills and the video projects (each has its own lint).
+    ".claude/**",
+    "videos/**",
   ]),
 ]);
 

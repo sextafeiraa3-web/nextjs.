@@ -1,0 +1,9 @@
+Saiu pra tomar um café e deixou o Claude Code parado? Agora ele cuida disso sozinho ☕
+
+Novidade da versão 2.1.299: a "idle compaction". Se uma conversa com mais de 200 mil tokens fica parada por uns 54 minutos, o Claude Code resume tudo ANTES do cache de 1 hora expirar. Quando você volta, a próxima mensagem não precisa reprocessar a conversa inteira.
+
+Já vem ligado. Pra desligar: /config → Idle compaction.
+
+Fonte: changelog oficial do Claude Code (github.com/anthropics/claude-code)
+
+#claudecode #ia #inteligenciaartificial #programacao #anthropic
