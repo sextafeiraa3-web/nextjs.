@@ -194,6 +194,39 @@ td.r,th.r{text-align:right}
 .bub small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
 .msg-note{font-size:12px;color:var(--muted);border:1px dashed var(--line);border-radius:8px;padding:8px 10px}
 .msg-form{display:flex;gap:8px}
+.enq-btn.on{background:#5b3fb0;border-color:#8c72e8;color:#fff}
+.enq-grid{display:grid;grid-template-columns:1fr 320px;gap:16px;align-items:start}
+@media (max-width:720px){.enq-grid{grid-template-columns:1fr}}
+.enq-lista{display:flex;flex-direction:column;gap:12px;max-height:60vh;overflow:auto;min-width:0}
+.enq-form{display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--ink);min-width:0}
+.enq-form input{box-sizing:border-box;width:100%}
+.enq-ops{display:flex;flex-direction:column;gap:6px}
+.enq-oprow{display:flex;gap:6px;align-items:center}
+.enq-card{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--ink);display:flex;flex-direction:column;gap:8px}
+.enq-card.fechada{opacity:.85}
+.enq-top{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.enq-top small{color:var(--muted)}
+.enq-tag{font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;background:var(--panel2);color:var(--muted)}
+.enq-tag.on{background:#2a1f55;color:#c9b8ff}
+.enq-q{font-size:17px}
+.enq-op{position:relative;overflow:hidden;display:flex;justify-content:space-between;gap:10px;text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:11px 12px;font-weight:600}
+.enq-op:not(:disabled):hover{border-color:#8c72e8}
+.enq-op span{position:relative}
+.enq-op.meu{border-color:var(--amber)}
+.enq-op.win{border-color:#f4c542}
+.enq-bar{position:absolute;inset:0 auto 0 0;background:rgba(140,114,232,.28);transition:width .3s}
+.enq-op.win .enq-bar{background:rgba(244,197,66,.3)}
+.enq-n{font-family:var(--f-mono);color:var(--muted);font-size:13px;white-space:nowrap}
+.enq-foot{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.enq-foot small{color:var(--muted)}
+.visit-card summary{cursor:pointer;padding:2px 0}
+.visit-card summary small{color:var(--muted)}
+.visit-card[open] summary{margin-bottom:10px}
+.visit-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.visit-row input,.visit-row select{box-sizing:border-box;width:100%}
+.visit-row input:nth-of-type(2){grid-column:1/-1}
+@media (max-width:560px){.visit-row{grid-template-columns:1fr}}
+.relogio{font-family:var(--f-mono);font-weight:700;font-size:15px;color:var(--fg);background:rgba(255,255,255,.07);border-radius:8px;padding:2px 8px}
 .msg-top{display:flex;gap:6px}
 .msg-top select{flex:1;min-width:0}
 .msg-actions{display:flex;gap:6px;flex-wrap:wrap}
@@ -239,7 +272,7 @@ td.r,th.r{text-align:right}
 
 <div class="hud-top" id="hudTop" hidden>
   <div>
-    <div class="brand"><b>Escritório de Vendas</b><span class="online"><span class="dot" id="onDot"></span><span id="onCount">só você</span></span></div>
+    <div class="brand"><b>Escritório de Vendas</b><span class="relogio" id="relogio" aria-label="Hora atual"></span><span class="online"><span class="dot" id="onDot"></span><span id="onCount">só você</span></span></div>
     <div class="me-chip" id="meChip"></div>
   </div>
   <div class="actions">
@@ -264,6 +297,7 @@ td.r,th.r{text-align:right}
     <button class="emo" type="button" data-emo="dancar">Dançar</button>
     <button class="emo" type="button" data-emo="comemorar">Comemorar</button>
     <button class="emo" type="button" id="btnTelao">Telão</button>
+    <button class="emo enq-btn" type="button" id="btnEnquete">Enquete</button>
   </div>
   <div class="help" id="help"><kbd>WASD</kbd> andar · <kbd>Shift</kbd> correr · arraste para girar a câmera · <kbd>E</kbd> interagir · <kbd>F</kbd> chamar colega · clique numa cadeira vazia para sentar · <kbd>P</kbd> painéis</div>
 </div>
@@ -326,6 +360,12 @@ td.r,th.r{text-align:right}
   </div>
 </div>
 
+<div class="modal-wrap" id="mEnquete" hidden>
+  <div class="modal" role="dialog" aria-labelledby="enqTitle">
+    <div class="mhead"><div><h2 id="enqTitle">Enquetes</h2><p>Vote nas enquetes abertas ou crie uma nova. O resultado aparece no telão.</p></div><button class="x" type="button" data-close="mEnquete" aria-label="Fechar">×</button></div>
+    <div class="mbody"><div class="enq-grid"><div id="enqLista" class="enq-lista"></div><div id="enqForm" class="enq-form"></div></div></div>
+  </div>
+</div>
 <div class="modal-wrap" id="mMsg" hidden>
   <div class="modal" role="dialog" aria-labelledby="msgTitle">
     <div class="mhead"><div><h2 id="msgTitle">Mensagens</h2><p id="msgSub">Conversas particulares entre colegas.</p></div><button class="x" type="button" data-close="mMsg" aria-label="Fechar">×</button></div>
@@ -381,6 +421,7 @@ const CARGOS = {
   assistente:{nome:'Assistente B2B',   desc:'Senta em qualquer cadeira da mesa do B2B.'},
   lider:     {nome:'Líder de vendas',  desc:'Mesa ao lado da sala de vidro.'},
   gerente:   {nome:'Gerente geral',    desc:'Sala de vidro na frente do escritório.'},
+  visitante: {nome:'Visitante',        desc:'Gerente ou supervisor de fora, de passagem. Não ocupa cadeira e nada fica salvo.'},
 };
 const LIDERANCA = c => c==='supervisor'||c==='lider'||c==='gerente'||c==='assistente';
 
@@ -512,7 +553,8 @@ function normProfile(uid, d){
   const vendas={};
   if(d.vendas && typeof d.vendas==='object') for(const k in d.vendas){ if(/^\d{4}-\d{2}-\d{2}$/.test(k)){ const v=d.vendas[k]||{}; vendas[k]={f:Math.max(0,+v.f||0), g:Math.max(0,+v.g||0)}; } }
   return { uid, nome:String(d.nome||'Sem nome').slice(0,40), cargo, time: TEAM[d.time]?d.time:null, seat: SEAT[d.seat]?d.seat:null, avatar:normAvatar(d.avatar), vendas, criadoEm:+d.criadoEm||0,
-    almoco:/^\d{2}:\d{2}$/.test(d.almoco||'')?d.almoco:'', almocoMin:[30,45,60,90,120].includes(+d.almocoMin)?+d.almocoMin:60 };
+    almoco:/^\d{2}:\d{2}$/.test(d.almoco||'')?d.almoco:'', almocoMin:[30,45,60,90,120].includes(+d.almocoMin)?+d.almocoMin:60,
+    visita: cargo==='visitante' ? String(d.visita||'').slice(0,60) : '' };
 }
 
 /* ---------- state ---------- */
@@ -647,6 +689,12 @@ const Store = {
     if(this.mode==='db') return this.db.collection('mensagens').orderBy('ts','desc').limit(400).onSnapshot(sn=>cb(sn.docs.map(d=>({id:d.id,...d.data()}))), e=>console.warn('msgs-all',e));
     const f=()=>cb(this.local('msgs',[])); (this.localCbs.msgs=this.localCbs.msgs||[]).push(f); f();
   },
+  // polls: anyone creates one, it is open for 15 minutes (the database sets the end time), anyone votes once and can change the vote while it is open
+  watchEnquetes(cb){ if(this.mode==='sb') return this.sbLive('enquetes',{order:'ts',limit:40},r=>r,cb); cb([]); },
+  watchVotos(cb){ if(this.mode==='sb') return this.sbLive('votos',{order:'ts',limit:3000},r=>r,cb); cb([]); },
+  criarEnquete(pergunta,opcoes){ return this.sbDo(this.sb.from('enquetes').insert({pergunta,opcoes})); },
+  votar(enquete,opcao){ return this.sbDo(this.sb.from('votos').upsert({enquete,perfil:S.uid,opcao,ts:Date.now()},{onConflict:'enquete,perfil'})); },
+  apagarEnquete(id){ return this.sbDo(this.sb.from('enquetes').delete().eq('id',id)); },
   reloadMsgs(){ if(this.msgLive) this.msgLive.reload(); },
   // group conversations (shared database only): members see the group and its messages, the management sees all of them
   watchGrupos(cb){ if(this.mode==='sb') return this.sbLive('grupos',{order:'ts'},r=>r,cb); cb([]); },
@@ -705,6 +753,7 @@ const SFX=(()=>{
     wave(){ tone(660,0.12,'sine',0.1); tone(990,0.14,'sine',0.08,0.1); },
     click(){ tone(1200,0.03,'square',0.025); },
     sino(){ [[784,2.6,0.32],[1568,1.8,0.14],[2352,1.2,0.08],[3136,0.7,0.05]].forEach(([fq,d,v])=>{ tone(fq,d,'sine',v); tone(fq,d*0.8,'sine',v*0.8,0.55); }); noise(0.04,5000,2,0.2); noise(0.04,5000,2,0.16,0.55); },
+    sinalSaida(){ for(let i=0;i<22;i++){ tone(i%2?1046:1318,0.1,'square',0.16,i*0.11); } tone(784,0.9,'triangle',0.2,2.5); tone(1046,1.2,'triangle',0.18,2.75); }, // school-style bell
     alarme(){ for(let i=0;i<3;i++){ tone(880,0.2,'square',0.34,i*0.5); tone(1175,0.22,'square',0.34,i*0.5+0.22); } }, // password request, for supervisors
     psiu(){ noise(0.06,1900,3,0.45); noise(0.06,1700,3,0.45,0.16); tone(1300,0.22,'sine',0.2,0.38,2300); tone(2300,0.2,'sine',0.16,0.62,1500); }, // knock knock + whistle
     oficina(kind){ if(kind==='furadeira') tone(220,0.7,'sawtooth',0.035,0,260); else noise(0.05,2600,5,0.16); },
@@ -1013,6 +1062,21 @@ const SINO=(()=>{
   return st;
 })();
 
+/* ---- wall clock on the right wall, next to the bell ---- */
+const RELOGIO=(()=>{
+  const c=document.createElement('canvas'); c.width=c.height=256; const tex=new T.CanvasTexture(c);
+  const m=new T.Mesh(new T.CircleGeometry(0.34,40),new T.MeshBasicMaterial({map:tex})); m.position.set(OX-0.04,2.35,3.9); m.rotation.y=-Math.PI/2; scene.add(m);
+  const aro=new T.Mesh(new T.TorusGeometry(0.35,0.025,8,40),mat('#1c1e22')); aro.position.copy(m.position); aro.rotation.y=-Math.PI/2; scene.add(aro);
+  let last='';
+  return {draw(){ const d=new Date(), k=d.getHours()+':'+d.getMinutes()+':'+d.getSeconds(); if(k===last) return; last=k;
+    const g=c.getContext('2d'), r=128; g.clearRect(0,0,256,256); g.fillStyle='#f7f7f3'; g.beginPath(); g.arc(r,r,r,0,7); g.fill();
+    g.fillStyle='#1c1e22'; for(let i=0;i<12;i++){ const a=i/12*Math.PI*2; g.save(); g.translate(r,r); g.rotate(a); g.fillRect(-3,-r+10,6,i%3?14:24); g.restore(); }
+    const hand=(a,len,wd,col)=>{ g.save(); g.translate(r,r); g.rotate(a); g.strokeStyle=col; g.lineWidth=wd; g.lineCap='round'; g.beginPath(); g.moveTo(0,14); g.lineTo(0,-len); g.stroke(); g.restore(); };
+    const h=d.getHours()%12, mi=d.getMinutes(), se=d.getSeconds();
+    hand((h+mi/60)/12*Math.PI*2,62,9,'#1c1e22'); hand((mi+se/60)/60*Math.PI*2,92,6,'#1c1e22'); hand(se/60*Math.PI*2,100,2,'#dc6029');
+    g.fillStyle='#dc6029'; g.beginPath(); g.arc(r,r,7,0,7); g.fill(); tex.needsUpdate=true; }};
+})();
+
 /* ---- balloons on the desks (orange and blue, gently bobbing) ---- */
 const BALLOONS=(()=>{
   let seed=7; const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
@@ -1083,9 +1147,12 @@ const SLIDE_MS=9000;
 const TIPO_TELAO={campanha:'Campanha',noticia:'Notícia',aviso:'Aviso'};
 function telaoList(){
   const auto=['destaques','hoje','meta'].map(t=>({tipo:t})).concat(TEAMS.map(t=>({tipo:'canal',time:t.id})));
-  if(!S.telao.length) return auto;
-  const out=[]; S.telao.forEach((s,i)=>{ out.push(s); out.push(auto[i%auto.length]); }); for(let i=S.telao.length;i<auto.length;i++) out.push(auto[i]);
-  return out;
+  let out=auto;
+  if(S.telao.length){ out=[]; S.telao.forEach((s,i)=>{ out.push(s); out.push(auto[i%auto.length]); }); for(let i=S.telao.length;i<auto.length;i++) out.push(auto[i]); }
+  const enq=enqVisiveis().map(e=>({tipo:'enquete',e}));
+  if(!enq.length) return out;
+  const mix=[]; out.forEach((s,i)=>{ if(i%2===0) mix.push(enq[(i/2)%enq.length]); mix.push(s); }); // a poll every other slide
+  return mix;
 }
 function telaoImg(s){
   if(!s.imagem) return null; let im=TELAO.imgs[s.id];
@@ -1095,12 +1162,12 @@ function telaoImg(s){
 function drawSlide(g,s,w,h){
   const mk=S.marca;
   const tm=s.tipo==='canal'?TEAM[s.time]:null;
-  const th={canal:tm?[tm.cor,'#0b0c24','#ffffff']:['#23286e','#0b0c24','#ffffff'],campanha:[mk.cor2,'#5a1d08','#ffffff'],noticia:[mk.cor1,'#0e0f33','#ffffff'],aviso:['#f6c33a','#c98a00','#1b1404'],destaques:['#23286e','#0b0c24','#ffffff'],hoje:['#14603c','#06261a','#ffffff'],meta:['#23286e','#0b0c24','#ffffff']}[s.tipo];
+  const th={canal:tm?[tm.cor,'#0b0c24','#ffffff']:['#23286e','#0b0c24','#ffffff'],campanha:[mk.cor2,'#5a1d08','#ffffff'],noticia:[mk.cor1,'#0e0f33','#ffffff'],aviso:['#f6c33a','#c98a00','#1b1404'],destaques:['#23286e','#0b0c24','#ffffff'],enquete:['#5b3fb0','#1a1040','#ffffff'],hoje:['#14603c','#06261a','#ffffff'],meta:['#23286e','#0b0c24','#ffffff']}[s.tipo];
   const ink=th[2];
   const gr=g.createLinearGradient(0,0,w,h); gr.addColorStop(0,th[0]); gr.addColorStop(1,th[1]); g.fillStyle=gr; g.fillRect(0,0,w,h);
   g.fillStyle='rgba(255,255,255,.06)'; g.beginPath(); g.arc(w*0.92,h*0.1,h*0.75,0,Math.PI*2); g.fill();
   g.textAlign='left'; g.textBaseline='alphabetic';
-  const label={canal:tm?'DESTAQUES · '+tm.curto.toUpperCase():'',campanha:'CAMPANHA',noticia:'NOTÍCIA',aviso:'AVISO',destaques:'DESTAQUES DO MÊS',hoje:'TOP DO DIA',meta:'META DO MÊS'}[s.tipo];
+  const label={canal:tm?'DESTAQUES · '+tm.curto.toUpperCase():'',campanha:'CAMPANHA',noticia:'NOTÍCIA',aviso:'AVISO',destaques:'DESTAQUES DO MÊS',hoje:'TOP DO DIA',meta:'META DO MÊS',enquete:s.e&&Date.now()<s.e.fim?'ENQUETE · VOTE AGORA':'RESULTADO DA ENQUETE'}[s.tipo];
   g.font='800 30px '+F_BODY; const lw=g.measureText(label).width+44;
   g.fillStyle=s.tipo==='aviso'?'#1b1404':'#ffffff'; rr(g,56,48,lw,52,26); g.fill();
   g.fillStyle=s.tipo==='aviso'?'#f6c33a':th[1]; g.fillText(label,78,84);
@@ -1144,6 +1211,17 @@ function drawSlide(g,s,w,h){
       g.font='700 38px '+F_MONO; g.textAlign='right'; g.fillText(fmtK(list[0].v),x+cw-28,y+108); g.textAlign='left';
       g.font='500 26px '+F_BODY; g.fillStyle='rgba(255,255,255,.8)';
       list.slice(1,3).forEach((o,k)=>{ g.fillText((k+2)+'º '+fit(g,o.p.nome,cw-260),x+28,y+150+k*32); g.textAlign='right'; g.fillText(fmtK(o.v),x+cw-28,y+150+k*32); g.textAlign='left'; }); });
+  } else if(s.tipo==='enquete' && s.e){
+    const e=s.e, aberta=Date.now()<e.fim, {c,total}=enqContagem(e), max=Math.max(...c);
+    g.fillStyle='#ffffff'; g.font='800 58px '+F_DISP; const ql=wrap(g,e.pergunta,w-112,2); ql.forEach((l,i)=>g.fillText(l,56,185+i*64));
+    const y0=185+ql.length*64, n=e.opcoes.length, rowH=Math.min(78,(h-y0-120)/n);
+    e.opcoes.forEach((o,i)=>{ const y=y0+i*rowH, pct=total?c[i]/total:0, win=!aberta&&c[i]===max&&max>0;
+      g.fillStyle='rgba(255,255,255,.12)'; rr(g,56,y,w-112,rowH-14,18); g.fill();
+      if(pct>0){ g.fillStyle=win?'#f4c542':'rgba(140,170,255,.75)'; rr(g,56,y,Math.max(36,(w-112)*pct),rowH-14,18); g.fill(); }
+      g.fillStyle=win?'#1b1404':'#ffffff'; g.font='700 '+Math.round(rowH*0.42)+'px '+F_BODY; g.fillText(fit(g,(win?'♛ ':'')+o,w-420),80,y+rowH*0.56);
+      g.fillStyle='#ffffff'; g.font='700 '+Math.round(rowH*0.4)+'px '+F_MONO; g.textAlign='right'; g.fillText(`${c[i]} · ${Math.round(pct*100)}%`,w-80,y+rowH*0.56); g.textAlign='left'; });
+    g.font='600 32px '+F_BODY; g.fillStyle='rgba(255,255,255,.85)';
+    g.fillText(aberta?`${total} voto${total===1?'':'s'} · faltam ${mmss(e.fim-Date.now())} · vote no botão Enquete`:`Encerrada · ${total} voto${total===1?'':'s'} · enquete de ${primeiroNome(e.criador)}`,56,h-78);
   } else if(s.tipo==='meta'){
     const m=muralMes(), tot=totalTime(null);
     [['Faturamento',tot.f,m&&+m.metaFat,'#f39a1e'],['Garantia',tot.g,m&&+m.metaGar,'#34c472']].forEach(([lab,v,mt,cor],i)=>{ const y=210+i*170;
@@ -1570,8 +1648,8 @@ function labelTex(lines, color, W, H){
   return new T.CanvasTexture(c);
 }
 function spriteOf(tex,w,h){ const sp=new T.Sprite(new T.SpriteMaterial({map:tex,depthWrite:false,transparent:true})); sp.scale.set(w,h,1); return sp; }
-function roleLine(p){ const c=CARGOS[p.cargo].nome; return p.time?`${c} · ${TEAM[p.time].curto}`:c; }
-function roleColor(p){ return p.time?TEAM[p.time].cor:'#f2b33d'; }
+function roleLine(p){ const c=CARGOS[p.cargo].nome; if(p.cargo==='visitante') return p.visita?`${c} · ${p.visita}`:c; return p.time?`${c} · ${TEAM[p.time].curto}`:c; }
+function roleColor(p){ return p.cargo==='visitante'?'#c9a7ff':p.time?TEAM[p.time].cor:'#f2b33d'; }
 function buildCharacter(p,opts){
   const av=makeAvatar(p.avatar); const sc=av.avatar.altura/1.75; av.group.scale.setScalar(sc);
   av.label=spriteOf(labelTex([p.nome,roleLine(p)+(opts&&opts.offline?' · offline':'')],roleColor(p),512,136),0.92,0.245); av.label.position.y=2.2; av.group.add(av.label);
@@ -1723,7 +1801,7 @@ function syncRemotes(){
     const pz=pr.presence||{}; if(typeof pz.x!=='number'||typeof pz.z!=='number') continue;
     const uid=pr.by || (typeof pz.uid==='string'?pz.uid:null) || pr.peer;
     let prof=S.profiles[uid];
-    if(!prof && pz.p && typeof pz.p==='object'){ prof=normProfile(uid,{nome:pz.p.n,cargo:pz.p.c,time:pz.p.t,seat:pz.p.s,avatar:pz.p.a}); S.live[uid]=prof; }
+    if(!prof && pz.p && typeof pz.p==='object'){ prof=normProfile(uid,{nome:pz.p.n,cargo:pz.p.c,time:pz.p.t,seat:pz.p.s,avatar:pz.p.a,visita:pz.p.v}); S.live[uid]=prof; }
     if(!prof) continue;
     seen.add(pr.peer);
     let r=remotes.get(pr.peer); const key=avatarKey(prof);
@@ -1849,6 +1927,12 @@ function openStatus(){
     el('p',{class:'empty',text:'No horário cadastrado, o jogo lembra você de sair para o almoço. Enquanto você está fora, os colegas veem "Almoço até…".'}));
   show('mStatus');
 }
+const SAIDAS=['17:30','18:00'];
+setInterval(()=>{ const d=new Date(), agora=hhmm(d); $('#relogio').textContent=agora;
+  if(!S.playing || !SAIDAS.includes(agora)) return;
+  const k='esc_sinal_'+hoje()+'_'+agora; if(lsGet(k)) return; lsSet(k,'1');
+  SINO.tocar(); SFX.sinalSaida(); toast(`${agora} · Hora de ir embora! Bom descanso, até amanhã.`); chamarNaAba('Hora de ir embora · '+agora);
+},1000);
 let lunchWarned='';
 setInterval(()=>{ if(!S.playing||!S.me) return; const now=hhmm(new Date()), day=hoje();
   if(S.me.almoco && now===S.me.almoco && S.status.k==='ok' && lunchWarned!==day){ lunchWarned=day; toast('Hora do seu almoço ('+S.me.almoco+'). Clique em Disponível para sair.'); }
@@ -2064,7 +2148,7 @@ async function initRoom(){
 }
 let lastProfPres='';
 function sendProfilePresence(){
-  if(!room||!S.me) return; const me=S.me; const pp={n:me.nome,c:me.cargo,t:me.time,s:me.seat,a:me.avatar};
+  if(!room||!S.me) return; const me=S.me; const pp={n:me.nome,c:me.cargo,t:me.time,s:me.seat,a:me.avatar,v:me.visita||''};
   const k=JSON.stringify(pp); if(k===lastProfPres) return; lastProfPres=k; room.presence({p:pp}).catch(()=>{ lastProfPres=''; });
 }
 function sendPresence(now){
@@ -2317,7 +2401,7 @@ function loop(now){
     pose(r.av,t,dt,{sitting:!!r.s,relax:!!(r.s&&SITS[r.s].extra),moving:(r.m||r.walkD>0.3)&&!r.s,run:r.run});
   }
   if(P.av) pose(P.av,t,dt,{sitting:!!P.sitting,relax:!!(P.sitting&&P.sitting.extra),moving:P.moving,run:P.run});
-  updateNPCs(dt,t,now); updateCleaner(dt,t,now); updateZelador(dt,t,now); SINO.update(dt); updateDoor(dt); updateBursts(dt); updateFans(t,dt); BALLOONS.update(t); updateCamera(dt,t); sendPresence(now);
+  updateNPCs(dt,t,now); updateCleaner(dt,t,now); updateZelador(dt,t,now); SINO.update(dt); RELOGIO.draw(); updateDoor(dt); updateBursts(dt); updateFans(t,dt); BALLOONS.update(t); updateCamera(dt,t); sendPresence(now);
   scrT+=dt; if(scrT>0.45){ scrT=0; SCREENS.forEach(s=>drawScreen(s,t)); }
   drawTicker(dt); drawTelao(); if(S.playing) drawMinimap(dt);
   for(const sp of PLATES){ sp.visible=Math.abs(sp.position.x-P.x)<9 && Math.abs(sp.position.z-P.z)<9; }
@@ -2379,7 +2463,7 @@ document.querySelectorAll('[data-emo]').forEach(b=>b.addEventListener('click',()
 /* ======================================================================
    UI: modals
    ====================================================================== */
-const MODALS=['mMetas','mDia','mTelao','mStatus','mIr','mMsg','mPaineis','mWizard'];
+const MODALS=['mMetas','mDia','mTelao','mStatus','mIr','mMsg','mEnquete','mPaineis','mWizard'];
 const anyModal=()=>MODALS.some(id=>!$('#'+id).hidden);
 function show(id){ $('#'+id).hidden=false; keys.clear(); }
 function hide(id){ $('#'+id).hidden=true; }
@@ -2409,13 +2493,14 @@ function renderWizard(){
   $('#wzNext').textContent=WZ.step<3?'Continuar':(WZ.edit?'Salvar perfil':'Entrar no escritório');
   if(WZ.step===1){
     if(Store.mode==='sb' && !WZ.edit) body.append(loginCard());
+    if(!WZ.edit) body.append(visitanteCard());
     const nome=el('input',{id:'wzNome',maxlength:'40',placeholder:'Como você quer aparecer para a equipe',value:d.nome});
     nome.addEventListener('input',()=>{ d.nome=nome.value; });
     body.append(el('label',{class:'field'},el('span',{text:'Seu nome'}),nome));
     if(Store.mode==='sb') body.append(contaFields(d));
     const cargos=el('div',{class:'cards'});
     const own=seatOwners(), taken=id=>own[id]&&own[id]!==S.uid?own[id]:null;
-    for(const k in CARGOS){
+    for(const k in CARGOS){ if(k==='visitante') continue;
       let busy=null; if(k==='gerente') busy=taken('gerente'); if(k==='lider') busy=taken('lider');
       const note=busy?(busy==='todos'?'Todas as vagas estão ocupadas.':'Ocupado por '+nomeDe(busy)+'.'):CARGOS[k].desc;
       const b=el('button',{type:'button',class:'card','aria-pressed':String(d.cargo===k),disabled:busy&&d.cargo!==k?'':false},el('b',{text:CARGOS[k].nome}),el('small',{text:note}));
@@ -2739,6 +2824,7 @@ $('#mtForm').addEventListener('submit',async e=>{
 $('#btnResultado').addEventListener('click',()=>openDia(false));
 $('#btnPaineis').addEventListener('click',openPaineis);
 $('#btnTelao').addEventListener('click',openTelao);
+$('#btnEnquete').addEventListener('click',openEnquete);
 $('#btnIr').addEventListener('click',openIr);
 $('#minimap').addEventListener('click',e=>{ const c=$('#minimap'), r=c.getBoundingClientRect(); const x=MM.x0+(e.clientX-r.left)/r.width*(MM.x1-MM.x0), z=MM.z0+(e.clientY-r.top)/r.height*(MM.z1-MM.z0);
   if(x>OX) irPara({lane:-8.8,lx:10,pts:[[10,-13],[15.4,-13],[clamp(x,15,20.5),clamp(z,-15.5,-7.5)]]}); else { const lz=LANES_Z.reduce((a,b)=>Math.abs(b-z)<Math.abs(a-z)?b:a); irPara({lane:lz,lx:clamp(x,-12.4,10),pts:[]}); } });
@@ -2747,7 +2833,81 @@ if(!SFX.on){ $('#btnSom').textContent='Som desligado'; $('#btnSom').setAttribute
 document.addEventListener('click',e=>{ if(e.target.closest&&e.target.closest('.hbtn,.chip,.card,.btn,.emo,.seat')) SFX.click(); });
 $('#btnStatus').addEventListener('click',openStatus);
 $('#btnMsg').addEventListener('click',()=>openMsgs());
-$('#btnPerfil').addEventListener('click',()=>openWizard(true));
+$('#btnPerfil').addEventListener('click',()=>{ if(S.me&&S.me.cargo==='visitante'){ toast('Você está como visitante. Para ter cadastro, recarregue a página e preencha o cadastro.'); return; } openWizard(true); });
+
+/* ---- polls (enquetes): open 15 minutes, results stay on the telão for 2 hours after closing ---- */
+const ENQ={list:[],votos:[],ok:false,form:{pergunta:'',opcoes:['','']},tmr:null,avisadas:new Set(),fechadas:new Set()};
+const ENQ_RESULTADO_MS=2*3600000;
+const cleanEnq=e=>(e&&typeof e.id==='string'&&typeof e.pergunta==='string'&&Array.isArray(e.opcoes))?{id:e.id,pergunta:e.pergunta.slice(0,140),opcoes:e.opcoes.slice(0,6).map(o=>String(o).slice(0,60)),criador:e.criador,ts:+e.ts||0,fim:+e.fim||0}:null;
+const enqAberta=e=>Date.now()<e.fim;
+function enqContagem(e){ const c=e.opcoes.map(()=>0); let meu=null;
+  for(const v of ENQ.votos) if(v.enquete===e.id && v.opcao>=0 && v.opcao<c.length){ c[v.opcao]++; if(v.perfil===S.uid) meu=v.opcao; }
+  return {c,total:c.reduce((a,b)=>a+b,0),meu}; }
+function enqVisiveis(){ const now=Date.now(); return ENQ.list.filter(e=>now<e.fim+ENQ_RESULTADO_MS).sort((a,b)=>(enqAberta(b)-enqAberta(a))||(b.ts-a.ts)); }
+const mmss=ms=>{ const t=Math.max(0,Math.ceil(ms/1000)); return Math.floor(t/60)+':'+String(t%60).padStart(2,'0'); };
+function onEnquetes(list){
+  const primeira=!ENQ.ok; ENQ.list=(list||[]).map(cleanEnq).filter(Boolean); ENQ.ok=true;
+  for(const e of ENQ.list){ if(ENQ.avisadas.has(e.id)) continue; ENQ.avisadas.add(e.id);
+    if(!primeira && enqAberta(e) && e.criador!==S.uid){ toast(`Nova enquete de ${primeiroNome(e.criador)}: ${e.pergunta} · vote no botão Enquete`); SFX.ding(); chamarNaAba('Nova enquete'); } }
+  updateEnqBtn(); if(!$('#mEnquete').hidden) renderEnqLista();
+}
+function onVotos(list){ ENQ.votos=(list||[]).filter(v=>v&&typeof v.enquete==='string'&&typeof v.perfil==='string').map(v=>({enquete:v.enquete,perfil:v.perfil,opcao:+v.opcao})); updateEnqBtn(); if(!$('#mEnquete').hidden) renderEnqLista(); }
+function updateEnqBtn(){ const b=$('#btnEnquete'); if(!b) return;
+  const pend=ENQ.list.filter(e=>enqAberta(e)&&enqContagem(e).meu===null).length;
+  b.classList.toggle('on',pend>0); b.textContent=pend?`Enquete (${pend})`:'Enquete'; }
+setInterval(()=>{ // closes polls on time: tell everyone the result once
+  for(const e of ENQ.list){ if(enqAberta(e)||ENQ.fechadas.has(e.id)) continue; ENQ.fechadas.add(e.id);
+    if(Date.now()-e.fim<60000 && S.playing){ const {c,total}=enqContagem(e), max=Math.max(...c), win=e.opcoes.filter((o,i)=>c[i]===max&&max>0);
+      toast(`Enquete encerrada: ${e.pergunta} · ${total?(win.length>1?'empate: '+win.join(' e '):'venceu '+win[0]):'ninguém votou'}`); } }
+  updateEnqBtn();
+},1000);
+function openEnquete(){ show('mEnquete'); renderEnqForm(); renderEnqLista(); clearInterval(ENQ.tmr); ENQ.tmr=setInterval(()=>{ if($('#mEnquete').hidden){ clearInterval(ENQ.tmr); return; } tickEnq(); },1000); }
+// only the countdowns change every second; the list is rebuilt when a poll closes or data arrives, so a tap is never lost
+function tickEnq(){ let fechou=false; document.querySelectorAll('#enqLista [data-fim]').forEach(t=>{ const left=+t.dataset.fim-Date.now(); if(left<=0) fechou=true; else t.textContent='Aberta · faltam '+mmss(left); }); if(fechou) renderEnqLista(); }
+function renderEnqLista(){
+  const box=$('#enqLista'), sc=box.scrollTop; box.textContent='';
+  if(Store.mode!=='sb'){ box.append(el('p',{class:'empty',text:'As enquetes só funcionam no escritório compartilhado.'})); return; }
+  const list=enqVisiveis();
+  if(!list.length) box.append(el('p',{class:'empty',text:'Nenhuma enquete agora. Crie uma ao lado: ela fica aberta por 15 minutos e o resultado vai para o telão.'}));
+  for(const e of list){ const aberta=enqAberta(e), {c,total,meu}=enqContagem(e), max=Math.max(...c);
+    const card=el('div',{class:'enq-card'+(aberta?'':' fechada')});
+    const tagEl=el('span',{class:'enq-tag'+(aberta?' on':''),text:aberta?'Aberta · faltam '+mmss(e.fim-Date.now()):'Encerrada'}); if(aberta) tagEl.dataset.fim=String(e.fim);
+    card.append(el('div',{class:'enq-top'},tagEl,el('small',{text:'por '+primeiroNome(e.criador)})),
+      el('b',{class:'enq-q',text:e.pergunta}));
+    e.opcoes.forEach((o,i)=>{ const pct=total?Math.round(c[i]/total*100):0, mostra=!aberta||meu!==null;
+      const b=el('button',{type:'button',class:'enq-op'+(meu===i?' meu':'')+(!aberta&&c[i]===max&&max>0?' win':''),disabled:aberta?false:''},
+        el('i',{class:'enq-bar',style:`width:${mostra?pct:0}%`}),el('span',{text:o}),el('span',{class:'enq-n',text:mostra?`${c[i]} · ${pct}%`:''}));
+      if(aberta) b.addEventListener('click',async()=>{ try{ await Store.votar(e.id,i); if(meu!==i) toast(meu===null?'Voto registrado.':'Voto alterado.'); }catch(err){ writeFailed(err); } });
+      card.append(b); });
+    const pe=el('div',{class:'enq-foot'},el('small',{text:`${total} voto${total===1?'':'s'}`+(aberta?(meu===null?' · toque numa opção para votar':' · você pode mudar o voto até o fim'):'')}));
+    if(e.criador===S.uid||S.isOwner){ const del=el('button',{type:'button',class:'linkbtn',text:'Apagar'}); del.addEventListener('click',async()=>{ if(!confirm('Apagar esta enquete?')) return; try{ await Store.apagarEnquete(e.id); }catch(err){ writeFailed(err); } }); pe.append(del); }
+    card.append(pe); box.append(card); }
+  box.scrollTop=sc;
+}
+function renderEnqForm(){
+  const F=ENQ.form, box=$('#enqForm'); box.textContent='';
+  if(Store.mode!=='sb') return;
+  const q=el('input',{maxlength:'140',placeholder:'Ex.: Onde vamos almoçar na sexta?',value:F.pergunta}); q.addEventListener('input',()=>{ F.pergunta=q.value; });
+  const ops=el('div',{class:'enq-ops'});
+  F.opcoes.forEach((o,i)=>{ const inp=el('input',{maxlength:'60',placeholder:'Opção '+(i+1),value:o}); inp.addEventListener('input',()=>{ F.opcoes[i]=inp.value; });
+    const row=el('div',{class:'enq-oprow'},inp);
+    if(F.opcoes.length>2){ const x=el('button',{type:'button',class:'chip','aria-label':'Tirar opção '+(i+1),text:'×'}); x.addEventListener('click',()=>{ F.opcoes.splice(i,1); renderEnqForm(); }); row.append(x); }
+    ops.append(row); });
+  const add=el('button',{type:'button',class:'chip',text:'+ opção'}); add.disabled=F.opcoes.length>=6; add.addEventListener('click',()=>{ F.opcoes.push(''); renderEnqForm(); });
+  const ok=el('button',{type:'button',class:'btn primary',text:'Lançar enquete (15 min)'});
+  ok.addEventListener('click',async()=>{
+    const p=F.pergunta.trim(), opcoes=F.opcoes.map(o=>o.trim()).filter(Boolean);
+    if(p.length<3){ toast('Escreva a pergunta.'); q.focus(); return; }
+    if(opcoes.length<2){ toast('Coloque pelo menos duas opções.'); return; }
+    if(new Set(opcoes.map(o=>o.toLowerCase())).size!==opcoes.length){ toast('Há opções repetidas.'); return; }
+    ok.disabled=true;
+    try{ await Store.criarEnquete(p,opcoes); ENQ.form={pergunta:'',opcoes:['','']}; renderEnqForm(); toast('Enquete lançada! Ela fecha em 15 minutos e aparece no telão.'); SFX.ding(); }
+    catch(err){ ok.disabled=false; writeFailed(err); }
+  });
+  box.append(el('h3',{style:'margin:0',text:'Criar enquete'}),el('label',{class:'field'},el('span',{text:'Pergunta'}),q),
+    el('div',{class:'field'},el('span',{text:'Opções (até 6)'}),ops,add),ok,
+    el('p',{class:'empty',text:'Todo mundo pode votar uma vez e mudar o voto enquanto ela está aberta. Depois de 15 minutos ela fecha sozinha e o resultado fica no telão por 2 horas.'}));
+}
 
 /* ---- private messages between colleagues (the office owner can read every conversation, and everyone is told so) ---- */
 const MSG={mine:[],all:null,sel:null,selG:null,form:null,grupos:[],gruposOk:false,adminSel:null,tab:'minhas',boot:Date.now(),toasted:new Set(),allSub:null};
@@ -2941,6 +3101,20 @@ function loginCard(){
   return el('div',{class:'pcard login-card'},el('h3',null,'Já tem cadastro?',el('small',{text:'entre de qualquer navegador'})),
     el('div',{class:'login-row'},h,pin,go),el('small',{style:'color:var(--muted)',text:'Use o @ e o PIN que você criou. Seus dados, sua cadeira e seus resultados voltam na hora.'}));
 }
+function visitanteCard(){
+  const nome=el('input',{maxlength:'40',placeholder:'Seu nome',value:lsGet('esc_visita_nome')||''});
+  const fun=el('select',{'aria-label':'Sua função'},...['Gerente','Supervisor(a)','Diretor(a)','Coordenador(a)','Outro'].map(t=>el('option',{value:t,text:t})));
+  const de=el('input',{maxlength:'30',placeholder:'De onde vem (opcional): ex. Unidade Campinas',value:lsGet('esc_visita_de')||''});
+  const go=el('button',{type:'button',class:'btn',text:'Entrar como visitante'});
+  go.addEventListener('click',()=>{ const n=nome.value.trim(); if(n.length<2){ toast('Digite seu nome.'); nome.focus(); return; }
+    lsSet('esc_visita_nome',n); lsSet('esc_visita_de',de.value.trim());
+    const av=Object.assign({},DEF_AV); sortearAvatar(av); Object.assign(av,{fone:false,roupa:'social',cracha:true});
+    S.visitor=normProfile(S.uid,{nome:n,cargo:'visitante',visita:fun.value+(de.value.trim()?' · '+de.value.trim():''),avatar:av,criadoEm:Date.now()});
+    S.profiles[S.uid]=S.visitor; S.me=S.visitor; hide('mWizard'); startPlaying(); updateMeChip();
+    toast(`Bem-vindo(a), ${n.split(' ')[0]}! Você entrou como visitante: não ocupa cadeira e nada fica salvo.`); });
+  return el('details',{class:'pcard visit-card'},el('summary',null,el('b',{text:'Veio de fora? Entrar como visitante'}),el('small',{text:' · gerente ou supervisor de passagem'})),
+    el('div',{class:'visit-row'},nome,fun,de,go),el('small',{style:'color:var(--muted)',text:'Entre sem cadastro: você anda pelo escritório, conversa e vê o telão. Os colegas veem você como Visitante.'}));
+}
 function contaFields(d){
   d.handle=d.handle!==undefined?d.handle:(S.handle||''); d.pin=d.pin||'';
   const h=el('input',{id:'wzHandle',placeholder:'ex.: elifer.junior',maxlength:'25',value:d.handle?'@'+d.handle:'',autocomplete:'username'});
@@ -2990,6 +3164,7 @@ async function boot(){
   Store.watchMarca(m=>applyMarca(m));
   Store.watchMsgs(onMyMsgs);
   Store.watchGrupos(onGrupos);
+  Store.watchEnquetes(onEnquetes); Store.watchVotos(onVotos);
   Store.watchMural(m=>{ S.mural=(m&&typeof m==='object')?m:null; refreshPanels(); });
   Store.watchTelao(l=>{ const tipos=['campanha','noticia','aviso'];
     S.telao=(l||[]).filter(r=>r&&tipos.includes(r.tipo)&&typeof r.titulo==='string').map(r=>({id:r.id,tipo:r.tipo,titulo:r.titulo.slice(0,80),texto:String(r.texto||'').slice(0,300),
