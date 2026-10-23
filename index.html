@@ -259,6 +259,15 @@ td.r,th.r{text-align:right}
 .pessoa{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line)}
 .pessoa div{display:flex;flex-direction:column;min-width:0}
 .pessoa small{color:var(--muted)}
+.voz-painel{position:fixed;z-index:9;left:max(16px,env(safe-area-inset-left,0px));top:calc(env(safe-area-inset-top,0px) + 96px);width:min(260px,calc(100% - 32px));background:rgba(11,16,21,.94);border:1px solid #2f8a57;border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.voz-lista{display:flex;flex-direction:column;gap:4px;max-height:180px;overflow:auto}
+.voz-p{display:flex;align-items:center;gap:8px}
+.voz-p small{color:var(--muted);margin-left:auto;font-size:11px}
+.voz-dot{width:10px;height:10px;border-radius:50%;background:#3a4552;flex:none;transition:background .1s,box-shadow .1s}
+.voz-p.falando .voz-dot{background:#34c472;box-shadow:0 0 0 4px rgba(52,196,114,.3)}
+.voz-on{background:#b8322f;border-color:#e0574f;color:#fff}
+.voz-dica{color:var(--muted);font-size:11px}
+@media (max-width:640px){.voz-painel{top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 150px)}}
 .msg-top{display:flex;gap:6px}
 .msg-top select{flex:1;min-width:0}
 .msg-actions{display:flex;gap:6px;flex-wrap:wrap}
@@ -349,6 +358,7 @@ td.r,th.r{text-align:right}
   </div>
 </div>
 <div id="treinoCard" class="treino-card" hidden></div>
+<div id="vozPainel" class="voz-painel" hidden></div>
 <div id="pausaPainel" class="pausa-painel" role="status" hidden><div><b id="pzTit"></b><small id="pzSub"></small></div><button class="btn primary" type="button" id="pzVoltar">Voltar ao trabalho</button></div>
 <div id="onlinePainel" class="online-painel" hidden><div class="op-h"><b id="opTit">Online agora</b><button class="x" type="button" id="opFechar" aria-label="Fechar">×</button></div><div id="opLista"></div></div>
 <div id="convite" class="convite" role="alert" hidden></div>
@@ -1146,6 +1156,87 @@ function novoTreino(){
   Store.addTreino(titulo.trim().slice(0,80),texto.trim().slice(0,500)).then(()=>toast('Conteúdo adicionado ao treinamento.')).catch(writeFailed);
 }
 function onTreinos(l){ TREINO.custom=(l||[]).filter(t=>t&&typeof t.titulo==='string'&&typeof t.texto==='string').map(t=>({id:t.id,uid:t.uid,titulo:t.titulo.slice(0,80),texto:t.texto.slice(0,500),ts:+t.ts||0})).sort((a,b)=>b.ts-a.ts); TREINO.key=''; TREINO.cardKey=''; }
+
+/* ---- room audio: inside the training room or the gerente's room you hear everyone there; the "Falar" button turns your microphone on.
+   Audio goes straight between browsers (WebRTC); the shared database's live channel only carries the handshake. ---- */
+const SALAS_VOZ={treino:'Sala de treinamento',vidro:'Sala do gerente'};
+const VOZ={vid:Math.random().toString(36).slice(2,12)+Date.now().toString(36),sala:null,pcs:new Map(),ch:null,mic:null,micOn:false,mudo:false,ctx:null,nivel:new Map(),key:''};
+function salaVoz(){ if(!S.playing||P.away) return null; return inTraining(P.x,P.z)?'treino':inGlass(P.x,P.z)?'vidro':null; }
+function vozCanal(){
+  if(VOZ.ch||Store.mode!=='sb') return VOZ.ch;
+  VOZ.ch=Store.sb.channel('voz',{config:{broadcast:{self:false}}});
+  VOZ.ch.on('broadcast',{event:'sig'},({payload})=>vozSinal(payload)).subscribe();
+  return VOZ.ch;
+}
+function vozEnviar(to,data){ const ch=vozCanal(); if(ch) ch.send({type:'broadcast',event:'sig',payload:Object.assign({from:VOZ.vid,to,sala:VOZ.sala},data)}).catch(()=>{}); }
+function vozMedidor(id,stream){ // how loud each person is, to light up who is talking
+  try{ VOZ.ctx=VOZ.ctx||new (window.AudioContext||window.webkitAudioContext)(); const src=VOZ.ctx.createMediaStreamSource(stream), an=VOZ.ctx.createAnalyser(); an.fftSize=256; src.connect(an);
+    const buf=new Uint8Array(an.fftSize); VOZ.nivel.set(id,()=>{ an.getByteTimeDomainData(buf); let m=0; for(const v of buf) m=Math.max(m,Math.abs(v-128)); return m; }); }catch(e){}
+}
+function vozPC(vid,uid,iniciar){
+  const pc=new RTCPeerConnection({iceServers:[{urls:['stun:stun.l.google.com:19302','stun:stun1.l.google.com:19302']}]});
+  const c={pc,uid,tr:null,fila:[],audio:new Audio()}; c.audio.autoplay=true; c.audio.playsInline=true; c.audio.muted=VOZ.mudo;
+  if(iniciar) c.tr=pc.addTransceiver('audio',{direction:'sendrecv'});
+  pc.onicecandidate=e=>{ if(e.candidate) vozEnviar(vid,{t:'ice',c:e.candidate.toJSON()}); };
+  pc.ontrack=e=>{ const st=e.streams[0]||new MediaStream([e.track]); c.audio.srcObject=st; c.audio.play().catch(()=>{}); vozMedidor(vid,st); };
+  pc.onconnectionstatechange=()=>{ if(['failed','closed'].includes(pc.connectionState)) vozFechar(vid); };
+  VOZ.pcs.set(vid,c); return c;
+}
+function vozFechar(vid){ const c=VOZ.pcs.get(vid); if(!c) return; VOZ.pcs.delete(vid); VOZ.nivel.delete(vid); try{ c.pc.close(); }catch(e){} c.audio.srcObject=null; }
+function vozTrilha(c){ if(!c.tr) return; const t=VOZ.micOn&&VOZ.mic?VOZ.mic.getAudioTracks()[0]:null; c.tr.sender.replaceTrack(t).catch(()=>{}); }
+async function vozSinal(p){
+  if(!p||p.to!==VOZ.vid||!VOZ.sala||p.sala!==VOZ.sala) return;
+  let c=VOZ.pcs.get(p.from);
+  try{
+    if(p.t==='offer'){ if(c) vozFechar(p.from); const r=[...remotes.values()].find(x=>x.vid===p.from);
+      c=vozPC(p.from,r&&r.uid,false); await c.pc.setRemoteDescription(p.sdp);
+      c.tr=c.pc.getTransceivers()[0]; if(c.tr){ c.tr.direction='sendrecv'; vozTrilha(c); }
+      const ans=await c.pc.createAnswer(); await c.pc.setLocalDescription(ans); vozEnviar(p.from,{t:'answer',sdp:c.pc.localDescription});
+      for(const i of c.fila) await c.pc.addIceCandidate(i).catch(()=>{}); c.fila=[]; }
+    else if(p.t==='answer' && c){ await c.pc.setRemoteDescription(p.sdp); for(const i of c.fila) await c.pc.addIceCandidate(i).catch(()=>{}); c.fila=[]; }
+    else if(p.t==='ice' && c){ if(c.pc.remoteDescription) await c.pc.addIceCandidate(p.c).catch(()=>{}); else c.fila.push(p.c); }
+  }catch(e){ console.warn('voz',e); }
+}
+async function vozOferta(vid,uid){ const c=vozPC(vid,uid,true); vozTrilha(c); const of=await c.pc.createOffer(); await c.pc.setLocalDescription(of); vozEnviar(vid,{t:'offer',sdp:c.pc.localDescription}); c.desde=Date.now(); }
+async function vozMic(){
+  if(!VOZ.sala) return;
+  if(!VOZ.micOn && !VOZ.mic){ try{ VOZ.mic=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}}); vozMedidor('eu',VOZ.mic); }
+    catch(e){ toast('Não consegui usar o microfone. Libere o microfone para este site no navegador.'); return; } }
+  VOZ.micOn=!VOZ.micOn; for(const c of VOZ.pcs.values()) vozTrilha(c);
+  if(room) room.presence({mic:VOZ.micOn?1:0}).catch(()=>{});
+  VOZ.key=''; renderVoz();
+}
+function vozSair(){ for(const v of [...VOZ.pcs.keys()]) vozFechar(v); VOZ.micOn=false; if(VOZ.mic){ VOZ.mic.getTracks().forEach(t=>t.stop()); VOZ.mic=null; } VOZ.nivel.delete('eu'); }
+function vozTick(){
+  if(Store.mode!=='sb'||typeof RTCPeerConnection==='undefined') return;
+  const s=salaVoz();
+  if(s!==VOZ.sala){ const antes=VOZ.sala; vozSair(); VOZ.sala=s; if(s) vozCanal();
+    if(room) room.presence({voz:s,vid:VOZ.vid,mic:0}).catch(()=>{});
+    if(s) toast(`Áudio da ${SALAS_VOZ[s]}: você já ouve quem está aqui. Toque em "Falar" para ligar o microfone.`); else if(antes) toast('Você saiu do áudio da sala.'); }
+  if(s){ const quer=new Map(); for(const r of remotes.values()) if(r.voz===s && r.vid && !r.h) quer.set(r.vid,r.uid);
+    for(const v of [...VOZ.pcs.keys()]) if(!quer.has(v)) vozFechar(v);
+    for(const [v,uid] of quer){ const c=VOZ.pcs.get(v);
+      if(!c){ if(VOZ.vid<v) vozOferta(v,uid).catch(e=>console.warn('voz',e)); } // the lower id calls, the other answers
+      else if(c.desde && c.pc.connectionState!=='connected' && Date.now()-c.desde>6000){ vozFechar(v); } } }
+  renderVoz();
+}
+setInterval(vozTick,1000);
+function renderVoz(){
+  const pn=$('#vozPainel'); if(!VOZ.sala){ pn.hidden=true; VOZ.key=''; return; }
+  const gente=[{id:'eu',nome:'Você',mic:VOZ.micOn}];
+  for(const r of remotes.values()) if(r.voz===VOZ.sala && r.vid && !r.h){ const c=VOZ.pcs.get(r.vid); gente.push({id:r.vid,nome:primeiroNome(r.uid),mic:r.mic,ok:!!(c&&c.pc.connectionState==='connected')}); }
+  const key=VOZ.sala+'|'+VOZ.micOn+'|'+VOZ.mudo+'|'+gente.map(g=>g.id+g.mic+g.ok).join(',');
+  if(key!==VOZ.key){ VOZ.key=key; pn.hidden=false; pn.textContent='';
+    const mic=el('button',{type:'button',class:'btn '+(VOZ.micOn?'voz-on':'primary'),text:VOZ.micOn?'Desligar microfone':'Falar'}); mic.addEventListener('click',vozMic);
+    const mudo=el('button',{type:'button',class:'chip',text:VOZ.mudo?'Ouvir a sala':'Silenciar a sala'});
+    mudo.addEventListener('click',()=>{ VOZ.mudo=!VOZ.mudo; for(const c of VOZ.pcs.values()) c.audio.muted=VOZ.mudo; VOZ.key=''; renderVoz(); });
+    const lista=el('div',{class:'voz-lista'});
+    for(const g of gente) lista.append(el('div',{class:'voz-p','data-id':g.id},el('i',{class:'voz-dot'}),el('span',{text:g.nome}),el('small',{text:g.id==='eu'?(g.mic?'microfone ligado':'só ouvindo'):(g.ok?(g.mic?'microfone ligado':'só ouvindo'):'conectando…')})));
+    pn.append(el('b',{text:'Áudio · '+SALAS_VOZ[VOZ.sala]}),lista,el('div',{class:'msg-actions'},mic,mudo),el('small',{class:'voz-dica',text:'Use fone de ouvido para não dar eco. Tecla V liga e desliga o microfone.'})); }
+  // who is talking right now
+  pn.querySelectorAll('.voz-p').forEach(d=>{ const f=VOZ.nivel.get(d.dataset.id), falando=f&&f()>12&&(d.dataset.id!=='eu'||VOZ.micOn); d.classList.toggle('falando',!!falando); });
+}
+setInterval(()=>{ if(VOZ.sala) renderVoz(); },200);
 
 /* ---- meetings: leadership calls other leaders to the training room or the gerente's room ---- */
 const LOCAIS_REUNIAO={treino:'Sala de treinamento',gerente:'Sala do gerente'};
@@ -2009,6 +2100,7 @@ function syncRemotes(){
     if(typeof pz.fala==='string' && pz.falaTs!==r.falaTs){ const first=r.falaTs===undefined; r.falaTs=pz.falaTs; if(!first||Date.now()-(+pz.falaTs||0)<8000){ const t=pz.fala.slice(0,160), to=['todos','sala','vidro','perto'].includes(pz.falaTo)?pz.falaTo:'perto';
       const ouve=to==='vidro'?inGlass(P.x,P.z):to==='sala'?inTraining(P.x,P.z):true; if(ouve) setBubble(r.av,t); hearChat(uid,t,to,r.tx,r.tz); } }
     r.treinoI=(pz.treino&&Number.isInteger(pz.treino.i))?pz.treino.i:null;
+    r.voz=['treino','vidro'].includes(pz.voz)?pz.voz:null; r.vid=typeof pz.vid==='string'?pz.vid.slice(0,40):null; r.mic=!!pz.mic;
     if(pz.reun && typeof pz.reun==='object' && pz.reun.ts!==r.reunTs){ const old=r.reunTs===undefined&&Date.now()-(+pz.reun.ts||0)>120000; r.reunTs=pz.reun.ts;
       if(!old && Array.isArray(pz.reun.to) && pz.reun.to.includes(S.uid)) conviteReuniao(uid,pz.reun); }
     if(typeof pz.emo==='string' && pz.emoTs!==r.emoTs){ const first=fresh&&Date.now()-(+pz.emoTs||0)>8000; r.emoTs=pz.emoTs;
@@ -2668,6 +2760,7 @@ window.addEventListener('keydown',e=>{
   if(!S.playing) return;
   if(e.code==='KeyE'){ if(curHint) curHint.act(); e.preventDefault(); }
   else if(e.code==='KeyF'){ if(curHint2) curHint2.act(); e.preventDefault(); }
+  else if(e.code==='KeyV'){ if(VOZ.sala) vozMic(); }
   else if(e.code==='KeyP'){ openPaineis(); }
   else if(e.code==='Enter'){ $('#chatIn').focus(); e.preventDefault(); }
   if(e.code.startsWith('Arrow')||e.code==='Space') e.preventDefault();
