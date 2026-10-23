@@ -518,7 +518,8 @@ const HAIR_GROUPS={
 };
 const HAIRS=Object.assign({},...Object.values(HAIR_GROUPS));
 const BIG_HAIR=['cacheado','black_power','cacheado_longo'];
-const BIOS={magro:'Magro(a)',medio:'Médio',atletico:'Atlético(a)',musculoso:'Musculoso(a)',forte:'Acima do peso'};
+const BIOS={magro:'Magro(a)',medio:'Médio',atletico:'Atlético(a)',musculoso:'Musculoso(a)',parrudo:'Forte / troncudo',curvilinea:'Curvilíneo(a)',pera:'Quadril largo',gordinho:'Cheinho(a)',forte:'Acima do peso',plus:'Plus size'};
+const ROSTOS={oval:'Oval',redondo:'Redondo',quadrado:'Quadrado',fino:'Fino',coracao:'Coração'};
 // football shirts: colours and stripe pattern only (no crests or sponsors)
 const CLUBES={
   flamengo:{nome:'Flamengo',p:'h',c:['#c8102e','#111111'],m:'#111111',g:'#111111'},
@@ -584,7 +585,7 @@ function normAvatar(a){
   const oc=a.oculos===true?'quadrado':a.oculos, ba=a.barba===true?'cheia':a.barba, br=a.brinco===true?'pequeno':a.brinco, ch=a.chapeu || (a.bone?'bone':'nenhum');
   return {
     genero: pick(a.genero,['masculino','feminino'],DEF_AV.genero),
-    biotipo: pick(a.biotipo,Object.keys(BIOS),DEF_AV.biotipo),
+    biotipo: pick(a.biotipo,Object.keys(BIOS),DEF_AV.biotipo), rosto: pick(a.rosto,Object.keys(ROSTOS),'oval'),
     altura: clamp(+a.altura||1.75,1.45,2.0),
     pele: clamp(Math.round(+a.pele||0),0,SKINS.length-1),
     olhos: pick(a.olhos,Object.keys(EYES),DEF_AV.olhos),
@@ -1668,7 +1669,12 @@ function buildHat(head,a,M){
 function makeAvatar(a){
   a=normAvatar(a);
   const fem=a.genero==='feminino';
-  const B={magro:{sh:.165,wa:.135,hip:.15,arm:.04,leg:.058,az:.06},medio:{sh:.195,wa:.165,hip:.17,arm:.048,leg:.068,az:.07},atletico:{sh:.225,wa:.16,hip:.172,arm:.058,leg:.075,az:.09},musculoso:{sh:.255,wa:.175,hip:.18,arm:.07,leg:.082,az:.12},forte:{sh:.225,wa:.245,hip:.235,arm:.062,leg:.085,az:.2}}[a.biotipo];
+  // be = belly (0 none), bu = bust scale, fc = fuller face
+  const B={magro:{sh:.165,wa:.135,hip:.15,arm:.04,leg:.058,az:.06,be:0,bu:.9,fc:0},medio:{sh:.195,wa:.165,hip:.17,arm:.048,leg:.068,az:.07,be:0,bu:1,fc:0},
+    atletico:{sh:.225,wa:.16,hip:.172,arm:.058,leg:.075,az:.09,be:0,bu:1,fc:0},musculoso:{sh:.255,wa:.175,hip:.18,arm:.07,leg:.082,az:.12,be:0,bu:1.05,fc:0},
+    parrudo:{sh:.262,wa:.215,hip:.2,arm:.073,leg:.088,az:.17,be:.6,bu:1.15,fc:.4},curvilinea:{sh:.19,wa:.145,hip:.205,arm:.05,leg:.08,az:.08,be:0,bu:1.3,fc:.1},
+    pera:{sh:.172,wa:.16,hip:.225,arm:.05,leg:.086,az:.08,be:.2,bu:1,fc:.15},gordinho:{sh:.212,wa:.212,hip:.21,arm:.058,leg:.08,az:.14,be:.7,bu:1.2,fc:.45},
+    forte:{sh:.225,wa:.245,hip:.235,arm:.062,leg:.085,az:.2,be:1,bu:1.25,fc:.6},plus:{sh:.245,wa:.29,hip:.27,arm:.074,leg:.098,az:.27,be:1.35,bu:1.45,fc:.9}}[a.biotipo];
   const sh=B.sh*(fem?.86:1), wa=B.wa*(fem?.86:1), hip=B.hip*(fem?1.16:1), chest=fem?sh*.92:sh*.96;
   const top=a.roupa, club=top==='clube'?CLUBES[a.clube]:null, shirtC=club?club.m:top==='uniforme'?'#dc6029':top==='brasil'?'#f7d117':a.camisa, skinC=SKINS[a.pele];
   const skin=mat(skinC,{roughness:.5}), shirt=mat(shirtC,{roughness:.82}), pants=mat(a.calca,{roughness:a.baixo==='jeans'?.95:.78}), extra=mat(a.corExtra,{roughness:.7}), hairM=mat(HAIRC[a.corCabelo],{roughness:.85});
@@ -1684,12 +1690,12 @@ function makeAvatar(a){
   if(skirt){ const len=top==='vestido'?.5:.42; M(new T.CylinderGeometry(wa*1.0,hip*1.55,len,22),skirtM,0,HY+.12-len/2,0).scale.z=.72; }
   else M(new T.CylinderGeometry(wa*.98,hip,.2,20),pants,0,HY+.03,0).scale.z=.64;
   // torso as one smooth profile: hips, waist, belly, chest, shoulders
-  const prof=[[hip*.9,0],[wa,.13],[wa*(a.biotipo==='forte'?1.14:1.02),.23],[chest,.36],[sh*.98,.46],[sh*.86,.52],[sh*.5,.565],[.06,.575]];
+  const prof=[[hip*.9,0],[wa*(1+B.be*.06),.13],[wa*(1.02+B.be*.12),.23],[Math.max(chest,wa*(.95+B.be*.08)),.36],[sh*.98,.46],[sh*.86,.52],[sh*.5,.565],[.06,.575]];
   const torso=M(new T.LatheGeometry(prof.map(([r,y])=>new T.Vector2(r,y)),28),club?jerseyMat(a.clube):shirt,0,HY+.09,0); torso.scale.z=.6; if(club) torso.userData.keep=true;
   if(club){ M(new T.TorusGeometry(.057,.013,8,18),mat(club.g),0,HY+.645,.005).rotation.x=Math.PI/2; }
-  if(a.biotipo==='forte') M(new T.SphereGeometry(wa*.9,18,14),shirt,0,HY+.27,wa*.2).scale.set(1,.85,.7);
+  if(B.be>0) M(new T.SphereGeometry(wa*(.9+B.be*.06),22,16),shirt,0,HY+.26,wa*(.06+B.be*.07)).scale.set(1.04,.82+B.be*.06,.5+B.be*.1); // belly, blended into the torso
   if(a.biotipo==='musculoso'||a.biotipo==='atletico') M(new T.SphereGeometry(sh*.68,16,12),shirt,0,HY+.5,sh*.15).scale.set(1.15,.48,a.biotipo==='atletico'?.42:.5);
-  if(fem) for(const s of [-1,1]) M(new T.SphereGeometry(.05*(a.biotipo==='forte'?1.25:1),14,12),shirt,s*.055,HY+.47,chest*.45).scale.z=.8;
+  if(fem) for(const s of [-1,1]) M(new T.SphereGeometry(.052*B.bu,16,12),shirt,s*.048*Math.min(1.25,B.bu),HY+.465,chest*.42).scale.set(1.05,.85,.62);
   // clothing details
   if(top==='blazer'){ const jm=mat(a.corExtra,{side:T.DoubleSide,roughness:.7});
     M(new T.LatheGeometry(prof.map(([r,y])=>new T.Vector2(r*1.06,y)),28,.42,Math.PI*2-.84),jm,0,HY+.09,0).scale.z=.62;
@@ -1708,11 +1714,17 @@ function makeAvatar(a){
     for(const s of [-1,1]) M(new T.BoxGeometry(.012,.27,.004),lan,s*.045,HY+.5,front*.97).rotation.z=s*.18;
     M(new T.BoxGeometry(.06,.085,.006),mat('#ffffff'),0,HY+.33,front*1.02+.012); }
   if(a.colar) M(new T.TorusGeometry(.062,.004,6,24),gold,0,HY+.655,.012).rotation.x=Math.PI/2+.35;
-  M(new T.CylinderGeometry(.045,.052,.13,14),skin,0,HY+.71,0);
+  M(new T.CylinderGeometry(.045*(1+B.fc*.3),.052*(1+B.fc*.35),.13,14),skin,0,HY+.71,0);
   // head
   const head=new T.Group(); head.position.set(0,HY+.83,0); body.add(head);
-  M(new T.SphereGeometry(.125,28,22),skin,0,0,0,head).scale.set(.9,1.04,.97);
-  M(new T.SphereGeometry(.1,22,16),skin,0,-.052,.018,head).scale.set(fem?.76:.84,fem?.58:.64,fem?.86:.9);
+  const RF={oval:[.9,1.04,.76,.84],redondo:[.96,.99,.86,.92],quadrado:[.93,1.02,.9,.98],fino:[.85,1.08,.68,.76],coracao:[.92,1.04,.66,.72]}[a.rosto||'oval'], cheia=B.fc*.05;
+  M(new T.SphereGeometry(.125,28,22),skin,0,0,0,head).scale.set(RF[0]+cheia,RF[1],.97);
+  M(new T.SphereGeometry(.1,22,16),skin,0,-.052,.018,head).scale.set((fem?RF[2]:RF[3])+cheia*1.6,fem?.58:.64,fem?.86:.9); // jaw
+  if(a.rosto==='quadrado') M(new T.BoxGeometry(.13+cheia,.05,.1),skin,0,-.085,.03,head);
+  if(B.fc>.5) M(new T.SphereGeometry(.06,16,12),skin,0,-.1,.04,head).scale.set(1.3,.6,1); // softer chin under the jaw
+  M(new T.SphereGeometry(.016,10,8),skin,0,-.092,.093,head).scale.set(1.3,.8,.8); // chin
+  const blush=mat(lerpHex(skinC,'#d9666a',.1),{roughness:.7});
+  for(const s of [-1,1]) M(new T.SphereGeometry(.03,12,10),blush,s*.058,-.024,.088,head).scale.set(1,.65,.4); // cheeks
   for(const s of [-1,1]) M(new T.SphereGeometry(.03,10,10),skin,s*.112,-.005,0,head).scale.set(.45,1,.75);
   M(new T.SphereGeometry(.018,12,10),skin,0,-.008,.118,head).scale.set(.7,1.25,1);
   M(new T.SphereGeometry(.0145,12,10),skin,0,-.024,.128,head).scale.set(1.15,.9,1);
@@ -1722,12 +1734,14 @@ function makeAvatar(a){
     M(new T.SphereGeometry(.0115,12,10),iris,s*.042,.016,.118,head).scale.z=.5;
     M(new T.SphereGeometry(.0055,8,6),pupil,s*.042,.016,.1235,head);
     M(new T.SphereGeometry(.0028,6,4),white,s*.042+.004,.021,.125,head);
+    M(new T.SphereGeometry(.021,14,10,0,Math.PI*2,0,Math.PI*.42),skin,s*.042,.017,.107,head).scale.set(1.04,.9,.64); // upper eyelid
     if(fem) M(new T.BoxGeometry(.034,.004,.008),dark,s*.043,.0285,.12,head).rotation.z=s*-.12;
     M(new T.BoxGeometry(.042,fem?.007:.011,.012),hairM,s*.043,.049,.113,head).rotation.z=s*(fem?-.18:-.08);
   }
   const lipM=mat(a.batom||lerpHex(skinC,'#8a3b3b',.38),{roughness:a.batom?.35:.6});
   M(new T.SphereGeometry(.018,14,8),lipM,0,-.052,.111,head).scale.set(1.25,.38,.5);
   M(new T.SphereGeometry(.017,14,8),lipM,0,-.063,.109,head).scale.set(1.15,.46,.55);
+  for(const s of [-1,1]) M(new T.SphereGeometry(.005,8,6),lipM,s*.023,-.054,.104,head); // smile corners
   buildHair(head,a,hairM,skinC,M);
   // beard
   if(a.barba!=='nenhuma'){ const bm=a.barba==='rala'?mat(lerpHex(HAIRC[a.corCabelo],skinC,.45),{roughness:.95}):hairM;
@@ -1755,7 +1769,7 @@ function makeAvatar(a){
   // arms and legs
   const parts={body,head};
   for(const s of [-1,1]){
-    const so=new T.Group(); so.position.set(s*(sh+B.arm*.3),HY+.57,0); body.add(so);
+    const so=new T.Group(); so.position.set(s*(sh+B.arm*.3+B.be*.025),HY+.57,0); body.add(so);
     M(new T.SphereGeometry(B.arm*1.2,14,10),sleeve==='none'?skin:armM,0,0,0,so);
     if(sleeve==='short'){ M(new T.CylinderGeometry(B.arm*1.12,B.arm*1.04,.15,14),armM,0,-.075,0,so); M(new T.CylinderGeometry(B.arm*.95,B.arm*.88,.16,14),skin,0,-.22,0,so); }
     else M(new T.CylinderGeometry(B.arm,B.arm*.88,.3,14),sleeve==='long'?armM:skin,0,-.15,0,so);
@@ -1768,7 +1782,7 @@ function makeAvatar(a){
     if(a.pulseira && s>0) M(new T.TorusGeometry(B.arm*.75,.005,6,16),gold,0,-.25,0,elb).rotation.x=Math.PI/2;
     if(s>0){ parts.cup=M(new T.CylinderGeometry(.032,.026,.09,12),mat('#ffffff',{roughness:.3}),0,-.33,.045,elb); parts.cup.visible=false; parts.cup.userData.keep=true; }
     const hp=new T.Group(); hp.position.set(s*hip*.5,HY,0); body.add(hp);
-    const thR=skirt?B.leg*.85:B.leg;
+    const thR=(skirt?B.leg*.85:B.leg)*(fem&&(a.biotipo==='curvilinea'||a.biotipo==='pera')?1.1:1);
     M(new T.CylinderGeometry(thR,thR*.82,.44,14),thighM,0,-.22,0,hp);
     const kn=new T.Group(); kn.position.y=-.44; hp.add(kn);
     const shR=shinM===skin?B.leg*.68:B.leg*.8;
@@ -1782,7 +1796,7 @@ function makeAvatar(a){
     [so,elb,hp,kn].forEach(mergeChildren);
   }
   mergeChildren(head); mergeChildren(body);
-  parts.az=B.az;
+  parts.az=B.az+B.be*.05;
   return {group, parts, avatar:a, hatLift};
 }
 function disposeGeo(obj){ obj.traverse(o=>{ if(o.geometry) o.geometry.dispose(); if(o.isSprite){ o.material.map&&o.material.map.dispose(); o.material.dispose(); } }); }
@@ -2769,7 +2783,7 @@ const AV_TABS={corpo:'Corpo',rosto:'Rosto e cabelo',roupa:'Roupa',acess:'Acessó
 function sortearAvatar(a){
   const R=o=>{ const k=Array.isArray(o)?o:Object.keys(o); return k[Math.floor(Math.random()*k.length)]; };
   const fem=a.genero==='feminino';
-  Object.assign(a,{biotipo:R(BIOS),pele:Math.floor(Math.random()*SKINS.length),olhos:R(EYES),
+  Object.assign(a,{biotipo:R(BIOS),rosto:R(ROSTOS),pele:Math.floor(Math.random()*SKINS.length),olhos:R(EYES),
     cabelo:R(fem?['chanel','chanel_franja','medio','longo','longo_franja','liso_extra','ondulado','ondulado_medio','rabo','rabo_alto','coque','coque_alto','trancas','tranca_lateral','cacheado','black_power','cacheado_longo','pixie']:['degrade','degrade_topete','social','curto','raspado','topete','moicano','cacheado_curto','cacheado','careca','dreads']),
     corCabelo:R(['preto','castanho escuro','castanho','loiro','ruivo','preto','castanho escuro']),
     roupa:R(fem?Object.keys(TOPS):Object.keys(TOPS).filter(k=>k!=='vestido')),camisa:R(SHIRTS),corExtra:R(SHIRTS),
@@ -2798,6 +2812,7 @@ function renderAvatarOpts(box){
   if(WZ.avTab==='corpo'){
     chips('Gênero','genero',{masculino:'Homem',feminino:'Mulher'});
     chips('Biotipo','biotipo',BIOS);
+    chips('Formato do rosto','rosto',ROSTOS);
     const alt=el('input',{type:'range',min:'1.45',max:'2.00',step:'0.01',value:String(a.altura),id:'wzAlt'}); const altV=el('b',{class:'num',text:a.altura.toFixed(2).replace('.',',')+' m'});
     alt.addEventListener('input',()=>{ a.altura=+alt.value; altV.textContent=a.altura.toFixed(2).replace('.',',')+' m'; refreshPreview(); });
     field('Altura',el('div',{style:'display:flex;gap:12px;align-items:center'},alt,altV));
