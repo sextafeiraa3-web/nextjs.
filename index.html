@@ -194,6 +194,20 @@ td.r,th.r{text-align:right}
 .bub small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
 .msg-note{font-size:12px;color:var(--muted);border:1px dashed var(--line);border-radius:8px;padding:8px 10px}
 .msg-form{display:flex;gap:8px}
+.msg-top{display:flex;gap:6px}
+.msg-top select{flex:1;min-width:0}
+.msg-actions{display:flex;gap:6px;flex-wrap:wrap}
+.msg-back{display:none;align-self:flex-start;color:var(--fg);font-size:14px;font-weight:600;padding:4px 0}
+.gp-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;background:#1d3a5c;color:#9fd0ff;border-radius:6px;padding:1px 6px;flex:none}
+.gp-members{font-size:12px;color:var(--muted)}
+.gp-form{display:flex;flex-direction:column;gap:10px;min-width:0}
+.gp-form input:not([type=checkbox]){box-sizing:border-box;width:100%}
+.gp-list{max-height:240px;overflow:auto;display:flex;flex-direction:column;gap:2px;border:1px solid var(--line);border-radius:10px;padding:6px;background:var(--ink)}
+.gp-item{display:flex;gap:10px;align-items:center;padding:8px;border-radius:8px;cursor:pointer}
+.gp-item:hover{background:var(--panel2)}
+.gp-item input{width:18px;height:18px;flex:none;margin:0}
+.gp-item small{color:var(--muted)}
+@media (max-width:640px){.msg-grid.has-sel .msg-list{display:none}.msg-grid.has-sel .msg-back{display:inline-flex}.msg-box{max-height:50vh}}
 .telao-canvas{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line)}
 .tl-list{display:flex;flex-direction:column;gap:8px}
 .tl-item{display:flex;gap:10px;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:10px;padding:8px 10px;min-width:0}
@@ -543,10 +557,12 @@ const Store = {
   },
   sbLive(table,opts,map,cb){ // initial read + live changes for one table
     const rows=new Map(), emit=()=>{ let l=[...rows.values()]; if(opts.order) l.sort((a,b)=>(b[opts.order]||0)-(a[opts.order]||0)); cb(l.map(map)); };
-    let q=this.sb.from(table).select('*'); if(opts.order) q=q.order(opts.order,{ascending:false}); if(opts.limit) q=q.limit(opts.limit);
-    q.then(({data,error})=>{ if(error){ console.warn(table,error); return; } for(const r of data) rows.set(r.id,r); emit(); });
+    const load=()=>{ let q=this.sb.from(table).select('*'); if(opts.order) q=q.order(opts.order,{ascending:false}); if(opts.limit) q=q.limit(opts.limit);
+      q.then(({data,error})=>{ if(error){ console.warn(table,error); return; } for(const r of data) rows.set(r.id,r); emit(); }); };
+    load();
     this.sb.channel('db-'+table+'-'+Math.random().toString(36).slice(2,8)).on('postgres_changes',{event:'*',schema:'public',table},pl=>{
       if(pl.eventType==='DELETE'){ if(pl.old&&pl.old.id) rows.delete(pl.old.id); } else if(pl.new) rows.set(pl.new.id,pl.new); emit(); }).subscribe();
+    return {reload:load};
   },
   async sbDo(promise){ const {error}=await promise; if(error) throw error; },
   // one write at a time per document
@@ -620,7 +636,7 @@ const Store = {
     const l=this.local('recados',[]); l.push({id:'r'+Date.now(),...r}); lsSet('esc_recados',JSON.stringify(l.slice(-60))); this.localEmit('recados'); return Promise.resolve();
   },
   watchMsgs(cb){ // my conversations: messages I sent and messages sent to me
-    if(this.mode==='sb') return this.sbLive('mensagens',{order:'ts',limit:400},r=>r,l=>cb(l.filter(m=>m.de===S.uid||m.para===S.uid)));
+    if(this.mode==='sb'){ this.msgLive=this.sbLive('mensagens',{order:'ts',limit:600},r=>r,l=>cb(l.filter(m=>m.grupo||m.de===S.uid||m.para===S.uid))); return; }
     if(this.mode==='db'){ const col=this.db.collection('mensagens'), parts={de:[],para:[]}, emit=()=>cb(parts.de.concat(parts.para));
       ['de','para'].forEach(f=>col.where(f,'==',S.uid).orderBy('ts','desc').limit(200).onSnapshot(sn=>{ parts[f]=sn.docs.map(d=>({id:d.id,...d.data()})); emit(); }, e=>console.warn('msgs',e)));
       return; }
@@ -631,8 +647,14 @@ const Store = {
     if(this.mode==='db') return this.db.collection('mensagens').orderBy('ts','desc').limit(400).onSnapshot(sn=>cb(sn.docs.map(d=>({id:d.id,...d.data()}))), e=>console.warn('msgs-all',e));
     const f=()=>cb(this.local('msgs',[])); (this.localCbs.msgs=this.localCbs.msgs||[]).push(f); f();
   },
+  reloadMsgs(){ if(this.msgLive) this.msgLive.reload(); },
+  // group conversations (shared database only): members see the group and its messages, the management sees all of them
+  watchGrupos(cb){ if(this.mode==='sb') return this.sbLive('grupos',{order:'ts'},r=>r,cb); cb([]); },
+  async criarGrupo(nome,membros){ const {data,error}=await this.sb.from('grupos').insert({nome,membros}).select('id').single(); if(error) throw error; return data.id; },
+  salvarGrupo(id,nome,membros){ return this.sbDo(this.sb.from('grupos').update({nome,membros}).eq('id',id)); },
+  sairGrupo(id){ return this.sbDo(this.sb.rpc('sair_do_grupo',{g:id})); },
   sendMsg(m){
-    if(this.mode==='sb') return this.sbDo(this.sb.from('mensagens').insert({de:S.uid,para:m.para,texto:m.texto,ts:m.ts}));
+    if(this.mode==='sb') return this.sbDo(this.sb.from('mensagens').insert({de:S.uid,para:m.para||null,grupo:m.grupo||null,texto:m.texto,ts:m.ts}));
     if(this.mode==='db') return this.db.collection('mensagens').add(m);
     const l=this.local('msgs',[]); l.push({id:'m'+Date.now(),...m}); lsSet('esc_msgs',JSON.stringify(l.slice(-300))); this.localEmit('msgs'); return Promise.resolve();
   },
@@ -2236,7 +2258,7 @@ function spawnZelador(){
   av.group.scale.setScalar(av.avatar.altura/1.75);
   const tool=new T.Group(); tool.position.y=-.3; av.parts.elR.add(tool);
   box(0.03,0.2,0.03,mat('#7a5230'),0,-0.08,0.04,tool); box(0.11,0.04,0.045,mat('#55595f',{metalness:0.7,roughness:0.3}),0,-0.19,0.04,tool);
-  av.label=spriteOf(labelTex(['Zelador','Manutenção'],'#34c472',512,136),1.1,0.29); av.label.position.y=2.2; av.group.add(av.label);
+  av.label=spriteOf(labelTex(['Bene','Zelador · Manutenção'],'#34c472',512,136),1.1,0.29); av.label.position.y=2.2; av.group.add(av.label);
   av.crown=makeCrown(); av.walkT=0; av.emo=null; av.bubble=null;
   const escada=task.escada?escadaMesh():null;
   if(escada){ escada.rotation.set(Math.PI/2,0,0); escada.position.set(0.28,1.32,-0.75); escada.scale.setScalar(1.75/av.avatar.altura); av.group.add(escada); }
@@ -2728,33 +2750,52 @@ $('#btnMsg').addEventListener('click',()=>openMsgs());
 $('#btnPerfil').addEventListener('click',()=>openWizard(true));
 
 /* ---- private messages between colleagues (the office owner can read every conversation, and everyone is told so) ---- */
-const MSG={mine:[],all:null,sel:null,adminSel:null,tab:'minhas',boot:Date.now(),toasted:new Set(),allSub:null};
-const cleanMsg=m=>(m&&typeof m.de==='string'&&typeof m.para==='string'&&typeof m.texto==='string')?{id:m.id,de:m.de,para:m.para,texto:m.texto.slice(0,500),ts:+m.ts||0}:null;
+const MSG={mine:[],all:null,sel:null,selG:null,form:null,grupos:[],gruposOk:false,adminSel:null,tab:'minhas',boot:Date.now(),toasted:new Set(),allSub:null};
+const cleanMsg=m=>(m&&typeof m.de==='string'&&(typeof m.para==='string'||typeof m.grupo==='string')&&typeof m.texto==='string')?{id:m.id,de:m.de,para:m.para||null,grupo:m.grupo||null,texto:m.texto.slice(0,500),ts:+m.ts||0}:null;
+const cleanGrupo=g=>(g&&typeof g.id==='string'&&Array.isArray(g.membros))?{id:g.id,nome:String(g.nome||'Grupo').slice(0,60),criador:g.criador,membros:g.membros.filter(u=>typeof u==='string'),ts:+g.ts||0}:null;
+const meusGrupos=()=>MSG.grupos.filter(g=>g.membros.includes(S.uid));
+const grupoDe=id=>MSG.grupos.find(g=>g.id===id);
+const primeiroNome=uid=>nomeDe(uid).split(' ')[0];
+function unreadGrupo(gid){ const seen=+lsGet('esc_seen_g_'+gid)||0; return MSG.mine.filter(m=>m.grupo===gid&&m.de!==S.uid&&m.ts>seen).length; }
+function onGrupos(list){
+  const antes=new Set(meusGrupos().map(g=>g.id)), primeira=!MSG.gruposOk;
+  MSG.grupos=(list||[]).map(cleanGrupo).filter(Boolean); MSG.gruposOk=true;
+  const novos=meusGrupos().filter(g=>!antes.has(g.id));
+  if(!primeira && novos.length){ Store.reloadMsgs(); // older messages of a group I was just added to
+    for(const g of novos) if(g.criador!==S.uid){ toast(`Você entrou no grupo ${g.nome}.`); SFX.ding(); } }
+  if(MSG.selG && !grupoDe(MSG.selG)) MSG.selG=null;
+  updateMsgBadge(); if(!$('#mMsg').hidden) renderMsgs();
+}
 function seenKey(uid){ return 'esc_seen_'+uid; }
-function unreadFrom(uid){ const seen=+lsGet(seenKey(uid))||0; return MSG.mine.filter(m=>m.de===uid&&m.para===S.uid&&m.ts>seen).length; }
+function unreadFrom(uid){ const seen=+lsGet(seenKey(uid))||0; return MSG.mine.filter(m=>!m.grupo&&m.de===uid&&m.para===S.uid&&m.ts>seen).length; }
 function onMyMsgs(list){
   const map=new Map(); for(const m of list){ const c=cleanMsg(m); if(c) map.set(c.id,c); }
   MSG.mine=[...map.values()].sort((a,b)=>a.ts-b.ts);
   const viewing=!$('#mMsg').hidden && MSG.tab==='minhas';
-  for(const m of MSG.mine) if(m.para===S.uid && m.ts>MSG.boot && !MSG.toasted.has(m.id)){ MSG.toasted.add(m.id);
-    if(!(viewing && MSG.sel===m.de)){ toast('Nova mensagem de '+nomeDe(m.de)); SFX.ding(); } }
+  for(const m of MSG.mine) if(m.ts>MSG.boot && m.de!==S.uid && !MSG.toasted.has(m.id)){
+    if(m.grupo){ const g=grupoDe(m.grupo); if(!g||!g.membros.includes(S.uid)) continue; MSG.toasted.add(m.id);
+      if(!(viewing && MSG.selG===m.grupo)){ toast(`${primeiroNome(m.de)} no grupo ${g.nome}: ${m.texto.slice(0,60)}`); SFX.ding(); chamarNaAba('Mensagem no grupo '+g.nome); } }
+    else if(m.para===S.uid){ MSG.toasted.add(m.id);
+      if(!(viewing && MSG.sel===m.de)){ toast('Nova mensagem de '+nomeDe(m.de)); SFX.ding(); chamarNaAba('Mensagem de '+primeiroNome(m.de)); } } }
   if(viewing && MSG.sel) lsSet(seenKey(MSG.sel),String(Date.now()));
+  if(viewing && MSG.selG) lsSet('esc_seen_g_'+MSG.selG,String(Date.now()));
   updateMsgBadge(); if(!$('#mMsg').hidden) renderMsgs();
 }
 function updateMsgBadge(){
   const others=new Set(MSG.mine.filter(m=>m.para===S.uid).map(m=>m.de)); let n=0; for(const u of others) n+=unreadFrom(u);
+  for(const g of meusGrupos()) n+=unreadGrupo(g.id);
   const b=$('#msgBadge'); b.hidden=!n; b.textContent=String(n);
 }
 function openMsgs(uid){
-  if(uid){ MSG.sel=uid; MSG.tab='minhas'; }
+  if(uid){ MSG.sel=uid; MSG.selG=null; MSG.form=null; MSG.tab='minhas'; }
   show('mMsg'); renderMsgs();
   if(S.isOwner && !MSG.allSub){ MSG.allSub=true; Store.watchAllMsgs(l=>{ MSG.all=(l||[]).map(cleanMsg).filter(Boolean); if(!$('#mMsg').hidden && MSG.tab==='gestao') renderMsgs(); }); }
 }
-function bubbles(box,list,meUid){
+function bubbles(box,list,meUid,nomes){
   box.textContent='';
   if(!list.length) box.append(el('p',{class:'empty',text:'Nenhuma mensagem ainda. Escreva a primeira.'}));
   for(const m of list){ const when=new Date(m.ts).toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
-    box.append(el('div',{class:'bub'+(m.de===meUid?' me':'')},el('span',{text:m.texto}),el('small',{text:(meUid?'':nomeDe(m.de)+' · ')+when}))); }
+    box.append(el('div',{class:'bub'+(m.de===meUid?' me':'')},el('span',{text:m.texto}),el('small',{text:(!meUid?nomeDe(m.de)+' · ':nomes&&m.de!==meUid?primeiroNome(m.de)+' · ':'')+when}))); }
   box.scrollTop=box.scrollHeight;
 }
 function renderMsgs(){
@@ -2766,29 +2807,64 @@ function renderMsgs(){
   if(MSG.tab==='gestao' && S.isOwner){
     $('#msgSub').textContent='Visão da gestão: todas as conversas do escritório.';
     const pairs=new Map();
-    for(const m of (MSG.all||[])){ const k=[m.de,m.para].sort().join('|'); const p=pairs.get(k)||{k,a:m.de,b:m.para,last:m,n:0}; p.n++; if(m.ts>p.last.ts) p.last=m; pairs.set(k,p); }
+    const chave=m=>m.grupo?'g:'+m.grupo:[m.de,m.para].sort().join('|');
+    for(const m of (MSG.all||[])){ const k=chave(m); const p=pairs.get(k)||{k,a:m.de,b:m.para,g:m.grupo,last:m,n:0}; p.n++; if(m.ts>p.last.ts) p.last=m; pairs.set(k,p); }
+    const titulo=p=>p.g?'Grupo · '+((grupoDe(p.g)||{}).nome||'(grupo)'):nomeDe(p.a)+' e '+nomeDe(p.b);
     const list=[...pairs.values()].sort((x,y)=>y.last.ts-x.last.ts);
     if(MSG.all===null) left.append(el('p',{class:'empty',text:'Carregando conversas…'}));
     else if(!list.length) left.append(el('p',{class:'empty',text:'Nenhuma conversa no escritório ainda.'}));
-    for(const p of list){ const b=el('button',{type:'button',class:'msg-conv','aria-pressed':String(MSG.adminSel===p.k)},el('b',{text:nomeDe(p.a)+' e '+nomeDe(p.b)}),el('small',{text:p.n+' mensagens · '+p.last.texto}));
+    for(const p of list){ const b=el('button',{type:'button',class:'msg-conv','aria-pressed':String(MSG.adminSel===p.k)},el('b',{text:titulo(p)}),el('small',{text:p.n+' mensagens · '+p.last.texto}));
       b.addEventListener('click',()=>{ MSG.adminSel=p.k; renderMsgs(); }); left.append(b); }
     const sel=MSG.adminSel&&pairs.get(MSG.adminSel);
-    if(sel){ const box=el('div',{class:'msg-box'}); right.append(el('h3',{style:'margin:0',text:nomeDe(sel.a)+' e '+nomeDe(sel.b)}),box);
-      bubbles(box,(MSG.all||[]).filter(m=>[m.de,m.para].sort().join('|')===sel.k).sort((a,b)=>a.ts-b.ts),null); }
+    if(sel){ const box=el('div',{class:'msg-box'}); right.append(el('h3',{style:'margin:0',text:titulo(sel)}),box);
+      bubbles(box,(MSG.all||[]).filter(m=>chave(m)===sel.k).sort((a,b)=>a.ts-b.ts),null); }
     else right.append(el('p',{class:'empty',text:'Escolha uma conversa à esquerda para ler.'}));
   } else {
-    $('#msgSub').textContent='Conversas particulares entre colegas.';
+    $('#msgSub').textContent=Store.mode==='sb'?'Conversas particulares e grupos entre colegas.':'Conversas particulares entre colegas.';
     const people=Object.values(S.profiles).filter(p=>p.uid!==S.uid).sort((a,b)=>a.nome.localeCompare(b.nome,'pt-BR'));
-    const pick=el('select',{id:'msgPick','aria-label':'Começar conversa com'},el('option',{value:'',text:'Nova conversa com…'}),...people.map(p=>el('option',{value:p.uid,text:p.nome+' · '+roleLine(p)})));
-    pick.addEventListener('change',()=>{ if(pick.value){ MSG.sel=pick.value; renderMsgs(); } }); left.append(pick);
-    const convs=new Map(); for(const m of MSG.mine){ const o=m.de===S.uid?m.para:m.de; convs.set(o,m); }
-    if(MSG.sel && !convs.has(MSG.sel)) convs.set(MSG.sel,null);
-    const order=[...convs.entries()].sort((x,y)=>((y[1]&&y[1].ts)||Date.now())-((x[1]&&x[1].ts)||Date.now()));
+    const pick=el('select',{id:'msgPick','aria-label':'Começar conversa com'},el('option',{value:'',text:'Conversa com…'}),...people.map(p=>el('option',{value:p.uid,text:p.nome+' · '+roleLine(p)})));
+    pick.addEventListener('change',()=>{ if(pick.value){ MSG.sel=pick.value; MSG.selG=null; MSG.form=null; renderMsgs(); } });
+    const top=el('div',{class:'msg-top'},pick);
+    if(Store.mode==='sb'){ const ng=el('button',{type:'button',class:'btn',text:'+ Grupo'}); ng.addEventListener('click',()=>{ MSG.form={id:null,nome:'',membros:new Set(),busca:''}; MSG.sel=null; MSG.selG=null; renderMsgs(); }); top.append(ng); }
+    left.append(top);
+    const items=new Map();
+    for(const m of MSG.mine){ if(m.grupo) continue; const o=m.de===S.uid?m.para:m.de; items.set('u:'+o,{u:o,last:m,ts:m.ts}); }
+    for(const g of meusGrupos()){ const ms=MSG.mine.filter(m=>m.grupo===g.id), last=ms[ms.length-1]||null; items.set('g:'+g.id,{g,last,ts:last?last.ts:g.ts}); }
+    if(MSG.sel && !items.has('u:'+MSG.sel)) items.set('u:'+MSG.sel,{u:MSG.sel,last:null,ts:Date.now()});
+    const order=[...items.values()].sort((x,y)=>y.ts-x.ts);
     if(!order.length) left.append(el('p',{class:'empty',text:'Você ainda não tem conversas.'}));
-    for(const [o,last] of order){ const n=unreadFrom(o);
-      const b=el('button',{type:'button',class:'msg-conv','aria-pressed':String(MSG.sel===o)},el('b',null,nomeDe(o),n?el('span',{class:'badge',text:String(n)}):null),el('small',{text:last?last.texto:'Nova conversa'}));
-      b.addEventListener('click',()=>{ MSG.sel=o; renderMsgs(); }); left.append(b); }
-    if(MSG.sel){ lsSet(seenKey(MSG.sel),String(Date.now())); updateMsgBadge();
+    for(const it of order){
+      if(it.g){ const g=it.g, n=unreadGrupo(g.id);
+        const b=el('button',{type:'button',class:'msg-conv','aria-pressed':String(MSG.selG===g.id)},el('b',null,el('span',{class:'gp-tag',text:'Grupo'}),g.nome,n?el('span',{class:'badge',text:String(n)}):null),
+          el('small',{text:it.last?primeiroNome(it.last.de)+': '+it.last.texto:g.membros.length+' pessoas'}));
+        b.addEventListener('click',()=>{ MSG.selG=g.id; MSG.sel=null; MSG.form=null; renderMsgs(); }); left.append(b); continue; }
+      const o=it.u, n=unreadFrom(o);
+      const b=el('button',{type:'button',class:'msg-conv','aria-pressed':String(MSG.sel===o)},el('b',null,nomeDe(o),n?el('span',{class:'badge',text:String(n)}):null),el('small',{text:it.last?it.last.texto:'Nova conversa'}));
+      b.addEventListener('click',()=>{ MSG.sel=o; MSG.selG=null; MSG.form=null; renderMsgs(); }); left.append(b); }
+    const voltar=()=>{ const v=el('button',{type:'button',class:'linkbtn msg-back',text:'← Conversas'}); v.addEventListener('click',()=>{ MSG.sel=null; MSG.selG=null; MSG.form=null; renderMsgs(); }); return v; };
+    grid.classList.toggle('has-sel',!!(MSG.sel||MSG.selG||MSG.form));
+    if(MSG.form){ right.append(voltar(),grupoForm()); }
+    else if(MSG.selG){ const g=grupoDe(MSG.selG);
+      if(!g){ right.append(voltar(),el('p',{class:'empty',text:'Abrindo o grupo…'})); }
+      else { lsSet('esc_seen_g_'+g.id,String(Date.now())); updateMsgBadge();
+        const box=el('div',{class:'msg-box'});
+        const inp=el('input',{id:'msgIn',maxlength:'500',placeholder:'Mensagem para o grupo',autocomplete:'off',value:keepDraft});
+        const send=el('button',{type:'submit',class:'btn primary',text:'Enviar'});
+        const form=el('form',{class:'msg-form'},inp,send);
+        form.addEventListener('submit',async e=>{ e.preventDefault(); const t=inp.value.trim(); if(!t) return; send.disabled=true;
+          try{ await Store.sendMsg({de:S.uid,grupo:g.id,texto:t.slice(0,500),ts:Date.now()}); inp.value=''; }catch(err){ writeFailed(err); } send.disabled=false; inp.focus(); });
+        const acoes=el('div',{class:'msg-actions'});
+        if(g.criador===S.uid){ const ed=el('button',{type:'button',class:'chip',text:'Editar grupo'}); ed.addEventListener('click',()=>{ MSG.form={id:g.id,nome:g.nome,membros:new Set(g.membros.filter(u=>u!==S.uid)),busca:''}; renderMsgs(); }); acoes.append(ed); }
+        const sair=el('button',{type:'button',class:'chip',text:'Sair do grupo'});
+        sair.addEventListener('click',async()=>{ if(!confirm(`Sair do grupo ${g.nome}?`)) return; try{ await Store.sairGrupo(g.id); MSG.selG=null; toast('Você saiu do grupo.'); renderMsgs(); }catch(err){ writeFailed(err); } });
+        acoes.append(sair);
+        right.append(voltar(),el('h3',{style:'margin:0',text:g.nome}),
+          el('div',{class:'gp-members',text:g.membros.map(u=>u===S.uid?'você':primeiroNome(u)).join(', ')}),acoes,box,form,
+          el('div',{class:'msg-note',text:'Só quem está no grupo vê estas mensagens. A gestão do escritório também tem acesso a elas.'}));
+        bubbles(box,MSG.mine.filter(m=>m.grupo===g.id),S.uid,true);
+        if(window.innerWidth>640) setTimeout(()=>inp.focus(),30); }
+    }
+    else if(MSG.sel){ lsSet(seenKey(MSG.sel),String(Date.now())); updateMsgBadge();
       const box=el('div',{class:'msg-box'});
       const inp=el('input',{id:'msgIn',maxlength:'500',placeholder:'Escreva uma mensagem',autocomplete:'off',value:keepDraft});
       const send=el('button',{type:'submit',class:'btn primary',text:'Enviar'});
@@ -2796,13 +2872,50 @@ function renderMsgs(){
       form.addEventListener('submit',async e=>{ e.preventDefault(); const t=inp.value.trim(); if(!t) return; send.disabled=true;
         try{ await Store.sendMsg({de:S.uid,para:MSG.sel,texto:t.slice(0,500),ts:Date.now()}); inp.value=''; }catch(err){ writeFailed(err); } send.disabled=false; inp.focus(); });
       const p=S.profiles[MSG.sel];
-      right.append(el('h3',{style:'margin:0',text:nomeDe(MSG.sel)+(p?' · '+roleLine(p):'')}),box,form,
+      right.append(voltar(),el('h3',{style:'margin:0',text:nomeDe(MSG.sel)+(p?' · '+roleLine(p):'')}),box,form,
         el('div',{class:'msg-note',text:'Conversa particular: pelo jogo, só vocês dois veem estas mensagens. A gestão do escritório também tem acesso a elas.'}));
-      bubbles(box,MSG.mine.filter(m=>(m.de===MSG.sel&&m.para===S.uid)||(m.de===S.uid&&m.para===MSG.sel)),S.uid);
-      setTimeout(()=>inp.focus(),30);
-    } else right.append(el('p',{class:'empty',text:'Escolha uma conversa ou comece uma nova.'}),el('div',{class:'msg-note',text:'As mensagens são particulares entre os colegas. A gestão do escritório também tem acesso a elas.'}));
+      bubbles(box,MSG.mine.filter(m=>!m.grupo&&((m.de===MSG.sel&&m.para===S.uid)||(m.de===S.uid&&m.para===MSG.sel))),S.uid);
+      if(window.innerWidth>640) setTimeout(()=>inp.focus(),30);
+    } else right.append(el('p',{class:'empty',text:Store.mode==='sb'?'Escolha uma conversa, comece uma nova com uma pessoa ou crie um grupo em "+ Grupo".':'Escolha uma conversa ou comece uma nova.'}),el('div',{class:'msg-note',text:'As mensagens são particulares entre os colegas. A gestão do escritório também tem acesso a elas.'}));
   }
   grid.append(left,right); body.append(grid);
+}
+// create or edit a group: a name and the people in it
+function grupoForm(){
+  const F=MSG.form, wrap=el('div',{class:'gp-form'});
+  const nome=el('input',{maxlength:'60',placeholder:'Nome do grupo (ex.: Receptivo manhã)',value:F.nome});
+  nome.addEventListener('input',()=>{ F.nome=nome.value; });
+  const busca=el('input',{placeholder:'Procurar pessoa',value:F.busca,autocomplete:'off'});
+  const lista=el('div',{class:'gp-list'}), cont=el('div',{class:'gp-members'});
+  const people=Object.values(S.profiles).filter(p=>p.uid!==S.uid).sort((a,b)=>a.nome.localeCompare(b.nome,'pt-BR'));
+  const desenhar=()=>{ lista.textContent=''; const q=F.busca.trim().toLowerCase();
+    for(const p of people){ if(q && !p.nome.toLowerCase().includes(q)) continue;
+      const cb=el('input',{type:'checkbox'}); cb.checked=F.membros.has(p.uid);
+      cb.addEventListener('change',()=>{ cb.checked?F.membros.add(p.uid):F.membros.delete(p.uid); cont.textContent=F.membros.size+' pessoa(s) escolhida(s) além de você'; });
+      lista.append(el('label',{class:'gp-item'},cb,el('span',null,el('b',{text:p.nome}),el('small',{text:' · '+roleLine(p)})))); }
+    if(!lista.children.length) lista.append(el('p',{class:'empty',text:'Ninguém com esse nome.'}));
+    cont.textContent=F.membros.size+' pessoa(s) escolhida(s) além de você'; };
+  busca.addEventListener('input',()=>{ F.busca=busca.value; desenhar(); });
+  const times=el('div',{class:'chips'});
+  for(const t of TEAMS){ const b=el('button',{type:'button',class:'chip',text:'+ '+t.curto}); b.addEventListener('click',()=>{ for(const p of people) if(p.time===t.id) F.membros.add(p.uid); desenhar(); }); times.append(b); }
+  const limpar=el('button',{type:'button',class:'chip',text:'Limpar'}); limpar.addEventListener('click',()=>{ F.membros.clear(); desenhar(); }); times.append(limpar);
+  const ok=el('button',{type:'button',class:'btn primary',text:F.id?'Salvar grupo':'Criar grupo'}), cancel=el('button',{type:'button',class:'btn',text:'Cancelar'});
+  cancel.addEventListener('click',()=>{ MSG.form=null; renderMsgs(); });
+  ok.addEventListener('click',async()=>{
+    const n=F.nome.trim(); if(!n){ toast('Dê um nome ao grupo.'); nome.focus(); return; }
+    if(!F.membros.size){ toast('Escolha pelo menos uma pessoa.'); return; }
+    const membros=[S.uid,...F.membros]; ok.disabled=true;
+    try{
+      if(F.id){ await Store.salvarGrupo(F.id,n,membros); MSG.selG=F.id; toast('Grupo salvo.'); }
+      else { const id=await Store.criarGrupo(n,membros); if(!grupoDe(id)) MSG.grupos.push({id,nome:n,criador:S.uid,membros,ts:Date.now()}); MSG.selG=id; toast(`Grupo ${n} criado.`); }
+      MSG.form=null; renderMsgs();
+    }catch(err){ ok.disabled=false; writeFailed(err); }
+  });
+  desenhar();
+  wrap.append(el('h3',{style:'margin:0',text:F.id?'Editar grupo':'Novo grupo'}),el('label',{class:'field'},el('span',{text:'Nome do grupo'}),nome),
+    el('div',{class:'field'},el('span',{text:'Quem participa'}),times,busca,lista,cont),el('div',{class:'msg-actions'},ok,cancel));
+  if(window.innerWidth>640) setTimeout(()=>nome.focus(),30);
+  return wrap;
 }
 
 /* ======================================================================
@@ -2876,6 +2989,7 @@ async function boot(){
   Store.watchProfiles(list=>{ onProfiles(list); resolveFirst(); });
   Store.watchMarca(m=>applyMarca(m));
   Store.watchMsgs(onMyMsgs);
+  Store.watchGrupos(onGrupos);
   Store.watchMural(m=>{ S.mural=(m&&typeof m==='object')?m:null; refreshPanels(); });
   Store.watchTelao(l=>{ const tipos=['campanha','noticia','aviso'];
     S.telao=(l||[]).filter(r=>r&&tipos.includes(r.tipo)&&typeof r.titulo==='string').map(r=>({id:r.id,tipo:r.tipo,titulo:r.titulo.slice(0,80),texto:String(r.texto||'').slice(0,300),
