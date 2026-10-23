@@ -236,6 +236,29 @@ td.r,th.r{text-align:right}
 .convite{position:fixed;z-index:15;top:calc(env(safe-area-inset-top,0px) + 74px);left:50%;transform:translateX(-50%);width:min(460px,calc(100% - 32px));background:#2a1f55;border:1px solid #8c72e8;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;box-shadow:0 12px 40px rgba(0,0,0,.55)}
 .convite p{margin:0;color:#dcd2ff}
 #reBody input,#reBody select{box-sizing:border-box;width:100%}
+.acoes-menu{position:fixed;z-index:12;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 150px);width:min(440px,calc(100% - 32px));background:rgba(11,16,21,.96);border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.acoes-menu small{color:var(--muted);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.acoes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+@media (max-width:420px){.acoes-grid{grid-template-columns:repeat(2,1fr)}}
+.pausa-painel{position:fixed;z-index:14;top:calc(env(safe-area-inset-top,0px) + 74px);left:50%;transform:translateX(-50%);width:min(460px,calc(100% - 32px));background:#3a3210;border:1px solid #a8861c;border-radius:14px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.pausa-painel div{display:flex;flex-direction:column;gap:2px}
+.pausa-painel small{color:#ffe08a}
+.pausa-painel.acabou{background:#4a1512;border-color:#e0574f;animation:pisca 1s infinite alternate}
+.pausa-painel.acabou small{color:#ffc4a8}
+@keyframes pisca{to{box-shadow:0 0 0 4px rgba(224,87,79,.45),0 12px 40px rgba(0,0,0,.5)}}
+@media (prefers-reduced-motion:reduce){.pausa-painel.acabou{animation:none}}
+.online-btn{background:none;border:none;padding:0;cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+.online-painel{position:fixed;z-index:13;top:calc(env(safe-area-inset-top,0px) + 70px);left:max(16px,env(safe-area-inset-left,0px));width:min(320px,calc(100% - 32px));max-height:60vh;overflow:auto;background:rgba(11,16,21,.96);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.op-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.op-row{display:flex;gap:10px;align-items:flex-start;padding:6px 2px;border-top:1px solid var(--line)}
+.op-row div{display:flex;flex-direction:column;min-width:0}
+.op-row small{color:var(--muted)}
+.op-dot{width:9px;height:9px;border-radius:50%;background:var(--good);margin-top:5px;flex:none}
+.op-dot.off{background:#e0a42a}
+.pessoas{display:flex;flex-direction:column;max-height:320px;overflow:auto}
+.pessoa{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line)}
+.pessoa div{display:flex;flex-direction:column;min-width:0}
+.pessoa small{color:var(--muted)}
 .msg-top{display:flex;gap:6px}
 .msg-top select{flex:1;min-width:0}
 .msg-actions{display:flex;gap:6px;flex-wrap:wrap}
@@ -281,7 +304,7 @@ td.r,th.r{text-align:right}
 
 <div class="hud-top" id="hudTop" hidden>
   <div>
-    <div class="brand"><b>Escritório de Vendas</b><span class="relogio" id="relogio" aria-label="Hora atual"></span><span class="online"><span class="dot" id="onDot"></span><span id="onCount">só você</span></span></div>
+    <div class="brand"><b>Escritório de Vendas</b><span class="relogio" id="relogio" aria-label="Hora atual"></span><button type="button" class="online online-btn" id="btnOnline" title="Ver quem está online"><span class="dot" id="onDot"></span><span id="onCount">só você</span></button></div>
     <div class="me-chip" id="meChip"></div>
   </div>
   <div class="actions">
@@ -301,10 +324,7 @@ td.r,th.r{text-align:right}
   <div class="bar">
     <form class="chat" id="chatForm" autocomplete="off"><button type="button" class="emo" id="chatMode" title="Trocar para quem vai a mensagem">Perto</button><input id="chatIn" maxlength="160" placeholder="Fale com quem está perto (Enter)"></form>
     <button class="emo senha" type="button" id="btnSenha" hidden>Pedir senha</button>
-    <button class="emo" type="button" data-emo="acenar">Acenar</button>
-    <button class="emo" type="button" data-emo="joinha">Joinha</button>
-    <button class="emo" type="button" data-emo="aplaudir">Aplaudir</button>
-    <button class="emo" type="button" data-emo="dancar">Dançar</button>
+    <button class="emo" type="button" id="btnAcoes" aria-haspopup="true">Ações ▴</button>
     <button class="emo" type="button" data-emo="comemorar">Comemorar</button>
     <button class="emo" type="button" id="btnTelao">Telão</button>
     <button class="emo enq-btn" type="button" id="btnEnquete">Enquete</button>
@@ -312,7 +332,25 @@ td.r,th.r{text-align:right}
   <div class="help" id="help"><kbd>WASD</kbd> andar · <kbd>Shift</kbd> correr · arraste para girar a câmera · <kbd>E</kbd> interagir · <kbd>F</kbd> chamar colega · clique numa cadeira vazia para sentar · <kbd>P</kbd> painéis</div>
 </div>
 <div id="joy" hidden><i></i></div>
+<div id="acoesMenu" class="acoes-menu" hidden>
+  <small>Sozinho</small>
+  <div class="acoes-grid">
+    <button class="emo" type="button" data-emo="acenar">Acenar</button><button class="emo" type="button" data-emo="joinha">Joinha</button>
+    <button class="emo" type="button" data-emo="aplaudir">Aplaudir</button><button class="emo" type="button" data-emo="dancar">Dançar</button>
+    <button class="emo" type="button" data-emo="rir">Rir</button><button class="emo" type="button" data-emo="pensar">Pensar</button>
+    <button class="emo" type="button" data-emo="telefone">Telefone</button><button class="emo" type="button" data-emo="apontar">Apontar</button>
+    <button class="emo" type="button" data-emo="alongar">Alongar</button><button class="emo" type="button" data-emo="bocejar">Bocejar</button>
+    <button class="emo" type="button" data-emo="mesa">Subir na mesa</button><button class="emo" type="button" data-emo="cadeira">Subir na cadeira</button>
+  </div>
+  <small>Com o colega mais perto</small>
+  <div class="acoes-grid">
+    <button class="emo" type="button" data-emo="abraco">Abraçar</button><button class="emo" type="button" data-emo="tocaaqui">Toca aqui</button>
+    <button class="emo" type="button" data-emo="aperto">Aperto de mão</button>
+  </div>
+</div>
 <div id="treinoCard" class="treino-card" hidden></div>
+<div id="pausaPainel" class="pausa-painel" role="status" hidden><div><b id="pzTit"></b><small id="pzSub"></small></div><button class="btn primary" type="button" id="pzVoltar">Voltar ao trabalho</button></div>
+<div id="onlinePainel" class="online-painel" hidden><div class="op-h"><b id="opTit">Online agora</b><button class="x" type="button" id="opFechar" aria-label="Fechar">×</button></div><div id="opLista"></div></div>
 <div id="convite" class="convite" role="alert" hidden></div>
 <div id="accessBar" role="status" hidden></div>
 <canvas id="minimap" width="300" height="320" aria-label="Mapa do escritório" hidden></canvas>
@@ -472,11 +510,11 @@ const SKINS=['#f7dcc8','#efc4a3','#e0ab84','#c98d65','#ad7049','#8c5536','#6c3e2
 const EYES={castanho:'#5a3a22',preto:'#1b1310',azul:'#3d7fd1',verde:'#3f9d5a',mel:'#b27a2c',cinza:'#8a979f'};
 const HAIRC={'preto':'#15100d','castanho escuro':'#3a2415','castanho':'#6a4325','ruivo':'#a4471f','loiro':'#d6b05c','platinado':'#e7e1cf','grisalho':'#9d9a95','azul':'#3a5bd9','rosa':'#d35d9b','roxo':'#6b3fa0','verde':'#2f8a57'};
 const HAIR_GROUPS={
-  'Curtos':{careca:'Careca',raspado:'Raspado',degrade:'Degradê',degrade_topete:'Degradê com topete',social:'Social',curto:'Curto',topete:'Topete',moicano:'Moicano',cacheado_curto:'Cacheado curto',pixie:'Pixie'},
-  'Médios':{medio:'Médio',chanel:'Chanel',chanel_franja:'Chanel com franja',ondulado_medio:'Ondulado médio'},
-  'Longos':{longo:'Longo',longo_franja:'Longo com franja',liso_extra:'Bem longo',ondulado:'Ondulado longo'},
-  'Presos':{rabo:'Rabo de cavalo',rabo_alto:'Rabo alto',coque:'Coque',coque_alto:'Coque alto',trancas:'Tranças',tranca_lateral:'Trança lateral'},
-  'Crespos e cacheados':{cacheado:'Cacheado',black_power:'Black power',cacheado_longo:'Cacheado longo',dreads:'Dreads'},
+  'Curtos':{careca:'Careca',raspado:'Raspado',calvicie:'Entradas (calvície)',degrade:'Degradê',degrade_topete:'Degradê com topete',undercut:'Undercut',social:'Social',curto:'Curto',franja_curta:'Curto com franja',topete:'Topete',moicano:'Moicano',cacheado_curto:'Cacheado curto',cacheado_degrade:'Cacheado com degradê',pixie:'Pixie'},
+  'Médios':{medio:'Médio',chanel:'Chanel',chanel_franja:'Chanel com franja',ondulado_medio:'Ondulado médio',repicado:'Repicado',surfista:'Surfista',mullet:'Mullet'},
+  'Longos':{longo:'Longo',longo_franja:'Longo com franja',liso_extra:'Bem longo',ondulado:'Ondulado longo',meio_preso:'Meio preso'},
+  'Presos':{rabo:'Rabo de cavalo',rabo_alto:'Rabo alto',coque:'Coque',coque_alto:'Coque alto',coque_baixo:'Coque baixo',maria_chiquinha:'Maria-chiquinha',trancas:'Tranças',tranca_lateral:'Trança lateral',nago:'Tranças nagô'},
+  'Crespos e cacheados':{afro_curto:'Afro curto',cacheado:'Cacheado',black_power:'Black power',afro_puff:'Afro puff',cacheado_longo:'Cacheado longo',twists:'Twists',dreads:'Dreads'},
 };
 const HAIRS=Object.assign({},...Object.values(HAIR_GROUPS));
 const BIG_HAIR=['cacheado','black_power','cacheado_longo'];
@@ -716,6 +754,7 @@ const Store = {
   watchTreinos(cb){ if(this.mode==='sb') return this.sbLive('treinos',{order:'ts',limit:60},r=>r,cb); cb([]); },
   addTreino(titulo,texto){ return this.sbDo(this.sb.from('treinos').insert({titulo,texto})); },
   delTreino(id){ return this.sbDo(this.sb.from('treinos').delete().eq('id',id)); },
+  removerPerfil(uid){ return this.sbDo(this.sb.from('perfis').delete().eq('id',uid)); },
   reloadMsgs(){ if(this.msgLive) this.msgLive.reload(); },
   // group conversations (shared database only): members see the group and its messages, the management sees all of them
   watchGrupos(cb){ if(this.mode==='sb') return this.sbLive('grupos',{order:'ts'},r=>r,cb); cb([]); },
@@ -1585,6 +1624,20 @@ function buildHair(head,a,hairM,skinC,M){
     case 'cacheado': M(bumpySphere(.17,.1),curl,0,.07,-.06,head); break;
     case 'black_power': M(bumpySphere(.23,.08,30),curl,0,.08,-.05,head); break;
     case 'cacheado_longo': M(bumpySphere(.18,.12,28),curl,0,.02,-.06,head).scale.set(1.05,1.35,1); break;
+    case 'calvicie': M(new T.SphereGeometry(.13,26,10,0,Math.PI*2,Math.PI*.3,Math.PI*.22),fade,0,.008,-.006,head).scale.set(.93,1.04,1.02); break;
+    case 'undercut': cap(.128,Math.PI*.5,fade); M(new T.SphereGeometry(.105,18,10),hairM,-.012,.1,.012,head).scale.set(1,.55,1.18); M(new T.BoxGeometry(.09,.03,.06),hairM,.035,.13,.08,head).rotation.z=-.4; break;
+    case 'franja_curta': cap(.134,Math.PI*.5); bangs(); break;
+    case 'cacheado_degrade': cap(.128,Math.PI*.5,fade); M(bumpySphere(.105,.14,18),curl,0,.1,0,head).scale.set(1,.7,1.05); break;
+    case 'repicado': cap(.137,Math.PI*.56); curtain(.28,.135,.155,.9); bumps([[-.12,-.25,-.02,.035],[.12,-.25,-.02,.035],[-.06,-.27,-.12,.04],[.06,-.27,-.12,.04]]); break;
+    case 'surfista': cap(.138,Math.PI*.56); curtain(.22,.136,.155,.85); bangs(); bumps([[-.13,-.17,0,.04],[.13,-.17,0,.04],[0,-.2,-.13,.045]]); break;
+    case 'mullet': cap(.133,Math.PI*.5); curtain(.24,.13,.13,1.75); break;
+    case 'meio_preso': cap(.137,Math.PI*.56); curtain(.42,.134,.156,.85); M(new T.SphereGeometry(.045,12,10),hairM,0,.07,-.14,head); break;
+    case 'coque_baixo': cap(.134,Math.PI*.53); M(bumpySphere(.06,.06,14),hairM,0,-.05,-.15,head); break;
+    case 'maria_chiquinha': cap(.134,Math.PI*.53); for(const sx of [-1,1]) chain([[sx*.12,.02,-.06],[sx*.15,-.04,-.07],[sx*.165,-.11,-.07],[sx*.17,-.18,-.06],[sx*.165,-.25,-.05]],.038,.02); break;
+    case 'nago': cap(.131,Math.PI*.52); for(let i=-3;i<=3;i++){ const x=i*.03, r=Math.sqrt(.135*.135-x*x); const b=M(new T.TorusGeometry(r,.009,6,22,Math.PI*.95),hairM,x,.008,-.006,head); b.rotation.y=-Math.PI/2; } break;
+    case 'afro_curto': M(bumpySphere(.15,.08,22),curl,0,.055,-.02,head).scale.set(1,.78,1.02); break;
+    case 'afro_puff': cap(.13,Math.PI*.5); M(bumpySphere(.1,.1,18),curl,0,.17,-.06,head); break;
+    case 'twists': cap(.135,Math.PI*.53); for(let i=0;i<20;i++){ const ang=-2.2+i*(4.4/19); const d=M(new T.CylinderGeometry(.012,.009,.2+((i*29)%5)*.015,6),hairM,Math.sin(ang)*.125,-.07,-Math.cos(ang)*.115,head); d.rotation.x=.2*Math.cos(ang); d.rotation.z=-.2*Math.sin(ang); } M(bumpySphere(.12,.1,16),curl,0,.08,-.01,head).scale.set(1,.55,1.05); break;
     case 'dreads': cap(.135,Math.PI*.53); for(let i=0;i<14;i++){ const ang=-1.9+i*(3.8/13); const d=M(new T.CylinderGeometry(.017,.014,.4+((i*37)%7)*.02,6),hairM,Math.sin(ang)*.12,-.17,-Math.cos(ang)*.11,head); d.rotation.x=.12*Math.cos(ang); d.rotation.z=-.1*Math.sin(ang); } break;
   }
 }
@@ -1798,13 +1851,30 @@ function pose(av,t,dt,st){
     av.walkT+=dt*(st.run?13:9); const s=Math.sin(av.walkT), amp=st.run?0.75:0.55;
     p.legL.rotation.x=s*amp; p.legR.rotation.x=-s*amp; p.knL.rotation.x=Math.max(0,s)*1.0; p.knR.rotation.x=Math.max(0,-s)*1.0;
     p.armL.rotation.x=-s*amp*0.8; p.armR.rotation.x=s*amp*0.8; p.elL.rotation.x=p.elR.rotation.x=-0.35;
-    p.body.position.y=Math.abs(Math.cos(av.walkT))*0.035;
+    p.body.position.y=Math.abs(Math.cos(av.walkT))*0.035; p.body.rotation.y=Math.sin(av.walkT)*0.07; p.head.rotation.y=-Math.sin(av.walkT)*0.05;
   } else {
+    const sd=av.seed||(av.seed=Math.random()*100), ph=(t+sd)%14, olhar=ph>9&&ph<13?Math.sin((ph-9)/4*Math.PI):0;
     p.body.position.y=Math.sin(t*2)*0.004; p.armL.rotation.x=Math.sin(t*1.3)*0.03; p.armR.rotation.x=-Math.sin(t*1.3)*0.03;
+    p.body.rotation.z=Math.sin(t*0.5+sd)*0.018; p.head.rotation.y=olhar*0.55*Math.sign(Math.sin(sd)); p.head.rotation.x=Math.sin(t*0.4+sd)*0.04;
   }
+  if(st.sitting && !st.relax){ const sd=av.seed||(av.seed=Math.random()*100), ph=(t+sd*3)%28;
+    if(ph<4){ p.armR.rotation.x=-0.6; p.elR.rotation.x=-1.7; p.armL.rotation.x=-0.3; p.elL.rotation.x=-0.5; p.head.rotation.x=0.32; p.body.rotation.x=-0.06; } }
   const e=av.emo; const now=performance.now();
   if(e && now<e.until){
-    if(e.kind==='senha'){ p.armR.rotation.x=-2.95; p.armR.rotation.z=0.1+Math.sin(t*3)*0.06; p.elR.rotation.x=-0.1; }
+    if(e.kind==='rir'){ const k=Math.abs(Math.sin(t*14)); p.armL.rotation.x=p.armR.rotation.x=-0.55; p.elL.rotation.x=p.elR.rotation.x=-1.25; p.head.rotation.x=-0.18-k*0.06; if(!st.sitting) p.body.position.y+=k*0.02; }
+    else if(e.kind==='pensar'){ p.armR.rotation.x=-0.95; p.armR.rotation.z=-0.05; p.elR.rotation.x=-2.15; p.armL.rotation.x=-0.55; p.armL.rotation.z=0.35; p.elL.rotation.x=-1.4; p.head.rotation.z=0.14; p.head.rotation.x=0.08+Math.sin(t*1.2)*0.03; }
+    else if(e.kind==='telefone'){ p.armR.rotation.x=-0.35; p.armR.rotation.z=0.25; p.elR.rotation.x=-2.55; p.head.rotation.z=-0.12; p.head.rotation.x=Math.sin(t*2.5)*0.06; p.armL.rotation.x=-0.3+Math.sin(t*1.6)*0.25; p.elL.rotation.x=-0.6; }
+    else if(e.kind==='alongar'){ const k=Math.sin(t*2); p.armL.rotation.x=p.armR.rotation.x=-3.0; p.armL.rotation.z=-0.2; p.armR.rotation.z=0.2; p.body.rotation.z=k*0.12; if(!st.sitting) p.body.position.y+=0.03; }
+    else if(e.kind==='bocejar'){ p.armR.rotation.x=-2.1; p.elR.rotation.x=-1.5; p.armR.rotation.z=-0.1; p.armL.rotation.x=-2.8; p.armL.rotation.z=-0.3; p.head.rotation.x=-0.28; }
+    else if(e.kind==='apontar'){ p.armR.rotation.x=-1.6; p.armR.rotation.z=0.05; p.elR.rotation.x=-0.05; p.head.rotation.x=0.02; }
+    else if(e.kind==='abraco'){ p.armL.rotation.x=p.armR.rotation.x=-1.35; p.armL.rotation.z=0.55; p.armR.rotation.z=-0.55; p.elL.rotation.x=p.elR.rotation.x=-0.85; p.head.rotation.z=0.15; p.body.rotation.y=Math.sin(t*3)*0.06; }
+    else if(e.kind==='tocaaqui'){ p.armR.rotation.x=-2.55+Math.max(0,Math.sin(t*6))*0.25; p.armR.rotation.z=0.05; p.elR.rotation.x=-0.2; }
+    else if(e.kind==='aperto'){ p.armR.rotation.x=-0.9+Math.sin(t*10)*0.1; p.armR.rotation.z=-0.1; p.elR.rotation.x=-0.45; }
+    else if(e.kind==='mesa'||e.kind==='cadeira'){ const d=Math.sin(t*6), d2=Math.sin(t*12);
+      p.armL.rotation.x=-2.6+d*0.4; p.armR.rotation.x=-2.6-d*0.4; p.armL.rotation.z=-0.35; p.armR.rotation.z=0.35;
+      p.legL.rotation.x=Math.max(0,d)*0.35; p.legR.rotation.x=Math.max(0,-d)*0.35; p.knL.rotation.x=Math.max(0,d)*0.6; p.knR.rotation.x=Math.max(0,-d)*0.6;
+      p.body.position.y+=Math.abs(d2)*0.04; p.body.rotation.y=d*0.3; }
+    else if(e.kind==='senha'){ p.armR.rotation.x=-2.95; p.armR.rotation.z=0.1+Math.sin(t*3)*0.06; p.elR.rotation.x=-0.1; }
     else if(e.kind==='cutucar'){ p.armR.rotation.x=-1.35+Math.max(0,Math.sin(t*16))*0.35; p.armR.rotation.z=0.1; p.elR.rotation.x=-0.3; }
     else if(e.kind==='acenar'){ p.armR.rotation.x=-2.75; p.armR.rotation.z=0.25+Math.sin(t*12)*0.35; p.elR.rotation.x=-0.25; }
     else if(e.kind==='beber'||e.kind==='cafe'){ const sip=Math.sin(t*1.6)>0.2; p.armR.rotation.x=sip?-0.55:-0.35; p.armR.rotation.z=0.12; p.elR.rotation.x=sip?-2.05:-1.3; p.head.rotation.x=sip?-0.18:0; if(p.cup) p.cup.visible=true; }
@@ -1932,7 +2002,8 @@ function syncRemotes(){
       if(pz.emo==='baixar'){ if(r.av.emo&&r.av.emo.kind==='senha') r.av.emo=null; }
       else if(pz.emo==='senha' && left>0){ r.av.emo={kind:'senha',until:performance.now()+left};
         if(!first){ setBubble(r.av,'Preciso de senha!'); if(S.me && ['supervisor','lider','gerente'].includes(S.me.cargo)){ SFX.alarme(); toast(`${nomeDe(uid)} (${prof.time?TEAM[prof.time].curto:roleLine(prof)}) está pedindo senha!`); chamarNaAba(`${nomeDe(uid).split(' ')[0]} pediu senha`); } } }
-      else if(!first && EMOS[pz.emo] && pz.emo!=='senha'){ r.av.emo={kind:pz.emo,until:performance.now()+EMOS[pz.emo]}; if(pz.emo==='comemorar') confetti(r.tx,2.2,r.tz); } }
+      else if(!first && EMOS[pz.emo] && pz.emo!=='senha'){ r.av.emo={kind:pz.emo,until:performance.now()+EMOS[pz.emo]}; if(pz.emo==='comemorar'||ALTURA[pz.emo]) confetti(r.tx,2.2+(ALTURA[pz.emo]||0),r.tz);
+        if(PARES[pz.emo] && pz.alvo===S.uid && !pz.resp) emoRecebido(uid,pz.emo,r); } }
     if(typeof pz.sino==='number' && pz.sino!==r.sinoTs){ const first=fresh&&Date.now()-pz.sino>8000; r.sinoTs=pz.sino;
       if(!first && Date.now()-pz.sino<15000){ SINO.tocar(); r.av.emo={kind:'comemorar',until:performance.now()+EMOS.comemorar}; toast(`${nomeDe(uid).split(' ')[0]} tocou o sino!`); } }
     if(pz.cut && typeof pz.cut==='object' && pz.cut.ts!==r.cutTs){ const first=fresh&&Date.now()-(+pz.cut.ts||0)>8000; r.cutTs=pz.cut.ts;
@@ -1942,7 +2013,10 @@ function syncRemotes(){
   for(const [k,r] of remotes) if(!seen.has(k)){ scene.remove(r.av.group); disposeGeo(r.av.group); remotes.delete(k); }
   syncNPCs(); updateCrowns();
 }
-const EMOS={acenar:2600,comemorar:2600,beber:4500,cafe:4500,joinha:2200,aplaudir:3000,dancar:6500,senha:45000,cutucar:1600};
+const EMOS={acenar:2600,comemorar:2600,beber:4500,cafe:4500,joinha:2200,aplaudir:3000,dancar:6500,senha:45000,cutucar:1600,
+  rir:3000,pensar:4500,telefone:7000,alongar:3500,bocejar:3200,apontar:2600,abraco:3500,tocaaqui:2000,aperto:2600,mesa:7000,cadeira:6000};
+const PARES={abraco:'deu um abraço em você',tocaaqui:'bateu na sua mão (toca aqui!)',aperto:'apertou a sua mão'}; // actions done with a colleague
+const ALTURA={mesa:0.76,cadeira:0.47}; // climbing on a desk or a chair
 function updateCrowns(){
   const c=coroas();
   if(P.av) setCrown(P.av,P.av.uid===c.topF,P.av.uid===c.topG);
@@ -1997,6 +2071,7 @@ function updateNPCs(dt,t,now){
     pose(n.av,t,dt,{sitting:n.state==='sit',moving:n.state==='go'||n.state==='back'});
   }
 }
+function altura(av,dt){ const e=av.emo, alvo=e&&ALTURA[e.kind]&&performance.now()<e.until?ALTURA[e.kind]:0; av.alt=(av.alt||0)+(alvo-(av.alt||0))*Math.min(1,dt*7); return av.alt; }
 function collide(x,z,r){
   x=clamp(x,-OX+r,TR.x1-r); z=clamp(z,-OZ+r,OZ-r);
   for(const b of BOXES){
@@ -2017,7 +2092,7 @@ const hhmm=d=>String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).pa
 const statusText=st=>!st||st.k==='ok'?'':st.k==='pausa'?'Em pausa até '+st.ate:'Almoço até '+st.ate;
 function setStatus(k,min){
   const ate=min?hhmm(new Date(Date.now()+min*60000)):'';
-  const was=S.status.k; S.status=k==='ok'?{k:'ok'}:{k,ate};
+  const was=S.status.k; S.status=k==='ok'?{k:'ok'}:{k,ate,fim:Date.now()+min*60000};
   if(room) room.presence({st:S.status}).catch(()=>{});
   if(P.av) setStatusSprite(P.av,statusText(S.status));
   hide('mStatus'); updateStatusBtn();
@@ -2047,6 +2122,14 @@ setInterval(()=>{ const d=new Date(), agora=hhmm(d); $('#relogio').textContent=a
   if(!S.playing || !SAIDAS.includes(agora)) return;
   const k='esc_sinal_'+hoje()+'_'+agora; if(lsGet(k)) return; lsSet(k,'1');
   SINO.tocar(); SFX.sinalSaida(); toast(`${agora} · Hora de ir embora! Bom descanso, até amanhã.`); chamarNaAba('Hora de ir embora · '+agora);
+},1000);
+setInterval(()=>{ // the pause panel: what you are doing, how long is left, and the button to come back
+  const pn=$('#pausaPainel'), st=S.status; if(!S.playing||st.k==='ok'||!st.fim){ pn.hidden=true; return; }
+  const left=st.fim-Date.now(), acabou=left<=0;
+  pn.hidden=false; pn.classList.toggle('acabou',acabou);
+  $('#pzTit').textContent=acabou?(st.k==='pausa'?'Sua pausa acabou!':'Seu almoço acabou!'):(st.k==='pausa'?'Você está em pausa':'Você está no almoço');
+  $('#pzSub').textContent=acabou?`Era até ${st.ate}. Volte ao trabalho.`:`Até ${st.ate} · faltam ${mmss(left)}`;
+  if(acabou){ const k='m'+Math.floor(-left/60000); if(st.avisado!==k){ st.avisado=k; SFX.alarme(); chamarNaAba(st.k==='pausa'?'Sua pausa acabou':'Seu almoço acabou'); } }
 },1000);
 let lunchWarned='';
 setInterval(()=>{ if(!S.playing||!S.me) return; const now=hhmm(new Date()), day=hoje();
@@ -2186,6 +2269,7 @@ function updatePlayer(dt){
   }
   const len=Math.hypot(ix,iz); P.moving=len>0.08; P.run=keys.has('ShiftLeft')||keys.has('ShiftRight')||len>0.95&&joy.id!==null;
   if(P.moving && P.auto) P.auto=null; // any manual input cancels the walk-to
+  if(P.emoBack && (P.moving || !P.av || !P.av.emo || !ALTURA[P.av.emo.kind] || performance.now()>P.av.emo.until)){ if(P.av&&P.av.emo&&ALTURA[P.av.emo.kind]) P.av.emo=null; P.x=P.emoBack.x; P.z=P.emoBack.z; P.emoBack=null; }
   if(P.hiddenUntil && performance.now()>P.hiddenUntil) P.hiddenUntil=0;
   if(!P.moving && P.auto){ const a=P.auto, [tx,tz]=a.path[a.i], dx=tx-P.x, dz=tz-P.z, d=Math.hypot(dx,dz);
     if(d<0.08){ a.i++; if(a.i>=a.path.length){ P.auto=null; arrive(a.dest); } }
@@ -2194,14 +2278,15 @@ function updatePlayer(dt){
     if(P.sitting) standUp();
     if(len>1){ ix/=len; iz/=len; }
     const fx=Math.sin(camYaw), fz=Math.cos(camYaw), rx=-Math.cos(camYaw), rz=Math.sin(camYaw);
-    const mx=fx*iz+rx*ix, mz=fz*iz+rz*ix, sp=P.run?5.2:3.0;
+    const mx=fx*iz+rx*ix, mz=fz*iz+rz*ix; P.vel=(P.vel||0)+((P.run?5.2:3.0)-(P.vel||0))*Math.min(1,dt*7); const sp=P.vel;
     [P.x,P.z]=collide(P.x+mx*sp*dt,P.z+mz*sp*dt,0.3);
     P.ry=angLerp(P.ry,Math.atan2(mx,mz),Math.min(1,dt*12));
   }
+  if(!P.moving) P.vel=Math.max(0,(P.vel||0)-dt*12);
   if(P.moving && !P.sitting){ P.stepT=(P.stepT||0)-dt; if(P.stepT<=0){ P.stepT=P.run?0.28:0.4; SFX.step(); } }
   if(P.sitting && !P.wasSitting) SFX.sit(); P.wasSitting=!!P.sitting;
   if(P.sitting){ P.x=P.sitting.x; P.z=P.sitting.z; P.ry=P.sitting.ry; }
-  if(P.av){ P.av.group.position.set(P.x,0,P.z); P.av.group.rotation.y=P.ry; P.av.group.visible=!P.hiddenUntil&&!P.away; }
+  if(P.av){ P.av.group.position.set(P.x,altura(P.av,dt),P.z); P.av.group.rotation.y=P.ry; P.av.group.visible=!P.hiddenUntil&&!P.away; }
 }
 function updateCamera(dt,t){
   if(!S.playing){ const a=t*0.05; camera.position.set(Math.sin(a)*13,9,Math.cos(a)*13); camera.lookAt(0,0.5,-1); return; }
@@ -2340,8 +2425,38 @@ function cutucar(uid){
   toast(`Você chamou ${n}.`);
 }
 function emote(kind){
-  if(!P.av) return; P.av.emo={kind,until:performance.now()+EMOS[kind]}; if(kind==='comemorar'){ confetti(P.x,2.2,P.z); SFX.cash(); } else SFX.wave();
-  if(room) room.presence({emo:kind,emoTs:Date.now()}).catch(()=>{});
+  if(!P.av||!EMOS[kind]) return;
+  if(PARES[kind]) return emoteComColega(kind);
+  if(ALTURA[kind] && !subir(kind)) return;
+  P.av.emo={kind,until:performance.now()+EMOS[kind]}; if(kind==='comemorar'||ALTURA[kind]){ confetti(P.x,2.2+(ALTURA[kind]||0),P.z); SFX.cash(); } else SFX.wave();
+  if(room) room.presence({emo:kind,emoTs:Date.now(),alvo:null,resp:null}).catch(()=>{});
+  hide('acoesMenu');
+}
+// climb on the nearest desk (or the nearest chair) for a few seconds, then step back down
+function subir(kind){
+  if(P.sitting) standUp();
+  if(kind==='mesa'){ const row=ROWS.find(r=>Math.abs(P.z-r.z)<2.3 && P.x>TX0-1 && P.x<TX1+1);
+    if(!row){ toast('Chegue perto de uma mesa para subir nela.'); return false; }
+    P.emoBack={x:P.x,z:P.z}; P.x=clamp(P.x,TX0+0.4,TX1-0.4); P.z=row.z; return true; }
+  let best=null, bd=1.6; for(const s of SEATS){ const d=Math.hypot(P.x-s.x,P.z-s.z); if(d<bd&&!sitOccupant(s.id)){ bd=d; best=s; } }
+  if(!best){ toast('Chegue perto de uma cadeira para subir nela.'); return false; }
+  P.emoBack={x:P.x,z:P.z}; P.x=best.x; P.z=best.z; return true;
+}
+function colegaPerto(){ let near=null, nd=2.6; for(const r of remotes.values()){ if(r.h||!r.uid) continue; const d=Math.hypot(P.x-r.x,P.z-r.z); if(d<nd){ nd=d; near=r; } } return near; }
+function emoteComColega(kind){
+  const r=colegaPerto(); hide('acoesMenu');
+  if(!r){ toast('Chegue perto de um colega online para isso.'); return; }
+  if(P.sitting) standUp();
+  const dx=P.x-r.x, dz=P.z-r.z, d=Math.hypot(dx,dz)||1, gap=kind==='abraco'?0.45:0.62;
+  [P.x,P.z]=collide(r.x+dx/d*gap,r.z+dz/d*gap,0.3); P.ry=Math.atan2(r.x-P.x,r.z-P.z);
+  P.av.emo={kind,until:performance.now()+EMOS[kind]}; SFX.wave();
+  if(room) room.presence({emo:kind,emoTs:Date.now(),alvo:r.uid,resp:null}).catch(()=>{});
+}
+function emoRecebido(uid,kind,r){ // a colleague hugged me / gave me five / shook my hand: my figure answers it
+  if(!P.av) return; if(P.sitting) standUp();
+  P.ry=Math.atan2(r.tx-P.x,r.tz-P.z); P.av.emo={kind,until:performance.now()+EMOS[kind]}; SFX.wave();
+  toast(`${primeiroNome(uid)} ${PARES[kind]}!`);
+  if(room) room.presence({emo:kind,emoTs:Date.now(),alvo:uid,resp:1}).catch(()=>{});
 }
 
 /* ---- door + interactions ---- */
@@ -2514,7 +2629,7 @@ function loop(now){
       else if(d>0.001){ const k=Math.min(1,dt*(Store.mode==='sb'?5:10)), st=Math.min(d,Math.max(3.4*dt,d*k)); r.x+=dx/d*st; r.z+=dz/d*st; }
       r.walkD=d; r.ry=angLerp(r.ry,r.m||d<0.3?r.try:Math.atan2(dx,dz),Math.min(1,dt*(Store.mode==='sb'?5:10)));
     }
-    r.av.group.position.set(r.x,0,r.z); r.av.group.rotation.y=r.ry; r.av.group.visible=!r.h;
+    r.av.group.position.set(r.x,altura(r.av,dt),r.z); r.av.group.rotation.y=r.ry; r.av.group.visible=!r.h;
     pose(r.av,t,dt,{sitting:!!r.s,relax:!!(r.s&&SITS[r.s].extra),moving:(r.m||r.walkD>0.3)&&!r.s,run:r.run});
   }
   if(P.av) pose(P.av,t,dt,{sitting:!!P.sitting,relax:!!(P.sitting&&P.sitting.extra),moving:P.moving,run:P.run});
@@ -2871,8 +2986,20 @@ function renderPaineis(){
     ok.addEventListener('click',async()=>{ const r=await Store.sb.rpc('virar_gestor',{codigo:inp.value.trim()}); if(r.data){ S.isOwner=true; toast('Acesso da gestão liberado.'); renderPaineis(); } else toast('Código incorreto.'); });
     card.append(el('div',{class:'msg-form'},inp,ok)); grid.append(card); }
   if(lead) grid.append(telaoCard());
+  if(Store.mode==='sb' && S.isOwner) grid.append(pessoasCard());
   if(S.me&&(S.me.cargo==='gerente'||S.me.cargo==='lider')) grid.append(marcaCard());
   b.append(grid); sc.scrollTop=st;
+}
+function pessoasCard(){
+  const card=el('div',{class:'pcard'},el('h3',null,'Pessoas cadastradas',el('small',{text:'só a gestão vê · remover tira a pessoa do escritório'})));
+  const lista=Object.values(S.profiles).filter(p=>p.uid!==S.uid&&p.cargo!=='visitante').sort((a,b)=>a.nome.localeCompare(b.nome,'pt-BR'));
+  if(!lista.length) card.append(el('p',{class:'empty',text:'Ninguém além de você.'}));
+  const box=el('div',{class:'pessoas'});
+  for(const p of lista){ const del=el('button',{type:'button',class:'linkbtn',text:'Remover'});
+    del.addEventListener('click',async()=>{ if(!confirm(`Remover ${p.nome} do escritório?\n\nSaem o cadastro, a cadeira e os resultados. Não dá para desfazer.`)) return;
+      del.disabled=true; try{ await Store.removerPerfil(p.uid); toast(`${p.nome} foi removido(a).`); }catch(e){ del.disabled=false; writeFailed(e); } });
+    box.append(el('div',{class:'pessoa'},el('div',null,el('b',{text:p.nome}),el('small',{text:roleLine(p)+(p.seat&&SEAT[p.seat]?' · cadeira '+SEAT[p.seat].label:'')})),del)); }
+  card.append(box); return card;
 }
 function openTelao(){ const b=$('#tlBody'); b.textContent=''; b.append(TELAO.c); show('mTelao'); TELAO.lastKey=''; }
 function telaoCard(){
@@ -2943,7 +3070,24 @@ $('#btnResultado').addEventListener('click',()=>openDia(false));
 $('#btnPaineis').addEventListener('click',openPaineis);
 $('#btnTelao').addEventListener('click',openTelao);
 $('#btnEnquete').addEventListener('click',openEnquete);
+$('#btnAcoes').addEventListener('click',e=>{ e.stopPropagation(); const m=$('#acoesMenu'); m.hidden=!m.hidden; });
+document.addEventListener('click',e=>{ const m=$('#acoesMenu'); if(!m.hidden && !e.target.closest('#acoesMenu,#btnAcoes')) m.hidden=true; });
 $('#btnReuniao').addEventListener('click',openReuniao);
+function renderOnline(){
+  const box=$('#opLista'); box.textContent=''; const vistos=new Set(), linhas=[];
+  const add=(uid,prof,st)=>{ if(!uid||vistos.has(uid)||!prof) return; vistos.add(uid); linhas.push({uid,prof,st}); };
+  if(S.me) add(S.uid,S.me,S.status);
+  for(const pr of S.peers){ if(pr.kind!=='viewer') continue; const u=pr.by||(pr.presence&&pr.presence.uid); add(u,S.profiles[u]||S.live[u],S.liveStatus[u]); }
+  linhas.sort((a,b)=>(a.uid===S.uid?-1:b.uid===S.uid?1:a.prof.nome.localeCompare(b.prof.nome,'pt-BR')));
+  $('#opTit').textContent=`Online agora · ${linhas.length}`;
+  if(!linhas.length) box.append(el('p',{class:'empty',text:'Ninguém online agora.'}));
+  for(const l of linhas){ const st=l.st&&l.st.k!=='ok'?statusText(l.st):'Disponível';
+    box.append(el('div',{class:'op-row'},el('i',{class:'op-dot'+(l.st&&l.st.k!=='ok'?' off':'')}),el('div',null,el('b',{text:l.prof.nome+(l.uid===S.uid?' (você)':'')}),el('small',{text:roleLine(l.prof)+' · '+st})))); }
+}
+$('#btnOnline').addEventListener('click',()=>{ const p=$('#onlinePainel'); p.hidden=!p.hidden; if(!p.hidden) renderOnline(); });
+$('#opFechar').addEventListener('click',()=>{ $('#onlinePainel').hidden=true; });
+setInterval(()=>{ if(!$('#onlinePainel').hidden) renderOnline(); },2000);
+$('#pzVoltar').addEventListener('click',()=>{ setStatus('ok'); $('#pausaPainel').hidden=true; });
 $('#btnIr').addEventListener('click',openIr);
 $('#minimap').addEventListener('click',e=>{ const c=$('#minimap'), r=c.getBoundingClientRect(); const x=MM.x0+(e.clientX-r.left)/r.width*(MM.x1-MM.x0), z=MM.z0+(e.clientY-r.top)/r.height*(MM.z1-MM.z0);
   if(x>OX) irPara({lane:-8.8,lx:10,pts:[[10,-13],[15.4,-13],[clamp(x,15,20.5),clamp(z,-15.5,-7.5)]]}); else { const lz=LANES_Z.reduce((a,b)=>Math.abs(b-z)<Math.abs(a-z)?b:a); irPara({lane:lz,lx:clamp(x,-12.4,10),pts:[]}); } });
