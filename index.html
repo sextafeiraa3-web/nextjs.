@@ -227,6 +227,15 @@ td.r,th.r{text-align:right}
 .visit-row input:nth-of-type(2){grid-column:1/-1}
 @media (max-width:560px){.visit-row{grid-template-columns:1fr}}
 .relogio{font-family:var(--f-mono);font-weight:700;font-size:15px;color:var(--fg);background:rgba(255,255,255,.07);border-radius:8px;padding:2px 8px}
+.treino-card{position:fixed;z-index:6;top:calc(env(safe-area-inset-top,0px) + 74px);left:50%;transform:translateX(-50%);width:min(560px,calc(100% - 32px));background:rgba(14,18,48,.94);border:1px solid #3b4290;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.treino-card b{font-size:18px}
+.treino-card p{margin:0;line-height:1.45;color:#dfe5f5}
+.treino-k{color:#f39a6a;font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:11px}
+.treino-bar{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.treino-bar small{color:var(--muted);flex:1;min-width:120px;text-align:center}
+.convite{position:fixed;z-index:15;top:calc(env(safe-area-inset-top,0px) + 74px);left:50%;transform:translateX(-50%);width:min(460px,calc(100% - 32px));background:#2a1f55;border:1px solid #8c72e8;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;box-shadow:0 12px 40px rgba(0,0,0,.55)}
+.convite p{margin:0;color:#dcd2ff}
+#reBody input,#reBody select{box-sizing:border-box;width:100%}
 .msg-top{display:flex;gap:6px}
 .msg-top select{flex:1;min-width:0}
 .msg-actions{display:flex;gap:6px;flex-wrap:wrap}
@@ -280,6 +289,7 @@ td.r,th.r{text-align:right}
     <button class="hbtn" id="btnPaineis" type="button">Painéis</button>
     <button class="hbtn" id="btnStatus" type="button">Disponível</button>
     <button class="hbtn" id="btnIr" type="button">Ir para</button>
+    <button class="hbtn" id="btnReuniao" type="button" hidden>Reunião</button>
     <button class="hbtn" id="btnMsg" type="button">Mensagens <span class="badge" id="msgBadge" hidden></span></button>
     <button class="hbtn" id="btnPerfil" type="button">Meu perfil</button>
     <button class="hbtn" id="btnSom" type="button" aria-pressed="true">Som ligado</button>
@@ -302,6 +312,8 @@ td.r,th.r{text-align:right}
   <div class="help" id="help"><kbd>WASD</kbd> andar · <kbd>Shift</kbd> correr · arraste para girar a câmera · <kbd>E</kbd> interagir · <kbd>F</kbd> chamar colega · clique numa cadeira vazia para sentar · <kbd>P</kbd> painéis</div>
 </div>
 <div id="joy" hidden><i></i></div>
+<div id="treinoCard" class="treino-card" hidden></div>
+<div id="convite" class="convite" role="alert" hidden></div>
 <div id="accessBar" role="status" hidden></div>
 <canvas id="minimap" width="300" height="320" aria-label="Mapa do escritório" hidden></canvas>
 <div id="chatLog" hidden><div class="cl-h"><b id="clTitle">Conversa</b><button type="button" class="linkbtn" id="clHide">Esconder</button></div><div id="clList" aria-live="polite"></div></div>
@@ -360,6 +372,12 @@ td.r,th.r{text-align:right}
   </div>
 </div>
 
+<div class="modal-wrap" id="mReuniao" hidden>
+  <div class="modal sm" role="dialog" aria-labelledby="reTitle">
+    <div class="mhead"><div><h2 id="reTitle">Chamar para reunião</h2><p>Os líderes recebem um alerta e vão até a sala.</p></div><button class="x" type="button" data-close="mReuniao" aria-label="Fechar">×</button></div>
+    <div class="mbody" id="reBody"></div>
+  </div>
+</div>
 <div class="modal-wrap" id="mEnquete" hidden>
   <div class="modal" role="dialog" aria-labelledby="enqTitle">
     <div class="mhead"><div><h2 id="enqTitle">Enquetes</h2><p>Vote nas enquetes abertas ou crie uma nova. O resultado aparece no telão.</p></div><button class="x" type="button" data-close="mEnquete" aria-label="Fechar">×</button></div>
@@ -695,6 +713,9 @@ const Store = {
   criarEnquete(pergunta,opcoes){ return this.sbDo(this.sb.from('enquetes').insert({pergunta,opcoes})); },
   votar(enquete,opcao){ return this.sbDo(this.sb.from('votos').upsert({enquete,perfil:S.uid,opcao,ts:Date.now()},{onConflict:'enquete,perfil'})); },
   apagarEnquete(id){ return this.sbDo(this.sb.from('enquetes').delete().eq('id',id)); },
+  watchTreinos(cb){ if(this.mode==='sb') return this.sbLive('treinos',{order:'ts',limit:60},r=>r,cb); cb([]); },
+  addTreino(titulo,texto){ return this.sbDo(this.sb.from('treinos').insert({titulo,texto})); },
+  delTreino(id){ return this.sbDo(this.sb.from('treinos').delete().eq('id',id)); },
   reloadMsgs(){ if(this.msgLive) this.msgLive.reload(); },
   // group conversations (shared database only): members see the group and its messages, the management sees all of them
   watchGrupos(cb){ if(this.mode==='sb') return this.sbLive('grupos',{order:'ts'},r=>r,cb); cb([]); },
@@ -1005,7 +1026,11 @@ box(1.0,0.4,0.6,mat('#9a9fa6'),-11,0.2,14.2); BOXES.push([-11.5,-10.5,13.9,14.5]
 // places anyone can sit besides their own desk
 const EXTRA_SITS=[[ 'sofa1',-11.7,15.25,Math.PI,'sofá'],['sofa2',-11,15.25,Math.PI,'sofá'],['sofa3',-10.3,15.25,Math.PI,'sofá'],['banco1',5.95,-13.95,Math.PI/2,'banco da copa'],['banco2',6.6,-13.25,Math.PI,'banco da copa']]
   .map(([id,x,z,ry,label])=>({id,x,z,ry,label,extra:true}));
+EXTRA_SITS.push({id:'vidro1',x:GX-0.6,z:-12.9,ry:Math.PI,label:'sala do gerente',extra:true},{id:'vidro2',x:GX+0.6,z:-12.9,ry:Math.PI,label:'sala do gerente',extra:true});
+const inGlass=(x,z)=>x>-OX && x<GX+5 && z>-OZ && z<-10;
 /* ---- training / meeting room behind the right wall ---- */
+const TREINO_CANVAS=document.createElement('canvas'); TREINO_CANVAS.width=1024; TREINO_CANVAS.height=576;
+const TREINO_TEX=new T.CanvasTexture(TREINO_CANVAS); TREINO_TEX.anisotropy=4;
 const TR={x0:OX+0.2,x1:21,z0:-OZ,z1:-7};
 const inTraining=(x,z)=>x>OX+0.15 && z>TR.z0 && z<TR.z1;
 (()=>{
@@ -1016,21 +1041,107 @@ const inTraining=(x,z)=>x>OX+0.15 && z>TR.z0 && z<TR.z1;
   box(w+0.2,WALL_H,0.2, wallM, cx,WALL_H/2,TR.z1+0.1,null,false);
   box(w+0.2,WALL_H,0.2, orangeWall, cx,WALL_H/2,TR.z0-0.1,null,false);
   for(const z of [-14,-11.5,-9]) box(1.5,0.025,0.07, new T.MeshBasicMaterial({color:'#ffffff'}), cx,3.385,z,null,false);
-  const tv=new T.Mesh(new T.PlaneGeometry(2.8,1.58),new T.MeshBasicMaterial({map:canvasTex(1024,576,(g,W,H)=>{ const gr=g.createLinearGradient(0,0,W,H); gr.addColorStop(0,'#23286e'); gr.addColorStop(1,'#0b0c24'); g.fillStyle=gr; g.fillRect(0,0,W,H);
-    g.fillStyle='#dc6029'; g.fillRect(0,0,W,14); g.fillStyle='#ffffff'; g.font='800 84px "Bricolage Grotesque", sans-serif'; g.textAlign='center'; g.fillText('Sala de treinamento',W/2,H/2-10);
-    g.font='500 36px Figtree, sans-serif'; g.fillStyle='rgba(255,255,255,.8)'; g.fillText('Quem está aqui conversa com a sala inteira pelo chat',W/2,H/2+60); })}));
-  tv.position.set(TR.x1-0.02,1.85,-11.5); tv.rotation.y=-Math.PI/2; scene.add(tv);
-  box(0.06,1.66,2.9, mat('#111214'), TR.x1-0.05,1.85,-11.5,null,false);
-  box(0.04,1.1,2.0, mat('#f7f7f5',{roughness:0.3}), TR.x1-0.03,1.55,-14.6,null,false);
-  box(0.06,0.04,2.0, mat('#9aa0a6'), TR.x1-0.06,0.98,-14.6,null,false);
+  // the screen and the whiteboard are on the front (orange) wall; the chairs face them
+  const tv=new T.Mesh(new T.PlaneGeometry(2.8,1.58),new T.MeshBasicMaterial({map:TREINO_TEX})); tv.position.set(17.4,1.85,TR.z0+0.075); scene.add(tv);
+  box(2.9,1.66,0.06, mat('#111214'), 17.4,1.85,TR.z0+0.03,null,false);
+  box(1.3,1.1,0.04, mat('#f7f7f5',{roughness:0.3}), 20.1,1.55,TR.z0+0.03,null,false);
+  box(1.3,0.04,0.06, mat('#9aa0a6'), 20.1,0.98,TR.z0+0.06,null,false);
   const sign=new T.Mesh(new T.PlaneGeometry(1.5,0.26),new T.MeshBasicMaterial({map:canvasTex(560,96,(g,W,H)=>{ g.fillStyle='#ffffff'; g.fillRect(0,0,W,H); g.fillStyle='#1c1e22'; g.font='800 42px Figtree, sans-serif'; g.textAlign='center'; g.textBaseline='middle'; g.fillText('SALA DE TREINAMENTO',W/2,H/2+2); })}));
   sign.position.set(OX-0.04,2.75,-13); sign.rotation.y=-Math.PI/2; scene.add(sign);
   const chairTpl=(()=>{ const g=chairParts('#2a2d33'); box(0.36,0.025,0.26, mat('#d8d6d1'), 0.26,0.72,0.12, g); box(0.03,0.26,0.03, mat('#1c1e22'), 0.26,0.6,-0.02, g); return g; })();
-  let k=0; for(const x of [16.3,17.6,18.9]) for(let i=0;i<5;i++){ const z=-14.8+i*1.5; k++; stamp(chairTpl, seatMatrix(x,z,Math.PI/2)); EXTRA_SITS.push({id:'treino'+k,x,z,ry:Math.PI/2,label:'cadeira do treinamento',extra:true}); }
+  let k=0; for(const z of [-13.3,-11.8,-10.3,-8.8]) for(const x of [16.2,17.4,18.6,19.8]){ k++; stamp(chairTpl, seatMatrix(x,z,Math.PI)); EXTRA_SITS.push({id:'treino'+k,x,z,ry:Math.PI,label:'cadeira do treinamento',extra:true}); }
   flushStamps();
   BOXES.push([OX-0.1,OX+0.25,-OZ,-13.8],[OX-0.1,OX+0.25,-12.2,OZ],[OX+0.25,TR.x1+1,TR.z1,OZ+1]);
 })();
 const SITS=Object.assign({},SEAT,Object.fromEntries(EXTRA_SITS.map(s=>[s.id,s])));
+const TREINO_PADRAO=[
+  ['Abertura da ligação','Cumprimente pelo nome, diga quem você é e o motivo da ligação em até 15 segundos. Sorria ao falar: o cliente percebe pela voz.'],
+  ['Sondagem antes de oferecer','Pergunte antes de oferecer: o que o cliente usa hoje, o que incomoda e o que seria o ideal. Quem pergunta conduz a venda.'],
+  ['Objeção: "Está caro"','Não discuta o preço, mostre o valor. Pergunte: "Caro comparado com o quê?". Mostre o parcelamento e o custo por dia.'],
+  ['Objeção: "Vou pensar"','Pergunte o que exatamente ele quer pensar: preço, prazo ou produto? Resolva essa dúvida na hora e volte ao fechamento.'],
+  ['Objeção: "Já tenho"','Ótimo sinal: ele já usa. Pergunte o que gostaria de melhorar no que tem hoje e mostre a diferença.'],
+  ['Garantia estendida','Ofereça logo depois do "sim" da venda, como proteção: "Para você ficar tranquilo, incluo a garantia de X meses por só R$ Y por mês?"'],
+  ['Fechamento','Faça a pergunta de fechamento sem medo: "Posso confirmar o seu pedido no cartão ou prefere boleto?". Depois, fique em silêncio.'],
+  ['Pós-venda','Confirme os dados, o prazo de entrega e agradeça. Cliente bem atendido compra de novo e indica.'],
+  ['Escuta ativa','Deixe o cliente terminar de falar. Repita o que ele disse com suas palavras: ele se sente entendido e confia mais.'],
+  ['Fim do dia','Lance o seu resultado no jogo antes de sair. Ele entra no ranking, nas coroas e no telão.'],
+];
+const TREINO={custom:[],apresentando:false,local:null,key:'',cardKey:'',ix:0,avisoVidro:false};
+function treinoLista(){ return TREINO.custom.map(t=>({id:t.id,titulo:t.titulo,texto:t.texto,uid:t.uid})).concat(TREINO_PADRAO.map(([titulo,texto])=>({titulo,texto}))); }
+function treinoApresentador(){ if(TREINO.apresentando) return {uid:S.uid,i:TREINO.ix};
+  for(const r of remotes.values()) if(r.treinoI!==null&&r.treinoI!==undefined&&inTraining(r.x,r.z)) return {uid:r.uid,i:r.treinoI}; return null; }
+function treinoAtual(){ const L=treinoLista(), n=L.length, ap=treinoApresentador();
+  let i= ap ? ap.i : TREINO.local!==null ? TREINO.local : Math.floor(Date.now()/20000);
+  i=((i%n)+n)%n; return {L,n,i,s:L[i],ap}; }
+function drawTreinoTV(){ const {n,i,s,ap}=treinoAtual(), key=i+':'+n+':'+(ap?ap.uid:'')+':'+s.titulo; if(key===TREINO.key) return; TREINO.key=key;
+  const g=TREINO_CANVAS.getContext('2d'), W=1024, H=576, gr=g.createLinearGradient(0,0,W,H); gr.addColorStop(0,'#23286e'); gr.addColorStop(1,'#0b0c24'); g.fillStyle=gr; g.fillRect(0,0,W,H);
+  g.fillStyle='#dc6029'; g.fillRect(0,0,W,12); g.textAlign='left';
+  g.fillStyle='rgba(255,255,255,.75)'; g.font='700 26px '+F_BODY; g.fillText('TREINAMENTO · '+(i+1)+' de '+n+(ap?' · apresentado por '+primeiroNome(ap.uid):''),48,66);
+  g.fillStyle='#ffffff'; g.font='800 58px '+F_DISP; const tl=wrap(g,s.titulo,W-96,2); tl.forEach((l,k)=>g.fillText(l,48,150+k*64));
+  g.font='500 34px '+F_BODY; g.fillStyle='rgba(255,255,255,.92)'; wrap(g,s.texto,W-96,7).forEach((l,k)=>g.fillText(l,48,150+tl.length*64+30+k*46));
+  g.fillStyle='rgba(255,255,255,.55)'; g.font='600 22px '+F_BODY; g.fillText('Sente numa cadeira para ler de perto',48,H-30);
+  TREINO_TEX.needsUpdate=true; }
+function updateTreino(){
+  drawTreinoTV();
+  const sentado=!!(P.sitting&&P.sitting.id&&P.sitting.id.startsWith('treino')), card=$('#treinoCard');
+  if(!sentado){ if(!card.hidden){ card.hidden=true; TREINO.local=null; if(TREINO.apresentando) pararApresentacao(); } }
+  else { const {n,i,s,ap}=treinoAtual(), lead=S.me&&(LIDERANCA(S.me.cargo)||S.isOwner), key=[i,n,ap&&ap.uid,TREINO.apresentando,s.titulo,lead].join('|');
+    if(card.hidden||key!==TREINO.cardKey){ TREINO.cardKey=key; card.hidden=false; card.textContent='';
+      const nav=(d)=>{ if(ap&&!TREINO.apresentando){ toast(primeiroNome(ap.uid)+' está apresentando: acompanhe pela tela.'); return; }
+        if(TREINO.apresentando){ TREINO.ix=((TREINO.ix+d)%n+n)%n; if(room) room.presence({treino:{i:TREINO.ix}}).catch(()=>{}); } else TREINO.local=i+d; };
+      const prev=el('button',{type:'button',class:'chip',text:'◀'}), next=el('button',{type:'button',class:'chip',text:'▶'});
+      prev.addEventListener('click',()=>nav(-1)); next.addEventListener('click',()=>nav(1));
+      const bar=el('div',{class:'treino-bar'},prev,el('small',{text:(i+1)+' de '+n+(ap?' · '+(ap.uid===S.uid?'você está apresentando':'apresentação de '+primeiroNome(ap.uid)):'')}),next);
+      if(lead){ const b=el('button',{type:'button',class:'chip',text:TREINO.apresentando?'Parar de apresentar':'Apresentar para a sala'});
+        b.addEventListener('click',()=>{ if(TREINO.apresentando) pararApresentacao(); else { TREINO.apresentando=true; TREINO.ix=i; if(room) room.presence({treino:{i}}).catch(()=>{}); toast('Você está apresentando: quem estiver na sala acompanha os slides que você passar.'); } TREINO.cardKey=''; });
+        const novo=el('button',{type:'button',class:'chip',text:'+ Conteúdo'}); novo.addEventListener('click',novoTreino); bar.append(b,novo);
+        if(s.id&&(s.uid===S.uid||S.isOwner)){ const del=el('button',{type:'button',class:'chip',text:'Apagar este'}); del.addEventListener('click',async()=>{ if(!confirm('Apagar este conteúdo de treinamento?')) return; try{ await Store.delTreino(s.id); }catch(e){ writeFailed(e); } }); bar.append(del); } }
+      card.append(el('small',{class:'treino-k',text:'Treinamento'}),el('b',{text:s.titulo}),el('p',{text:s.texto}),bar); } }
+  if(inGlass(P.x,P.z)){ if(!TREINO.avisoVidro){ TREINO.avisoVidro=true; toast('Sala do gerente: aqui a conversa é reservada, só quem está dentro lê.'); } } else TREINO.avisoVidro=false;
+}
+function pararApresentacao(){ TREINO.apresentando=false; if(room) room.presence({treino:null}).catch(()=>{}); TREINO.cardKey=''; }
+function novoTreino(){
+  const titulo=prompt('Título do conteúdo (ex.: Objeção "não tenho tempo")'); if(!titulo||titulo.trim().length<2) return;
+  const texto=prompt('Texto do treinamento (até 500 letras)'); if(!texto||texto.trim().length<2) return;
+  Store.addTreino(titulo.trim().slice(0,80),texto.trim().slice(0,500)).then(()=>toast('Conteúdo adicionado ao treinamento.')).catch(writeFailed);
+}
+function onTreinos(l){ TREINO.custom=(l||[]).filter(t=>t&&typeof t.titulo==='string'&&typeof t.texto==='string').map(t=>({id:t.id,uid:t.uid,titulo:t.titulo.slice(0,80),texto:t.texto.slice(0,500),ts:+t.ts||0})).sort((a,b)=>b.ts-a.ts); TREINO.key=''; TREINO.cardKey=''; }
+
+/* ---- meetings: leadership calls other leaders to the training room or the gerente's room ---- */
+const LOCAIS_REUNIAO={treino:'Sala de treinamento',gerente:'Sala do gerente'};
+function openReuniao(){
+  const b=$('#reBody'); b.textContent='';
+  const on=onlineUids(), lideres=Object.values(S.profiles).filter(p=>p.uid!==S.uid&&LIDERANCA(p.cargo)).sort((a,c)=>(on.has(c.uid)-on.has(a.uid))||a.nome.localeCompare(c.nome,'pt-BR'));
+  const sel=new Set(lideres.filter(p=>on.has(p.uid)).map(p=>p.uid));
+  const lista=el('div',{class:'gp-list'});
+  if(!lideres.length) lista.append(el('p',{class:'empty',text:'Nenhum líder cadastrado ainda.'}));
+  for(const p of lideres){ const cb=el('input',{type:'checkbox'}); cb.checked=sel.has(p.uid); cb.addEventListener('change',()=>{ cb.checked?sel.add(p.uid):sel.delete(p.uid); });
+    lista.append(el('label',{class:'gp-item'},cb,el('span',null,el('b',{text:p.nome}),el('small',{text:' · '+roleLine(p)+(on.has(p.uid)?' · online':' · offline')})))); }
+  const local=el('select',{'aria-label':'Local da reunião'},...Object.entries(LOCAIS_REUNIAO).map(([v,t])=>el('option',{value:v,text:t})));
+  const msg=el('input',{maxlength:'120',placeholder:'Assunto (opcional): ex. resultado da semana'});
+  const ok=el('button',{type:'button',class:'btn primary',text:'Chamar para reunião'});
+  ok.addEventListener('click',async()=>{ const to=[...sel]; if(!to.length){ toast('Escolha pelo menos uma pessoa.'); return; }
+    const reun={to,local:local.value,msg:msg.value.trim().slice(0,120),ts:Date.now()};
+    if(room) room.presence({reun}).catch(()=>{});
+    if(Store.mode==='sb'){ const txt=`Reunião agora na ${LOCAIS_REUNIAO[reun.local]}`+(reun.msg?`: ${reun.msg}`:'')+'. Chamado pelo jogo.';
+      for(const u of to) Store.sendMsg({de:S.uid,para:u,texto:txt,ts:Date.now()}).catch(()=>{}); }
+    hide('mReuniao'); toast(`Chamado enviado para ${to.length} pessoa(s). Indo para a ${LOCAIS_REUNIAO[reun.local]}.`);
+    const d=destinos().find(x=>x.id===reun.local); if(d) irPara(d); });
+  b.append(el('div',{class:'field'},el('span',{text:'Quem chamar (os online já vêm marcados)'}),lista),
+    el('label',{class:'field'},el('span',{text:'Onde'}),local),el('label',{class:'field'},el('span',{text:'Assunto'}),msg),ok,
+    el('p',{class:'empty',text:'Quem estiver online recebe um alerta com o botão "Ir agora". Todos recebem também uma mensagem particular.'}));
+  show('mReuniao');
+}
+function conviteReuniao(uid,reun){
+  const local=LOCAIS_REUNIAO[reun.local]?reun.local:'treino', nome=primeiroNome(uid);
+  SFX.ding(); setTimeout(()=>SFX.ding(),350); chamarNaAba('Reunião: '+nome+' chamou você');
+  const c=$('#convite'); c.textContent='';
+  const ir=el('button',{type:'button',class:'btn primary',text:'Ir agora'}), fechar=el('button',{type:'button',class:'btn',text:'Depois'});
+  ir.addEventListener('click',()=>{ c.hidden=true; const d=destinos().find(x=>x.id===local); if(d) irPara(d); });
+  fechar.addEventListener('click',()=>{ c.hidden=true; });
+  c.append(el('b',{text:`${nome} chamou você para uma reunião na ${LOCAIS_REUNIAO[local]}`}),reun.msg?el('p',{text:String(reun.msg).slice(0,120)}):'',el('div',{class:'msg-actions'},ir,fechar));
+  c.hidden=false;
+}
 // exit door + sign
 box(0.12,2.35,0.25,frameM,10.66,1.17,OZ,null,false); box(0.12,2.35,0.25,frameM,12.34,1.17,OZ,null,false); box(1.8,0.12,0.25,frameM,11.5,2.35,OZ,null,false);
 const exitDoor=box(0.78,2.25,0.05,mat('#4a5866'),11.1,1.12,OZ+0.05,null,false); exitDoor.rotation.y=0.55;
@@ -1811,7 +1922,11 @@ function syncRemotes(){
     r.uid=uid; r.tx=clamp(pz.x,-OX,OX); r.tz=clamp(pz.z,-OZ,OZ); r.try=+pz.ry||0; r.s=SITS[pz.s]?pz.s:null; r.m=!!pz.m; r.run=!!pz.r; r.h=!!pz.h;
     { const st=pz.st&&typeof pz.st==='object'&&['ok','pausa','almoco'].includes(pz.st.k)?{k:pz.st.k,ate:/^\d{2}:\d{2}$/.test(pz.st.ate||'')?pz.st.ate:''}:{k:'ok'};
       S.liveStatus[uid]=st; const tx=statusText(st); if(r.stText!==tx){ r.stText=tx; setStatusSprite(r.av,tx); } }
-    if(typeof pz.fala==='string' && pz.falaTs!==r.falaTs){ const first=r.falaTs===undefined; r.falaTs=pz.falaTs; if(!first||Date.now()-(+pz.falaTs||0)<8000){ const t=pz.fala.slice(0,160); setBubble(r.av,t); hearChat(uid,t,['todos','sala','perto'].includes(pz.falaTo)?pz.falaTo:'perto',r.tx,r.tz); } }
+    if(typeof pz.fala==='string' && pz.falaTs!==r.falaTs){ const first=r.falaTs===undefined; r.falaTs=pz.falaTs; if(!first||Date.now()-(+pz.falaTs||0)<8000){ const t=pz.fala.slice(0,160), to=['todos','sala','vidro','perto'].includes(pz.falaTo)?pz.falaTo:'perto';
+      const ouve=to==='vidro'?inGlass(P.x,P.z):to==='sala'?inTraining(P.x,P.z):true; if(ouve) setBubble(r.av,t); hearChat(uid,t,to,r.tx,r.tz); } }
+    r.treinoI=(pz.treino&&Number.isInteger(pz.treino.i))?pz.treino.i:null;
+    if(pz.reun && typeof pz.reun==='object' && pz.reun.ts!==r.reunTs){ const old=r.reunTs===undefined&&Date.now()-(+pz.reun.ts||0)>120000; r.reunTs=pz.reun.ts;
+      if(!old && Array.isArray(pz.reun.to) && pz.reun.to.includes(S.uid)) conviteReuniao(uid,pz.reun); }
     if(typeof pz.emo==='string' && pz.emoTs!==r.emoTs){ const first=fresh&&Date.now()-(+pz.emoTs||0)>8000; r.emoTs=pz.emoTs;
       const left=EMOS.senha-(Date.now()-(+pz.emoTs||0));
       if(pz.emo==='baixar'){ if(r.av.emo&&r.av.emo.kind==='senha') r.av.emo=null; }
@@ -2005,7 +2120,7 @@ function destinos(){
     list.push({id:'sup-'+p.uid,nome:`Supervisor · ${TEAM[p.time]?TEAM[p.time].curto:''} (${nome})`,mine:p.time===myTeam,lane:nearLane(bz),lx:bx,pts:[[bx,bz]],face:sup.ry,
       arrive:()=>say(`Oi, ${nome}!`)}); }
   list.push({id:'sino',nome:'Tocar o sino',lane:nearLane(SINO.z),lx:10,pts:[[SINO.spot.x,SINO.spot.z]],face:Math.PI/2,arrive:tocarSino});
-  list.push({id:'treino',nome:'Sala de treinamento',lane:-8.8,lx:10,pts:[[10,-13],[15.4,-13]],face:Math.PI/2});
+  list.push({id:'treino',nome:'Sala de treinamento',lane:-8.8,lx:10,pts:[[10,-13],[15.2,-13],[15.2,-12.4]],face:Math.PI});
   list.push({id:'gerente',nome:'Sala do gerente',lane:-8.8,lx:GX,pts:[[GX,-10.6],[GX,-12.3]],face:Math.PI});
   list.push({id:'lider',nome:'Mesa do líder de vendas',lane:-8.8,lx:LX,pts:[[LX,-12.2]],face:Math.PI});
   list.push({id:'telao',nome:'Telão',lane:13.1,lx:-3,pts:[[-3,13.6]],face:0,arrive:openTelao});
@@ -2036,7 +2151,8 @@ function sitOccupant(id){ // who is sitting in this spot right now (a player onl
 function sitPath(st){ // a walk-to destination that ends sitting in this spot
   const sit=()=>{ P.sitting=st; };
   const bx=st.x-Math.sin(st.ry)*0.8, bz=st.z-Math.cos(st.ry)*0.8, near=z=>LANES_Z.reduce((a,b)=>Math.abs(b-z)<Math.abs(a-z)?b:a);
-  if(st.id.startsWith('treino')) return {lane:-8.8,lx:10,pts:[[10,-13],[15.4,-13],[15.4,st.z+0.75],[bx,st.z+0.75],[bx,st.z],[st.x,st.z]],arrive:sit};
+  if(st.id.startsWith('treino')) return {lane:-8.8,lx:10,pts:[[10,-13],[15.2,-13],[15.2,st.z+0.75],[st.x,st.z+0.75],[st.x,st.z]],arrive:sit};
+  if(st.id.startsWith('vidro')) return {lane:-8.8,lx:GX,pts:[[GX,-10.6],[st.x,-12.2],[st.x,st.z]],arrive:sit};
   if(st.id.startsWith('sofa')) return {lane:13.1,lx:-9.3,pts:[[-9.3,14.6],[st.x,14.6],[st.x,st.z]],arrive:sit};
   if(st.id.startsWith('banco')) return {lane:-8.8,lx:8.2,pts:[[8.2,-12.4],[st.x-Math.sin(st.ry)*0.6,st.z-Math.cos(st.ry)*0.6],[st.x,st.z]],arrive:sit};
   if(st.role==='gerente') return {lane:-8.8,lx:GX,pts:[[GX,-10.6],[GX+1.9,-12.3],[GX+1.9,st.z],[st.x,st.z]],arrive:sit};
@@ -2172,22 +2288,23 @@ function updateOnline(){
   $('#onCount').textContent = !room ? (Store.mode==='local'?'modo local (só este navegador)':'offline') : n<=1 ? 'só você online' : `${n} online agora`;
 }
 const CHAT={mode:'perto',log:[],hidden:false};
-const MODE_LABEL={perto:'Perto',todos:'Para todos',sala:'Sala de treinamento'};
-function chatMode(){ const inT=inTraining(P.x,P.z); return CHAT.mode==='todos'?'todos':(inT?'sala':'perto'); }
+const MODE_LABEL={perto:'Perto',todos:'Para todos',sala:'Sala de treinamento',vidro:'Sala do gerente'};
+function chatMode(){ if(CHAT.mode==='todos') return 'todos'; return inTraining(P.x,P.z)?'sala':inGlass(P.x,P.z)?'vidro':'perto'; }
 function refreshChatMode(){ const m=chatMode(), b=$('#chatMode'), i=$('#chatIn'); if(b.dataset.m===m) return; b.dataset.m=m; b.textContent=MODE_LABEL[m];
-  i.placeholder=m==='todos'?'Recado para todos do escritório (Enter)':m==='sala'?'Mensagem para a sala de treinamento (Enter)':'Fale com quem está perto (Enter)'; }
+  i.placeholder=m==='todos'?'Recado para todos do escritório (Enter)':m==='sala'?'Mensagem para a sala de treinamento (Enter)':m==='vidro'?'Conversa reservada: só quem está na sala do gerente lê (Enter)':'Fale com quem está perto (Enter)'; }
 $('#chatMode').addEventListener('click',()=>{ CHAT.mode=CHAT.mode==='todos'?'perto':'todos'; refreshChatMode(); $('#chatIn').focus(); });
 $('#clHide').addEventListener('click',()=>{ CHAT.hidden=true; $('#chatLog').hidden=true; });
 function addChat(uid,texto,to){
   CHAT.log.push({uid,texto,to,ts:Date.now()}); if(CHAT.log.length>40) CHAT.log.shift();
   const list=$('#clList'); list.textContent='';
-  for(const m of CHAT.log){ list.append(el('div',null,el('b',{text:(m.uid===S.uid?'Você':nomeDe(m.uid))+': '}),m.texto,el('small',{text:m.to==='todos'?'para todos':m.to==='sala'?'sala':'perto'}))); }
-  list.scrollTop=list.scrollHeight; $('#clTitle').textContent=inTraining(P.x,P.z)?'Conversa · sala de treinamento':'Conversa';
+  for(const m of CHAT.log){ list.append(el('div',null,el('b',{text:(m.uid===S.uid?'Você':nomeDe(m.uid))+': '}),m.texto,el('small',{text:m.to==='todos'?'para todos':m.to==='sala'?'sala':m.to==='vidro'?'sala do gerente':'perto'}))); }
+  list.scrollTop=list.scrollHeight; $('#clTitle').textContent=inTraining(P.x,P.z)?'Conversa · sala de treinamento':inGlass(P.x,P.z)?'Conversa · sala do gerente (reservada)':'Conversa';
   if(!CHAT.hidden || to!=='perto'){ CHAT.hidden=false; $('#chatLog').hidden=false; }
 }
 function hearChat(uid,texto,to,x,z){ if(to==='todos') SFX.ding(); else SFX.pop();
   if(to==='todos'){ addChat(uid,texto,to); toast(nomeDe(uid)+' para todos: '+texto); }
   else if(to==='sala'){ if(inTraining(P.x,P.z)) addChat(uid,texto,to); }
+  else if(to==='vidro'){ if(inGlass(P.x,P.z)) addChat(uid,texto,to); }
   else if(Math.hypot(P.x-x,P.z-z)<10) addChat(uid,texto,to);
 }
 function say(text){
@@ -2246,7 +2363,7 @@ function computeInteraction(){
   for(const s of SEATS){ if(Math.hypot(P.x-s.x,P.z-s.z)<0.8){ const o=owners[s.id]; if(o && o!==S.uid) return {label:`Cadeira de ${nomeDe(o)}`,act:()=>toast(`${nomeDe(o)} · ${roleLine(S.profiles[o])}`)}; } }
   if(Math.hypot(P.x-SINO.spot.x,P.z-SINO.spot.z)<1.5) return {label:'Tocar o sino',act:tocarSino};
   if(Math.hypot(P.x-KITCHEN.agua.x,P.z-KITCHEN.agua.z)<1.3) return {label:'Beber água',act:()=>{ P.ry=Math.PI; emote('beber'); }};
-  for(const s of EXTRA_SITS) if(Math.hypot(P.x-s.x,P.z-s.z)<0.95) return {label:`Sentar no ${s.label}`,act:()=>{ P.sitting=s; }};
+  for(const s of EXTRA_SITS) if(Math.hypot(P.x-s.x,P.z-s.z)<0.95) return {label:`Sentar (${s.label})`,act:()=>{ P.sitting=s; }};
   if(Math.hypot(P.x-KITCHEN.cafe.x,P.z-KITCHEN.cafe.z)<1.4 || Math.hypot(P.x-6.6,P.z+13.9)<1.2) return {label:'Tomar café',act:()=>{ emote('cafe'); }};
   let near=null, nd=1.9;
   const consider=(uid,x,z)=>{ const d=Math.hypot(P.x-x,P.z-z); if(d<nd && S.profiles[uid]){ nd=d; near={uid,x,z}; } };
@@ -2401,7 +2518,7 @@ function loop(now){
     pose(r.av,t,dt,{sitting:!!r.s,relax:!!(r.s&&SITS[r.s].extra),moving:(r.m||r.walkD>0.3)&&!r.s,run:r.run});
   }
   if(P.av) pose(P.av,t,dt,{sitting:!!P.sitting,relax:!!(P.sitting&&P.sitting.extra),moving:P.moving,run:P.run});
-  updateNPCs(dt,t,now); updateCleaner(dt,t,now); updateZelador(dt,t,now); SINO.update(dt); RELOGIO.draw(); updateDoor(dt); updateBursts(dt); updateFans(t,dt); BALLOONS.update(t); updateCamera(dt,t); sendPresence(now);
+  updateNPCs(dt,t,now); updateCleaner(dt,t,now); updateZelador(dt,t,now); SINO.update(dt); RELOGIO.draw(); if(S.playing) updateTreino(); else drawTreinoTV(); updateDoor(dt); updateBursts(dt); updateFans(t,dt); BALLOONS.update(t); updateCamera(dt,t); sendPresence(now);
   scrT+=dt; if(scrT>0.45){ scrT=0; SCREENS.forEach(s=>drawScreen(s,t)); }
   drawTicker(dt); drawTelao(); if(S.playing) drawMinimap(dt);
   for(const sp of PLATES){ sp.visible=Math.abs(sp.position.x-P.x)<9 && Math.abs(sp.position.z-P.z)<9; }
@@ -2463,7 +2580,7 @@ document.querySelectorAll('[data-emo]').forEach(b=>b.addEventListener('click',()
 /* ======================================================================
    UI: modals
    ====================================================================== */
-const MODALS=['mMetas','mDia','mTelao','mStatus','mIr','mMsg','mEnquete','mPaineis','mWizard'];
+const MODALS=['mMetas','mDia','mTelao','mStatus','mIr','mMsg','mEnquete','mReuniao','mPaineis','mWizard'];
 const anyModal=()=>MODALS.some(id=>!$('#'+id).hidden);
 function show(id){ $('#'+id).hidden=false; keys.clear(); }
 function hide(id){ $('#'+id).hidden=true; }
@@ -2472,6 +2589,7 @@ document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',
 function updateMeChip(){
   const me=S.me; if(!me){ $('#meChip').textContent=''; return; }
   $('#btnSenha').hidden=me.cargo!=='vendedor';
+  $('#btnReuniao').hidden=!(LIDERANCA(me.cargo)||S.isOwner);
   const seat=me.seat&&SEAT[me.seat]; $('#meChip').textContent=`${me.nome} · ${roleLine(me)}${seat&&me.cargo==='vendedor'?' · cadeira '+seat.label:''}`;
 }
 
@@ -2825,6 +2943,7 @@ $('#btnResultado').addEventListener('click',()=>openDia(false));
 $('#btnPaineis').addEventListener('click',openPaineis);
 $('#btnTelao').addEventListener('click',openTelao);
 $('#btnEnquete').addEventListener('click',openEnquete);
+$('#btnReuniao').addEventListener('click',openReuniao);
 $('#btnIr').addEventListener('click',openIr);
 $('#minimap').addEventListener('click',e=>{ const c=$('#minimap'), r=c.getBoundingClientRect(); const x=MM.x0+(e.clientX-r.left)/r.width*(MM.x1-MM.x0), z=MM.z0+(e.clientY-r.top)/r.height*(MM.z1-MM.z0);
   if(x>OX) irPara({lane:-8.8,lx:10,pts:[[10,-13],[15.4,-13],[clamp(x,15,20.5),clamp(z,-15.5,-7.5)]]}); else { const lz=LANES_Z.reduce((a,b)=>Math.abs(b-z)<Math.abs(a-z)?b:a); irPara({lane:lz,lx:clamp(x,-12.4,10),pts:[]}); } });
@@ -3164,7 +3283,7 @@ async function boot(){
   Store.watchMarca(m=>applyMarca(m));
   Store.watchMsgs(onMyMsgs);
   Store.watchGrupos(onGrupos);
-  Store.watchEnquetes(onEnquetes); Store.watchVotos(onVotos);
+  Store.watchEnquetes(onEnquetes); Store.watchVotos(onVotos); Store.watchTreinos(onTreinos);
   Store.watchMural(m=>{ S.mural=(m&&typeof m==='object')?m:null; refreshPanels(); });
   Store.watchTelao(l=>{ const tipos=['campanha','noticia','aviso'];
     S.telao=(l||[]).filter(r=>r&&tipos.includes(r.tipo)&&typeof r.titulo==='string').map(r=>({id:r.id,tipo:r.tipo,titulo:r.titulo.slice(0,80),texto:String(r.texto||'').slice(0,300),
