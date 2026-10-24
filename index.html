@@ -179,6 +179,12 @@ td.r,th.r{text-align:right}
 .ir-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .ir-grid .card{font-weight:700}
 .ir-mine{border-color:var(--amber)!important}
+.hbtn-ico{min-width:40px;padding-left:10px;padding-right:10px;font-size:16px}
+.musica-painel{position:fixed;z-index:6;left:max(16px,env(safe-area-inset-left,0px));top:calc(env(safe-area-inset-top,0px) + 136px);display:flex;gap:8px;align-items:center;background:rgba(11,16,21,.86);border:1px solid var(--line);border-radius:12px;padding:6px 10px;font-size:13px;max-width:calc(100% - 32px)}
+.musica-painel input[type=range]{width:90px}.musica-painel .eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px}.musica-painel .eq i{width:3px;background:var(--amber);animation:eq .9s ease-in-out infinite alternate}
+.musica-painel .eq i:nth-child(2){animation-delay:.3s}.musica-painel .eq i:nth-child(3){animation-delay:.6s}@keyframes eq{from{height:3px}to{height:14px}}
+@media (prefers-reduced-motion:reduce){.musica-painel .eq i{animation:none;height:8px}}
+@media (max-width:640px){.musica-painel{top:calc(env(safe-area-inset-top,0px) + 160px)}}
 .missoes{position:fixed;z-index:6;left:max(16px,env(safe-area-inset-left,0px));top:calc(env(safe-area-inset-top,0px) + 96px);max-width:min(300px,calc(100% - 32px));background:rgba(11,16,21,.86);border:1px solid var(--line);border-radius:12px;padding:6px 10px;font-size:13px}
 .missoes.feito{border-color:#34c472}.miss-head{all:unset;cursor:pointer;display:flex;gap:4px;align-items:baseline}.miss-head:focus-visible{outline:2px solid var(--amber)}
 .missoes ul{list-style:none;margin:6px 0 4px;padding:0;display:grid;gap:4px}.missoes li{display:flex;gap:6px;color:var(--muted)}.missoes li.ok{color:#7ee2a4}.miss-dica{color:var(--muted)}
@@ -340,7 +346,8 @@ td.r,th.r{text-align:right}
     <button class="hbtn" id="btnReuniao" type="button" hidden>Reunião</button>
     <button class="hbtn" id="btnMsg" type="button">Mensagens <span class="badge" id="msgBadge" hidden></span></button>
     <button class="hbtn" id="btnPerfil" type="button">Meu perfil</button>
-    <button class="hbtn" id="btnSom" type="button" aria-pressed="true">Som ligado</button>
+    <button class="hbtn hbtn-ico" id="btnAmb" type="button" hidden aria-label="Ambiente: luzes e música" title="Ambiente: luzes e música">🎛️</button>
+    <button class="hbtn hbtn-ico" id="btnSom" type="button" aria-pressed="true" aria-label="Efeitos sonoros ligados" title="Efeitos sonoros">🔊</button>
   </div>
 </div>
 
@@ -381,6 +388,7 @@ td.r,th.r{text-align:right}
 <div id="vozPainel" class="voz-painel" hidden></div>
 <div id="aprovPainel" class="aprov-painel" role="alert" hidden></div>
 <div id="missoes" class="missoes" hidden></div>
+<div id="musicaPainel" class="musica-painel" hidden></div>
 <div id="aniverPainel" class="aprov-painel aniver-painel" role="status" hidden></div>
 <div id="pausaPainel" class="pausa-painel" role="status" hidden><div><b id="pzTit"></b><small id="pzSub"></small></div><button class="btn primary" type="button" id="pzVoltar">Voltar ao trabalho</button></div>
 <div id="onlinePainel" class="online-painel" hidden><div class="op-h"><b id="opTit">Online agora</b><button class="x" type="button" id="opFechar" aria-label="Fechar">×</button></div><div id="opLista"></div></div>
@@ -446,6 +454,12 @@ td.r,th.r{text-align:right}
   <div class="modal" role="dialog" aria-labelledby="muTitle">
     <div class="mhead"><div><h2 id="muTitle">Mural da equipe</h2><p>As fotos aparecem na parede da recepção, ao lado da porta.</p></div><button class="x" type="button" data-close="mMural" aria-label="Fechar">×</button></div>
     <div class="mbody" id="muBody"></div>
+  </div>
+</div>
+<div class="modal-wrap" id="mAmb" hidden>
+  <div class="modal sm" role="dialog" aria-labelledby="ambTitle">
+    <div class="mhead"><div><h2 id="ambTitle">Ambiente do escritório</h2><p>Luzes e música para todo mundo. Só o administrador muda.</p></div><button class="x" type="button" data-close="mAmb" aria-label="Fechar">×</button></div>
+    <div class="mbody" id="ambBody"></div>
   </div>
 </div>
 <div class="modal-wrap" id="mPonto" hidden>
@@ -769,6 +783,9 @@ const Store = {
   // which automatic telão screens are switched off (shared, set by leadership)
   watchTelaoCfg(cb){ if(this.mode==='sb') return this.sbLive('mural',{},r=>r,l=>{ const g=l.find(r=>r.id==='telao_cfg'); cb(g?g.data:null); }); const f=()=>cb(this.local('telao_cfg',null)); (this.localCbs.telao_cfg=this.localCbs.telao_cfg||[]).push(f); f(); },
   saveTelaoCfg(c){ if(this.mode==='sb') return this.serial('telao_cfg',()=>this.sbDo(this.sb.from('mural').upsert({id:'telao_cfg',data:c}))); lsSet('esc_telao_cfg',JSON.stringify(c)); this.localEmit('telao_cfg'); return Promise.resolve(); },
+  // ambience set by the administrator: lights and music, the same for everyone
+  watchAmbiente(cb){ if(this.mode==='sb') return this.sbLive('mural',{},r=>r,l=>{ const g=l.find(r=>r.id==='ambiente'); cb(g?g.data:null); }); const f=()=>cb(this.local('ambiente',null)); (this.localCbs.ambiente=this.localCbs.ambiente||[]).push(f); f(); },
+  saveAmbiente(a){ if(this.mode==='sb') return this.serial('ambiente',()=>this.sbDo(this.sb.from('mural').upsert({id:'ambiente',data:a}))); lsSet('esc_ambiente',JSON.stringify(a)); this.localEmit('ambiente'); return Promise.resolve(); },
   saveMarca(m){
     if(this.mode==='sb') return this.serial('marca',()=>this.sbDo(this.sb.from('mural').upsert({id:'marca',data:m})));
     if(this.mode==='db') return this.serial('marca',()=>this.db.doc('mural/marca').set(m));
@@ -915,8 +932,7 @@ scene.background=new T.Color('#0b1015');
 scene.fog=new T.Fog('#0b1015',38,70);
 const camera=new T.PerspectiveCamera(58,1,0.1,140);
 
-scene.add(new T.HemisphereLight('#eef2f8','#4a443c',0.7));
-scene.add(new T.AmbientLight('#ffffff',0.28));
+const HEMI=new T.HemisphereLight('#eef2f8','#4a443c',0.7), AMBL=new T.AmbientLight('#ffffff',0.28), LED_M=new T.MeshBasicMaterial({color:'#ffffff'}); scene.add(HEMI); scene.add(AMBL);
 const sun=new T.DirectionalLight('#fff4e2',0.62); sun.position.set(10,18,6); sun.castShadow=true;
 sun.shadow.mapSize.set(2048,2048); Object.assign(sun.shadow.camera,{left:-22,right:22,top:22,bottom:-22,near:1,far:60}); sun.shadow.bias=-0.0008;
 scene.add(sun);
@@ -946,7 +962,7 @@ tileTex.wrapS=tileTex.wrapT=T.RepeatWrapping; tileTex.repeat.set(OX*2/1.25,(OZ+O
 const ceil=new T.Mesh(new T.PlaneGeometry(OX*2,OZ+OZB),new T.MeshStandardMaterial({map:tileTex,roughness:0.95})); ceil.rotation.x=Math.PI/2; ceil.position.set(0,3.4,BZ/2); scene.add(ceil);
 (()=>{ const strips=[], spk=[];
   for(let x=-12.6;x<=12.6;x+=2.8) for(let z=-15;z<=15+BZ;z+=2.5){ strips.push(seatMatrix(x+((Math.round(z/2.5))%2)*1.4,z,0).setPosition(x+((Math.round(z/2.5))%2)*1.4,3.385,z)); spk.push(new T.Matrix4().makeTranslation(x+0.7,3.32,z+1.25)); }
-  const sm=new T.InstancedMesh(new T.BoxGeometry(1.5,0.025,0.07),new T.MeshBasicMaterial({color:'#ffffff'}),strips.length); strips.forEach((m,i)=>sm.setMatrixAt(i,m)); scene.add(sm);
+  const sm=new T.InstancedMesh(new T.BoxGeometry(1.5,0.025,0.07),LED_M,strips.length); strips.forEach((m,i)=>sm.setMatrixAt(i,m)); scene.add(sm);
   const km=new T.InstancedMesh(new T.BoxGeometry(0.14,0.14,0.14),mat('#141414'),spk.length); spk.forEach((m,i)=>km.setMatrixAt(i,m)); scene.add(km); })();
 
 // Walls: long blue side wall, orange end wall (glass room side), light walls elsewhere
@@ -2931,6 +2947,7 @@ function computeInteraction(){
   if(Math.hypot(P.x-SINO.spot.x,P.z-SINO.spot.z)<1.5) return {label:'Tocar o sino',act:tocarSino};
   if(Math.hypot(P.x-KITCHEN.agua.x,P.z-KITCHEN.agua.z)<1.3) return {label:'Beber água',act:()=>{ P.ry=Math.PI; emote('beber'); }};
   if(Math.hypot(P.x-ENT.ponto.x,P.z-ENT.ponto.z)<1.2) return {label:'Bater ponto',act:openPonto};
+  if(Math.hypot(P.x-QUADRO.spot.x,P.z-QUADRO.spot.z)<1.2) return S.isOwner?{label:S.amb.luz==='off'?'Acender as luzes':'Apagar as luzes',act:alternarLuz}:{label:'Quadro de luz',act:()=>toast('Só o administrador liga e desliga as luzes.')};
   if(Math.hypot(P.x-MURAL.spot.x,P.z-MURAL.spot.z)<1.9) return {label:'Ver mural de fotos',act:openMural};
   if(Math.hypot(P.x-ENT.pebolim.x,P.z-ENT.pebolim.z)<1.5) return {label:'Jogar pebolim',act:jogarPebolim};
   for(const s of EXTRA_SITS) if(Math.hypot(P.x-s.x,P.z-s.z)<0.95) return {label:`Sentar (${s.label})`,act:()=>{ P.sitting=s; }};
@@ -3090,7 +3107,7 @@ function loop(now){
     pose(r.av,t,dt,{sitting:!!r.s,relax:!!(r.s&&SITS[r.s].extra),moving:(r.m||r.walkD>0.3)&&!r.s,run:r.run});
   }
   if(P.av) pose(P.av,t,dt,{sitting:!!P.sitting,relax:!!(P.sitting&&P.sitting.extra),moving:P.moving,run:P.run});
-  updateNPCs(dt,t,now); PODIO.update(t,dt); updateCleaner(dt,t,now); updateZelador(dt,t,now); SINO.update(dt); RELOGIO.draw(); ENT.update(t,dt); if(S.playing) updateTreino(); else drawTreinoTV(); updateDoor(dt); updateBursts(dt); updateFans(t,dt); BALLOONS.update(t); updateCamera(dt,t); sendPresence(now);
+  updateNPCs(dt,t,now); PODIO.update(t,dt); LUZ.update(dt); updateCleaner(dt,t,now); updateZelador(dt,t,now); SINO.update(dt); RELOGIO.draw(); ENT.update(t,dt); if(S.playing) updateTreino(); else drawTreinoTV(); updateDoor(dt); updateBursts(dt); updateFans(t,dt); BALLOONS.update(t); updateCamera(dt,t); sendPresence(now);
   scrT+=dt; if(scrT>0.45){ scrT=0; SCREENS.forEach(s=>drawScreen(s,t)); }
   drawTicker(dt); drawTelao(); if(S.playing) drawMinimap(dt);
   for(const sp of PLATES){ sp.visible=Math.abs(sp.position.x-P.x)<9 && Math.abs(sp.position.z-P.z)<9; }
@@ -3154,7 +3171,7 @@ $('#btnCafe').addEventListener('click',e=>{ e.stopPropagation(); convidarCafe();
 /* ======================================================================
    UI: modals
    ====================================================================== */
-const MODALS=['mAguarda','mMural','mPonto','mMetas','mDia','mTelao','mStatus','mIr','mMsg','mEnquete','mReuniao','mPaineis','mWizard'];
+const MODALS=['mAguarda','mAmb','mMural','mPonto','mMetas','mDia','mTelao','mStatus','mIr','mMsg','mEnquete','mReuniao','mPaineis','mWizard'];
 const anyModal=()=>MODALS.some(id=>!$('#'+id).hidden);
 function show(id){ $('#'+id).hidden=false; keys.clear(); }
 function hide(id){ $('#'+id).hidden=true; }
@@ -3163,7 +3180,7 @@ document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',
 function updateMeChip(){
   const me=S.me; if(!me){ $('#meChip').textContent=''; return; }
   $('#btnSenha').hidden=me.cargo!=='vendedor';
-  $('#btnReuniao').hidden=!podeChamarReuniao(); renderAprovPainel();
+  $('#btnReuniao').hidden=!podeChamarReuniao(); $('#btnAmb').hidden=!S.isOwner; renderAprovPainel();
   const seat=me.seat&&SEAT[me.seat]; $('#meChip').textContent=`${me.nome} · ${roleLine(me)}${seat&&me.cargo==='vendedor'?' · cadeira '+seat.label:''}`;
 }
 
@@ -3615,8 +3632,10 @@ $('#btnIr').addEventListener('click',openIr);
 $('#minimap').addEventListener('click',e=>{ const c=$('#minimap'), r=c.getBoundingClientRect(); const x=MM.x0+(e.clientX-r.left)/r.width*(MM.x1-MM.x0), z=MM.z0+(e.clientY-r.top)/r.height*(MM.z1-MM.z0);
   if(z>OZB) irPara({ent:true,lane:(13.1+BZ),lx:11.5,pts:[[11.5,15.2+BZ],[clamp(x,ENT.x0+0.4,ENT.x1-0.4),clamp(z,OZB+0.5,ENT.z1-0.4)]]});
   else if(x>OX) irPara({lane:-8.8,lx:10,pts:[[10,-13],[15.4,-13],[clamp(x,15,20.5),clamp(z,-15.5,-7.5)]]}); else { const lz=LANES_Z.reduce((a,b)=>Math.abs(b-z)<Math.abs(a-z)?b:a); irPara({lane:lz,lx:clamp(x,-12.4,10),pts:[]}); } });
-$('#btnSom').addEventListener('click',()=>{ const on=SFX.toggle(); $('#btnSom').textContent=on?'Som ligado':'Som desligado'; $('#btnSom').setAttribute('aria-pressed',String(on)); });
-if(!SFX.on){ $('#btnSom').textContent='Som desligado'; $('#btnSom').setAttribute('aria-pressed','false'); }
+$('#btnAmb').addEventListener('click',openAmbiente);
+const somBtn=on=>{ const b=$('#btnSom'); b.textContent=on?'🔊':'🔇'; b.setAttribute('aria-pressed',String(on)); b.setAttribute('aria-label',on?'Efeitos sonoros ligados':'Efeitos sonoros desligados'); };
+$('#btnSom').addEventListener('click',()=>{ const on=SFX.toggle(); somBtn(on); toast(on?'Efeitos sonoros ligados.':'Efeitos sonoros desligados.'); });
+if(!SFX.on) somBtn(false);
 document.addEventListener('click',e=>{ if(e.target.closest&&e.target.closest('.hbtn,.chip,.card,.btn,.emo,.seat')) SFX.click(); });
 $('#btnStatus').addEventListener('click',openStatus);
 $('#btnMsg').addEventListener('click',()=>openMsgs());
@@ -4034,6 +4053,96 @@ function renderMural(){
     grid.append(it); }
   b.append(grid);
 }
+/* ---- ambience: the administrator switches the lights off and plays music for everyone ---- */
+S.amb={luz:'on',musica:null};
+// light switch board on the back wall, beside the exit door (office side)
+const QUADRO=(()=>{ const g=new T.Group(); g.position.set(9.4,1.35,OZB-0.02); g.rotation.y=Math.PI; scene.add(g);
+  box(0.62,0.46,0.05,mat('#d9dbde',{roughness:0.6}),0,0,0.025,g,false);
+  const placa=new T.Mesh(new T.PlaneGeometry(0.56,0.1),new T.MeshBasicMaterial({map:canvasTex(320,58,(c,w,h)=>{ c.fillStyle='#1c1e22'; c.fillRect(0,0,w,h); c.fillStyle='#ffffff'; c.font='800 34px '+F_BODY; c.textAlign='center'; c.fillText('QUADRO DE LUZ',w/2,42); })}));
+  placa.position.set(0,0.16,0.052); g.add(placa);
+  const alavancas=[], leds=[]; for(const x of [-0.17,0,0.17]){ box(0.1,0.18,0.02,mat('#2a2d31'),x,-0.05,0.06,g,false);
+    const a=box(0.05,0.08,0.04,mat('#f2f2ef'),x,-0.01,0.08,g,false); alavancas.push(a); const l=new T.Mesh(new T.SphereGeometry(0.012,8,6),new T.MeshBasicMaterial({color:'#34c472'})); l.position.set(x,-0.17,0.06); g.add(l); leds.push(l); }
+  return {spot:{x:9.4,z:OZB-1.0},sync(on){ alavancas.forEach(a=>{ a.position.y=on?-0.01:-0.09; }); leds.forEach(l=>l.material.color.set(on?'#34c472':'#ff4d42')); }};
+})();
+const LUZ={k:1,alvo:1,update(dt){ if(Math.abs(this.k-this.alvo)<0.001) return; this.k+=(this.alvo-this.k)*Math.min(1,dt*2.5);
+  HEMI.intensity=0.7*this.k+0.06; AMBL.intensity=0.28*this.k+0.05; sun.intensity=0.62*this.k+0.02; LED_M.color.setScalar(0.22+0.78*this.k); }};
+const MUSICA=(()=>{
+  const FAIXAS={
+    lofi:{nome:'Lo-fi tranquilo',bpm:78,acordes:[[57,60,64,67],[50,53,57,60],[55,59,62,65],[48,52,55,59]],baixo:[45,38,43,36]},
+    animada:{nome:'Animada',bpm:116,acordes:[[60,64,67],[55,59,62],[57,60,64],[53,57,60]],baixo:[36,43,45,41]},
+    relax:{nome:'Relax',bpm:64,acordes:[[60,64,67,71],[57,60,64,67],[53,57,60,64],[55,59,62,65]],baixo:[48,45,41,43]},
+    festa:{nome:'Festa',bpm:124,acordes:[[57,60,64],[53,57,60],[60,64,67],[55,59,62]],baixo:[45,41,48,43]}};
+  let ctx=null, out=null, NB=null, timer=null, atual=null, ts=0, nextT=0, step=0, radio=null;
+  let vol=0.5, mudo=false; try{ const v=localStorage.getItem('esc_mus_vol'); if(v!==null) vol=+v; mudo=localStorage.getItem('esc_mus_mudo')==='1'; }catch(e){}
+  const hz=m=>440*Math.pow(2,(m-69)/12);
+  const ganho=()=>mudo?0:vol*0.32;
+  const iniciar=()=>{ if(ctx) return true; try{ ctx=new (window.AudioContext||window.webkitAudioContext)(); out=ctx.createGain(); out.gain.value=ganho(); out.connect(ctx.destination);
+    const b=ctx.createBuffer(1,ctx.sampleRate,ctx.sampleRate), d=b.getChannelData(0); for(let i=0;i<d.length;i++) d[i]=Math.random()*2-1; NB=b; return true; }catch(e){ return false; } };
+  const nota=(f,t,dur,tipo,v,corte)=>{ const o=ctx.createOscillator(), g=ctx.createGain(), fl=ctx.createBiquadFilter(); o.type=tipo; o.frequency.value=f; fl.type='lowpass'; fl.frequency.value=corte||2000;
+    g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(v,t+Math.min(0.06,dur*0.2)); g.gain.exponentialRampToValueAtTime(0.0001,t+dur); o.connect(fl); fl.connect(g); g.connect(out); o.start(t); o.stop(t+dur+0.05); };
+  const kick=(t,v)=>{ const o=ctx.createOscillator(), g=ctx.createGain(); o.frequency.setValueAtTime(140,t); o.frequency.exponentialRampToValueAtTime(42,t+0.16); g.gain.setValueAtTime(v,t); g.gain.exponentialRampToValueAtTime(0.0001,t+0.3); o.connect(g); g.connect(out); o.start(t); o.stop(t+0.32); };
+  const ruido=(t,dur,freq,v,tipo)=>{ const src=ctx.createBufferSource(), fl=ctx.createBiquadFilter(), g=ctx.createGain(); src.buffer=NB; fl.type=tipo||'highpass'; fl.frequency.value=freq; g.gain.setValueAtTime(v,t); g.gain.exponentialRampToValueAtTime(0.0001,t+dur); src.connect(fl); fl.connect(g); g.connect(out); src.start(t,Math.random()*0.5); src.stop(t+dur+0.02); };
+  const rnd=n=>{ const x=Math.sin(n*12.9898)*43758.5453; return x-Math.floor(x); }; // same melody for everyone
+  function tocarPasso(id,F,st,t){
+    const sd=60/F.bpm/4, bar=Math.floor(st/16), p=st%16, ac=F.acordes[bar%4], bx=F.baixo[bar%4], esc=[0,3,5,7,10].map(i=>ac[0]+12+i);
+    if(id==='lofi'){ if(p===0) ac.forEach(m=>nota(hz(m),t,sd*16,'triangle',0.05,900)); if(p===0||p===10) kick(t,0.5); if(p===4||p===12) ruido(t,0.12,1500,0.12,'bandpass'); if(p%2===0) ruido(t+(p%4===2?sd*0.3:0),0.04,7000,0.035);
+      if(p===0||p===8) nota(hz(bx),t,sd*7,'sine',0.16,400); if(rnd(st)>0.62&&p%2===0) nota(hz(esc[Math.floor(rnd(st+7)*5)]),t,sd*3,'sine',0.06,2500); }
+    else if(id==='animada'){ if(p%4===0) kick(t,0.55); if(p===4||p===12) ruido(t,0.14,1800,0.16,'bandpass'); if(p%2===1) ruido(t,0.03,8000,0.05);
+      nota(hz(ac[p%ac.length]+12),t,sd*0.9,'square',0.035,1800); if(p%8===0) nota(hz(bx),t,sd*4,'sawtooth',0.09,450); if(p===0) ac.forEach(m=>nota(hz(m),t,sd*16,'triangle',0.03,1200)); }
+    else if(id==='relax'){ if(p===0) ac.forEach((m,i)=>nota(hz(m),t+i*0.05,sd*16,'sine',0.05,1400)); if(p===0) nota(hz(bx),t,sd*16,'sine',0.1,300);
+      if(rnd(st)>0.82) nota(hz(esc[Math.floor(rnd(st+3)*5)]+12),t,sd*6,'sine',0.05,4000); }
+    else if(id==='festa'){ if(p%4===0) kick(t,0.6); if(p%4===2) ruido(t,0.09,6500,0.09); if(p===4||p===12) ruido(t,0.13,1700,0.15,'bandpass');
+      if(p%4===2) nota(hz(bx),t,sd*1.5,'sawtooth',0.12,500); if(p===2||p===10) ac.forEach(m=>nota(hz(m+12),t,sd*1.2,'sawtooth',0.03,2200)); if(p%2===0&&rnd(st)>0.5) nota(hz(esc[Math.floor(rnd(st+5)*5)]+12),t,sd*0.8,'square',0.03,2600); }
+  }
+  function agendar(){ if(!atual||!FAIXAS[atual]) return; const F=FAIXAS[atual], sd=60/F.bpm/4; while(nextT<ctx.currentTime+0.2){ tocarPasso(atual,F,step,nextT); nextT+=sd; step++; } }
+  function parar(){ if(timer){ clearInterval(timer); timer=null; } if(radio){ radio.pause(); radio.src=''; radio=null; } }
+  function tocar(id,inicio,url){
+    parar(); atual=id; ts=inicio||Date.now(); if(!id) return;
+    if(id==='radio'){ if(!url) return; radio=new Audio(url); radio.volume=mudo?0:Math.min(1,vol); radio.play().catch(()=>{ toast('Toque em qualquer lugar da tela para ouvir a rádio.'); }); return; }
+    if(!iniciar()) return; if(ctx.state==='suspended') ctx.resume().catch(()=>{});
+    const F=FAIXAS[id], sd=60/F.bpm/4, el2=Math.max(0,(Date.now()-ts)/1000); step=Math.floor(el2/sd); nextT=ctx.currentTime+0.05+(sd-(el2%sd));
+    timer=setInterval(agendar,50); agendar();
+  }
+  const destravar=()=>{ if(ctx&&ctx.state==='suspended') ctx.resume().catch(()=>{}); if(radio&&radio.paused&&atual==='radio') radio.play().catch(()=>{}); if(!ctx&&atual&&atual!=='radio'){ tocar(atual,ts,null); } };
+  window.addEventListener('pointerdown',destravar); window.addEventListener('keydown',destravar);
+  return {FAIXAS,tocar,
+    get atual(){ return atual; }, get vol(){ return vol; }, get mudo(){ return mudo; },
+    setVol(v){ vol=Math.max(0,Math.min(1,v)); try{ localStorage.setItem('esc_mus_vol',String(vol)); }catch(e){} if(out) out.gain.value=ganho(); if(radio) radio.volume=mudo?0:vol; },
+    setMudo(m){ mudo=!!m; try{ localStorage.setItem('esc_mus_mudo',mudo?'1':'0'); }catch(e){} if(out) out.gain.value=ganho(); if(radio) radio.volume=mudo?0:vol; }};
+})();
+function aplicarAmbiente(a){
+  const antes=S.amb; a=a&&typeof a==='object'?a:{};
+  const m=a.musica&&typeof a.musica==='object'&&(MUSICA.FAIXAS[a.musica.faixa]||(a.musica.faixa==='radio'&&/^https:\/\/\S{8,300}$/.test(a.musica.url||'')))?{faixa:a.musica.faixa,url:a.musica.faixa==='radio'?a.musica.url:'',ts:+a.musica.ts||Date.now()}:null;
+  S.amb={luz:a.luz==='off'?'off':'on',musica:m};
+  LUZ.alvo=S.amb.luz==='off'?0.12:1; QUADRO.sync(S.amb.luz!=='off');
+  if(S.perfisOk&&antes.luz!==S.amb.luz) toast(S.amb.luz==='off'?'💡 As luzes do escritório foram apagadas.':'💡 As luzes foram acesas.');
+  const chave=x=>x?x.faixa+'|'+x.url+'|'+x.ts:'';
+  if(chave(antes.musica)!==chave(m)){ MUSICA.tocar(m&&m.faixa,m&&m.ts,m&&m.url); if(S.perfisOk) toast(m?'🎵 Tocando: '+(m.faixa==='radio'?'rádio online':MUSICA.FAIXAS[m.faixa].nome):'🎵 A música parou.'); }
+  renderMusicaPainel(); if(!$('#mAmb').hidden) openAmbiente();
+}
+function renderMusicaPainel(){
+  const pn=$('#musicaPainel'), m=S.amb.musica; if(!m||!S.playing){ pn.hidden=true; return; } pn.textContent='';
+  const vol=el('input',{type:'range',min:'0',max:'1',step:'0.05',value:String(MUSICA.vol),'aria-label':'Volume da música'}); vol.addEventListener('input',()=>{ MUSICA.setVol(+vol.value); if(MUSICA.mudo){ MUSICA.setMudo(false); renderMusicaPainel(); } });
+  const mu=el('button',{type:'button',class:'chip',text:MUSICA.mudo?'🔇 Ligar som':'🔊 Silenciar'}); mu.addEventListener('click',()=>{ MUSICA.setMudo(!MUSICA.mudo); renderMusicaPainel(); });
+  pn.append(el('span',{class:'eq','aria-hidden':'true'},el('i'),el('i'),el('i')),el('b',{text:m.faixa==='radio'?'Rádio':MUSICA.FAIXAS[m.faixa].nome}),vol,mu); pn.hidden=false;
+}
+async function alternarLuz(){ if(!S.isOwner) return; const n={luz:S.amb.luz==='off'?'on':'off',musica:S.amb.musica}; P.ry=0; emote('apontar'); SFX.click&&SFX.click();
+  try{ await Store.saveAmbiente(n); if(Store.mode!=='sb') aplicarAmbiente(n); }catch(e){ writeFailed(e); } }
+function openAmbiente(){
+  if(!S.isOwner) return; const b=$('#ambBody'); b.textContent=''; const a=S.amb;
+  const salvar=async n=>{ try{ await Store.saveAmbiente(n); if(Store.mode!=='sb') aplicarAmbiente(n); }catch(e){ writeFailed(e); } };
+  const luzes=el('div',{class:'st-grid'});
+  [['on','💡 Luzes acesas'],['off','🌙 Luzes apagadas']].forEach(([k,t])=>{ const bt=el('button',{type:'button',class:'card','aria-pressed':String(a.luz===k),text:t}); bt.addEventListener('click',()=>salvar({luz:k,musica:a.musica})); luzes.append(bt); });
+  const mus=el('div',{class:'st-grid'}), atual=a.musica&&a.musica.faixa;
+  [[null,'⏹ Sem música'],...Object.entries(MUSICA.FAIXAS).map(([k,f])=>[k,'🎵 '+f.nome])].forEach(([k,t])=>{ const bt=el('button',{type:'button',class:'card','aria-pressed':String((atual||null)===k),text:t});
+    bt.addEventListener('click',()=>salvar({luz:a.luz,musica:k?{faixa:k,ts:Date.now()}:null})); mus.append(bt); });
+  const url=el('input',{type:'url',placeholder:'https://… (link direto de uma rádio online, .mp3 ou .aac)',value:a.musica&&a.musica.faixa==='radio'?a.musica.url:''});
+  const tocarR=el('button',{type:'button',class:'btn',text:'Tocar rádio'}); tocarR.addEventListener('click',()=>{ const u=url.value.trim(); if(!/^https:\/\/\S{8,300}$/.test(u)){ toast('Cole um link que comece com https://'); return; } salvar({luz:a.luz,musica:{faixa:'radio',url:u,ts:Date.now()}}); });
+  b.append(el('div',{class:'field'},el('span',{text:'Luzes'}),luzes),el('div',{class:'field'},el('span',{text:'Música para todos'}),mus),
+    el('div',{class:'field'},el('span',{text:'Ou uma rádio online'}),el('div',{style:'display:flex;gap:8px'},url,tocarR)),
+    el('p',{class:'empty',text:'Cada pessoa pode baixar o volume ou silenciar a música no próprio computador, pelo controle que aparece no canto da tela.'}));
+  show('mAmb');
+}
 function onProfiles(list){
   const antes=S.profiles, primeira=!S.perfisOk; S.perfisOk=true;
   S.profiles={}; for(const p of list) S.profiles[p.uid]=p;
@@ -4114,7 +4223,7 @@ async function consertarCadeira(){
   try{ await Store.saveProfile(prof); S.profiles[S.uid]=normProfile(S.uid,prof); S.me=S.profiles[S.uid]; updateMeChip(); toast((cab?`Supervisor senta na ponta da mesa: você agora está na ${livre.label.toLowerCase()} do time ${TEAM[me.time].curto};`:`Sua cadeira antiga não existe mais. Você ficou com a cadeira ${livre.label} do time ${TEAM[me.time].curto};`)+' dá para trocar em Meu perfil.'); }catch(e){ writeFailed(e); }
 }
 function startPlaying(){
-  S.playing=true; setTimeout(renderAniverPainel,2500); $('#hudTop').hidden=false; $('#hudBottom').hidden=false; $('#minimap').hidden=false;
+  S.playing=true; setTimeout(renderAniverPainel,2500); setTimeout(renderMusicaPainel,500); $('#hudTop').hidden=false; $('#hudBottom').hidden=false; $('#minimap').hidden=false;
   if('ontouchstart' in window) $('#help').textContent='Toque à esquerda para andar · arraste à direita para girar a câmera';
   P.x=SPAWN.x; P.z=SPAWN.z; P.ry=SPAWN.ry; camYaw=Math.PI; P.sitting=null; setTimeout(lembrarPonto,6000);
   consertarCadeira();
@@ -4127,7 +4236,7 @@ async function boot(){
   await Store.init();
   let resolveFirst; const first=new Promise(r=>{ resolveFirst=r; });
   Store.watchProfiles(list=>{ onProfiles(list); resolveFirst(); });
-  Store.watchMarca(m=>applyMarca(m));
+  Store.watchMarca(m=>applyMarca(m)); Store.watchAmbiente(aplicarAmbiente);
   Store.watchTelaoCfg(c=>{ S.telaoOff=new Set(Array.isArray(c&&c.off)?c.off.filter(k=>typeof k==='string').slice(0,30):[]); TELAO.lastKey=''; if(!$('#mPaineis').hidden) renderPaineis(); });
   Store.watchMsgs(onMyMsgs);
   Store.watchGrupos(onGrupos);
