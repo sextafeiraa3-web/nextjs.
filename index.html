@@ -766,6 +766,9 @@ const Store = {
     if(this.mode==='db') return this.db.doc('mural/marca').onSnapshot(s=>cb(s.exists?s.data():null), e=>console.warn('marca',e));
     const f=()=>cb(this.local('marca',null)); (this.localCbs.marca=this.localCbs.marca||[]).push(f); f();
   },
+  // which automatic telão screens are switched off (shared, set by leadership)
+  watchTelaoCfg(cb){ if(this.mode==='sb') return this.sbLive('mural',{},r=>r,l=>{ const g=l.find(r=>r.id==='telao_cfg'); cb(g?g.data:null); }); const f=()=>cb(this.local('telao_cfg',null)); (this.localCbs.telao_cfg=this.localCbs.telao_cfg||[]).push(f); f(); },
+  saveTelaoCfg(c){ if(this.mode==='sb') return this.serial('telao_cfg',()=>this.sbDo(this.sb.from('mural').upsert({id:'telao_cfg',data:c}))); lsSet('esc_telao_cfg',JSON.stringify(c)); this.localEmit('telao_cfg'); return Promise.resolve(); },
   saveMarca(m){
     if(this.mode==='sb') return this.serial('marca',()=>this.sbDo(this.sb.from('mural').upsert({id:'marca',data:m})));
     if(this.mode==='db') return this.serial('marca',()=>this.db.doc('mural/marca').set(m));
@@ -1522,7 +1525,7 @@ const SINO=(()=>{
 /* ---- wall clock on the right wall, next to the bell ---- */
 const RELOGIO=(()=>{
   const c=document.createElement('canvas'); c.width=c.height=256; const tex=new T.CanvasTexture(c);
-  const m=new T.Mesh(new T.CircleGeometry(0.34,40),new T.MeshBasicMaterial({map:tex})); m.position.set(OX-0.04,2.35,3.9); m.rotation.y=-Math.PI/2; scene.add(m);
+  const m=new T.Mesh(new T.CircleGeometry(0.34,40),new T.MeshBasicMaterial({map:tex})); m.position.set(OX-0.04,2.35,7.6); m.rotation.y=-Math.PI/2; scene.add(m);
   const aro=new T.Mesh(new T.TorusGeometry(0.35,0.025,8,40),mat('#1c1e22')); aro.position.copy(m.position); aro.rotation.y=-Math.PI/2; scene.add(aro);
   let last='';
   return {draw(){ const d=new Date(), k=d.getHours()+':'+d.getMinutes()+':'+d.getSeconds(); if(k===last) return; last=k;
@@ -1597,17 +1600,25 @@ const TELAO=(()=>{
   const grp=new T.Group(); grp.position.set(-3,1.85,OZB-0.08); grp.rotation.y=Math.PI; scene.add(grp);
   box(6.6,3.2,0.1,mat('#0c0d10',{roughness:0.4}),0,0,-0.05,grp,false);
   const scr=new T.Mesh(new T.PlaneGeometry(6.4,3.0),new T.MeshBasicMaterial({map:tex})); scr.position.z=0.002; grp.add(scr);
-  return {c,g:c.getContext('2d'),tex,lastKey:'',imgs:{},x:-3,z:OZB};
+  const g2=new T.Group(); g2.position.set(OX-0.06,1.95,3.75); g2.rotation.y=-Math.PI/2; scene.add(g2); // second screen on the right wall, beside the bell
+  box(3.75,1.85,0.08,mat('#0c0d10',{roughness:0.4}),0,0,-0.04,g2,false); const scr2=new T.Mesh(new T.PlaneGeometry(3.6,1.69),new T.MeshBasicMaterial({map:tex})); scr2.position.z=0.002; g2.add(scr2);
+  return {c,g:c.getContext('2d'),tex,lastKey:'',imgs:{},x:-3,z:OZB,x2:OX-0.06,z2:3.75};
 })();
 S.telao=[];
 const SLIDE_MS=9000;
 const TIPO_TELAO={campanha:'Campanha',noticia:'Notícia',aviso:'Aviso'};
+// automatic screens, by key, so the leadership can switch each one off
+const chaveTela=s=>s.tipo==='canal'?'canal:'+s.time:s.tipo;
+const TELAS_AUTO=()=>[['destaques','Destaques do mês (reis do faturamento e da garantia)'],['hoje','Top do dia'],['meta','Meta do mês'],...TEAMS.map(t=>['canal:'+t.id,'Destaques · '+t.nome]),['aniver','Aniversariantes do dia'],['enquete','Enquetes']];
 function telaoList(){
   const auto=['destaques','hoje','meta'].map(t=>({tipo:t})).concat(TEAMS.map(t=>({tipo:'canal',time:t.id})));
   if(Object.values(S.profiles).some(aniversariante)) auto.unshift({tipo:'aniver'});
+  const off=S.telaoOff||new Set(); for(let i=auto.length-1;i>=0;i--) if(off.has(chaveTela(auto[i]))) auto.splice(i,1);
+  if(!auto.length) auto.push({tipo:'vazio'});
   let out=auto;
   if(S.telao.length){ out=[]; const n=Math.max(auto.length,S.telao.length); for(let i=0;i<n;i++){ out.push(S.telao[i%S.telao.length]); out.push(auto[i%auto.length]); } } // published content every other slide
-  const enq=enqVisiveis().map(e=>({tipo:'enquete',e}));
+  out=out.filter(x=>x.tipo!=='vazio'||out.length===1);
+  const enq=(S.telaoOff&&S.telaoOff.has('enquete'))?[]:enqVisiveis().map(e=>({tipo:'enquete',e}));
   if(!enq.length) return out;
   const mix=[]; out.forEach((s,i)=>{ if(i%2===0) mix.push(enq[(i/2)%enq.length]); mix.push(s); }); // a poll every other slide
   return mix;
@@ -1620,6 +1631,7 @@ function telaoImg(s){
 function drawSlide(g,s,w,h){
   if(s.tipo==='venda') return drawVenda(g,s,w,h);
   if(s.tipo==='aniver') return drawAniver(g,w,h);
+  if(s.tipo==='vazio'){ const gr=g.createLinearGradient(0,0,w,h); gr.addColorStop(0,S.marca.cor1); gr.addColorStop(1,'#0b0c24'); g.fillStyle=gr; g.fillRect(0,0,w,h); g.fillStyle='#fff'; g.textAlign='center'; g.font='800 120px '+F_DISP; g.fillText(S.marca.empresa,w/2,h/2+40); g.textAlign='left'; return; }
   const mk=S.marca;
   const tm=s.tipo==='canal'?TEAM[s.time]:null;
   const th={canal:tm?[tm.cor,'#0b0c24','#ffffff']:['#23286e','#0b0c24','#ffffff'],campanha:[mk.cor2,'#5a1d08','#ffffff'],noticia:[mk.cor1,'#0e0f33','#ffffff'],aviso:['#f6c33a','#c98a00','#1b1404'],destaques:['#23286e','#0b0c24','#ffffff'],enquete:['#5b3fb0','#1a1040','#ffffff'],hoje:['#14603c','#06261a','#ffffff'],meta:['#23286e','#0b0c24','#ffffff']}[s.tipo];
@@ -2930,6 +2942,7 @@ function computeInteraction(){
   if(near){ const nome=nomeDe(near.uid).split(' ')[0]; return {label:`Cumprimentar ${nome}`,act:()=>{ P.ry=Math.atan2(near.x-P.x,near.z-P.z); emote('acenar'); say(`Oi, ${nome}!`); MISSAO_MARCAR('social'); }}; }
   for(const sp of PANEL_SPOTS) if(Math.hypot(P.x-sp.x,P.z-sp.z)<3.4) return {label:'Ver painéis',act:openPaineis};
   if(Math.abs(P.x-TELAO.x)<4 && P.z>12.6+BZ) return {label:'Ver telão',act:openTelao};
+  if(P.x>TELAO.x2-4.5 && Math.abs(P.z-TELAO.z2)<2.4) return {label:'Ver telão',act:openTelao};
   if(Math.hypot(P.x-ENT.saida.x,P.z-ENT.saida.z)<1.3) return {label:'Sair do escritório',act:sairEscritorio};
   return null;
 }
@@ -3527,6 +3540,10 @@ function telaoCard(){
   card.append(el('div',{class:'row2'},el('label',{class:'field'},el('span',{text:'Tipo'}),tipo),el('label',{class:'field'},el('span',{text:'Imagem'}),file)),
     el('label',{class:'field'},el('span',{text:'Título'}),tit),el('label',{class:'field'},el('span',{text:'Texto'}),txt),prev,status,
     el('div',{style:'display:flex;gap:8px;flex-wrap:wrap'},pub,el('button',{type:'button',class:'btn',text:'Ver telão',onclick:openTelao})));
+  const tg=el('div',{class:'chips'}), off=S.telaoOff||new Set();
+  for(const [k,t] of TELAS_AUTO()){ const on=!off.has(k), b=el('button',{type:'button',class:'chip','aria-pressed':String(on),text:(on?'✓ ':'✕ ')+t});
+    b.addEventListener('click',async()=>{ const n=new Set(S.telaoOff||[]), liga=n.has(k); liga?n.delete(k):n.add(k); S.telaoOff=n; TELAO.lastKey=''; renderPaineis(); try{ await Store.saveTelaoCfg({off:[...n]}); toast(liga?`"${t}" voltou para o telão.`:`"${t}" saiu do telão.`); }catch(e){ writeFailed(e); } }); tg.append(b); }
+  card.append(el('div',{class:'field'},el('span',{text:'Telas automáticas (toque para tirar ou voltar)'}),tg));
   const list=el('div',{class:'tl-list'});
   if(!S.telao.length) list.append(el('p',{class:'empty',text:'Sem conteúdo próprio: o telão mostra os destaques, o top do dia e a meta.'}));
   S.telao.forEach(s=>{ list.append(el('div',{class:'tl-item'},s.imagem?el('img',{class:'tl-thumb',src:s.imagem,alt:''}):'',el('div',null,el('b',{text:s.titulo+(s.imagem?' · com foto':'')}),el('small',{text:`${TIPO_TELAO[s.tipo]} · ${nomeDe(s.uid)} · ${new Date(s.ts).toLocaleDateString('pt-BR')}`})),
@@ -4110,6 +4127,7 @@ async function boot(){
   let resolveFirst; const first=new Promise(r=>{ resolveFirst=r; });
   Store.watchProfiles(list=>{ onProfiles(list); resolveFirst(); });
   Store.watchMarca(m=>applyMarca(m));
+  Store.watchTelaoCfg(c=>{ S.telaoOff=new Set(Array.isArray(c&&c.off)?c.off.filter(k=>typeof k==='string').slice(0,30):[]); TELAO.lastKey=''; if(!$('#mPaineis').hidden) renderPaineis(); });
   Store.watchMsgs(onMyMsgs);
   Store.watchGrupos(onGrupos);
   Store.watchEnquetes(onEnquetes); Store.watchVotos(onVotos); Store.watchTreinos(onTreinos); Store.watchAprovacoes(onAprovacoes); Store.watchPontos(onPontos); Store.watchFotos(onFotos);
