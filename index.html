@@ -781,7 +781,7 @@ const Store = {
     if(this.mode==='db') return this.db.collection('telao').add(r);
     const l=this.local('telao',[]); l.push({id:'t'+Date.now(),...r}); lsSet('esc_telao',JSON.stringify(l.slice(-12))); this.localEmit('telao'); return Promise.resolve();
   },
-  // photo wall in the lobby: everyone sees it, leadership and the administrator post
+  // photo wall in the lobby: everyone sees and posts, the author or the administrator removes
   watchFotos(cb){ if(this.mode==='sb') return this.sbLive('fotos',{order:'ts',limit:24},r=>r,cb); const f=()=>cb(this.local('fotos',[]).sort((a,b)=>b.ts-a.ts)); (this.localCbs.fotos=this.localCbs.fotos||[]).push(f); f(); },
   addFoto(imagem,legenda){ const row={imagem,legenda,ts:Date.now()}; if(this.mode==='sb') return this.sbDo(this.sb.from('fotos').insert(row));
     const l=this.local('fotos',[]); l.push({id:'f'+row.ts,uid:S.uid,...row}); lsSet('esc_fotos',JSON.stringify(l.slice(-12))); this.localEmit('fotos'); return Promise.resolve(); },
@@ -4002,7 +4002,7 @@ function prepararImagem(file,cb){ const rd=new FileReader(); rd.onload=()=>{ con
     cb(url.length<=230000?url:null); }; im.onerror=()=>cb(null); im.src=rd.result; }; rd.onerror=()=>cb(null); rd.readAsDataURL(file); }
 function openMural(){ renderMural(); show('mMural'); }
 function renderMural(){
-  const b=$('#muBody'); b.textContent=''; const pode=S.isOwner||souLider();
+  const b=$('#muBody'); b.textContent=''; const pode=!!S.me&&S.me.cargo!=='visitante'; // everyone on the team posts; the author or the administrator removes
   if(pode){ let img=null, lendo=false; const file=el('input',{type:'file',accept:'image/png,image/jpeg,image/webp'}), leg=el('input',{maxlength:'80',placeholder:'Legenda (ex.: Confraternização de fim de ano)'}), st=el('small',{style:'color:var(--muted)',text:'Fotos de eventos, confraternizações e conquistas da equipe.'});
     const prev=el('img',{class:'tl-prev',alt:'Prévia',hidden:''}), pub=el('button',{type:'button',class:'btn primary',text:'Colocar no mural'});
     file.addEventListener('change',()=>{ const f=file.files&&file.files[0]; img=null; prev.hidden=true; if(!f) return; lendo=true; st.textContent='Preparando a foto…'; prepararImagem(f,u=>{ lendo=false; img=u; if(u){ prev.src=u; prev.hidden=false; st.textContent='Foto pronta.'; } else st.textContent='Não consegui ler essa foto. Use JPG ou PNG.'; }); });
@@ -4010,7 +4010,7 @@ function renderMural(){
       try{ await Store.addFoto(img,leg.value.trim().slice(0,80)); toast('Foto colocada no mural da recepção! 📸'); }catch(e){ writeFailed(e); } pub.disabled=false; });
     b.append(el('div',{class:'pcard'},el('h3',null,'Nova foto'),el('div',{class:'row2'},el('label',{class:'field'},el('span',{text:'Foto'}),file),el('label',{class:'field'},el('span',{text:'Legenda'}),leg)),prev,st,pub)); }
   const grid=el('div',{class:'mural-grid'});
-  if(!FOTOS.rows.length) grid.append(el('p',{class:'empty',text:pode?'Nenhuma foto ainda: coloque a primeira!':'Nenhuma foto ainda. A liderança coloca as fotos dos eventos aqui.'}));
+  if(!FOTOS.rows.length) grid.append(el('p',{class:'empty',text:'Nenhuma foto ainda: coloque a primeira!'}));
   for(const r of FOTOS.rows){ const it=el('figure',{class:'mural-item'},el('img',{src:r.imagem,alt:r.legenda||'Foto da equipe',loading:'lazy'}),el('figcaption',null,el('b',{text:r.legenda||'Sem legenda'}),el('small',{text:`${nomeDe(r.uid)} · ${new Date(r.ts).toLocaleDateString('pt-BR')}`})));
     if(r.uid===S.uid||S.isOwner){ const del=el('button',{type:'button',class:'linkbtn',text:'Tirar do mural'}); del.addEventListener('click',async()=>{ if(!confirm('Tirar esta foto do mural?')) return; try{ await Store.delFoto(r.id); }catch(e){ writeFailed(e); } }); it.append(del); }
     grid.append(it); }
