@@ -179,6 +179,7 @@ td.r,th.r{text-align:right}
 .ir-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .ir-grid .card{font-weight:700}
 .ir-mine{border-color:var(--amber)!important}
+.tl-prev{max-width:220px;max-height:130px;border-radius:8px;border:1px solid var(--line);object-fit:cover}.tl-thumb{width:64px;height:40px;object-fit:cover;border-radius:6px;flex:none}
 .ponto-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}.ponto-grid div{border:1px solid var(--line);border-radius:10px;padding:8px;text-align:center}.ponto-grid small{display:block;color:var(--muted);font-size:11px}.ponto-grid b{font-size:18px}.ponto-grid .on{border-color:var(--amber)}
 .ponto-tab{width:100%;border-collapse:collapse;font-size:13px}.ponto-tab th,.ponto-tab td{padding:5px 4px;border-bottom:1px solid var(--line);text-align:left}.ponto-tab td+td,.ponto-tab th+th{text-align:center}
 @media (max-width:520px){.ponto-grid{grid-template-columns:repeat(2,1fr)}}
@@ -1577,7 +1578,7 @@ const TIPO_TELAO={campanha:'Campanha',noticia:'Notícia',aviso:'Aviso'};
 function telaoList(){
   const auto=['destaques','hoje','meta'].map(t=>({tipo:t})).concat(TEAMS.map(t=>({tipo:'canal',time:t.id})));
   let out=auto;
-  if(S.telao.length){ out=[]; S.telao.forEach((s,i)=>{ out.push(s); out.push(auto[i%auto.length]); }); for(let i=S.telao.length;i<auto.length;i++) out.push(auto[i]); }
+  if(S.telao.length){ out=[]; const n=Math.max(auto.length,S.telao.length); for(let i=0;i<n;i++){ out.push(S.telao[i%S.telao.length]); out.push(auto[i%auto.length]); } } // published content every other slide
   const enq=enqVisiveis().map(e=>({tipo:'enquete',e}));
   if(!enq.length) return out;
   const mix=[]; out.forEach((s,i)=>{ if(i%2===0) mix.push(enq[(i/2)%enq.length]); mix.push(s); }); // a poll every other slide
@@ -1601,7 +1602,14 @@ function drawSlide(g,s,w,h){
   g.fillStyle=s.tipo==='aviso'?'#1b1404':'#ffffff'; rr(g,56,48,lw,52,26); g.fill();
   g.fillStyle=s.tipo==='aviso'?'#f6c33a':th[1]; g.fillText(label,78,84);
   g.fillStyle=ink; g.globalAlpha*=0.8; g.font='700 30px '+F_DISP; g.textAlign='right'; g.fillText(mk.empresa,w-56,84); g.textAlign='left'; g.globalAlpha/=0.8;
-  if(TIPO_TELAO[s.tipo]){
+  if(TIPO_TELAO[s.tipo] && telaoImg(s) && !s.texto){ // a photo without text takes the whole screen, the title goes on a strip at the bottom
+    const img=telaoImg(s), sc=Math.min(w/img.naturalWidth,h/img.naturalHeight), iw=img.naturalWidth*sc, ih=img.naturalHeight*sc;
+    g.fillStyle='#000'; g.fillRect(0,0,w,h); const cs=Math.max(w/img.naturalWidth,h/img.naturalHeight); g.globalAlpha*=0.35; g.drawImage(img,(w-img.naturalWidth*cs)/2,(h-img.naturalHeight*cs)/2,img.naturalWidth*cs,img.naturalHeight*cs); g.globalAlpha/=0.35;
+    g.drawImage(img,(w-iw)/2,(h-ih)/2,iw,ih);
+    if(s.titulo){ const gr2=g.createLinearGradient(0,h-170,0,h); gr2.addColorStop(0,'rgba(0,0,0,0)'); gr2.addColorStop(1,'rgba(0,0,0,.75)'); g.fillStyle=gr2; g.fillRect(0,h-170,w,170);
+      g.fillStyle='#ffffff'; g.font='800 56px '+F_DISP; g.fillText(fit(g,s.titulo,w-112),56,h-62); }
+    g.font='800 30px '+F_BODY; const lw2=g.measureText(label).width+44; g.fillStyle='#ffffff'; rr(g,56,48,lw2,52,26); g.fill(); g.fillStyle=th[1]; g.fillText(label,78,84);
+  } else if(TIPO_TELAO[s.tipo]){
     const img=telaoImg(s); const tw=img?w*0.5:w-112;
     if(img){ const bx=w*0.56, by=130, bw=w-bx-56, bh=h-130-90; const sc=Math.max(bw/img.naturalWidth,bh/img.naturalHeight);
       g.save(); rr(g,bx,by,bw,bh,24); g.clip(); g.drawImage(img,bx+(bw-img.naturalWidth*sc)/2,by+(bh-img.naturalHeight*sc)/2,img.naturalWidth*sc,img.naturalHeight*sc); g.restore(); }
@@ -1662,7 +1670,7 @@ function drawSlide(g,s,w,h){
   }
 }
 function drawTelao(){
-  const list=telaoList(), now=Date.now(), n=list.length, idx=Math.floor(now/SLIDE_MS)%n, el2=now%SLIDE_MS, fade=Math.min(1,el2/700);
+  const list0=telaoList(), now=Date.now(), nv=TELAO.novo&&now<TELAO.novo.until&&S.telao.find(x=>x.id===TELAO.novo.id), list=nv?[nv]:list0, n=list.length, idx=nv?0:Math.floor(now/SLIDE_MS)%n, el2=now%SLIDE_MS, fade=Math.min(1,el2/700);
   const key=idx+':'+n+':'+Math.floor(el2/300)+':'+(fade<1?el2:'');
   if(key===TELAO.lastKey) return; TELAO.lastKey=key;
   const g=TELAO.g, w=TELAO.c.width, h=TELAO.c.height;
@@ -3423,23 +3431,25 @@ function telaoCard(){
   const tit=el('input',{id:'tlTit',maxlength:'80',placeholder:'Título (ex.: Campanha de pneus aro 15)'});
   const txt=el('textarea',{id:'tlTxt',maxlength:'300',placeholder:'Texto que aparece no telão'});
   const file=el('input',{id:'tlImg',type:'file',accept:'image/png,image/jpeg,image/webp'});
-  const status=el('small',{style:'color:var(--muted)',text:'Imagem é opcional.'}); let img='';
-  file.addEventListener('change',()=>{ const f=file.files&&file.files[0]; if(!f) return; const rd=new FileReader();
+  const status=el('small',{style:'color:var(--muted)',text:'Imagem é opcional. Foto sem texto ocupa o telão inteiro.'}); let img='', lendo=false;
+  const prev=el('img',{class:'tl-prev',alt:'Prévia da imagem',hidden:''});
+  file.addEventListener('change',()=>{ const f=file.files&&file.files[0]; img=''; prev.hidden=true; if(!f) return; lendo=true; status.textContent='Preparando a imagem…'; const rd=new FileReader();
     rd.onload=()=>{ const im=new Image(); im.onload=()=>{ const s=Math.min(1,960/im.width,720/im.height); const cv=document.createElement('canvas'); cv.width=Math.max(1,Math.round(im.width*s)); cv.height=Math.max(1,Math.round(im.height*s)); cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);
       let url=cv.toDataURL('image/jpeg',0.82); if(url.length>220000) url=cv.toDataURL('image/jpeg',0.6);
-      if(url.length>220000){ status.textContent='Imagem grande demais. Use um arquivo menor.'; img=''; return; } img=url; status.textContent='Imagem pronta.'; };
-      im.onerror=()=>{ status.textContent='Não consegui ler essa imagem. Use PNG ou JPG.'; }; im.src=rd.result; };
-    rd.readAsDataURL(f); });
+      if(url.length>220000){ url=(()=>{ const k=Math.sqrt(200000/url.length); const c2=document.createElement('canvas'); c2.width=Math.max(1,Math.round(cv.width*k)); c2.height=Math.max(1,Math.round(cv.height*k)); c2.getContext('2d').drawImage(cv,0,0,c2.width,c2.height); return c2.toDataURL('image/jpeg',0.6); })(); }
+      lendo=false; if(url.length>220000){ status.textContent='Imagem grande demais. Use um arquivo menor.'; img=''; return; } img=url; prev.src=url; prev.hidden=false; status.textContent='Imagem pronta: agora é só publicar.'; };
+      im.onerror=()=>{ lendo=false; status.textContent='Não consegui ler essa imagem. Use foto PNG ou JPG (foto do iPhone em HEIC: mande como JPG).'; }; im.src=rd.result; };
+    rd.onerror=()=>{ lendo=false; status.textContent='Não consegui ler o arquivo.'; }; rd.readAsDataURL(f); });
   const pub=el('button',{type:'button',class:'btn primary',text:'Publicar no telão'});
-  pub.addEventListener('click',async()=>{ const t=tit.value.trim(); if(!t){ toast('Escreva um título para o telão.'); tit.focus(); return; } pub.disabled=true;
-    try{ await Store.addTelao({tipo:tipo.value,titulo:t.slice(0,80),texto:txt.value.trim().slice(0,300),imagem:img,uid:S.uid,ts:Date.now()}); tit.value=''; txt.value=''; file.value=''; img=''; status.textContent='Publicado. Já está rodando no telão.'; }
+  pub.addEventListener('click',async()=>{ if(lendo){ toast('Espere a imagem terminar de carregar.'); return; } if(file.files&&file.files[0]&&!img){ toast('A imagem não carregou. Escolha outra foto (PNG ou JPG).'); return; } const t=tit.value.trim(); if(!t){ toast('Escreva um título para o telão.'); tit.focus(); return; } pub.disabled=true;
+    try{ await Store.addTelao({tipo:tipo.value,titulo:t.slice(0,80),texto:txt.value.trim().slice(0,300),imagem:img,uid:S.uid,ts:Date.now()}); tit.value=''; txt.value=''; file.value=''; img=''; prev.hidden=true; status.textContent='Publicado. Já está aparecendo no telão.'; }
     catch(e){ writeFailed(e); } pub.disabled=false; });
   card.append(el('div',{class:'row2'},el('label',{class:'field'},el('span',{text:'Tipo'}),tipo),el('label',{class:'field'},el('span',{text:'Imagem'}),file)),
-    el('label',{class:'field'},el('span',{text:'Título'}),tit),el('label',{class:'field'},el('span',{text:'Texto'}),txt),status,
+    el('label',{class:'field'},el('span',{text:'Título'}),tit),el('label',{class:'field'},el('span',{text:'Texto'}),txt),prev,status,
     el('div',{style:'display:flex;gap:8px;flex-wrap:wrap'},pub,el('button',{type:'button',class:'btn',text:'Ver telão',onclick:openTelao})));
   const list=el('div',{class:'tl-list'});
   if(!S.telao.length) list.append(el('p',{class:'empty',text:'Sem conteúdo próprio: o telão mostra os destaques, o top do dia e a meta.'}));
-  S.telao.forEach(s=>{ list.append(el('div',{class:'tl-item'},el('div',null,el('b',{text:s.titulo}),el('small',{text:`${TIPO_TELAO[s.tipo]} · ${nomeDe(s.uid)} · ${new Date(s.ts).toLocaleDateString('pt-BR')}`})),
+  S.telao.forEach(s=>{ list.append(el('div',{class:'tl-item'},s.imagem?el('img',{class:'tl-thumb',src:s.imagem,alt:''}):'',el('div',null,el('b',{text:s.titulo+(s.imagem?' · com foto':'')}),el('small',{text:`${TIPO_TELAO[s.tipo]} · ${nomeDe(s.uid)} · ${new Date(s.ts).toLocaleDateString('pt-BR')}`})),
     el('button',{type:'button',class:'linkbtn',text:'Tirar do telão',onclick:()=>Store.delTelao(s.id).catch(writeFailed)}))); });
   card.append(list);
   return card;
@@ -3859,6 +3869,7 @@ async function boot(){
   Store.watchTelao(l=>{ const tipos=['campanha','noticia','aviso'];
     S.telao=(l||[]).filter(r=>r&&tipos.includes(r.tipo)&&typeof r.titulo==='string').map(r=>({id:r.id,tipo:r.tipo,titulo:r.titulo.slice(0,80),texto:String(r.texto||'').slice(0,300),
       imagem:(typeof r.imagem==='string'&&/^data:image\/(png|jpeg|webp);base64,/.test(r.imagem)&&r.imagem.length<230000)?r.imagem:'',uid:typeof r.uid==='string'?r.uid:'',ts:+r.ts||0}));
+    const novo=S.telao.find(x=>Date.now()-x.ts<60000&&!(TELAO.vistos||{})[x.id]); TELAO.vistos=Object.fromEntries(S.telao.map(x=>[x.id,1])); if(novo&&TELAO.carregou) TELAO.novo={id:novo.id,until:Date.now()+15000}; TELAO.carregou=true;
     TELAO.lastKey=''; if(!$('#mPaineis').hidden) renderPaineis(); });
   Store.watchRecados(l=>{ S.recados=(l||[]).filter(r=>r&&typeof r.texto==='string'&&typeof r.uid==='string').map(r=>({id:r.id,uid:r.uid,texto:r.texto.slice(0,280),ts:+r.ts||0})); refreshPanels(); });
   initRoom();
