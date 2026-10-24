@@ -179,6 +179,7 @@ td.r,th.r{text-align:right}
 .ir-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .ir-grid .card{font-weight:700}
 .ir-mine{border-color:var(--amber)!important}
+.radio-res{max-height:260px;overflow:auto}
 .hbtn-ico{min-width:40px;padding-left:10px;padding-right:10px;font-size:16px}
 .musica-painel{position:fixed;z-index:6;left:max(16px,env(safe-area-inset-left,0px));top:calc(env(safe-area-inset-top,0px) + 136px);display:flex;gap:8px;align-items:center;background:rgba(11,16,21,.86);border:1px solid var(--line);border-radius:12px;padding:6px 10px;font-size:13px;max-width:calc(100% - 32px)}
 .musica-painel input[type=range]{width:90px}.musica-painel .eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px}.musica-painel .eq i{width:3px;background:var(--amber);animation:eq .9s ease-in-out infinite alternate}
@@ -4098,7 +4099,9 @@ const MUSICA=(()=>{
   function parar(){ if(timer){ clearInterval(timer); timer=null; } if(radio){ radio.pause(); radio.src=''; radio=null; } }
   function tocar(id,inicio,url){
     parar(); atual=id; ts=inicio||Date.now(); if(!id) return;
-    if(id==='radio'){ if(!url) return; radio=new Audio(url); radio.volume=mudo?0:Math.min(1,vol); radio.play().catch(()=>{ toast('Toque em qualquer lugar da tela para ouvir a rádio.'); }); return; }
+    if(id==='radio'){ if(!url) return; radio=new Audio(url); radio.preload='none'; radio.volume=mudo?0:Math.min(1,vol);
+      radio.addEventListener('error',()=>{ if(atual==='radio') toast('Essa rádio não abriu agora. Escolha outra em Ambiente 🎛️.'); });
+      radio.play().catch(e=>{ if(e&&e.name==='NotAllowedError') toast('Toque em qualquer lugar da tela para ouvir a rádio.'); }); return; }
     if(!iniciar()) return; if(ctx.state==='suspended') ctx.resume().catch(()=>{});
     const F=FAIXAS[id], sd=60/F.bpm/4, el2=Math.max(0,(Date.now()-ts)/1000); step=Math.floor(el2/sd); nextT=ctx.currentTime+0.05+(sd-(el2%sd));
     timer=setInterval(agendar,50); agendar();
@@ -4112,34 +4115,62 @@ const MUSICA=(()=>{
 })();
 function aplicarAmbiente(a){
   const antes=S.amb; a=a&&typeof a==='object'?a:{};
-  const m=a.musica&&typeof a.musica==='object'&&(MUSICA.FAIXAS[a.musica.faixa]||(a.musica.faixa==='radio'&&/^https:\/\/\S{8,300}$/.test(a.musica.url||'')))?{faixa:a.musica.faixa,url:a.musica.faixa==='radio'?a.musica.url:'',ts:+a.musica.ts||Date.now()}:null;
+  const m=a.musica&&typeof a.musica==='object'&&(MUSICA.FAIXAS[a.musica.faixa]||(a.musica.faixa==='radio'&&/^https:\/\/\S{8,300}$/.test(a.musica.url||'')))?{faixa:a.musica.faixa,url:a.musica.faixa==='radio'?a.musica.url:'',nome:String(a.musica.nome||'Rádio').slice(0,60),ts:+a.musica.ts||Date.now()}:null;
   S.amb={luz:a.luz==='off'?'off':'on',musica:m};
   LUZ.alvo=S.amb.luz==='off'?0.12:1; QUADRO.sync(S.amb.luz!=='off');
   if(S.perfisOk&&antes.luz!==S.amb.luz) toast(S.amb.luz==='off'?'💡 As luzes do escritório foram apagadas.':'💡 As luzes foram acesas.');
   const chave=x=>x?x.faixa+'|'+x.url+'|'+x.ts:'';
-  if(chave(antes.musica)!==chave(m)){ MUSICA.tocar(m&&m.faixa,m&&m.ts,m&&m.url); if(S.perfisOk) toast(m?'🎵 Tocando: '+(m.faixa==='radio'?'rádio online':MUSICA.FAIXAS[m.faixa].nome):'🎵 A música parou.'); }
+  if(chave(antes.musica)!==chave(m)){ MUSICA.tocar(m&&m.faixa,m&&m.ts,m&&m.url); if(S.perfisOk) toast(m?'🎵 Tocando: '+(m.faixa==='radio'?m.nome:MUSICA.FAIXAS[m.faixa].nome):'🎵 A música parou.'); }
   renderMusicaPainel(); if(!$('#mAmb').hidden) openAmbiente();
 }
 function renderMusicaPainel(){
   const pn=$('#musicaPainel'), m=S.amb.musica; if(!m||!S.playing){ pn.hidden=true; return; } pn.textContent='';
   const vol=el('input',{type:'range',min:'0',max:'1',step:'0.05',value:String(MUSICA.vol),'aria-label':'Volume da música'}); vol.addEventListener('input',()=>{ MUSICA.setVol(+vol.value); if(MUSICA.mudo){ MUSICA.setMudo(false); renderMusicaPainel(); } });
   const mu=el('button',{type:'button',class:'chip',text:MUSICA.mudo?'🔇 Ligar som':'🔊 Silenciar'}); mu.addEventListener('click',()=>{ MUSICA.setMudo(!MUSICA.mudo); renderMusicaPainel(); });
-  pn.append(el('span',{class:'eq','aria-hidden':'true'},el('i'),el('i'),el('i')),el('b',{text:m.faixa==='radio'?'Rádio':MUSICA.FAIXAS[m.faixa].nome}),vol,mu); pn.hidden=false;
+  pn.append(el('span',{class:'eq','aria-hidden':'true'},el('i'),el('i'),el('i')),el('b',{text:m.faixa==='radio'?'📻 '+m.nome:MUSICA.FAIXAS[m.faixa].nome}),vol,mu); pn.hidden=false;
 }
 async function alternarLuz(){ if(!S.isOwner) return; const n={luz:S.amb.luz==='off'?'on':'off',musica:S.amb.musica}; P.ry=0; emote('apontar'); SFX.click&&SFX.click();
-  try{ await Store.saveAmbiente(n); if(Store.mode!=='sb') aplicarAmbiente(n); }catch(e){ writeFailed(e); } }
+  try{ await Store.saveAmbiente(n); aplicarAmbiente(n); }catch(e){ writeFailed(e); } }
+// stable international streams, plus Brazilian stations looked up live in the public Radio Browser catalogue
+const RADIOS=[['Groove Salad (chill)','https://ice1.somafm.com/groovesalad-128-mp3'],['Lush (vozes suaves)','https://ice1.somafm.com/lush-128-mp3'],
+  ['Anos 80','https://ice1.somafm.com/u80s-128-mp3'],['Radio Paradise (rock e pop)','https://stream.radioparadise.com/mp3-128'],['Indie Pop','https://ice1.somafm.com/indiepop-128-mp3'],['Jazz (Sonic Universe)','https://ice1.somafm.com/sonicuniverse-128-mp3']];
+const RADIO_BUSCA={termo:'',lista:[]};
+async function buscarRadios(termo){
+  const q='countrycode=BR&order=clickcount&reverse=true&limit=40&hidebroken=true&is_https=true'+(termo?'&name='+encodeURIComponent(termo):'');
+  for(const host of ['de1','fi1','nl1','at1']){ try{ const r=await fetch(`https://${host}.api.radio-browser.info/json/stations/search?${q}`); if(!r.ok) continue; let l=await r.json();
+      if(!l.length&&termo){ const r2=await fetch(`https://${host}.api.radio-browser.info/json/stations/search?countrycode=BR&order=clickcount&reverse=true&limit=40&hidebroken=true&is_https=true&tag=${encodeURIComponent(termo.toLowerCase())}`); if(r2.ok) l=await r2.json(); }
+      const vistos=new Set();
+      return l.map(x=>({nome:String(x.name||'').trim().slice(0,50),url:String(x.url_resolved||x.url||''),tags:String(x.tags||'').split(',').slice(0,2).join(', ')}))
+        .filter(x=>x.nome&&/^https:\/\/\S{8,300}$/.test(x.url)&&!vistos.has(x.nome.toLowerCase())&&vistos.add(x.nome.toLowerCase())).slice(0,24); }catch(e){} }
+  return [];
+}
 function openAmbiente(){
   if(!S.isOwner) return; const b=$('#ambBody'); b.textContent=''; const a=S.amb;
-  const salvar=async n=>{ try{ await Store.saveAmbiente(n); if(Store.mode!=='sb') aplicarAmbiente(n); }catch(e){ writeFailed(e); } };
+  const salvar=async n=>{ try{ await Store.saveAmbiente(n); aplicarAmbiente(n); }catch(e){ writeFailed(e); } };
   const luzes=el('div',{class:'st-grid'});
   [['on','💡 Luzes acesas'],['off','🌙 Luzes apagadas']].forEach(([k,t])=>{ const bt=el('button',{type:'button',class:'card','aria-pressed':String(a.luz===k),text:t}); bt.addEventListener('click',()=>salvar({luz:k,musica:a.musica})); luzes.append(bt); });
   const mus=el('div',{class:'st-grid'}), atual=a.musica&&a.musica.faixa;
   [[null,'⏹ Sem música'],...Object.entries(MUSICA.FAIXAS).map(([k,f])=>[k,'🎵 '+f.nome])].forEach(([k,t])=>{ const bt=el('button',{type:'button',class:'card','aria-pressed':String((atual||null)===k),text:t});
     bt.addEventListener('click',()=>salvar({luz:a.luz,musica:k?{faixa:k,ts:Date.now()}:null})); mus.append(bt); });
-  const url=el('input',{type:'url',placeholder:'https://… (link direto de uma rádio online, .mp3 ou .aac)',value:a.musica&&a.musica.faixa==='radio'?a.musica.url:''});
-  const tocarR=el('button',{type:'button',class:'btn',text:'Tocar rádio'}); tocarR.addEventListener('click',()=>{ const u=url.value.trim(); if(!/^https:\/\/\S{8,300}$/.test(u)){ toast('Cole um link que comece com https://'); return; } salvar({luz:a.luz,musica:{faixa:'radio',url:u,ts:Date.now()}}); });
+  const tocarRadio=(u,nome)=>salvar({luz:a.luz,musica:{faixa:'radio',url:u,nome:String(nome||'Rádio').slice(0,60),ts:Date.now()}});
+  const radios=el('div',{class:'st-grid'}), urlAtual=a.musica&&a.musica.faixa==='radio'?a.musica.url:'';
+  RADIOS.forEach(([nome,u])=>{ const bt=el('button',{type:'button',class:'card','aria-pressed':String(urlAtual===u),text:'📻 '+nome}); bt.addEventListener('click',()=>tocarRadio(u,nome)); radios.append(bt); });
+  const busca=el('input',{type:'search',placeholder:'Buscar rádio do Brasil (ex.: sertanejo, pop, gospel, nome da rádio)'}), bBt=el('button',{type:'button',class:'btn',text:'Buscar'}), res=el('div',{class:'st-grid radio-res'});
+  const mostrar=l=>{ res.textContent='';
+    l.forEach(r=>{ const bt=el('button',{type:'button',class:'card','aria-pressed':String(urlAtual===r.url),text:'📻 '+r.nome+(r.tags?' · '+r.tags:'')}); bt.addEventListener('click',()=>tocarRadio(r.url,r.nome)); res.append(bt); }); };
+  busca.value=RADIO_BUSCA.termo; if(RADIO_BUSCA.lista.length) mostrar(RADIO_BUSCA.lista);
+  const buscar=async()=>{ res.textContent=''; res.append(el('p',{class:'empty',text:'Procurando rádios no ar…'})); const l=await buscarRadios(busca.value.trim()); RADIO_BUSCA.termo=busca.value.trim(); RADIO_BUSCA.lista=l; res.textContent='';
+    if(!l.length){ res.append(el('p',{class:'empty',text:'Não achei rádios agora. Tente outra palavra.'})); return; }
+    mostrar(l); };
+  bBt.addEventListener('click',buscar); busca.addEventListener('keydown',e=>{ if(e.key==='Enter') buscar(); });
+  const vol=el('input',{type:'range',min:'0',max:'1',step:'0.05',value:String(MUSICA.vol),'aria-label':'Volume da música neste computador'}); vol.addEventListener('input',()=>{ MUSICA.setVol(+vol.value); renderMusicaPainel(); });
+  const url=el('input',{type:'url',placeholder:'https://… (link direto de uma rádio online, .mp3 ou .aac)',value:urlAtual});
+  const tocarR=el('button',{type:'button',class:'btn',text:'Tocar link'}); tocarR.addEventListener('click',()=>{ const u=url.value.trim(); if(!/^https:\/\/\S{8,300}$/.test(u)){ toast('Cole um link que comece com https://'); return; } tocarRadio(u,'Rádio'); });
   b.append(el('div',{class:'field'},el('span',{text:'Luzes'}),luzes),el('div',{class:'field'},el('span',{text:'Música para todos'}),mus),
-    el('div',{class:'field'},el('span',{text:'Ou uma rádio online'}),el('div',{style:'display:flex;gap:8px'},url,tocarR)),
+    el('div',{class:'field'},el('span',{text:'Rádios online'}),radios),
+    el('div',{class:'field'},el('span',{text:'Rádios do Brasil (lista ao vivo)'}),el('div',{style:'display:flex;gap:8px'},busca,bBt),res),
+    el('div',{class:'field'},el('span',{text:'Ou cole o link de uma rádio'}),el('div',{style:'display:flex;gap:8px'},url,tocarR)),
+    el('div',{class:'field'},el('span',{text:'Volume da música (no seu computador)'}),vol),
     el('p',{class:'empty',text:'Cada pessoa pode baixar o volume ou silenciar a música no próprio computador, pelo controle que aparece no canto da tela.'}));
   show('mAmb');
 }
