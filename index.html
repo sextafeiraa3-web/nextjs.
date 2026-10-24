@@ -422,6 +422,12 @@ td.r,th.r{text-align:right}
   </div>
 </div>
 
+<div class="modal-wrap" id="mAguarda" hidden>
+  <div class="modal sm" role="dialog" aria-labelledby="agTitle">
+    <div class="mhead"><div><h2 id="agTitle">Aguardando aprovação</h2></div></div>
+    <div class="mbody" id="agBody"></div>
+  </div>
+</div>
 <div class="modal-wrap" id="mPonto" hidden>
   <div class="modal sm" role="dialog" aria-labelledby="pontoTitle">
     <div class="mhead"><div><h2 id="pontoTitle">Relógio de ponto</h2><p id="pontoSub"></p></div><button class="x" type="button" data-close="mPonto" aria-label="Fechar">×</button></div>
@@ -2230,9 +2236,24 @@ function updateTip(now){
 
 /* ---- desk nameplates for every claimed seat ---- */
 let PLATES=[];
+/* ---- name plaque standing on the head of each table, facing the aisle: who supervises that row ---- */
+const SUP_PLACAS=SEATS.filter(s=>s.role==='supervisor').map(s=>{
+  const c=document.createElement('canvas'); c.width=512; c.height=150; const tex=new T.CanvasTexture(c); tex.anisotropy=4;
+  const g=new T.Group(); g.position.set(TX1-0.12,0.765,s.z); scene.add(g);
+  box(0.05,0.2,0.62,mat('#1a1f26'),0,0.1,0,g,false);
+  for(const side of [1,-1]){ const m=new T.Mesh(new T.PlaneGeometry(0.6,0.176),new T.MeshBasicMaterial({map:tex})); m.position.set(side*0.027,0.1,0); m.rotation.y=side*Math.PI/2; g.add(m); }
+  return {seat:s,c,tex,key:''}; });
+function drawSupPlacas(owners){
+  for(const pl of SUP_PLACAS){ const uid=owners[pl.seat.id], p=uid&&S.profiles[uid], t=TEAM[pl.seat.team];
+    const nome=p?p.nome:'Supervisão livre', key=nome+'|'+t.cor; if(key===pl.key) continue; pl.key=key;
+    const g=pl.c.getContext('2d'), W=512, H=150; g.fillStyle='#14181e'; g.fillRect(0,0,W,H); g.fillStyle=t.cor; g.fillRect(0,0,W,14);
+    g.textAlign='center'; g.fillStyle='rgba(255,255,255,.7)'; g.font='700 26px '+F_BODY; g.fillText(('Supervisão · '+t.curto).toUpperCase(),W/2,50);
+    let size=56; g.font=`800 ${size}px ${F_DISP}`; while(size>28&&g.measureText(nome).width>W-30){ size-=4; g.font=`800 ${size}px ${F_DISP}`; }
+    g.fillStyle=p?'#ffffff':'rgba(255,255,255,.45)'; g.fillText(nome,W/2,112); pl.tex.needsUpdate=true; }
+}
 function rebuildNameplates(){
   for(const s of PLATES){ scene.remove(s); disposeGeo(s); } PLATES=[];
-  const owners=seatOwners();
+  const owners=seatOwners(); drawSupPlacas(owners);
   for(const sid in owners){ const seat=SEAT[sid], p=S.profiles[owners[sid]]; if(!seat||!p) continue;
     const d=totDia(p); const sub=p.cargo==='vendedor'?`Hoje ${fmt(d.f)}`:CARGOS[p.cargo].nome;
     const sp=spriteOf(labelTex([p.nome,sub],roleColor(p),384,104),0.82,0.22);
@@ -2790,6 +2811,8 @@ function updateDoor(dt){
   door.position.x+=((near?GX+1.75:GX)-door.position.x)*Math.min(1,dt*6);
 }
 let curHint=null, curHint2=null;
+async function trocarFileira(s){ const prof=Object.assign({},S.me,{seat:s.id});
+  try{ await Store.saveProfile(prof); S.profiles[S.uid]=normProfile(S.uid,prof); S.me=S.profiles[S.uid]; P.sitting=s; rebuildNameplates(); updateMeChip(); syncNPCs(); toast(`Agora você supervisiona desta fileira: ${s.label.toLowerCase()} do ${TEAM[s.team].curto}.`); }catch(e){ writeFailed(e); } }
 function computeInteraction(){
   if(!S.playing||!S.me) return null;
   if(P.sitting && P.sitting.extra) return {label:'Levantar',act:standUp};
@@ -2797,6 +2820,8 @@ function computeInteraction(){
   const mine=S.me.seat&&SEAT[S.me.seat];
   if(mine && Math.hypot(P.x-mine.x,P.z-mine.z)<1.5) return {label:'Sentar na sua cadeira',act:()=>{ P.sitting=mine; }};
   const owners=seatOwners();
+  if(S.me.cargo==='supervisor') for(const s of SEATS){ if(s.role!=='supervisor'||s.team!==S.me.time||owners[s.id]||Math.hypot(P.x-s.x,P.z-s.z)>1.3) continue;
+    return {label:`Trabalhar nesta fileira (${s.label.toLowerCase()})`,act:()=>trocarFileira(s)}; }
   for(const s of SEATS){ if(Math.hypot(P.x-s.x,P.z-s.z)<0.8){ const o=owners[s.id]; if(o && o!==S.uid) return {label:`Cadeira de ${nomeDe(o)}`,act:()=>toast(`${nomeDe(o)} · ${roleLine(S.profiles[o])}`)}; } }
   if(Math.hypot(P.x-SINO.spot.x,P.z-SINO.spot.z)<1.5) return {label:'Tocar o sino',act:tocarSino};
   if(Math.hypot(P.x-KITCHEN.agua.x,P.z-KITCHEN.agua.z)<1.3) return {label:'Beber água',act:()=>{ P.ry=Math.PI; emote('beber'); }};
@@ -3020,11 +3045,11 @@ document.querySelectorAll('[data-emo]').forEach(b=>b.addEventListener('click',()
 /* ======================================================================
    UI: modals
    ====================================================================== */
-const MODALS=['mMetas','mDia','mTelao','mStatus','mIr','mMsg','mEnquete','mReuniao','mPaineis','mWizard'];
+const MODALS=['mAguarda','mPonto','mMetas','mDia','mTelao','mStatus','mIr','mMsg','mEnquete','mReuniao','mPaineis','mWizard'];
 const anyModal=()=>MODALS.some(id=>!$('#'+id).hidden);
 function show(id){ $('#'+id).hidden=false; keys.clear(); }
 function hide(id){ $('#'+id).hidden=true; }
-function closeTop(){ for(const id of MODALS){ if(!$('#'+id).hidden){ if(id==='mWizard' && !WZ.edit) return; hide(id); return; } } }
+function closeTop(){ for(const id of MODALS){ if(!$('#'+id).hidden){ if((id==='mWizard' && !WZ.edit)||id==='mAguarda') return; hide(id); return; } } }
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>hide(b.dataset.close)));
 function updateMeChip(){
   const me=S.me; if(!me){ $('#meChip').textContent=''; return; }
@@ -3204,9 +3229,9 @@ $('#wzNext').addEventListener('click',async()=>{
   S.profiles[S.uid]=normProfile(S.uid,prof); S.me=S.profiles[S.uid];
   hide('mWizard');
   if(P.sitting) standUp();
-  if(Store.mode==='sb' && LIDERANCA(S.me.cargo) && !aprovado(S.me) && !S.isOwner){
+  if(precisaAprovacao()){
     const a=APROV[S.uid]; if(!(a&&a.status==='pendente'&&a.cargo===S.me.cargo)) Store.pedirAprovacao(S.me.cargo).catch(writeFailed);
-    setTimeout(()=>toast(`O cargo de ${CARGOS[S.me.cargo].nome} precisa ser aprovado pela gestão. Enquanto isso você entra sem os recursos de liderança.`),600); }
+    abrirAguarda(); return; }
   if(isNew||!S.playing){ startPlaying(); if(S.me.cargo==='vendedor') openDia(true); else toast(`Bem-vindo(a), ${S.me.nome}! Sua mesa está marcada no escritório.`); }
   else { ensurePlayerAvatar(); rebuildNameplates(); updateMeChip(); toast('Perfil atualizado.'); }
 });
@@ -3322,6 +3347,15 @@ function renderPaineis(){
   if(S.me&&(S.me.cargo==='gerente'||S.me.cargo==='lider')&&aprovado(S.me)) grid.append(marcaCard());
   b.append(grid); sc.scrollTop=st;
 }
+// a new leadership person (supervisor, assistant, líder, gerente) only enters the office after the administrator approves
+const precisaAprovacao=()=>Store.mode==='sb' && !!S.me && LIDERANCA(S.me.cargo) && !S.isOwner && !aprovado(S.me);
+function abrirAguarda(){
+  const b=$('#agBody'); b.textContent=''; const a=APROV[S.uid], recusado=a&&a.status==='recusado'&&a.cargo===S.me.cargo;
+  b.append(el('p',{text:recusado?`O administrador não aprovou a sua entrada como ${CARGOS[S.me.cargo].nome}. Fale com ele ou mude o seu cadastro.`
+    :`Olá, ${S.me.nome.split(' ')[0]}! Sua entrada como ${CARGOS[S.me.cargo].nome}${S.me.time?' do '+TEAM[S.me.time].curto:''} foi enviada para o administrador (Elifer) aprovar. Assim que ele aprovar, você entra no escritório automaticamente: pode deixar esta tela aberta.`}));
+  const mudar=el('button',{type:'button',class:'btn',text:'Mudar meu cadastro'}); mudar.addEventListener('click',()=>{ hide('mAguarda'); openWizard(true); });
+  b.append(el('div',{class:'msg-actions'},mudar)); show('mAguarda');
+}
 function onAprovacoes(l){
   const antes=Object.assign({},APROV), primeira=!aprovOk;
   for(const k in APROV) delete APROV[k];
@@ -3333,6 +3367,7 @@ function onAprovacoes(l){
     else if(minha.status==='recusado'){ toast(`A gestão não aprovou o cargo de ${CARGOS[minha.cargo].nome}. Fale com a gestão ou troque o cargo em Meu perfil.`); SFX.pop(); } }
   if(S.isOwner && !primeira){ for(const u in APROV){ const a=APROV[u], b=antes[u];
     if(a.status==='pendente' && (!b||b.status!=='pendente'||b.cargo!==a.cargo)){ SFX.alarme(); chamarNaAba('Aprovação pendente'); } } }
+  if(!$('#mAguarda').hidden && S.me){ if(!precisaAprovacao()){ hide('mAguarda'); if(!S.playing){ startPlaying(); openDia(true); } } else abrirAguarda(); }
   renderAprovPainel(); if(S.me) updateMeChip(); rebuildNameplates(); if(!$('#mPaineis').hidden) renderPaineis();
 }
 function pendentes(){ return Object.entries(APROV).filter(([u,a])=>a.status==='pendente'&&S.profiles[u]).map(([u,a])=>({uid:u,cargo:a.cargo,ts:a.ts})).sort((x,y)=>x.ts-y.ts); }
@@ -3818,7 +3853,8 @@ async function boot(){
   await Promise.race([first,new Promise(r=>setTimeout(r,6000))]);
   $('#loading').hidden=true;
   if(S.me && !SEAT[S.me.seat]){ openWizard(true); WZ.step=3; WZ.d.seat=null; renderWizard(); toast('A mesa do escritório mudou: escolha a sua cadeira na mesa do seu time.'); }
-  else if(S.me){ startPlaying(); openDia(true); } else openWizard(false);
+  else if(S.me){ if(precisaAprovacao()&&!aprovOk) await new Promise(r=>{ const t0=Date.now(), iv=setInterval(()=>{ if(aprovOk||Date.now()-t0>5000){ clearInterval(iv); r(); } },150); });
+    if(precisaAprovacao()) abrirAguarda(); else { startPlaying(); openDia(true); } } else openWizard(false);
 }
 if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>{ SIGNS.forEach(drawSign); refreshPanels(); drawBrand(); rebuildNameplates(); if(P.av){ P.key=''; ensurePlayerAvatar(); } });
 refreshPanels(); drawBrand();
