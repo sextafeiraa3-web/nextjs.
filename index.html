@@ -1325,9 +1325,10 @@ function onTreinos(l){ TREINO.custom=(l||[]).filter(t=>t&&typeof t.titulo==='str
 
 /* ---- room audio: inside the training room or the gerente's room you hear everyone there; the "Falar" button turns your microphone on.
    Audio goes straight between browsers (WebRTC); the shared database's live channel only carries the handshake. ---- */
-const SALAS_VOZ={treino:'Sala de treinamento',vidro:'Sala do gerente'};
+const SALAS_VOZ={treino:'Sala de treinamento',vidro:'Sala do gerente',jogos:'Sala de jogos',bagunca:'Sala da bagunça',recepcao:'Recepção'};
+const salaEntrada=(x,z)=> z<=ENT.z0-0.1 ? null : z>ENT.zr ? 'recepcao' : x>ENT.cx1 ? 'jogos' : x<ENT.cx0 ? 'bagunca' : null; // the corridor itself has no audio
 const VOZ={vid:Math.random().toString(36).slice(2,12)+Date.now().toString(36),sala:null,pcs:new Map(),ch:null,mic:null,micOn:false,mudo:false,ctx:null,nivel:new Map(),key:''};
-function salaVoz(){ if(!S.playing||P.away) return null; return inTraining(P.x,P.z)?'treino':inGlass(P.x,P.z)?'vidro':null; }
+function salaVoz(){ if(!S.playing||P.away) return null; return inTraining(P.x,P.z)?'treino':inGlass(P.x,P.z)?'vidro':salaEntrada(P.x,P.z); }
 function vozCanal(){
   if(VOZ.ch||Store.mode!=='sb') return VOZ.ch;
   VOZ.ch=Store.sb.channel('voz',{config:{broadcast:{self:false}}});
@@ -2267,7 +2268,7 @@ function syncRemotes(){
     if(typeof pz.fala==='string' && pz.falaTs!==r.falaTs){ const first=r.falaTs===undefined; r.falaTs=pz.falaTs; if(!first||Date.now()-(+pz.falaTs||0)<8000){ const t=pz.fala.slice(0,160), to=['todos','sala','vidro','perto'].includes(pz.falaTo)?pz.falaTo:'perto';
       const ouve=to==='vidro'?inGlass(P.x,P.z):to==='sala'?inTraining(P.x,P.z):true; if(ouve) setBubble(r.av,t); hearChat(uid,t,to,r.tx,r.tz); } }
     r.treinoI=(pz.treino&&Number.isInteger(pz.treino.i))?pz.treino.i:null;
-    r.voz=['treino','vidro'].includes(pz.voz)?pz.voz:null; r.vid=typeof pz.vid==='string'?pz.vid.slice(0,40):null; r.mic=!!pz.mic;
+    r.voz=Object.prototype.hasOwnProperty.call(SALAS_VOZ,pz.voz)?pz.voz:null; r.vid=typeof pz.vid==='string'?pz.vid.slice(0,40):null; r.mic=!!pz.mic;
     if(pz.reun && typeof pz.reun==='object' && pz.reun.ts!==r.reunTs){ const old=r.reunTs===undefined&&Date.now()-(+pz.reun.ts||0)>120000; r.reunTs=pz.reun.ts;
       if(!old && Array.isArray(pz.reun.to) && pz.reun.to.includes(S.uid)) conviteReuniao(uid,pz.reun); }
     if(typeof pz.emo==='string' && pz.emoTs!==r.emoTs){ const first=fresh&&Date.now()-(+pz.emoTs||0)>8000; r.emoTs=pz.emoTs;
