@@ -3776,10 +3776,18 @@ function drawMinimap(dt){
   if(Z.npc){ const [x,y]=mmPos(Z.npc.x,Z.npc.z); g.fillStyle='#34c472'; g.beginPath(); g.arc(x,y,3,0,7); g.fill(); }
   const [px,py]=mmPos(P.x,P.z); g.save(); g.translate(px,py); g.rotate(-P.ry); g.fillStyle='#f2b33d'; g.beginPath(); g.moveTo(0,7); g.lineTo(5,-4); g.lineTo(-5,-4); g.closePath(); g.fill(); g.restore();
 }
+// a saved seat that no longer exists (e.g. the old supervisor seats) leaves the person without a desk: take the first free one of their team
+async function consertarCadeira(){
+  const me=S.me; if(!me||!me.time||!TEM_TIME(me.cargo)||SEAT[me.seat]) return;
+  const owners=seatOwners(), livre=SEATS.find(s=>s.team===me.time&&!owners[s.id]); if(!livre) return;
+  const prof=Object.assign({},me,{seat:livre.id});
+  try{ await Store.saveProfile(prof); S.profiles[S.uid]=normProfile(S.uid,prof); S.me=S.profiles[S.uid]; updateMeChip(); toast(`Sua cadeira antiga não existe mais. Você ficou com a cadeira ${livre.label} do time ${TEAM[me.time].curto}; dá para trocar em Meu perfil.`); }catch(e){ writeFailed(e); }
+}
 function startPlaying(){
   S.playing=true; $('#hudTop').hidden=false; $('#hudBottom').hidden=false; $('#minimap').hidden=false;
   if('ontouchstart' in window) $('#help').textContent='Toque à esquerda para andar · arraste à direita para girar a câmera';
   P.x=SPAWN.x; P.z=SPAWN.z; P.ry=SPAWN.ry; camYaw=Math.PI; P.sitting=null; setTimeout(lembrarPonto,6000);
+  consertarCadeira();
   ensurePlayerAvatar(); updateMeChip(); updateOnline();
   camera.position.set(P.x,4,P.z+5);
   if(Store.mode==='sb' && !S.handle) setTimeout(()=>toast('Crie seu @ e PIN em Meu perfil para entrar de qualquer navegador.'),3500);
