@@ -443,7 +443,7 @@ td.r,th.r{text-align:right}
 
 <div class="modal-wrap" id="mReuniao" hidden>
   <div class="modal sm" role="dialog" aria-labelledby="reTitle">
-    <div class="mhead"><div><h2 id="reTitle">Chamar para reunião</h2><p>Os líderes recebem um alerta e vão até a sala.</p></div><button class="x" type="button" data-close="mReuniao" aria-label="Fechar">×</button></div>
+    <div class="mhead"><div><h2 id="reTitle">Chamar para reunião</h2><p>Quem você chamar recebe um alerta e o caminho até a sala.</p></div><button class="x" type="button" data-close="mReuniao" aria-label="Fechar">×</button></div>
     <div class="mbody" id="reBody"></div>
   </div>
 </div>
@@ -1414,11 +1414,19 @@ function renderVoz(){
 setInterval(()=>{ if(VOZ.sala) renderVoz(); },200);
 
 /* ---- meetings: leadership calls other leaders to the training room or the gerente's room ---- */
-const LOCAIS_REUNIAO={treino:'Sala de treinamento',gerente:'Sala do gerente'};
+const LOCAIS_REUNIAO={treino:'Sala de treinamento',gerente:'Sala do gerente',telao:'frente do telão',jogos:'Sala de jogos'};
+const GRUPOS_REUNIAO={sup:'Só os supervisores',todos:'Todos (a equipe inteira)',escolher:'Escolher as pessoas'};
+const chamadoPara=(reun,uid)=>{ const p=S.profiles[uid]; if(!p) return false; if(reun.grupo==='todos') return true; if(reun.grupo==='sup') return p.cargo==='supervisor'; return Array.isArray(reun.to)&&reun.to.includes(uid); };
 function openReuniao(){
   const b=$('#reBody'); b.textContent='';
   const on=onlineUids(), lideres=Object.values(S.profiles).filter(p=>p.uid!==S.uid&&LIDERANCA(p.cargo)&&aprovado(p)).sort((a,c)=>(on.has(c.uid)-on.has(a.uid))||a.nome.localeCompare(c.nome,'pt-BR'));
   const sel=new Set(lideres.filter(p=>on.has(p.uid)).map(p=>p.uid));
+  let grupo='sup';
+  const sups=Object.values(S.profiles).filter(p=>p.uid!==S.uid&&p.cargo==='supervisor'), todos=Object.values(S.profiles).filter(p=>p.uid!==S.uid&&p.cargo!=='visitante');
+  const contar=g=>{ const l=g==='sup'?sups:todos; return `${l.length} pessoa(s), ${l.filter(p=>on.has(p.uid)).length} online`; };
+  const grupos=el('div',{class:'cards'}), escolha=el('div',{class:'field',hidden:''});
+  const pintar=()=>{ grupos.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.g===grupo))); escolha.hidden=grupo!=='escolher'; };
+  for(const [g,t] of Object.entries(GRUPOS_REUNIAO)){ const bt=el('button',{type:'button',class:'card','data-g':g},el('b',{text:t}),el('small',{text:g==='escolher'?'líderes e supervisores, um por um':contar(g)})); bt.addEventListener('click',()=>{ grupo=g; pintar(); }); grupos.append(bt); }
   const lista=el('div',{class:'gp-list'});
   if(!lideres.length) lista.append(el('p',{class:'empty',text:'Nenhum líder cadastrado ainda.'}));
   for(const p of lideres){ const cb=el('input',{type:'checkbox'}); cb.checked=sel.has(p.uid); cb.addEventListener('change',()=>{ cb.checked?sel.add(p.uid):sel.delete(p.uid); });
@@ -1426,16 +1434,17 @@ function openReuniao(){
   const local=el('select',{'aria-label':'Local da reunião'},...Object.entries(LOCAIS_REUNIAO).map(([v,t])=>el('option',{value:v,text:t})));
   const msg=el('input',{maxlength:'120',placeholder:'Assunto (opcional): ex. resultado da semana'});
   const ok=el('button',{type:'button',class:'btn primary',text:'Chamar para reunião'});
-  ok.addEventListener('click',async()=>{ const to=[...sel]; if(!to.length){ toast('Escolha pelo menos uma pessoa.'); return; }
-    const reun={to,local:local.value,msg:msg.value.trim().slice(0,120),ts:Date.now()};
+  ok.addEventListener('click',async()=>{ const to=grupo==='escolher'?[...sel]:(grupo==='sup'?sups:todos).map(p=>p.uid); if(!to.length){ toast(grupo==='sup'?'Nenhum supervisor cadastrado ainda.':'Escolha pelo menos uma pessoa.'); return; }
+    const reun={grupo,to:grupo==='escolher'?to:[],local:local.value,msg:msg.value.trim().slice(0,120),ts:Date.now()};
     if(room) room.presence({reun}).catch(()=>{});
     if(Store.mode==='sb'){ const txt=`Reunião agora na ${LOCAIS_REUNIAO[reun.local]}`+(reun.msg?`: ${reun.msg}`:'')+'. Chamado pelo jogo.';
-      for(const u of to) Store.sendMsg({de:S.uid,para:u,texto:txt,ts:Date.now()}).catch(()=>{}); }
-    hide('mReuniao'); toast(`Chamado enviado para ${to.length} pessoa(s). Indo para a ${LOCAIS_REUNIAO[reun.local]}.`);
-    const d=destinos().find(x=>x.id===reun.local); if(d) irPara(d); });
-  b.append(el('div',{class:'field'},el('span',{text:'Quem chamar (os online já vêm marcados)'}),lista),
+      if(grupo!=='todos') for(const u of to) Store.sendMsg({de:S.uid,para:u,texto:txt,ts:Date.now()}).catch(()=>{}); }
+    hide('mReuniao'); toast(`Chamado enviado para ${grupo==='todos'?'todos':grupo==='sup'?'os supervisores':to.length+' pessoa(s)'} (${to.length}). Indo para a ${LOCAIS_REUNIAO[reun.local]}.`);
+    const d=destinos().find(x=>x.id===reun.local); if(d) irPara(Object.assign({},d,{arrive:null})); });
+  escolha.append(el('span',{text:'Quem chamar (os online já vêm marcados)'}),lista); pintar();
+  b.append(el('div',{class:'field'},el('span',{text:'Chamar quem'}),grupos),escolha,
     el('label',{class:'field'},el('span',{text:'Onde'}),local),el('label',{class:'field'},el('span',{text:'Assunto'}),msg),ok,
-    el('p',{class:'empty',text:'Quem estiver online recebe um alerta com o botão "Ir agora". Todos recebem também uma mensagem particular.'}));
+    el('p',{class:'empty',text:'Quem estiver online recebe um alerta com som e o botão "Ir agora". Supervisores e pessoas escolhidas recebem também uma mensagem particular.'}));
   show('mReuniao');
 }
 function conviteReuniao(uid,reun){
@@ -1443,9 +1452,9 @@ function conviteReuniao(uid,reun){
   SFX.ding(); setTimeout(()=>SFX.ding(),350); chamarNaAba('Reunião: '+nome+' chamou você');
   const c=$('#convite'); c.textContent='';
   const ir=el('button',{type:'button',class:'btn primary',text:'Ir agora'}), fechar=el('button',{type:'button',class:'btn',text:'Depois'});
-  ir.addEventListener('click',()=>{ c.hidden=true; const d=destinos().find(x=>x.id===local); if(d) irPara(d); });
+  ir.addEventListener('click',()=>{ c.hidden=true; const d=destinos().find(x=>x.id===local); if(d) irPara(Object.assign({},d,{arrive:null})); });
   fechar.addEventListener('click',()=>{ c.hidden=true; });
-  c.append(el('b',{text:`${nome} chamou você para uma reunião na ${LOCAIS_REUNIAO[local]}`}),reun.msg?el('p',{text:String(reun.msg).slice(0,120)}):'',el('div',{class:'msg-actions'},ir,fechar));
+  c.append(el('b',{text:`${nome} chamou ${reun.grupo==='todos'?'todos':reun.grupo==='sup'?'os supervisores':'você'} para uma reunião na ${LOCAIS_REUNIAO[local]}`}),reun.msg?el('p',{text:String(reun.msg).slice(0,120)}):'',el('div',{class:'msg-actions'},ir,fechar));
   c.hidden=false;
 }
 // exit door + sign
@@ -2293,7 +2302,7 @@ function syncRemotes(){
     r.treinoI=(pz.treino&&Number.isInteger(pz.treino.i))?pz.treino.i:null;
     r.voz=Object.prototype.hasOwnProperty.call(SALAS_VOZ,pz.voz)?pz.voz:null; r.vid=typeof pz.vid==='string'?pz.vid.slice(0,40):null; r.mic=!!pz.mic;
     if(pz.reun && typeof pz.reun==='object' && pz.reun.ts!==r.reunTs){ const old=r.reunTs===undefined&&Date.now()-(+pz.reun.ts||0)>120000; r.reunTs=pz.reun.ts;
-      if(!old && Array.isArray(pz.reun.to) && pz.reun.to.includes(S.uid)) conviteReuniao(uid,pz.reun); }
+      if(!old && chamadoPara(pz.reun,S.uid)) conviteReuniao(uid,pz.reun); }
     if(typeof pz.emo==='string' && pz.emoTs!==r.emoTs){ const first=fresh&&Date.now()-(+pz.emoTs||0)>8000; r.emoTs=pz.emoTs;
       const left=EMOS.senha-(Date.now()-(+pz.emoTs||0));
       if(pz.emo==='baixar'){ if(r.av.emo&&r.av.emo.kind==='senha') r.av.emo=null; }
