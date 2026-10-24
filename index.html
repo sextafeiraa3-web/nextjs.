@@ -1134,7 +1134,7 @@ const inTraining=(x,z)=>x>OX+0.15 && z>TR.z0 && z<TR.z1;
 })();
 /* ---- entrance behind the exit door: corridor with the time clock, games room (foosball) on the right, "bagunça" room on the left, lobby with the green wall ---- */
 const ENT={x0:5,x1:18,z0:OZ+0.2,z1:29,cx0:10.3,cx1:12.7,zr:22.6,door0:18.4,door1:19.6,
-  ponto:{x:10.95,z:21.9}, pebolim:{x:15.2,z:18.9}, lanche:{x:6.15,z:17.4}, saida:{x:10.5,z:28.2}, rods:[], ball:null, bv:[0.9,0.6], jogando:false, clockKey:''};
+  ponto:{x:10.95,z:21.9}, pebolim:{x:15.2,z:18.9}, saida:{x:10.5,z:28.2}, rods:[], ball:null, bv:[0.9,0.6], jogando:false, clockKey:''};
 const inEntrada=(x,z)=>z>OZ+0.1;
 (()=>{
   const {x0,x1,z0,z1,cx0,cx1,zr,door0,door1}=ENT, W=x1-x0, D=z1-z0+0.2, mx=(x0+x1)/2, mz=(z0-0.2+z1)/2;
@@ -1178,28 +1178,27 @@ const inEntrada=(x,z)=>z>OZ+0.1;
   sign('PONTO',cx0+0.075,1.78,ENT.ponto.z,Math.PI/2,0.5,'#0f8f43','#ffffff');
   cyl(0.18,0.15,0.55,mat('#1f4fa8'),10.62,0.28,20.95,null,16); BOXES.push([10.36,10.82,20.75,21.15]);
 
-  /* sala da bagunça (left): orange wall, snack and drink fridges, counter with microwave, round table, blue sofa */
-  box(0.02,WALL_H,zr-z0,orangeWall,x0+0.011,WALL_H/2,(z0+zr)/2,null,false);
-  const snackTex=canvasTex(128,256,(g,w,h)=>{ g.fillStyle='#e8f1f5'; g.fillRect(0,0,w,h); const cs=['#e53935','#fdd835','#43a047','#1e88e5','#fb8c00','#8e24aa'];
-    for(let r=0;r<6;r++){ g.fillStyle='#9aa4ab'; g.fillRect(0,r*42+38,w,3); for(let c=0;c<6;c++){ g.fillStyle=cs[(r*2+c)%cs.length]; g.fillRect(6+c*20,r*42+12,14,26); } } g.strokeStyle='#202326'; g.lineWidth=8; g.strokeRect(0,0,w,h); });
-  for(const z of [17.0,17.75]){ box(0.62,1.95,0.68,mat('#16181b'),x0+0.35,0.975,z);
-    const fr=new T.Mesh(new T.PlaneGeometry(0.6,1.6),new T.MeshBasicMaterial({map:snackTex})); fr.position.set(x0+0.665,1.05,z); fr.rotation.y=Math.PI/2; scene.add(fr); }
-  BOXES.push([x0,x0+0.68,16.6,18.12]);
-  box(2.2,0.9,0.6,mat('#e7e4de'),7.7,0.45,z0+0.3); box(2.26,0.04,0.64,mat('#3a3d42'),7.7,0.92,z0+0.3,null,false);
-  box(0.5,0.3,0.38,mat('#d9d9d6'),7.2,1.09,z0+0.24); box(0.3,0.2,0.01,mat('#202326'),7.12,1.09,z0+0.435,null,false);
-  box(0.35,0.42,0.3,mat('#202326'),8.3,1.15,z0+0.22);
-  BOXES.push([6.6,8.8,z0,z0+0.62]);
-  cyl(0.48,0.48,0.04,mat('#f2efe9'),8.2,0.75,19.6,null,24); cyl(0.05,0.05,0.73,mat('#2a2d31'),8.2,0.37,19.6); cyl(0.28,0.28,0.03,mat('#2a2d31'),8.2,0.015,19.6);
-  BOXES.push([7.78,8.62,19.18,20.02]);
-  const stoolM=mat('#dc6029',{roughness:0.7});
-  for(const [id,x,z,ry] of [['bag1',8.2,18.85,0],['bag2',8.2,20.35,Math.PI],['bag3',8.95,19.6,-Math.PI/2],['bag4',7.45,19.6,Math.PI/2]]){
-    cyl(0.2,0.2,0.06,stoolM,x,0.46,z,null,16); cyl(0.025,0.025,0.44,mat('#2a2d31'),x,0.22,z,null,8);
-    EXTRA_SITS.push({id,x,z,ry,label:'mesa da bagunça',extra:true,ent:true}); }
-  const velvet=mat('#24308f',{roughness:0.95});
-  box(2.0,0.42,0.8,velvet,7.0,0.25,zr-0.52); box(2.0,0.55,0.2,velvet,7.0,0.65,zr-0.16); box(0.18,0.6,0.8,velvet,6.0,0.4,zr-0.52); box(0.18,0.6,0.8,velvet,8.0,0.4,zr-0.52);
-  BOXES.push([5.9,8.1,zr-0.95,zr]);
-  EXTRA_SITS.push({id:'bsofa1',x:6.55,z:zr-0.55,ry:Math.PI,label:'sofá da bagunça',extra:true,ent:true},{id:'bsofa2',x:7.45,z:zr-0.55,ry:Math.PI,label:'sofá da bagunça',extra:true,ent:true});
-
+  /* sala da bagunça (left): storage for the chairs and tables nobody uses any more, stacked and piled up */
+  const oldTop=mat('#cfcac0',{roughness:0.85}), oldLeg=mat('#2a2d31'), seatM=mat('#2b2e34'), boxM=mat('#a07b52',{roughness:0.95});
+  const mesaVelha=(x,y,z,ry,deitada)=>{ const g=new T.Group(); g.position.set(x,y,z); g.rotation.y=ry; scene.add(g);
+    if(deitada){ g.rotation.z=Math.PI; } box(1.4,0.04,0.7,oldTop,0,0.74,0,g); [[-0.62,-0.3],[0.62,-0.3],[-0.62,0.3],[0.62,0.3]].forEach(([dx,dz])=>box(0.05,0.72,0.05,oldLeg,dx,0.36,dz,g)); return g; };
+  const cadeiraVelha=(x,y,z,ry,tomb)=>{ const g=new T.Group(); g.position.set(x,y,z); g.rotation.y=ry; if(tomb) g.rotation.x=tomb; scene.add(g);
+    box(0.46,0.07,0.44,seatM,0,0.46,0,g); box(0.44,0.5,0.05,seatM,0,0.76,-0.2,g); cyl(0.03,0.03,0.4,oldLeg,0,0.24,0,g,8); box(0.5,0.03,0.05,oldLeg,0,0.04,0,g); box(0.05,0.03,0.5,oldLeg,0,0.04,0,g); return g; };
+  // tables against the back wall, one on top of the other upside down
+  mesaVelha(6.0,0,z0+0.45,0); mesaVelha(6.0,1.52,z0+0.45,0,true); mesaVelha(7.6,0,z0+0.45,0.05);
+  BOXES.push([5.2,8.4,z0,z0+0.85]);
+  // stacks of chairs along the side wall
+  for(const [z,n] of [[17.6,4],[18.4,3],[19.2,5],[20.0,2]]) for(let k=0;k<n;k++) cadeiraVelha(x0+0.4,k*0.18,z,Math.PI/2+(k%2?0.12:-0.08));
+  BOXES.push([x0,x0+0.75,17.3,20.3]);
+  // a table lying on its side and chairs left around it
+  const lado=mesaVelha(7.5,0.35,20.9,0.3); lado.rotation.x=Math.PI/2;
+  BOXES.push([6.7,8.3,20.5,21.3]);
+  cadeiraVelha(8.6,0,19.4,2.4); cadeiraVelha(6.6,0,19.0,-0.6); cadeiraVelha(8.9,0.22,21.9,1.2,Math.PI/2);
+  BOXES.push([8.3,9.2,21.5,22.4]);
+  // cardboard boxes and an old monitor
+  for(const [x,y,z,w] of [[5.6,0.2,21.9,0.5],[6.15,0.2,22.0,0.45],[5.85,0.6,21.95,0.4],[9.4,0.17,17.0,0.4]]) box(w,0.4*w/0.5,w,boxM,x,y,z);
+  box(0.42,0.32,0.08,mat('#1b1c1f'),5.85,0.98,21.95);
+  BOXES.push([5.3,6.45,21.6,22.5],[9.15,9.65,16.75,17.25]);
   /* sala de jogos (right): foosball, TV with a video game, bean bags, dartboard */
   box(0.02,WALL_H,zr-z0,accentWall,x1-0.011,WALL_H/2,(z0+zr)/2,null,false);
   const P0=ENT.pebolim, wood=mat('#6b4a2f',{roughness:0.6});
@@ -1231,6 +1230,7 @@ const inEntrada=(x,z)=>z>OZ+0.1;
   const grassTex=canvasTex(256,256,(g,w,h)=>{ g.fillStyle='#2f6b22'; g.fillRect(0,0,w,h); for(let i=0;i<2600;i++){ const l=28+Math.random()*30; g.fillStyle=`hsl(${95+Math.random()*25},${45+Math.random()*25}%,${l}%)`; const x=Math.random()*w, y=Math.random()*h; g.beginPath(); g.ellipse(x,y,2.5+Math.random()*3,1.2+Math.random()*1.5,Math.random()*3,0,7); g.fill(); } });
   grassTex.wrapS=grassTex.wrapT=T.RepeatWrapping; grassTex.repeat.set(4,3.4);
   box(3.95,WALL_H,0.1,new T.MeshStandardMaterial({map:grassTex,roughness:1}),cx1+0.3+1.975,WALL_H/2,zr+0.11);
+  const velvet=mat('#24308f',{roughness:0.95});
   box(1.9,0.42,0.75,velvet,14.95,0.25,zr+0.62); box(1.9,0.5,0.18,velvet,14.95,0.62,zr+0.3); box(0.16,0.55,0.75,velvet,14.02,0.37,zr+0.62); box(0.16,0.55,0.75,velvet,15.88,0.37,zr+0.62);
   BOXES.push([13.95,15.95,zr+0.16,zr+1.0]);
   EXTRA_SITS.push({id:'recep1',x:14.5,z:zr+0.66,ry:0,label:'sofá da recepção',extra:true,ent:true},{id:'recep2',x:15.4,z:zr+0.66,ry:0,label:'sofá da recepção',extra:true,ent:true});
@@ -2449,7 +2449,6 @@ function jogarPebolim(){
   PEBOLIM.timer=setTimeout(()=>{ if(!P.av||!P.av.emo||P.av.emo.kind!=='pebolim') return; const pl=PEBOLIM.placar; pl[Math.random()<0.5?0:1]++;
     const fim=pl[0]>=5||pl[1]>=5; toast(fim?`Fim de jogo! ${pl[0]} x ${pl[1]} · ${pl[0]>pl[1]?'você venceu!':'deu o outro lado.'}`:`Gooool! Placar ${pl[0]} x ${pl[1]}`); SFX.cash(); if(fim) PEBOLIM.placar=[0,0]; },4500);
 }
-function lanchar(){ if(P.sitting) standUp(); P.ry=-Math.PI/2; emote('cafe'); toast('Hora do lanche na sala da bagunça!'); }
 /* ---- "Ir para": walk on your own to a place in the office along the aisles ---- */
 const LANES_Z=[-8.8,-4.05,0.25,4.55,8.85,13.1], SIDE_X=[10,-12.4];
 const nearLane=z=>LANES_Z.reduce((a,b)=>Math.abs(b-z)<Math.abs(a-z)?b:a);
@@ -2515,7 +2514,7 @@ function destinos(){
   list.push({id:'sofa',nome:'Sofá',lane:13.1,lx:-9.3,pts:[[-9.3,14.6],[-10.3,15.25]],arrive:()=>{ P.sitting=SITS.sofa3; }});
   list.push({id:'ponto',nome:'Bater ponto',ent:true,lane:13.1,lx:11.5,pts:[[11.5,15.2],[11.5,17.2],[ENT.ponto.x,ENT.ponto.z]],face:-Math.PI/2,arrive:openPonto});
   list.push({id:'jogos',nome:'Sala de jogos (pebolim)',ent:true,lane:13.1,lx:11.5,pts:[[11.5,15.2],[11.5,19],[13.4,19],[ENT.pebolim.x,18.2]],face:0,arrive:jogarPebolim});
-  list.push({id:'bagunca',nome:'Sala da bagunça (lanche)',ent:true,lane:13.1,lx:11.5,pts:[[11.5,15.2],[11.5,19],[9.6,19],[ENT.lanche.x,ENT.lanche.z]],face:-Math.PI/2,arrive:lanchar});
+  list.push({id:'bagunca',nome:'Sala da bagunça (depósito de móveis)',ent:true,lane:13.1,lx:11.5,pts:[[11.5,15.2],[11.5,19],[9.6,19],[7.6,19.6]],face:-Math.PI/2});
   list.push({id:'saida',nome:'Saída (recepção)',ent:true,lane:13.1,lx:11.5,pts:[[11.5,15.2],[11.5,23.5],[ENT.saida.x,ENT.saida.z]],face:0,arrive:sairEscritorio});
   return list;
 }
@@ -2792,7 +2791,6 @@ function computeInteraction(){
   if(Math.hypot(P.x-KITCHEN.agua.x,P.z-KITCHEN.agua.z)<1.3) return {label:'Beber água',act:()=>{ P.ry=Math.PI; emote('beber'); }};
   if(Math.hypot(P.x-ENT.ponto.x,P.z-ENT.ponto.z)<1.2) return {label:'Bater ponto',act:openPonto};
   if(Math.hypot(P.x-ENT.pebolim.x,P.z-ENT.pebolim.z)<1.5) return {label:'Jogar pebolim',act:jogarPebolim};
-  if(Math.hypot(P.x-ENT.lanche.x,P.z-ENT.lanche.z)<1.2) return {label:'Pegar um lanche',act:lanchar};
   for(const s of EXTRA_SITS) if(Math.hypot(P.x-s.x,P.z-s.z)<0.95) return {label:`Sentar (${s.label})`,act:()=>{ P.sitting=s; }};
   if(Math.hypot(P.x-KITCHEN.cafe.x,P.z-KITCHEN.cafe.z)<1.4 || Math.hypot(P.x-6.6,P.z+13.9)<1.2) return {label:'Tomar café',act:()=>{ emote('cafe'); }};
   let near=null, nd=1.9;
