@@ -498,7 +498,7 @@ const TEAMS = [
 const TEAM = Object.fromEntries(TEAMS.map(t=>[t.id,t]));
 const CARGOS = {
   vendedor:  {nome:'Vendedor(a)',      desc:'Ocupa uma cadeira na mesa do seu time.'},
-  supervisor:{nome:'Supervisor(a)',    desc:'Senta em qualquer cadeira da mesa do seu time.'},
+  supervisor:{nome:'Supervisor(a)',    desc:'Senta na ponta da mesa do seu time.'},
   assistente:{nome:'Assistente B2B',   desc:'Senta em qualquer cadeira da mesa do B2B.'},
   lider:     {nome:'Líder de vendas',  desc:'Mesa ao lado da sala de vidro.'},
   gerente:   {nome:'Gerente geral',    desc:'Sala de vidro na frente do escritório.'},
@@ -528,6 +528,8 @@ ROWS.forEach((row,i)=>{
     SEATS.push({id:`${pre}-a${k+1}`, team:t.id, role:'vendedor', x, z:z-1.2, ry:0, label:LA+(k+1), side:'a', row:i});
     SEATS.push({id:`${pre}-b${k+1}`, team:t.id, role:'vendedor', x, z:z+1.2, ry:Math.PI, label:LB+(k+1), side:'b', row:i});
   }
+  // the supervisor sits at the head of the table, on the side aisle
+  SEATS.push({id:`${pre}-sup`, team:t.id, role:'supervisor', x:TX1+0.6, z, ry:-Math.PI/2, label:row.second?'Ponta da 2ª mesa':'Ponta', row:i});
 });
 const GX=-OX+5, LX=-1.6;           // glass room (gerência geral) against the left wall, líder desk beside it
 SEATS.push({id:'gerente', team:null, role:'gerente', x:GX, z:-14.75, ry:0, label:'Gerente geral'});
@@ -3041,7 +3043,10 @@ function openWizard(edit){
 }
 $('#wzClose').addEventListener('click',()=>hide('mWizard'));
 const TEM_TIME = c => c==='vendedor'||c==='supervisor'||c==='assistente';
-function allowedSeat(s,d){ if(TEM_TIME(d.cargo)) return s.role==='vendedor'&&s.team===d.time; return s.role===d.cargo; }
+function allowedSeat(s,d){
+  if(d.cargo==='supervisor'){ if(s.team!==d.time) return false; if(s.role==='supervisor') return true; // the head of the table; any desk only when every head is taken
+    const o=seatOwners(); return s.role==='vendedor' && SEATS.every(x=>x.team!==d.time||x.role!=='supervisor'||(o[x.id]&&o[x.id]!==S.uid)); }
+  if(TEM_TIME(d.cargo)) return s.role==='vendedor'&&s.team===d.time; return s.role===d.cargo; }
 function renderWizard(){
   const d=WZ.d, body=$('#wzBody'); body.textContent='';
   document.querySelectorAll('.steps span').forEach(s=>s.classList.toggle('on',+s.dataset.s===WZ.step));
@@ -3067,10 +3072,10 @@ function renderWizard(){
     if(d.cargo==='assistente') body.append(el('p',{style:'margin:0;color:var(--muted)',text:'Assistentes ficam no time B2B · Grandes Contas.'}));
     else if(TEM_TIME(d.cargo)){
       const owners=seatOwners(); const times=el('div',{class:'cards'});
-      for(const t of TEAMS){ const all=SEATS.filter(s=>s.team===t.id&&s.role==='vendedor'), vagas=all.filter(s=>!owners[s.id]||owners[s.id]===S.uid).length;
+      for(const t of TEAMS){ const all=SEATS.filter(s=>s.team===t.id&&s.role===(d.cargo==='supervisor'?'supervisor':'vendedor')), vagas=all.filter(s=>!owners[s.id]||owners[s.id]===S.uid).length;
         const sups=Object.values(S.profiles).filter(p=>p.cargo==='supervisor'&&p.time===t.id&&p.uid!==S.uid).map(p=>nomeDe(p.uid).split(' ')[0]);
-        const info=`${vagas} de ${all.length} cadeiras livres`+(d.cargo==='supervisor'&&sups.length?' · Supervisão: '+sups.join(', '):'');
-        const full=!vagas;
+        const info=(d.cargo==='supervisor'?`${vagas} de ${all.length} pontas de mesa livres`:`${vagas} de ${all.length} cadeiras livres`)+(d.cargo==='supervisor'&&sups.length?' · Supervisão: '+sups.join(', '):'');
+        const full=!vagas&&d.cargo!=='supervisor';
         const b=el('button',{type:'button',class:'card','aria-pressed':String(d.time===t.id),disabled:full?'':false},el('i',{class:'sw',style:`background:${t.cor}`}),el('b',{text:t.nome}),el('small',{text:info}));
         if(full) b.style.opacity='.45';
         b.addEventListener('click',()=>{ if(full) return; d.time=t.id; d.seat=null; renderWizard(); }); times.append(b); }
@@ -3167,9 +3172,9 @@ function renderSeatMap(body){
     el('div',{class:'lider'},el('small',{text:'Líder de vendas'}),seatBtn(SEAT.lider,'','Líder'))));
   ROWS.forEach((row,i)=>{ const t=row.t;
     const ladoA=el('div',{class:'lado'}), ladoB=el('div',{class:'lado'});
-    SEATS.filter(s=>s.row===i).forEach(s=>(s.side==='a'?ladoA:ladoB).append(seatBtn(s)));
+    SEATS.filter(s=>s.row===i&&s.role==='vendedor').forEach(s=>(s.side==='a'?ladoA:ladoB).append(seatBtn(s)));
     plan.append(el('div',{class:'mesa',style:`--team:${t.cor}`},el('div',{class:'mesa-core'},ladoA,el('div',{class:'tampo',text:t.nome+(row.second?' · 2ª mesa':'')}),ladoB),
-      el('div',{class:'ponta'})));
+      el('div',{class:'ponta'},SEAT[(row.second?t.id+'2':t.id)+'-sup']?seatBtn(SEAT[(row.second?t.id+'2':t.id)+'-sup'],'','Superv.'):null)));
   });
   plan.append(el('div',{class:'saida',text:'Saída →'}));
   const sel=d.seat&&SEAT[d.seat];
@@ -3778,10 +3783,12 @@ function drawMinimap(dt){
 }
 // a saved seat that no longer exists (e.g. the old supervisor seats) leaves the person without a desk: take the first free one of their team
 async function consertarCadeira(){
-  const me=S.me; if(!me||!me.time||!TEM_TIME(me.cargo)||SEAT[me.seat]) return;
-  const owners=seatOwners(), livre=SEATS.find(s=>s.team===me.time&&!owners[s.id]); if(!livre) return;
+  const me=S.me; if(!me||!me.time||!TEM_TIME(me.cargo)) return;
+  const owners=seatOwners(), cab=me.cargo==='supervisor'&&SEATS.find(s=>s.team===me.time&&s.role==='supervisor'&&!owners[s.id]);
+  if(SEAT[me.seat] && !(cab && SEAT[me.seat].role!=='supervisor')) return; // supervisors move to a free head of table
+  const livre=cab||SEATS.find(s=>s.team===me.time&&allowedSeat(s,me)&&!owners[s.id]); if(!livre) return;
   const prof=Object.assign({},me,{seat:livre.id});
-  try{ await Store.saveProfile(prof); S.profiles[S.uid]=normProfile(S.uid,prof); S.me=S.profiles[S.uid]; updateMeChip(); toast(`Sua cadeira antiga não existe mais. Você ficou com a cadeira ${livre.label} do time ${TEAM[me.time].curto}; dá para trocar em Meu perfil.`); }catch(e){ writeFailed(e); }
+  try{ await Store.saveProfile(prof); S.profiles[S.uid]=normProfile(S.uid,prof); S.me=S.profiles[S.uid]; updateMeChip(); toast((cab?`Supervisor senta na ponta da mesa: você agora está na ${livre.label.toLowerCase()} do time ${TEAM[me.time].curto};`:`Sua cadeira antiga não existe mais. Você ficou com a cadeira ${livre.label} do time ${TEAM[me.time].curto};`)+' dá para trocar em Meu perfil.'); }catch(e){ writeFailed(e); }
 }
 function startPlaying(){
   S.playing=true; $('#hudTop').hidden=false; $('#hudBottom').hidden=false; $('#minimap').hidden=false;
