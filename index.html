@@ -1523,18 +1523,19 @@ const SINO=(()=>{
 })();
 
 /* ---- wall clock on the right wall, next to the bell ---- */
-const RELOGIO=(()=>{
-  const c=document.createElement('canvas'); c.width=c.height=256; const tex=new T.CanvasTexture(c);
-  const m=new T.Mesh(new T.CircleGeometry(0.34,40),new T.MeshBasicMaterial({map:tex})); m.position.set(OX-0.04,2.35,7.6); m.rotation.y=-Math.PI/2; scene.add(m);
-  const aro=new T.Mesh(new T.TorusGeometry(0.35,0.025,8,40),mat('#1c1e22')); aro.position.copy(m.position); aro.rotation.y=-Math.PI/2; scene.add(aro);
+const RELOGIO=(()=>{ // digital wall clock: big hours and minutes, seconds and the date underneath
+  const c=document.createElement('canvas'); c.width=512; c.height=200; const tex=new T.CanvasTexture(c); tex.anisotropy=4;
+  const g0=new T.Group(); g0.position.set(OX-0.05,2.35,7.6); g0.rotation.y=-Math.PI/2; scene.add(g0);
+  box(0.98,0.42,0.06,mat('#141518',{roughness:0.5}),0,0,-0.03,g0,false);
+  const m=new T.Mesh(new T.PlaneGeometry(0.92,0.36),new T.MeshBasicMaterial({map:tex})); m.position.z=0.002; g0.add(m);
   let last='';
   return {draw(){ const d=new Date(), k=d.getHours()+':'+d.getMinutes()+':'+d.getSeconds(); if(k===last) return; last=k;
-    const g=c.getContext('2d'), r=128; g.clearRect(0,0,256,256); g.fillStyle='#f7f7f3'; g.beginPath(); g.arc(r,r,r,0,7); g.fill();
-    g.fillStyle='#1c1e22'; for(let i=0;i<12;i++){ const a=i/12*Math.PI*2; g.save(); g.translate(r,r); g.rotate(a); g.fillRect(-3,-r+10,6,i%3?14:24); g.restore(); }
-    const hand=(a,len,wd,col)=>{ g.save(); g.translate(r,r); g.rotate(a); g.strokeStyle=col; g.lineWidth=wd; g.lineCap='round'; g.beginPath(); g.moveTo(0,14); g.lineTo(0,-len); g.stroke(); g.restore(); };
-    const h=d.getHours()%12, mi=d.getMinutes(), se=d.getSeconds();
-    hand((h+mi/60)/12*Math.PI*2,62,9,'#1c1e22'); hand((mi+se/60)/60*Math.PI*2,92,6,'#1c1e22'); hand(se/60*Math.PI*2,100,2,'#dc6029');
-    g.fillStyle='#dc6029'; g.beginPath(); g.arc(r,r,7,0,7); g.fill(); tex.needsUpdate=true; }};
+    const g=c.getContext('2d'), p=n=>String(n).padStart(2,'0'); g.fillStyle='#07090b'; g.fillRect(0,0,512,200);
+    g.textAlign='center'; g.textBaseline='alphabetic'; g.shadowColor='#ff5a2a'; g.shadowBlur=14; g.fillStyle='#ff6a3a';
+    g.font='800 128px "JetBrains Mono", monospace'; g.fillText(p(d.getHours())+(d.getSeconds()%2?':':' ')+p(d.getMinutes()),226,132);
+    g.font='800 52px "JetBrains Mono", monospace'; g.fillText(p(d.getSeconds()),452,132);
+    g.shadowBlur=0; g.fillStyle='rgba(255,140,100,.75)'; g.font='600 30px '+F_BODY; g.fillText(d.toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'}).replace('.',''),256,180);
+    tex.needsUpdate=true; }};
 })();
 
 /* ---- balloons on the desks (orange and blue, gently bobbing) ---- */
