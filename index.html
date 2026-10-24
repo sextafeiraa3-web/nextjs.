@@ -1417,7 +1417,10 @@ setInterval(()=>{ if(VOZ.sala) renderVoz(); },200);
 const LOCAIS_REUNIAO={treino:'Sala de treinamento',gerente:'Sala do gerente',telao:'frente do telão',jogos:'Sala de jogos'};
 const GRUPOS_REUNIAO={sup:'Só os supervisores',todos:'Todos (a equipe inteira)',escolher:'Escolher as pessoas'};
 const chamadoPara=(reun,uid)=>{ const p=S.profiles[uid]; if(!p) return false; if(reun.grupo==='todos') return true; if(reun.grupo==='sup') return p.cargo==='supervisor'; return Array.isArray(reun.to)&&reun.to.includes(uid); };
+// only approved supervisors and the administrator call meetings
+const podeChamarReuniao=()=>S.isOwner || (!!S.me && S.me.cargo==='supervisor' && aprovado(S.me));
 function openReuniao(){
+  if(!podeChamarReuniao()){ toast('Só a supervisão e o administrador chamam reunião.'); return; }
   const b=$('#reBody'); b.textContent='';
   const on=onlineUids(), lideres=Object.values(S.profiles).filter(p=>p.uid!==S.uid&&LIDERANCA(p.cargo)&&aprovado(p)).sort((a,c)=>(on.has(c.uid)-on.has(a.uid))||a.nome.localeCompare(c.nome,'pt-BR'));
   const sel=new Set(lideres.filter(p=>on.has(p.uid)).map(p=>p.uid));
@@ -3063,7 +3066,7 @@ document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',
 function updateMeChip(){
   const me=S.me; if(!me){ $('#meChip').textContent=''; return; }
   $('#btnSenha').hidden=me.cargo!=='vendedor';
-  $('#btnReuniao').hidden=!souLider(); renderAprovPainel();
+  $('#btnReuniao').hidden=!podeChamarReuniao(); renderAprovPainel();
   const seat=me.seat&&SEAT[me.seat]; $('#meChip').textContent=`${me.nome} · ${roleLine(me)}${seat&&me.cargo==='vendedor'?' · cadeira '+seat.label:''}`;
 }
 
