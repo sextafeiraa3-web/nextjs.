@@ -257,6 +257,9 @@ td.r,th.r{text-align:right}
 .acoes-menu{position:fixed;z-index:12;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 150px);width:min(440px,calc(100% - 32px));background:rgba(11,16,21,.96);border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;box-shadow:0 12px 40px rgba(0,0,0,.5)}
 .acoes-menu small{color:var(--muted);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
 .acoes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.frases-menu{width:min(620px,calc(100% - 32px));max-height:min(52vh,460px);overflow:auto}
+.frases-menu .acoes-grid{grid-template-columns:repeat(2,1fr)}
+.frases-menu .emo{text-align:left;white-space:normal}
 @media (max-width:420px){.acoes-grid{grid-template-columns:repeat(2,1fr)}}
 .pausa-painel{position:fixed;z-index:14;top:calc(env(safe-area-inset-top,0px) + 74px);left:50%;transform:translateX(-50%);width:min(460px,calc(100% - 32px));background:#3a3210;border:1px solid #a8861c;border-radius:14px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 12px 40px rgba(0,0,0,.5)}
 .pausa-painel div{display:flex;flex-direction:column;gap:2px}
@@ -358,11 +361,12 @@ td.r,th.r{text-align:right}
     <form class="chat" id="chatForm" autocomplete="off"><button type="button" class="emo" id="chatMode" title="Trocar para quem vai a mensagem">Perto</button><input id="chatIn" maxlength="160" placeholder="Fale com quem está perto (Enter)"></form>
     <button class="emo senha" type="button" id="btnSenha" hidden>Pedir senha</button>
     <button class="emo" type="button" id="btnAcoes" aria-haspopup="true">Ações ▴</button>
+    <button class="emo" type="button" id="btnFrases" aria-haspopup="true">Frases ▴</button>
     <button class="emo" type="button" data-emo="comemorar">Comemorar</button>
     <button class="emo" type="button" id="btnTelao">Telão</button>
     <button class="emo enq-btn" type="button" id="btnEnquete">Enquete</button>
   </div>
-  <div class="help" id="help"><kbd>WASD</kbd> andar · <kbd>Shift</kbd> correr · arraste para girar a câmera · <kbd>E</kbd> interagir · <kbd>F</kbd> chamar colega · clique numa cadeira vazia para sentar · <kbd>P</kbd> painéis</div>
+  <div class="help" id="help"><kbd>WASD</kbd> andar · <kbd>Shift</kbd> correr · arraste para girar a câmera · <kbd>E</kbd> interagir · <kbd>F</kbd> chamar colega · <kbd>G</kbd> frases · clique numa cadeira vazia para sentar · <kbd>P</kbd> painéis</div>
 </div>
 <div id="joy" hidden><i></i></div>
 <div id="acoesMenu" class="acoes-menu" hidden>
@@ -385,6 +389,7 @@ td.r,th.r{text-align:right}
     <button class="emo" type="button" id="btnCafe">Chamar para um café ☕</button>
   </div>
 </div>
+<div id="frasesMenu" class="acoes-menu frases-menu" hidden></div>
 <div id="treinoCard" class="treino-card" hidden></div>
 <div id="vozPainel" class="voz-painel" hidden></div>
 <div id="aprovPainel" class="aprov-painel" role="alert" hidden></div>
@@ -2897,6 +2902,22 @@ function emote(kind){
   if(room) room.presence({emo:kind,emoTs:Date.now(),alvo:null,resp:null}).catch(()=>{});
   hide('acoesMenu');
 }
+/* ---- quick phrases: ready-made lines the avatar says, some with a matching gesture ---- */
+const FRASES={
+  'Cumprimentos':[['Bom dia, time!','acenar'],['Boa tarde, pessoal!','acenar'],['Oi! Tudo bem?','acenar'],['Voltei!','acenar'],['Até amanhã, pessoal!','acenar']],
+  'Vendas':[['Vendi! Bora pra cima!','comemorar'],['Mais uma garantia na conta!','comemorar'],['Cliente fechado!','comemorar'],['Tô quase batendo a meta!','joinha'],['Meta batida!','dancar'],['Quem tá na frente hoje?','pensar']],
+  'Time':[['Bora, time! Foco na meta!','aplaudir'],['Parabéns pela venda!','aplaudir'],['Valeu, time!','joinha'],['Show de bola!','joinha'],['Precisa de ajuda?','apontar'],['Alguém pode me ajudar com um cliente?','pensar']],
+  'Rotina':[['Tô em atendimento, já falo com você.','telefone'],['Vou pegar um café, já volto.'],['Vou almoçar, já volto!','acenar'],['Quem vai de café?'],['Reunião em 5 minutos!','apontar']],
+  'Diversão':[['Sextou!','dancar'],['Hoje tem comemoração!','dancar'],['Kkkkk','rir'],['Bom trabalho a todos!','aplaudir']],
+};
+function renderFrases(){
+  const box=$('#frasesMenu'); box.textContent='';
+  for(const g in FRASES){ const grid=el('div',{class:'acoes-grid'});
+    for(const [t,emo] of FRASES[g]){ const b=el('button',{type:'button',class:'emo',text:t});
+      b.addEventListener('click',()=>{ say(t); if(emo) emote(emo); hide('frasesMenu'); canvas.focus(); }); grid.append(b); }
+    box.append(el('small',{text:g}),grid); }
+}
+function toggleFrases(){ const m=$('#frasesMenu'); if(m.hidden){ renderFrases(); hide('acoesMenu'); } m.hidden=!m.hidden; }
 // climb on the nearest desk (or the nearest chair) for a few seconds, then step back down
 function subir(kind){
   if(P.sitting) standUp();
@@ -3123,7 +3144,7 @@ function loop(now){
 /* ---- input ---- */
 window.addEventListener('keydown',e=>{
   const tag=e.target&&e.target.tagName;
-  if(e.key==='Escape'){ closeTop(); if(/INPUT|TEXTAREA/.test(tag)) e.target.blur(); return; }
+  if(e.key==='Escape'){ if(!$('#frasesMenu').hidden) hide('frasesMenu'); else closeTop(); if(/INPUT|TEXTAREA/.test(tag)) e.target.blur(); return; }
   if(/INPUT|TEXTAREA|SELECT/.test(tag)) return;
   if(anyModal()) return;
   keys.add(e.code);
@@ -3132,6 +3153,7 @@ window.addEventListener('keydown',e=>{
   else if(e.code==='KeyF'){ if(curHint2) curHint2.act(); e.preventDefault(); }
   else if(e.code==='KeyV'){ if(VOZ.sala) vozMic(); }
   else if(e.code==='KeyP'){ openPaineis(); }
+  else if(e.code==='KeyG'){ toggleFrases(); }
   else if(e.code==='Enter'){ $('#chatIn').focus(); e.preventDefault(); }
   if(e.code.startsWith('Arrow')||e.code==='Space') e.preventDefault();
 });
@@ -3615,6 +3637,8 @@ $('#btnPaineis').addEventListener('click',openPaineis);
 $('#btnTelao').addEventListener('click',openTelao);
 $('#btnEnquete').addEventListener('click',openEnquete);
 $('#btnAcoes').addEventListener('click',e=>{ e.stopPropagation(); const m=$('#acoesMenu'); m.hidden=!m.hidden; });
+$('#btnFrases').addEventListener('click',e=>{ e.stopPropagation(); toggleFrases(); });
+document.addEventListener('click',e=>{ const m=$('#frasesMenu'); if(!m.hidden && !e.target.closest('#frasesMenu,#btnFrases')) m.hidden=true; });
 document.addEventListener('click',e=>{ const m=$('#acoesMenu'); if(!m.hidden && !e.target.closest('#acoesMenu,#btnAcoes')) m.hidden=true; });
 $('#btnReuniao').addEventListener('click',openReuniao);
 function renderOnline(){
