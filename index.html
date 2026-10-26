@@ -558,14 +558,15 @@ const BZ=6.8, OZB=OZ+BZ;            // the room goes further back than it goes f
 const ROWS=[{team:'b2b'},{team:'rec'},{team:'rec',second:true},{team:'wpp'},{team:'wpp',second:true},{team:'recu'},{team:'recu',second:true}];
 const TABLE_Z=[-6.2,-2.2,1.8,5.8,9.8,13.8,17.8];
 const SEATS_PER_SIDE=12, SEAT_GAP=1.4;
-const TX0=-11, TX1=TX0+SEATS_PER_SIDE*SEAT_GAP;  // table from -11 to 5.8
+const TX0=-11, TX1=TX0+SEATS_PER_SIDE*SEAT_GAP;  // longest table, from -11 to 5.8
+const SEATS_BY_TEAM={recu:12};     // seats per side; teams not listed have 10. Shorter tables lose seats on the left, so the supervisor's head stays put.
 const SEATS=[];
 ROWS.forEach((row,i)=>{
   const t=TEAM[row.team], z=TABLE_Z[i];
-  row.z=z; row.t=t;
+  row.z=z; row.t=t; row.n=SEATS_BY_TEAM[t.id]||10; row.x0=TX1-row.n*SEAT_GAP;
   const pre=row.second?t.id+'2':t.id, [LA,LB]=row.second?['C','D']:['A','B'];
-  for(let k=0;k<SEATS_PER_SIDE;k++){
-    const x=TX0+SEAT_GAP/2+k*SEAT_GAP;
+  for(let k=0;k<row.n;k++){
+    const x=row.x0+SEAT_GAP/2+k*SEAT_GAP;
     SEATS.push({id:`${pre}-a${k+1}`, team:t.id, role:'vendedor', x, z:z-1.2, ry:0, label:LA+(k+1), side:'a', row:i});
     SEATS.push({id:`${pre}-b${k+1}`, team:t.id, role:'vendedor', x, z:z+1.2, ry:Math.PI, label:LB+(k+1), side:'b', row:i});
   }
@@ -1072,10 +1073,10 @@ const oak=mat('#9a9fa6',{roughness:0.7}), modesty=mat('#1c1e22',{metalness:0.4,r
 const legTpl=(()=>{ const g=new T.Group(); for(const z of [-0.71,0,0.71]) box(0.04,0.72,0.04,modesty,0,0.36,z,g); box(0.04,0.04,1.46,modesty,0,0.03,0,g); box(0.04,0.04,1.46,modesty,0,0.7,0,g); return g; })();
 const teamScreens={}, SIGNS=[];
 ROWS.forEach(row=>{
-  const t=row.t, z=row.z, len=TX1-TX0, cx=(TX0+TX1)/2;
+  const t=row.t, z=row.z, len=TX1-row.x0, cx=(row.x0+TX1)/2;
   box(len,0.04,1.5, oak, cx,0.74,z);
-  for(let k=0;k<=SEATS_PER_SIDE;k++) stamp(legTpl, seatMatrix(TX0+k*SEAT_GAP+(k===0?0.05:k===SEATS_PER_SIDE?-0.05:0),z,0));
-  BOXES.push([TX0,TX1,z-0.75,z+0.75]);
+  for(let k=0;k<=row.n;k++) stamp(legTpl, seatMatrix(row.x0+k*SEAT_GAP+(k===0?0.05:k===row.n?-0.05:0),z,0));
+  BOXES.push([row.x0,TX1,z-0.75,z+0.75]);
   if(!teamScreens[t.id]) teamScreens[t.id]={crm:makeScreen(t.cor,'crm'),dash:makeScreen(t.cor,'dash')};
   // hanging team sign
   const signTex=canvasTex(1024,160,(g,w,h)=>{ g.fillStyle='#0f151c'; g.fillRect(0,0,w,h); g.fillStyle=t.cor; g.fillRect(0,0,16,h); g.font='800 84px "Bricolage Grotesque", sans-serif'; g.fillStyle='#eef3f7'; g.textBaseline='middle'; g.fillText(t.nome,48,h/2+4); });
@@ -2899,9 +2900,9 @@ function emote(kind){
 // climb on the nearest desk (or the nearest chair) for a few seconds, then step back down
 function subir(kind){
   if(P.sitting) standUp();
-  if(kind==='mesa'){ const row=ROWS.find(r=>Math.abs(P.z-r.z)<2.3 && P.x>TX0-1 && P.x<TX1+1);
+  if(kind==='mesa'){ const row=ROWS.find(r=>Math.abs(P.z-r.z)<2.3 && P.x>r.x0-1 && P.x<TX1+1);
     if(!row){ toast('Chegue perto de uma mesa para subir nela.'); return false; }
-    P.emoBack={x:P.x,z:P.z}; P.x=clamp(P.x,TX0+0.4,TX1-0.4); P.z=row.z; return true; }
+    P.emoBack={x:P.x,z:P.z}; P.x=clamp(P.x,row.x0+0.4,TX1-0.4); P.z=row.z; return true; }
   let best=null, bd=1.6; for(const s of SEATS){ const d=Math.hypot(P.x-s.x,P.z-s.z); if(d<bd&&!sitOccupant(s.id)){ bd=d; best=s; } }
   if(!best){ toast('Chegue perto de uma cadeira para subir nela.'); return false; }
   P.emoBack={x:P.x,z:P.z}; P.x=best.x; P.z=best.z; return true;
@@ -3330,6 +3331,8 @@ function renderSeatMap(body){
   ROWS.forEach((row,i)=>{ const t=row.t;
     const ladoA=el('div',{class:'lado'}), ladoB=el('div',{class:'lado'});
     SEATS.filter(s=>s.row===i&&s.role==='vendedor').forEach(s=>(s.side==='a'?ladoA:ladoB).append(seatBtn(s)));
+    // shorter tables are drawn flush right, like in the office
+    for(const l of [ladoA,ladoB]) if(l.firstChild) l.firstChild.style.gridColumnStart=String(SEATS_PER_SIDE-row.n+1);
     plan.append(el('div',{class:'mesa',style:`--team:${t.cor}`},el('div',{class:'mesa-core'},ladoA,el('div',{class:'tampo',text:t.nome+(row.second?' · 2ª mesa':'')}),ladoB),
       el('div',{class:'ponta'},SEAT[(row.second?t.id+'2':t.id)+'-sup']?seatBtn(SEAT[(row.second?t.id+'2':t.id)+'-sup'],'','Superv.'):null)));
   });
@@ -4238,7 +4241,7 @@ function drawMinimap(dt){
   [a,b]=mmPos(ENT.x0,OZB); [a2,b2]=mmPos(ENT.x1,ENT.z1); g.fillRect(a,b,a2-a,b2-b);
   g.fillStyle='rgba(120,180,230,.18)'; [a,b]=mmPos(GX-5,-16); [a2,b2]=mmPos(GX+5,-10); g.fillRect(a,b,a2-a,b2-b);
   for(const bx of BOXES){ if(bx[4]) continue; const [x0,y0]=mmPos(bx[0],bx[2]), [x1,y1]=mmPos(bx[1],bx[3]); g.fillStyle='#4a5868'; g.fillRect(x0,y0,Math.max(1,x1-x0),Math.max(1,y1-y0)); }
-  ROWS.forEach(row=>{ const [x,y]=mmPos(TX0,row.z); g.fillStyle=row.t.cor; g.fillRect(x,y-2,4,4); });
+  ROWS.forEach(row=>{ const [x,y]=mmPos(row.x0,row.z); g.fillStyle=row.t.cor; g.fillRect(x,y-2,4,4); });
   for(const n of NPC.values()){ if(!n.av) continue; const [x,y]=mmPos(n.x,n.z); g.fillStyle='#6b7785'; g.beginPath(); g.arc(x,y,2.5,0,7); g.fill(); }
   for(const r of remotes.values()){ if(r.h) continue; const [x,y]=mmPos(r.x,r.z), sn=r.av.emo&&r.av.emo.kind==='senha'; g.fillStyle=sn?'#ff4d42':'#4aa3ff'; g.beginPath(); g.arc(x,y,sn?5.5:3.5,0,7); g.fill(); }
   if(Z.npc){ const [x,y]=mmPos(Z.npc.x,Z.npc.z); g.fillStyle='#34c472'; g.beginPath(); g.arc(x,y,3,0,7); g.fill(); }
