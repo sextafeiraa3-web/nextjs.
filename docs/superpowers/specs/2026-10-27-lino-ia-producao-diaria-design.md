@@ -108,6 +108,25 @@ não repetir tema e para o Fiscal e o Analista.
 - Horários iniciais: espalhados de manhã à noite com o gancho mais forte às 19h;
   depois usar `getBestTimeToPostByNetwork` do Metricool.
 
+### 5.3.1 Áudio dos vídeos
+- **Sem narração por enquanto** (decisão do dono, 27/10). Vídeo só com texto
+  animado, legível sem som.
+- Instagram: música do catálogo licenciado (como hoje). TikTok/YouTube/Facebook:
+  sem áudio via API.
+- O template deve deixar um "encaixe" para narração depois: a voz clonada do
+  dono (Kairogen, exige assinatura e créditos) ou um TTS local gratuito (exige
+  liberar `huggingface.co` na rede do ambiente). Ligar a narração é uma troca no
+  manual + template, não um novo projeto.
+
+### 5.3.2 Regra de fonte (decisão minha; o dono pode mudar no manual)
+- Vale: comunicado/blog/documentação oficial da empresa, ou imprensa confiável
+  (TechCrunch, The Verge, Reuters, Folha, Estadão, Olhar Digital etc.).
+- Post solto de rede social (X, Reddit, LinkedIn) só entra se uma dessas fontes
+  confirmar; o post de origem pode ser citado junto.
+- Número ou citação só com a fonte que o traz. Ressalvas da fonte vão no post.
+- Dia sem notícias verificadas suficientes: a vaga vira **dica prática ou
+  conceito** (pilares atemporais). Nunca postar menos por falta de notícia.
+
 ### 5.4 Fábrica (todo dia, madrugada)
 Cria e agenda os 4 posts **do dia seguinte**:
 1. Lê o manual e o registro.
@@ -135,6 +154,28 @@ horários e reescreve a seção "o que está funcionando" e a proporção de pil
 no manual. Manda ao dono um resumo curto: seguidores por rede, top 3 posts, o
 que mudou no manual.
 
+### 5.6.1 Limites do Analista (decisão minha)
+O manual tem duas partes:
+- **Só o dono muda:** público, tom, regra de fonte, lista do que nunca fazer,
+  anti-objetivos, volume diário.
+- **O Analista pode mudar sozinho:** proporção de pilares, formatos, horários,
+  estilo de gancho e de CTA, e a seção "o que está funcionando". Cada mudança
+  vai no resumo semanal com o número que a justificou.
+
+### 5.6.2 Mídia e git (decisão minha)
+- Código, manual e registro: no branch padrão. As rotinas podem fazer commit
+  direto nele (o dono quer tudo automático; o repo não tem proteção de branch).
+- Vídeos e imagens: num branch só de mídia (ex.: `media`), com URL raw fixada no
+  SHA. Arquivos com mais de 30 dias e já publicados podem ser apagados desse
+  branch (o histórico é refeito), para o repositório não crescer ~10 GB/ano.
+
+### 5.6.3 "Comente X" (decisão minha)
+Segue a `lino-reels`: uma palavra por post, uma regra nova em
+`src/instagram/automations.ts` com o conteúdo prometido + link da fonte. A
+rotina de comentários existente continua respondendo em público ("te chamo no
+direct"). Se o webhook de DM não estiver no ar, a Fábrica coloca o conteúdo
+prometido no primeiro comentário do post em vez de prometer DM.
+
 ### 5.7 Avisos ao dono
 Push no celular só quando algo exige atenção (falha não resolvida, dia sem posts)
 e o resumo semanal do Analista. Silêncio = tudo saiu.
@@ -142,6 +183,8 @@ e o resumo semanal do Analista. Silêncio = tudo saiu.
 ## 6. Pendências do lado do dono
 - Reconectar o TikTok no Metricool (as métricas pararam em 18/10).
 - Confirmar que o YouTube está liberado para publicar Shorts via Metricool.
+- Quando quiser narração: gravar a voz na Kairogen e assinar um plano, ou
+  liberar `huggingface.co` na rede do ambiente para a opção gratuita.
 
 ## 7. Deixado para quem for construir
 - Formato exato do manual e do registro (Markdown/JSON), nomes de pastas.
