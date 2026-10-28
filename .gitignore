@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# daily posting pipeline
+/out/
+/.superpowers/
+/voices/*.onnx
+/voices/*.onnx.json
+!/voices/pt_BR-faber-medium.onnx
+!/voices/pt_BR-faber-medium.onnx.json
+/voices/*.tar.gz
+/automation/node_modules
+/videos/reels/public/daily/
+/voices/MODEL_CARD

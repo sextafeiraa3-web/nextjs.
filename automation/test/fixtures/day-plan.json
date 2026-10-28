@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-29",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Prompt para responder cliente no WhatsApp",
+      "hook": "Seu cliente sumiu? Use este prompt",
+      "scenes": [
+        { "kind": "statement", "title": "Cliente leu e não respondeu?", "body": "Mensagem genérica é ignorada." },
+        { "kind": "steps", "title": "Peça assim para a IA", "steps": ["Diga o produto", "Diga o prazo", "Peça 3 versões curtas"] }
+      ],
+      "narration": "Seu cliente leu e não respondeu? Mensagem genérica é ignorada. Peça para a IA três versões curtas, com o produto, o prazo e uma pergunta no final. Funciona no ChatGPT, no Claude e no Gemini. Comente ZAP que eu te mando o prompt completo.",
+      "keyword": "ZAP",
+      "ctaQuestion": "Quer o prompt completo?",
+      "caption": "Seu cliente sumiu? Use este prompt.\n\nComente ZAP que eu te mando no direct.\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Vendas #DicasDeIA",
+      "tiktokTitle": "Cliente sumiu? Use este prompt no ChatGPT",
+      "youtubeTitle": "Cliente sumiu? Use este prompt no ChatGPT #shorts",
+      "sources": []
+    },
+    {
+      "slot": "17:00",
+      "pillar": "conceito",
+      "topic": "O que é um agente de IA",
+      "hook": "Agente de IA não é chatbot",
+      "scenes": [
+        { "kind": "statement", "title": "Chatbot responde.", "body": "Agente age." },
+        { "kind": "list", "title": "Um agente pode", "items": ["Abrir apps", "Planejar passos", "Pedir sua aprovação"] }
+      ],
+      "narration": "Agente de IA não é chatbot. O chatbot responde o que você pergunta. O agente recebe um objetivo, planeja os passos, usa seus aplicativos e pede sua aprovação antes de agir. Comente AGENTE que eu te mando exemplos para testar hoje.",
+      "keyword": "AGENTE",
+      "ctaQuestion": "Quer exemplos para testar?",
+      "caption": "Agente de IA não é chatbot.\n\nComente AGENTE que eu te mando exemplos no direct.\n\n#LinoIA #InteligenciaArtificial #AgentesDeIA #IA #Tecnologia",
+      "tiktokTitle": "Agente de IA não é chatbot: entenda em 20 segundos",
+      "youtubeTitle": "Agente de IA não é chatbot #shorts",
+      "sources": []
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "ChatGPT tranca conversas com senha",
+      "hook": "Agora dá pra trancar conversa no ChatGPT",
+      "scenes": [
+        { "kind": "number", "value": "4", "label": "dígitos de PIN para abrir" },
+        { "kind": "list", "title": "Disponível para", "items": ["Free e Go", "Plus e Pro", "Web e celular"] }
+      ],
+      "narration": "Agora dá pra trancar conversa no ChatGPT. A conversa some do histórico e só abre com o PIN de quatro dígitos ou com a biometria. Está liberando aos poucos, até no plano grátis. Comente TRANCA que eu te mando o passo a passo.",
+      "keyword": "TRANCA",
+      "ctaQuestion": "Quer o passo a passo?",
+      "caption": "Agora dá pra trancar conversa no ChatGPT. 🔒\n\nComente TRANCA que eu te mando o passo a passo no direct.\n\nFonte: notas de lançamento do ChatGPT (OpenAI)\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Privacidade #DicasDeIA",
+      "tiktokTitle": "Agora dá pra trancar conversa no ChatGPT com senha",
+      "youtubeTitle": "ChatGPT agora tranca conversa com senha #shorts",
+      "sources": [{ "name": "OpenAI — notas de lançamento do ChatGPT", "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes" }]
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "3 prompts para organizar a semana",
+    "slides": [
+      { "title": "3 prompts para organizar sua semana" },
+      { "title": "1. Prioridades", "body": "Separe minhas tarefas em urgente, importante e pode esperar." },
+      { "title": "2. Agenda", "body": "Monte um plano por dia com pausas e o mais difícil de manhã." },
+      { "title": "3. Revisão", "body": "Na sexta, liste o que ficou para trás e por quê." }
+    ],
+    "keyword": "SEMANA",
+    "caption": "3 prompts para organizar sua semana.\n\nComente SEMANA que eu te mando os prompts completos.\n\n#LinoIA #InteligenciaArtificial #Produtividade #ChatGPT #DicasDeIA",
+    "tiktokTitle": "3 prompts para organizar sua semana com IA",
+    "sources": []
+  }
+}

@@ -1,0 +1,18 @@
+Agora dá pra trancar conversa no ChatGPT. Com senha. 🔒
+
+Saiu em 20/10: as conversas trancadas somem do histórico, dos fixados e da busca, e só abrem com o PIN de 4 dígitos da sua conta ou com a biometria do aparelho.
+
+Como trancar: abra o menu ••• da conversa e escolha a opção de trancar (o nome pode variar na sua versão).
+
+Para quem: Free, Go, Plus e Pro, na web, no iPhone, no Android e no app de computador. A OpenAI está liberando aos poucos, então pode ainda não ter aparecido para você.
+
+Importante: trancar não apaga a conversa nem muda suas configurações de privacidade e treinamento.
+
+Comente CADEADO que eu te mando o passo a passo no direct.
+
+Fonte: notas de lançamento do ChatGPT (OpenAI, 20/10/2026)
+
+Lino IA - Sua ideia. Nosso próximo projeto.
+@linoia.br
+
+#LinoIA #InteligenciaArtificial #ChatGPT #Privacidade #DicasDeIA

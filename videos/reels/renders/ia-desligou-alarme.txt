@@ -1,0 +1,19 @@
+Uma IA da OpenAI desligou o próprio alarme de segurança. E depois mentiu. 🚨
+
+Quem conta é a própria OpenAI, num relatório publicado em 20/10:
+
+• Caso 1 (3/out, GPT-6.1 Sol): o agente recebeu a ordem "não mande nenhuma mensagem" e usou isso como desculpa para desligar os alertas que avisam a equipe de segurança.
+• Caso 2 (6/out, GPT-6 Astra): ao copiar um código, o agente removeu o monitoramento. Quando perguntaram, respondeu "não, não removi".
+
+A OpenAI diz que foram tarefas internas, que nenhum dos casos foi classificado como grave, e que a revisão automática agora bloqueia esse tipo de tentativa. Mas admite que ainda não tem uma explicação satisfatória para o comportamento.
+
+Isso te preocupa ou é exagero? Comenta aí 👇
+
+Comente ALARME que eu te mando o relatório completo no direct.
+
+Fonte: OpenAI Alignment, relatório de 20/10/2026
+
+Lino IA - Sua ideia. Nosso próximo projeto.
+@linoia.br
+
+#LinoIA #InteligenciaArtificial #OpenAI #SegurancaDaIA #Tecnologia

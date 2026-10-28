@@ -1,0 +1,143 @@
+{
+  "date": "2026-10-29",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Pedir três versões e uma crítica para a IA",
+      "hook": "Pare de aceitar a primeira resposta da IA",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "A primeira resposta é a mais genérica.",
+          "body": "A IA melhora quando compara."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça assim",
+          "steps": [
+            "Me dê 3 versões diferentes",
+            "Diga qual é a melhor e por quê",
+            "Melhore a vencedora"
+          ]
+        }
+      ],
+      "narration": "Pare de aceitar a primeira resposta da IA. Ela costuma ser a mais genérica. Peça três versões diferentes, depois peça para a própria IA dizer qual é a melhor e por quê, e por fim melhorar a vencedora. Funciona no ChatGPT, no Claude e no Gemini. Comente 3VERSOES que eu te mando o prompt pronto.",
+      "keyword": "3VERSOES",
+      "ctaQuestion": "Quer o prompt pronto?",
+      "caption": "Pare de aceitar a primeira resposta da IA.\n\nA primeira resposta costuma ser a mais genérica. Peça 3 versões, peça para a IA escolher a melhor e explicar por quê, e depois melhorar a vencedora.\n\nFunciona no ChatGPT, no Claude e no Gemini. Revise sempre antes de usar.\n\nComente 3VERSOES que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Produtividade",
+      "tiktokTitle": "Pare de aceitar a primeira resposta da IA",
+      "youtubeTitle": "Pare de aceitar a primeira resposta da IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt pronto: \"Me dê 3 versões bem diferentes de [o que você quer]. Depois diga qual é a melhor e por quê, e reescreva a vencedora melhorando os pontos fracos.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "conceito",
+      "topic": "O que é alucinação de IA",
+      "hook": "A IA mente pra você? Entenda a alucinação",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Alucinação é quando a IA inventa.",
+          "body": "Com toda a confiança do mundo."
+        },
+        {
+          "kind": "list",
+          "title": "Como se proteger",
+          "items": [
+            "Peça a fonte",
+            "Confira números e datas",
+            "Diga: se não souber, fale"
+          ]
+        }
+      ],
+      "narration": "A IA mente pra você? Quase. Alucinação é quando a IA inventa um fato, um número ou uma citação, com toda a confiança do mundo. Ela não sabe que errou. Para se proteger, peça a fonte, confira números e datas, e escreva no pedido: se não souber, diga que não sabe. Comente ALUCINA que eu te mando mais dicas.",
+      "keyword": "ALUCINA",
+      "ctaQuestion": "Quer mais dicas para checar a IA?",
+      "caption": "A IA mente pra você? Entenda a alucinação.\n\nAlucinação é quando a IA inventa um fato, número ou citação com toda a confiança. Ela não sabe que errou.\n\nPara se proteger: peça a fonte, confira números e datas, e escreva no pedido \"se não souber, diga que não sabe\".\n\nComente ALUCINA que eu te mando mais dicas no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #IA #Tecnologia",
+      "tiktokTitle": "A IA mente pra você? Entenda a alucinação",
+      "youtubeTitle": "A IA mente pra você? O que é alucinação #shorts",
+      "sources": [],
+      "firstComment": "Para checar a IA: 1) peça a fonte com link; 2) confira números e datas na fonte; 3) escreva no pedido \"se não souber, diga que não sabe\"."
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "Suécia bloqueia ChatGPT e Claude no governo e mantém o Copilot",
+      "hook": "Um governo bloqueou o ChatGPT e o Claude",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Suécia, 26 de outubro.",
+          "body": "Os escritórios do governo bloquearam ChatGPT e Claude nos computadores da equipe."
+        },
+        {
+          "kind": "list",
+          "title": "O que continua liberado",
+          "items": [
+            "Microsoft Copilot",
+            "Os modelos via plataforma interna"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "O motivo:",
+          "body": "Segurança da informação e falta de contrato."
+        }
+      ],
+      "narration": "Um governo bloqueou o ChatGPT e o Claude. Desde vinte e seis de outubro, os escritórios do governo da Suécia bloquearam os dois nos computadores da equipe, por segurança da informação e falta de contrato. O Copilot da Microsoft continua liberado. Você acha que a sua empresa devia fazer o mesmo? Comente SUECIA que eu te mando a matéria completa.",
+      "keyword": "SUECIA",
+      "ctaQuestion": "Sua empresa devia fazer o mesmo?",
+      "caption": "Um governo bloqueou o ChatGPT e o Claude. 🚫\n\nDesde 26/10, os Escritórios do Governo da Suécia bloquearam o ChatGPT e o Claude nos computadores da equipe, citando segurança da informação e falta de contrato. O Microsoft Copilot, que passou por revisão de segurança, continua liberado.\n\nSegundo a imprensa, parte da equipe ainda acessa os modelos por uma plataforma interna. A informação saiu na rádio pública sueca (Ekot).\n\nE aí, sua empresa devia fazer o mesmo? Comenta aí 👇\nComente SUECIA que eu te mando a matéria completa no direct.\n\nFonte: Decrypt e Notebookcheck, citando a Sveriges Radio (Ekot)\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Claude #Seguranca",
+      "tiktokTitle": "Um governo bloqueou o ChatGPT e o Claude. Entenda",
+      "youtubeTitle": "Suécia bloqueia ChatGPT e Claude no governo #shorts",
+      "sources": [
+        {
+          "name": "Decrypt",
+          "url": "https://decrypt.co/381763/sweden-government-offices-block-chatgpt-claude"
+        },
+        {
+          "name": "Notebookcheck",
+          "url": "https://notebookcheck.net/Sweden-s-government-blocks-ChatGPT-and-Claude-keeps-Copilot.1433522.0.html"
+        }
+      ],
+      "firstComment": "Matéria: https://decrypt.co/381763/sweden-government-offices-block-chatgpt-claude (cita a Sveriges Radio, Ekot)."
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 coisas para nunca colar no ChatGPT",
+    "slides": [
+      {
+        "title": "5 coisas para nunca colar no ChatGPT"
+      },
+      {
+        "title": "1. Senhas e códigos",
+        "body": "Nem a senha do Wi-Fi. Nem o código que chegou por SMS."
+      },
+      {
+        "title": "2. Documentos com CPF",
+        "body": "Apague número, endereço e assinatura antes de colar."
+      },
+      {
+        "title": "3. Dados de clientes",
+        "body": "Troque nomes por 'Cliente A' e 'Cliente B'."
+      },
+      {
+        "title": "4. Exames e laudos",
+        "body": "Tire nome e data de nascimento antes de pedir uma explicação."
+      },
+      {
+        "title": "5. Segredos da empresa",
+        "body": "Contratos, preços internos e planos que ainda não saíram."
+      }
+    ],
+    "keyword": "NAOCOLE",
+    "caption": "5 coisas para nunca colar no ChatGPT (nem no Claude, nem no Gemini).\n\nA IA ajuda muito, mas o que você cola sai do seu computador. Antes de colar, apague o que identifica você ou seu cliente.\n\nSalve para lembrar e comente NAOCOLE que eu te mando um checklist para usar IA com segurança no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Privacidade #DicasDeIA",
+    "tiktokTitle": "5 coisas para nunca colar no ChatGPT",
+    "sources": [],
+    "firstComment": "Checklist rápido: antes de colar, apague nome, CPF, endereço, senha e dados de cliente. Troque por \"Cliente A\" e \"XXX\"."
+  }
+}

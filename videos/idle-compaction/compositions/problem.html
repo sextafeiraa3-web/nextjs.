@@ -1,0 +1,157 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: var(--font-body);
+      color: var(--ink);
+    }
+    #problem-kicker {
+      position: absolute;
+      top: 280px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 38px;
+      color: var(--muted);
+    }
+    #problem-clock {
+      position: absolute;
+      top: 380px;
+      left: 50%;
+      width: 440px;
+      height: 440px;
+      margin-left: -220px;
+    }
+    #problem-time {
+      position: absolute;
+      top: 535px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 96px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    #problem-tokens {
+      position: absolute;
+      top: 900px;
+      left: 120px;
+      right: 120px;
+    }
+    #problem-tokens-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 34px;
+      margin-bottom: 16px;
+    }
+    #problem-bar {
+      height: 36px;
+      border-radius: 18px;
+      background: rgba(245, 241, 232, 0.12);
+      overflow: hidden;
+    }
+    #problem-fill {
+      height: 100%;
+      width: 100%;
+      border-radius: 18px;
+      background: linear-gradient(90deg, var(--cool), var(--accent));
+      transform-origin: left center;
+    }
+    #problem-warn {
+      position: absolute;
+      top: 1060px;
+      left: 90px;
+      right: 90px;
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 66px;
+      line-height: 1.1;
+    }
+    #problem-warn span {
+      color: var(--accent);
+    }
+    #problem-note {
+      position: absolute;
+      top: 1230px;
+      left: 110px;
+      right: 110px;
+      text-align: center;
+      font-size: 38px;
+      color: var(--muted);
+    }
+  </style>
+  <div id="root" data-composition-id="problem" data-width="1080" data-height="1920">
+    <p id="problem-kicker">conversa longa, você parado…</p>
+    <svg id="problem-clock" viewBox="0 0 440 440">
+      <circle cx="220" cy="220" r="190" fill="none" stroke="rgba(245,241,232,0.12)" stroke-width="26" />
+      <circle
+        id="problem-ring"
+        cx="220"
+        cy="220"
+        r="190"
+        fill="none"
+        stroke="#ff7a45"
+        stroke-width="26"
+        stroke-linecap="round"
+        stroke-dasharray="1194"
+        stroke-dashoffset="1194"
+        transform="rotate(-90 220 220)"
+      />
+    </svg>
+    <div id="problem-time">00:00</div>
+    <div id="problem-tokens">
+      <div id="problem-tokens-label"><span>contexto</span><span id="problem-count">0K tokens</span></div>
+      <div id="problem-bar"><div id="problem-fill"></div></div>
+    </div>
+    <h2 id="problem-warn">O cache dura <span>1 hora</span>.</h2>
+    <p id="problem-note">Depois disso, a conversa inteira é reprocessada.</p>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const clock = { m: 0 };
+    const tokens = { k: 0 };
+    const timeEl = document.querySelector("#problem-time");
+    const countEl = document.querySelector("#problem-count");
+    tl.fromTo("#problem-kicker", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+    tl.fromTo(["#problem-clock", "#problem-time"], { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 0.05);
+    tl.fromTo("#problem-tokens", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.2);
+    tl.fromTo("#problem-fill", { scaleX: 0 }, { scaleX: 1, duration: 1.4, ease: "power2.out" }, 0.3);
+    tl.fromTo(
+      tokens,
+      { k: 0 },
+      {
+        k: 200,
+        duration: 1.4,
+        ease: "power2.out",
+        onUpdate: () => {
+          countEl.textContent = Math.round(tokens.k) + "K tokens";
+        },
+      },
+      0.3,
+    );
+    tl.fromTo("#problem-ring", { attr: { "stroke-dashoffset": 1194 } }, { attr: { "stroke-dashoffset": 1194 * (1 - 54 / 60) }, duration: 2.2, ease: "power1.inOut" }, 0.3);
+    tl.fromTo(
+      clock,
+      { m: 0 },
+      {
+        m: 54,
+        duration: 2.2,
+        ease: "power1.inOut",
+        onUpdate: () => {
+          timeEl.textContent = String(Math.round(clock.m)).padStart(2, "0") + ":00";
+        },
+      },
+      0.3,
+    );
+    tl.fromTo("#problem-warn", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 1.9);
+    tl.fromTo("#problem-note", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 2.3);
+    tl.to("#problem-time", { color: "#ff7a45", duration: 0.2 }, 2.5);
+    tl.to(["#problem-clock", "#problem-time"], { scale: 1.06, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 3 }, 2.6);
+    tl.to("#root > *", { opacity: 0, y: -40, duration: 0.25, ease: "power2.in", stagger: 0.02 }, 4.15);
+    window.__timelines["problem"] = tl;
+  </script>
+</template>
