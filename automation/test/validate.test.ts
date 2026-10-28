@@ -105,3 +105,39 @@ test("rejects unknown scene kind", () => {
   p.videos[0].scenes[0] = { kind: "banana", title: "x" };
   has(errorsOf(p), "kind");
 });
+
+test("final review: rejects narration over 60 words", () => {
+  const p = fixture();
+  p.videos[0].narration = Array(61).fill("palavra").join(" ");
+  has(errorsOf(p), "narration");
+});
+
+test("final review: rejects keyword already used by an existing DM rule", () => {
+  const r = validateDayPlan(fixture(), [], ["TRANCA", "TV"]);
+  assert.equal(r.ok, false);
+  has(r.ok ? [] : r.errors, "TRANCA");
+});
+
+test("final review: rejects a common Portuguese word as keyword", () => {
+  const p = fixture();
+  p.videos[0].keyword = "SEGURO";
+  has(errorsOf(p), "SEGURO");
+});
+
+test("final review: rejects list scene without items and number scene without value", () => {
+  const p = fixture();
+  p.videos[1].scenes[1] = { kind: "list", title: "x" };
+  has(errorsOf(p), "items");
+  const q = fixture();
+  q.videos[2].scenes[0] = { kind: "number", label: "x" };
+  has(errorsOf(q), "value");
+});
+
+test("final review: rejects slide title over 80 chars and slide body over 160 chars", () => {
+  const p = fixture();
+  p.carousel.slides[1].title = "x".repeat(81);
+  has(errorsOf(p), "slides[1].title");
+  const q = fixture();
+  q.carousel.slides[1].body = "x".repeat(161);
+  has(errorsOf(q), "slides[1].body");
+});

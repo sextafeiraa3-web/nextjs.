@@ -28,18 +28,18 @@ If `content/plans/$DAY.json` and `content/log/$DAY.json` both exist, the day is 
 ## 2. Write `content/plans/$DAY.json`
 Shape = `DayPlan` in `automation/src/types.ts`; example: `automation/test/fixtures/day-plan.json`.
 - 3 videos + 1 carousel, pillars per the manual's "Analista: pilares e proporção".
-- Video: `hook` ≤ 60 chars, a question or surprise, readable as the cover; 2–4 `scenes` (kinds: statement, list, number, steps); `narration` 25–75 words, spoken Portuguese, ends with "Comente {KEYWORD} que eu te mando ..."; `ctaQuestion`; `tiktokTitle` ≤ 90; `youtubeTitle` ≤ 100 ending with `#shorts`.
+- Video: `hook` ≤ 60 chars, a question or surprise, readable as the cover; 2–4 `scenes` (kinds: statement, list, number, steps); `narration` 25–60 words (≈ 2.3 words/s; build-day rejects narration over 28.5 s), spoken Portuguese, ends with "Comente {KEYWORD} que eu te mando ..."; `ctaQuestion`; `tiktokTitle` ≤ 90; `youtubeTitle` ≤ 100 ending with `#shorts`.
 - Carousel: 3–8 slides (title + optional body); a closing "Comente {KEYWORD}" slide is added by the renderer.
-- `keyword`: one capital word, specific to the topic (not PROMPT), unique for 14 days.
+- `keyword`: one capital word (A–Z/0–9, ≤ 10), specific to the topic, never an everyday word that people write in unrelated comments (no SEGURO, QUERO, PROMPT, DICA…); the validator also refuses keywords that already have a DM rule.
+- `firstComment`: the promised content in ≤ 300 chars (prompt, checklist or source link). It goes in the post's first comment so commenters get it even if the DM automation is down.
 - `caption`: hook line; 2–3 short paragraphs of facts; caveats; "Comente {KEYWORD} que eu te mando ... no direct."; "Fonte: ..."; "Lino IA - Sua ideia. Nosso próximo projeto." and "@linoia.br"; 5 hashtags starting with #LinoIA.
 - `sources`: required for pillar `noticia` (name + URL of the primary source).
 
 ## 3. Build
 ```bash
-npm --prefix automation run build-day -- content/plans/$DAY.json
+npm --prefix automation run --silent build-day -- content/plans/$DAY.json
 ```
-Exit 1 prints validator errors: fix the plan and rerun (max 3 tries). Then look at the
-frame-0 still of each video and two carousel slides; fix anything unreadable:
+Exit 1 prints validator errors: fix the plan and rerun (max 3 tries). Then look at frame 0 and the middle of each scene of every video (`ffmpeg -ss <t> -i out/$DAY/vN.mp4 -frames:v 1 x.png`) and at two carousel slides; fix anything unreadable or cut:
 ```bash
 cd videos/reels && npx remotion still DailyReel /tmp/f0.png --frame=0 --props=<the props json in public/daily> \
   --browser-executable=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell
@@ -47,15 +47,17 @@ cd videos/reels && npx remotion still DailyReel /tmp/f0.png --frame=0 --props=<t
 
 ## 4. Publish media
 ```bash
-npm --prefix automation run publish-media -- out/$DAY > out/$DAY/published.json
+npm --prefix automation run --silent publish-media -- out/$DAY > out/$DAY/published.json
 ```
 
 ## 5. Schedule (Metricool MCP)
 ```bash
-npm --prefix automation run print-payloads -- content/plans/$DAY.json out/$DAY/manifest.json out/$DAY/published.json > out/$DAY/payloads.json
+npm --prefix automation run --silent print-payloads -- content/plans/$DAY.json out/$DAY/manifest.json out/$DAY/published.json > out/$DAY/payloads.json
 ```
-For each item: `createScheduledPost(blogId="7384024", date=item.date, info=item.info)`.
-Record each returned post id. On an error, fix the cause once (e.g. title too long) and retry; if it still fails, keep going and include it in the alert.
+**Re-run safety first:** call `getScheduledPosts` for $DAY and skip every payload whose `media[0]` URL (or, for the carousel, first JPEG URL) is already scheduled at that time — a previous run may have died after scheduling.
+For each remaining item: `createScheduledPost(blogId="7384024", date=item.date, info=item.info)`.
+Right after each call, append the returned id to `content/log/$DAY.json` (create it with status `SCHEDULED`), so a crash never loses track of what exists.
+Use the slots from `payloads.json` (the code moves the strongest pillar to 19:00), not the plan's. On an error, fix the cause once (e.g. title too long) and retry; if it still fails, keep going and include it in the alert.
 
 ## 6. Comment keywords
 For each keyword add a rule to `src/instagram/automations.ts` (keyword, message ≤ 1000 chars with the promised content + source link + `signature`, `publicReply: "Te mandei no direct! 📩"`).

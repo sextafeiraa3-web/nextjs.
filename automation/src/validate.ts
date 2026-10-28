@@ -4,6 +4,11 @@ const SCENE_KINDS = ["statement", "list", "number", "steps"];
 const PILLARS = ["noticia", "dica", "conceito", "gancho"];
 const VIDEO_SLOTS = ["12:30", "17:00", "19:00"];
 const KEYWORD = /^[A-Z0-9]{2,10}$/;
+// Max narration so it fits the 30 s cap at ~2.3 words/s (measured on 28/10).
+const MAX_WORDS = 60;
+// DM rules match a keyword as a whole word in any comment, so everyday words
+// would fire on unrelated comments.
+const COMMON_WORDS = new Set(["SIM", "NAO", "QUERO", "IA", "PROMPT", "SEGURO", "VERSOES", "AJUDA", "INFO", "LINK", "DICA", "DICAS", "MAIS", "TOP", "BOM", "AMEI", "OBRIGADO", "VALEU", "COMO", "QUANTO", "PRECO", "ONDE", "QUAL", "AQUI", "EU", "VOCE"]);
 
 // Lowercase, no accents, single spaces: how topics are compared across days.
 export const normalizeTopic = (s: string) =>
@@ -12,7 +17,7 @@ export const normalizeTopic = (s: string) =>
 const words = (s: string) => s.trim().split(/\s+/).filter(Boolean).length;
 const isStr = (v: unknown): v is string => typeof v === "string" && v.trim().length > 0;
 
-export function validateDayPlan(plan: unknown, recent: LogEntry[]): { ok: true; plan: DayPlan } | { ok: false; errors: string[] } {
+export function validateDayPlan(plan: unknown, recent: LogEntry[], existingKeywords: string[] = []): { ok: true; plan: DayPlan } | { ok: false; errors: string[] } {
   const errors: string[] = [];
   const p = plan as DayPlan;
 
@@ -32,6 +37,12 @@ export function validateDayPlan(plan: unknown, recent: LogEntry[]): { ok: true; 
     const where = i < videos.length ? `videos[${i}]` : "carousel";
     if (seen.has(post.keyword)) errors.push(`keyword ${post.keyword} repeated in ${seen.get(post.keyword)} and ${where}`);
     else seen.set(post.keyword, where);
+  });
+
+  // Keywords already answered by a DM rule, or too common to be safe.
+  posts.forEach((post) => {
+    if (existingKeywords.includes(post.keyword)) errors.push(`keyword ${post.keyword} already has a DM rule in src/instagram/automations.ts`);
+    if (COMMON_WORDS.has(post.keyword)) errors.push(`keyword ${post.keyword} is a common word; pick one specific to the topic`);
   });
 
   // No topic or keyword reused from the recent log.
@@ -70,10 +81,23 @@ function checkVideo(v: VideoPost, at: string, errors: string[]) {
   if (!isStr(v.ctaQuestion)) errors.push(`${at}.ctaQuestion is required`);
   if (!isStr(v.youtubeTitle) || v.youtubeTitle.length > 100) errors.push(`${at}.youtubeTitle must be 1-100 chars`);
   const n = isStr(v.narration) ? words(v.narration) : 0;
-  if (n < 25 || n > 75) errors.push(`${at}.narration must have 25-75 words (has ${n})`);
+  if (n < 25 || n > MAX_WORDS) errors.push(`${at}.narration must have 25-${MAX_WORDS} words (has ${n})`);
   if (!Array.isArray(v.scenes) || v.scenes.length < 2 || v.scenes.length > 4) errors.push(`${at}.scenes must have 2-4 items`);
   (Array.isArray(v.scenes) ? v.scenes : []).forEach((s, j) => {
-    if (!SCENE_KINDS.includes(s?.kind)) errors.push(`${at}.scenes[${j}].kind must be one of ${SCENE_KINDS.join(", ")}`);
+    const where = `${at}.scenes[${j}]`;
+    if (!SCENE_KINDS.includes(s?.kind)) return void errors.push(`${where}.kind must be one of ${SCENE_KINDS.join(", ")}`);
+    const lines = (v: unknown, field: string) => {
+      if (!Array.isArray(v) || v.length < 1 || v.length > 4 || !v.every(isStr)) errors.push(`${where}.${field} must have 1-4 texts`);
+      else v.forEach((t, k) => t.length > 40 && errors.push(`${where}.${field}[${k}] must be at most 40 chars`));
+    };
+    const text = (v: unknown, field: string, max: number, required = true) => {
+      if (v === undefined && !required) return;
+      if (!isStr(v) || v.length > max) errors.push(`${where}.${field} must be 1-${max} chars`);
+    };
+    if (s.kind === "statement") { text(s.title, "title", 60); text(s.body, "body", 110, false); }
+    if (s.kind === "number") { text(s.value, "value", 8); text(s.label, "label", 60); }
+    if (s.kind === "list") { text(s.title, "title", 40); lines(s.items, "items"); }
+    if (s.kind === "steps") { text(s.title, "title", 40); lines(s.steps, "steps"); }
   });
 }
 
@@ -82,6 +106,7 @@ function checkCarousel(c: CarouselPost, errors: string[]) {
   if (c.slot !== "09:00") errors.push("carousel.slot must be 09:00");
   if (!Array.isArray(c.slides) || c.slides.length < 3 || c.slides.length > 8) errors.push("carousel.slides must have 3-8 items");
   (Array.isArray(c.slides) ? c.slides : []).forEach((s, j) => {
-    if (!isStr(s?.title)) errors.push(`carousel.slides[${j}].title is required`);
+    if (!isStr(s?.title) || s.title.length > 80) errors.push(`carousel.slides[${j}].title must be 1-80 chars`);
+    if (s?.body !== undefined && (!isStr(s.body) || s.body.length > 160)) errors.push(`carousel.slides[${j}].body must be 1-160 chars`);
   });
 }

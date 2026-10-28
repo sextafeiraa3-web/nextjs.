@@ -26,6 +26,7 @@ export type VideoPost = {
   tiktokTitle: string;
   youtubeTitle: string;
   sources: Source[];
+  firstComment?: string; // the promised content, in case the DM automation is down
 };
 
 export type CarouselPost = {
@@ -37,6 +38,7 @@ export type CarouselPost = {
   caption: string;
   tiktokTitle: string;
   sources: Source[];
+  firstComment?: string;
 };
 
 export type DayPlan = {

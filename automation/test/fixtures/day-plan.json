@@ -44,10 +44,10 @@
         { "kind": "number", "value": "4", "label": "dígitos de PIN para abrir" },
         { "kind": "list", "title": "Disponível para", "items": ["Free e Go", "Plus e Pro", "Web e celular"] }
       ],
-      "narration": "Agora dá pra trancar conversa no ChatGPT. A conversa some do histórico e só abre com o PIN de quatro dígitos ou com a biometria. Está liberando aos poucos, até no plano grátis. Comente CADEADO que eu te mando o passo a passo.",
-      "keyword": "CADEADO",
+      "narration": "Agora dá pra trancar conversa no ChatGPT. A conversa some do histórico e só abre com o PIN de quatro dígitos ou com a biometria. Está liberando aos poucos, até no plano grátis. Comente TRANCA que eu te mando o passo a passo.",
+      "keyword": "TRANCA",
       "ctaQuestion": "Quer o passo a passo?",
-      "caption": "Agora dá pra trancar conversa no ChatGPT. 🔒\n\nComente CADEADO que eu te mando o passo a passo no direct.\n\nFonte: notas de lançamento do ChatGPT (OpenAI)\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Privacidade #DicasDeIA",
+      "caption": "Agora dá pra trancar conversa no ChatGPT. 🔒\n\nComente TRANCA que eu te mando o passo a passo no direct.\n\nFonte: notas de lançamento do ChatGPT (OpenAI)\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Privacidade #DicasDeIA",
       "tiktokTitle": "Agora dá pra trancar conversa no ChatGPT com senha",
       "youtubeTitle": "ChatGPT agora tranca conversa com senha #shorts",
       "sources": [{ "name": "OpenAI — notas de lançamento do ChatGPT", "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes" }]

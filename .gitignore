@@ -50,3 +50,4 @@ next-env.d.ts
 /voices/*.tar.gz
 /automation/node_modules
 /videos/reels/public/daily/
+/voices/MODEL_CARD

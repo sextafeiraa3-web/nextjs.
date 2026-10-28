@@ -31,3 +31,9 @@ test("renderVideo renders the fixture with video 1080x1920 and an audio stream",
   assert.ok(info.streams.some((s: { codec_type: string }) => s.codec_type === "audio"), "no audio stream");
   assert.ok(Math.abs(Number(info.format.duration) - targetDuration(durationSec)) <= 0.5, `${info.format.duration} vs ${targetDuration(durationSec)}`);
 });
+
+test("final review: fitsCap is false when narration plus air exceeds 30 s", async () => {
+  const { fitsCap } = await import("../src/render-video.ts");
+  assert.equal(fitsCap(28.5), true);
+  assert.equal(fitsCap(28.6), false);
+});

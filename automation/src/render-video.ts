@@ -10,6 +10,8 @@ export const HEADLESS_SHELL =
 
 // Same rule as dailyDuration() in videos/reels/src/daily/DailyReel.tsx.
 export const targetDuration = (audioSec: number) => Math.min(30, Math.max(15, audioSec + 1.5));
+// False when the narration would be cut by the 30 s cap (its end is the spoken CTA).
+export const fitsCap = (audioSec: number) => audioSec + 1.5 <= 30;
 
 export async function renderVideo(post: VideoPost, wav: string, durationSec: number, outMp4: string): Promise<void> {
   const publicDir = join(REELS, "public", "daily");

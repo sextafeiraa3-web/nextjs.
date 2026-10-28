@@ -5,7 +5,7 @@
 import { execFileSync } from "node:child_process";
 import { cpSync, existsSync, mkdirSync, mkdtempSync, readdirSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { basename, join } from "node:path";
+import { basename, join, resolve } from "node:path";
 
 const RAW_BASE = "https://raw.githubusercontent.com/sextafeiraa3-web/nextjs.";
 const KEEP_DAYS = 30;
@@ -59,8 +59,9 @@ export function publishMedia(dir: string, { remote, branch, today }: Options): {
   return { sha, urls };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
-  const dir = process.argv[2];
+if (import.meta.filename === resolve(process.argv[1])) {
+  const arg = process.argv[2];
+  const dir = arg && resolve(process.env.INIT_CWD ?? process.cwd(), arg);
   if (!dir) {
     console.error("usage: publish-media <out/YYYY-MM-DD>");
     process.exit(2);

@@ -35,3 +35,16 @@ test("build-day on the fixture writes 3 videos, the carousel JPEGs and a manifes
   assert.equal(manifest.carousel.files.length, 5);
   manifest.carousel.files.forEach((f) => assert.ok(existsSync(join(out, f)) && f.endsWith(".jpg"), f));
 });
+
+test("final review: build-day resolves a relative plan path from the caller's folder when run through npm --prefix", () => {
+  const repo = new URL("../../", import.meta.url).pathname;
+  const dir = mkdtempSync(join(repo, "out", "rel-"));
+  const bad = JSON.parse(readFileSync(FIXTURE, "utf8"));
+  bad.videos[0].hook = "x".repeat(80);
+  writeFileSync(join(dir, "bad.json"), JSON.stringify(bad));
+  const rel = join("out", dir.split("/out/")[1], "bad.json");
+  const r = spawnSync("npm", ["--prefix", "automation", "run", "--silent", "build-day", "--", rel, "--log-dir", join(dir, "nolog")], { cwd: repo, encoding: "utf8" });
+  assert.equal(r.status, 1, r.stderr);
+  assert.match(r.stderr, /hook/);
+  assert.doesNotMatch(r.stderr, /ENOENT/);
+});

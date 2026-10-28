@@ -88,3 +88,13 @@ test("the 19:00 slot goes to the video with the strongest pillar", () => {
   assert.equal((at19.info as Info).tiktokData.title, plan().videos[2].tiktokTitle);
   assert.deepEqual((at19.info as Info).media, [RAW + "v1.mp4"]);
 });
+
+test("final review: firstComment from the plan becomes firstCommentText", () => {
+  const p = plan();
+  p.videos[0].firstComment = "Prompt completo: ...";
+  p.carousel.firstComment = "Checklist: ...";
+  const all = buildPayloads(p, urls(), manifest);
+  const reel = all.find((x) => x.kind === "reel" && x.slot === "12:30")!;
+  assert.equal((reel.info as Info).firstCommentText, "Prompt completo: ...");
+  assert.equal((all.find((x) => x.kind === "carousel")!.info as Info).firstCommentText, "Checklist: ...");
+});

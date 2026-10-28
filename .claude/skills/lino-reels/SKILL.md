@@ -23,7 +23,7 @@ The approved sequence (October 2026). Follow it for every new batch unless the u
   - Something moves every 2-4 s.
 - Keep text between y = 200 and y = 1330. Headlines at 76-104 px, body text at 38 px or more.
 - Check with `npm run lint` (eslint + tsc). Render stills at frame 0 and at the middle of each scene, look at them, and fix overlaps before rendering:
-  `npx remotion render <Id> renders/<slug>.mp4 --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell`
+  `npx remotion render <Id> renders/<slug>.mp4 --browser-executable=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell`
 
 ## 3. Comment keyword → DM
 - Pick one short word, in capitals, that is not part of common words.
