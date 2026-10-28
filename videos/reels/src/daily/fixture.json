@@ -1,0 +1,11 @@
+{
+  "hook": "Agora dá pra trancar conversa no ChatGPT",
+  "scenes": [
+    { "kind": "number", "value": "4", "label": "dígitos de PIN para abrir" },
+    { "kind": "list", "title": "Disponível para", "items": ["Free e Go", "Plus e Pro", "Web e celular"] }
+  ],
+  "keyword": "CADEADO",
+  "ctaQuestion": "Quer o passo a passo?",
+  "source": "OpenAI",
+  "audioSec": 16
+}

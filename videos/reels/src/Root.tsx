@@ -3,6 +3,8 @@ import { AGENT_MONITOR_DURATION, AgentMonitor } from "./agent-monitor/Video";
 import { GPT6_DURATION, Gpt6 } from "./gpt6/Video";
 import { LOCKED_CHATS_DURATION, LockedChats } from "./locked-chats/Video";
 import { SMART_TV_DURATION, SmartTv } from "./smart-tv/Video";
+import { calculateDailyMetadata, DailyReel, DailyReelProps } from "./daily/DailyReel";
+import dailyFixture from "./daily/fixture.json";
 import { fontsReady } from "./theme";
 
 const waitForFonts = delayRender("Loading fonts");
@@ -14,6 +16,17 @@ fontsReady.then(() => continueRender(waitForFonts));
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      {/* Daily Factory videos: props come from automation/src/render-video.ts. */}
+      <Composition
+        id="DailyReel"
+        component={DailyReel}
+        durationInFrames={450}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={dailyFixture as DailyReelProps}
+        calculateMetadata={calculateDailyMetadata}
+      />
       <Composition
         id="Gpt6IntelligentUi"
         component={Gpt6}
