@@ -54,3 +54,15 @@ test("publishMedia creates the media branch when it does not exist", () => {
   const { urls } = publishMedia(day, { remote, branch: "media", today: "2026-10-28" });
   assert.ok(urls["v1.mp4"].endsWith("/media/2026-10-28/v1.mp4"));
 });
+
+test("publishMedia keeps a vercel.json that disables Vercel deployments of the media branch", () => {
+  const root = mkdtempSync(join(tmpdir(), "pm-"));
+  const remote = join(root, "remote.git");
+  git(root, "init", "-q", "--bare", remote);
+  const day = join(root, "out");
+  mkdirSync(day);
+  writeFileSync(join(day, "v1.mp4"), "video");
+  publishMedia(day, { remote, branch: "media", today: "2026-10-28" });
+  const config = JSON.parse(git(root, "--git-dir", remote, "show", "media:vercel.json"));
+  assert.deepEqual(config, { git: { deploymentEnabled: false } });
+});
