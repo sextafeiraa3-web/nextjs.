@@ -109,14 +109,15 @@ não repetir tema e para o Fiscal e o Analista.
   depois usar `getBestTimeToPostByNetwork` do Metricool.
 
 ### 5.3.1 Áudio dos vídeos
-- **Sem narração por enquanto** (decisão do dono, 27/10). Vídeo só com texto
-  animado, legível sem som.
-- Instagram: música do catálogo licenciado (como hoje). TikTok/YouTube/Facebook:
-  sem áudio via API.
-- O template deve deixar um "encaixe" para narração depois: a voz clonada do
-  dono (Kairogen, exige assinatura e créditos) ou um TTS local gratuito (exige
-  liberar `huggingface.co` na rede do ambiente). Ligar a narração é uma troca no
-  manual + template, não um novo projeto.
+- **Narração com voz de IA** (pedido do dono, 27/10), gerada de graça na própria
+  rotina com o Piper (`pip install piper-tts`). Voz inicial:
+  `pt-br-edresson-low` (baixa do GitHub; soa um pouco robótica). Quando a voz
+  `pt_BR-faber-medium` estiver em `voices/` no repo (baixada pelo PC do dono),
+  trocar para ela.
+- O ritmo do vídeo segue a narração; o texto continua na tela (legível sem som).
+- Instagram: música baixa por baixo da voz (catálogo licenciado, como hoje).
+- Voz clonada do dono fica para depois (Kairogen: exige assinatura e créditos);
+  trocar a voz é uma linha no manual.
 
 ### 5.3.2 Regra de fonte (decisão minha; o dono pode mudar no manual)
 - Vale: comunicado/blog/documentação oficial da empresa, ou imprensa confiável
