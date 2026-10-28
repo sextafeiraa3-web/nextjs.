@@ -13,21 +13,27 @@ export const targetDuration = (audioSec: number) => Math.min(30, Math.max(15, au
 // False when the narration would be cut by the 30 s cap (its end is the spoken CTA).
 export const fitsCap = (audioSec: number) => audioSec + 1.5 <= 30;
 
+// Every field is set explicitly: a missing key would fall back to the
+// composition's defaultProps (the fixture), e.g. a wrong "Fonte".
+export function dailyProps(post: VideoPost, audio: string, audioSec: number) {
+  return {
+    hook: post.hook,
+    scenes: post.scenes,
+    keyword: post.keyword,
+    ctaQuestion: post.ctaQuestion,
+    source: post.sources[0]?.name ?? "",
+    audio,
+    audioSec,
+  };
+}
+
 export async function renderVideo(post: VideoPost, wav: string, durationSec: number, outMp4: string): Promise<void> {
   const publicDir = join(REELS, "public", "daily");
   mkdirSync(publicDir, { recursive: true });
   const audioName = `${Date.now()}-${basename(wav)}`;
   copyFileSync(wav, join(publicDir, audioName));
 
-  const props = {
-    hook: post.hook,
-    scenes: post.scenes,
-    keyword: post.keyword,
-    ctaQuestion: post.ctaQuestion,
-    source: post.sources[0]?.name,
-    audio: `daily/${audioName}`,
-    audioSec: durationSec,
-  };
+  const props = dailyProps(post, `daily/${audioName}`, durationSec);
   const propsFile = join(publicDir, `${audioName}.props.json`);
   writeFileSync(propsFile, JSON.stringify(props));
 

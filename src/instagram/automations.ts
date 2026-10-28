@@ -157,6 +157,54 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei o checklist no direct! 📩",
   },
+  {
+    keyword: "EMAILJA",
+    message:
+      [
+        "Oi! Aqui está o prompt (troque o que está entre colchetes):",
+        "",
+        "\"Leia o e-mail abaixo. Quero responder que [sua resposta em uma frase]. Escreva em tom educado e direto, até 5 linhas, terminando com o próximo passo. E-mail: [cole aqui]\"",
+        "",
+        "Revise sempre antes de enviar.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "MEUJEITO",
+    message:
+      [
+        "Oi! Modelo para colar nas instruções personalizadas (ChatGPT) ou nas preferências (Claude):",
+        "",
+        "\"Sou [profissão] e escrevo para [público]. Prefiro respostas curtas, em tópicos, tom [simpático/formal], sem jargão. Se faltar informação, pergunte antes de responder.\"",
+        "",
+        "Os nomes dos menus podem variar conforme a versão.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o modelo no direct! 📩",
+  },
+  {
+    keyword: "CONTAS",
+    message:
+      [
+        "Oi! Prompt para a IA não errar conta:",
+        "",
+        "\"Resolva usando código (ferramenta de análise de dados) e mostre o cálculo passo a passo: [sua conta]. No fim, confira o resultado de outro jeito.\"",
+        "",
+        "Mesmo assim, confira números importantes.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "ESTUDEJA",
+    message:
+      [
+        "Oi! Os 5 comandos para estudar com IA:",
+        "",
+        "1) Explique [tema] como se eu tivesse 12 anos, com um exemplo do dia a dia.\n2) Faça 5 perguntas sobre [tema], uma por vez, e corrija cada resposta.\n3) Resuma [texto] em 7 tópicos e 3 perguntas de prova.\n4) Leia minha resposta e diga o que está errado, sem dar a resposta pronta.\n5) Monte um plano de 7 dias para aprender [tema] com 30 minutos por dia.",
+        "",
+        "A IA pode errar: confira no seu material.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os comandos no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

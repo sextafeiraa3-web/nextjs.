@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-28",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Responder e-mail chato com IA em 1 minuto",
+      "hook": "Aquele e-mail chato? A IA responde em 1 minuto",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Cole o e-mail na IA.",
+          "body": "Diga o que você quer responder em uma frase."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça assim",
+          "steps": [
+            "Tom educado e direto",
+            "Até 5 linhas",
+            "Termine com próximo passo"
+          ]
+        }
+      ],
+      "narration": "Aquele e-mail chato que você está adiando? Cole na IA e diga, em uma frase, o que quer responder. Peça tom educado e direto, no máximo cinco linhas, terminando com o próximo passo. Revise e envie. Comente EMAILJA que eu te mando o prompt pronto.",
+      "keyword": "EMAILJA",
+      "ctaQuestion": "Quer o prompt pronto?",
+      "caption": "Aquele e-mail chato? A IA responde em 1 minuto.\n\nCole o e-mail no ChatGPT, no Claude ou no Gemini e diga em uma frase o que você quer responder. Peça tom educado e direto, até 5 linhas, terminando com o próximo passo.\n\nRevise sempre antes de enviar.\n\nComente EMAILJA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Produtividade #DicasDeIA",
+      "tiktokTitle": "Aquele e-mail chato? A IA responde em 1 minuto",
+      "youtubeTitle": "Responda e-mail chato com IA em 1 minuto #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Leia o e-mail abaixo. Quero responder que [sua resposta em uma frase]. Escreva em tom educado e direto, até 5 linhas, terminando com o próximo passo. E-mail: [cole aqui]\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "conceito",
+      "topic": "Instruções personalizadas: ensinar a IA a falar como você",
+      "hook": "A IA fala igual robô? Ensine seu jeito",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Instruções personalizadas.",
+          "body": "Você explica uma vez como quer as respostas."
+        },
+        {
+          "kind": "list",
+          "title": "Coloque lá",
+          "items": [
+            "Quem você é",
+            "Para quem escreve",
+            "Seu tom e tamanho"
+          ]
+        }
+      ],
+      "narration": "A IA fala igual robô? É porque ela não sabe quem você é. Nas instruções personalizadas, você explica uma vez quem é, para quem escreve e qual tom e tamanho prefere. Daí em diante, as respostas já saem no seu jeito. Comente MEUJEITO que eu te mando um modelo pronto.",
+      "keyword": "MEUJEITO",
+      "ctaQuestion": "Quer um modelo pronto?",
+      "caption": "A IA fala igual robô? Ensine o seu jeito.\n\nNas instruções personalizadas (ChatGPT) ou nas preferências (Claude), você explica uma vez quem é, para quem escreve e qual tom e tamanho prefere. Depois, as respostas já saem do seu jeito. Os nomes dos menus podem variar conforme a versão.\n\nComente MEUJEITO que eu te mando um modelo pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Claude #DicasDeIA",
+      "tiktokTitle": "A IA fala igual robô? Ensine o seu jeito",
+      "youtubeTitle": "A IA fala igual robô? Ensine o seu jeito #shorts",
+      "sources": [],
+      "firstComment": "Modelo: \"Sou [profissão] e escrevo para [público]. Prefiro respostas curtas, em tópicos, tom [simpático/formal], sem jargão. Se faltar informação, pergunte antes.\""
+    },
+    {
+      "slot": "19:00",
+      "pillar": "gancho",
+      "topic": "Por que a IA erra conta simples",
+      "hook": "Por que a IA erra uma conta tão simples?",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "A IA não faz conta como calculadora.",
+          "body": "Ela prevê o próximo pedaço de texto."
+        },
+        {
+          "kind": "statement",
+          "title": "Conta importante?",
+          "body": "Peça para a IA usar a ferramenta de código."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça assim",
+          "steps": [
+            "Mostre o passo a passo",
+            "Use a ferramenta de código",
+            "Confira o resultado"
+          ]
+        }
+      ],
+      "narration": "Por que a IA erra uma conta tão simples? Porque ela não faz conta como uma calculadora: ela prevê o próximo pedaço de texto. Para números, peça para mostrar o passo a passo ou usar a ferramenta de código, e confira o resultado. Comente CONTAS que eu te mando o prompt.",
+      "keyword": "CONTAS",
+      "ctaQuestion": "Quer o prompt para contas?",
+      "caption": "Por que a IA erra uma conta tão simples? 🤔\n\nModelos de linguagem não calculam como uma calculadora: eles preveem o próximo pedaço de texto. Por isso podem errar contas, principalmente as longas.\n\nPara números, peça o passo a passo ou que a IA use a ferramenta de código (análise de dados) e sempre confira o resultado.\n\nComente CONTAS que eu te mando o prompt no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #IA #Tecnologia",
+      "tiktokTitle": "Por que a IA erra uma conta tão simples?",
+      "youtubeTitle": "Por que a IA erra conta simples? #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Resolva usando código (ferramenta de análise) e mostre o cálculo passo a passo: [sua conta]. No fim, confira o resultado de outro jeito.\""
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 comandos para estudar com IA",
+    "slides": [
+      {
+        "title": "5 comandos para estudar com IA"
+      },
+      {
+        "title": "1. Explique simples",
+        "body": "Explique [tema] como se eu tivesse 12 anos, com um exemplo do dia a dia."
+      },
+      {
+        "title": "2. Me teste",
+        "body": "Faça 5 perguntas sobre [tema], uma por vez, e corrija cada resposta."
+      },
+      {
+        "title": "3. Resumo de revisão",
+        "body": "Resuma [texto] em 7 tópicos e 3 perguntas de prova."
+      },
+      {
+        "title": "4. Ache meu erro",
+        "body": "Leia minha resposta e diga o que está errado, sem dar a resposta pronta."
+      },
+      {
+        "title": "5. Plano de estudo",
+        "body": "Monte um plano de 7 dias para aprender [tema] com 30 minutos por dia."
+      }
+    ],
+    "keyword": "ESTUDEJA",
+    "caption": "5 comandos para estudar com IA (ChatGPT, Claude ou Gemini).\n\nTroque o que está entre colchetes e use na próxima sessão de estudo. A IA pode errar: confira no seu material.\n\nSalve para usar depois e comente ESTUDEJA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Estudos #DicasDeIA",
+    "tiktokTitle": "5 comandos para estudar com IA",
+    "sources": [],
+    "firstComment": "Os 5 comandos estão nas imagens. Salve o post para copiar depois!"
+  }
+}

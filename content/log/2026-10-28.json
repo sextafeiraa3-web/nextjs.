@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-28",
+  "topic": "Por que a IA erra conta simples",
+  "keyword": "CONTAS",
+  "posts": [
+    {
+      "slot": "12:30",
+      "topic": "Responder e-mail chato com IA em 1 minuto",
+      "keyword": "EMAILJA",
+      "metricoolId": 408980875,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      }
+    },
+    {
+      "slot": "13:00-story",
+      "metricoolId": 408980907,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED"
+      }
+    },
+    {
+      "slot": "14:00",
+      "topic": "5 comandos para estudar com IA",
+      "keyword": "ESTUDEJA",
+      "metricoolId": 408981028,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      }
+    },
+    {
+      "slot": "17:00",
+      "topic": "Instruções personalizadas: ensinar a IA a falar como você",
+      "keyword": "MEUJEITO",
+      "metricoolId": 408981151,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      }
+    },
+    {
+      "slot": "17:30-story",
+      "metricoolId": 408981172,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED"
+      }
+    },
+    {
+      "slot": "19:00",
+      "topic": "Por que a IA erra conta simples",
+      "keyword": "CONTAS",
+      "metricoolId": 408981266,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      }
+    },
+    {
+      "slot": "19:30-story",
+      "metricoolId": 408981289,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED"
+      }
+    }
+  ]
+}

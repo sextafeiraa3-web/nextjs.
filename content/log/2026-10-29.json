@@ -17,7 +17,7 @@
       "slot": "12:30",
       "topic": "Pedir três versões e uma crítica para a IA",
       "keyword": "3VERSOES",
-      "metricoolId": 408929998,
+      "metricoolId": 408981483,
       "networks": {
         "instagram": "SCHEDULED",
         "facebook": "SCHEDULED",
@@ -27,7 +27,7 @@
     },
     {
       "slot": "13:00-story",
-      "metricoolId": 408930445,
+      "metricoolId": 408981592,
       "networks": {
         "instagram": "SCHEDULED",
         "facebook": "SCHEDULED"
@@ -37,7 +37,7 @@
       "slot": "17:00",
       "topic": "O que é alucinação de IA",
       "keyword": "ALUCINA",
-      "metricoolId": 408930226,
+      "metricoolId": 408981560,
       "networks": {
         "instagram": "SCHEDULED",
         "facebook": "SCHEDULED",
@@ -47,7 +47,7 @@
     },
     {
       "slot": "17:30-story",
-      "metricoolId": 408930609,
+      "metricoolId": 408981627,
       "networks": {
         "instagram": "SCHEDULED",
         "facebook": "SCHEDULED"
