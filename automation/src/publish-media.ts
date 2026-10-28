@@ -3,7 +3,7 @@
 // CLI: node --experimental-strip-types src/publish-media.ts out/<date>
 //   prints {"sha": "...", "urls": {"v1.mp4": "https://raw..."}}
 import { execFileSync } from "node:child_process";
-import { cpSync, existsSync, mkdirSync, mkdtempSync, readdirSync, rmSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, mkdtempSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { basename, join, resolve } from "node:path";
 
@@ -48,6 +48,9 @@ export function publishMedia(dir: string, { remote, branch, today }: Options): {
   mkdirSync(target, { recursive: true });
   const files = readdirSync(dir).filter((f) => PUBLISHED.test(f));
   for (const f of files) cpSync(join(dir, f), join(target, f));
+
+  // The media branch holds only files; stop Vercel from trying to deploy it.
+  writeFileSync(join(repo, "vercel.json"), JSON.stringify({ git: { deploymentEnabled: false } }, null, 2) + "\n");
 
   git(repo, "add", "-A");
   git(repo, "commit", "-q", "--allow-empty", "-m", `media: ${today}`);
