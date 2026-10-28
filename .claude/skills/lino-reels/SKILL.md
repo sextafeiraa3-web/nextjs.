@@ -1,6 +1,6 @@
 ---
 name: lino-reels
-description: Make and publish the Lino IA (@linoia.br) news Reels - research this week's AI news, verify it at the source, build a vertical Remotion video with a frame-0 hook and a "Comente X" closing card, add the DM keyword, write the caption, send for approval, then schedule Reels (Instagram, Facebook, TikTok) and Stories through Metricool. Use when the user asks for new Reels, viral AI videos, "mais vídeos como esses", or to post the approved ones.
+description: Make and publish the Lino IA (@linoia.br) news Reels - research this week's AI news, verify it at the source, build a vertical Remotion video with a frame-0 hook and a "Comente X" closing card, add the DM keyword, write the caption, then schedule Reels (Instagram, Facebook, TikTok) and Stories through Metricool. Use when the user asks for new Reels, viral AI videos, "mais vídeos como esses", or to post the approved ones.
 ---
 
 # Lino IA news Reels
@@ -39,8 +39,8 @@ In this order:
 6. "Lino IA - Sua ideia. Nosso próximo projeto." and "@linoia.br";
 7. five hashtags, starting with #LinoIA.
 
-## 5. Approval
-Commit and push, then send the MP4s to the user with `SendUserFile`. **Do not publish before the user approves.**
+## 5. Publishing is automatic
+The owner chose fully automatic posting (28/10/2026): no approval step. The daily flow lives in the `lino-fabrica` skill (data-driven `DailyReel` composition, narration, Metricool payloads); use this skill only for a hand-made special Reel.
 
 ## 6. Publish (Metricool, brand id 7384024, timezone America/Sao_Paulo)
 - Media URL: the raw GitHub URL pinned to the pushed commit SHA: `https://raw.githubusercontent.com/sextafeiraa3-web/nextjs./<sha>/videos/reels/renders/<slug>.mp4`. The repository is public.
