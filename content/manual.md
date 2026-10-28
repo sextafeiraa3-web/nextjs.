@@ -25,7 +25,7 @@ reescreve toda segunda, com o número que justifica cada mudança.
 
 ## Dono: volume e redes
 - 4 posts por dia: 3 vídeos (9:16, 15–30 s, narrados) + 1 carrossel (JPEG 1080×1350).
-- Vídeos: Instagram Reels, Facebook Reels, TikTok e YouTube Shorts. Story (Instagram + Facebook) 30 min depois de cada Reel.
+- Vídeos: Instagram Reels, Facebook Reels, TikTok e YouTube Shorts. Sem stories (cortados em 28/10 para caber no limite do plano do Metricool).
 - Carrossel: Instagram (carrossel) e TikTok (fotos).
 
 ## Analista: pilares e proporção
