@@ -1,0 +1,12 @@
+{
+  "name": "lino-automation",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.6" },
+  "scripts": {
+    "test": "node --test --experimental-strip-types --no-warnings test/*.test.ts",
+    "build-day": "node --experimental-strip-types --no-warnings src/build-day.ts",
+    "publish-media": "node --experimental-strip-types --no-warnings src/publish-media.ts",
+    "print-payloads": "node --experimental-strip-types --no-warnings src/print-payloads.ts"
+  }
+}
