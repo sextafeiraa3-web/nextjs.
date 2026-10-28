@@ -37,3 +37,11 @@ test("final review: fitsCap is false when narration plus air exceeds 30 s", asyn
   assert.equal(fitsCap(28.5), true);
   assert.equal(fitsCap(28.6), false);
 });
+
+test("dailyProps sends an empty source when the post has none, so the fixture's default never leaks", async () => {
+  const { dailyProps } = await import("../src/render-video.ts");
+  const props = dailyProps(plan.videos[0], "daily/x.wav", 20);
+  assert.equal(plan.videos[0].sources.length, 0);
+  assert.equal(props.source, "");
+  assert.equal(dailyProps(plan.videos[2], "daily/x.wav", 20).source, plan.videos[2].sources[0].name);
+});
