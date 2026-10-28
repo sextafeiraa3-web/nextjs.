@@ -6,10 +6,10 @@ export const BLOG_ID = "7384024";
 const TZ = "America/Sao_Paulo";
 const OFFSET = "-03:00"; // Brazil has had no daylight saving time since 2019.
 const IG_AUDIO = "364588399541989"; // "Up Down (Reels Sound - Listicle)", licensed catalog
-const STORY_DELAY_MIN = 30;
 const PRIORITY: Pillar[] = ["noticia", "gancho", "dica", "conceito"];
 
-export type Payload = { kind: "reel" | "story" | "carousel"; slot: string; date: string; info: Record<string, unknown> };
+// No stories: they used up the Metricool plan limit (owner decision, 28/10/2026).
+export type Payload = { kind: "reel" | "carousel"; slot: string; date: string; info: Record<string, unknown> };
 
 const at = (date: string, hhmm: string, plusMin = 0) => {
   const [h, m] = hhmm.split(":").map(Number);
@@ -61,22 +61,6 @@ export function buildPayloads(plan: DayPlan, urls: Record<string, string>, manif
         facebookData: { type: "REEL" },
         tiktokData: { title: post.tiktokTitle, privacyOption: "PUBLIC_TO_EVERYONE", isAigc: true },
         youtubeData: { title: post.youtubeTitle, type: "short", privacy: "public", madeForKids: false, isAiGeneratedContent: true },
-      },
-    });
-
-    const story = at(plan.date, slots[i], STORY_DELAY_MIN);
-    payloads.push({
-      kind: "story",
-      slot: slots[i],
-      date: story.iso,
-      info: {
-        autoPublish: true,
-        draft: false,
-        media,
-        providers: [{ network: "instagram" }, { network: "facebook" }],
-        publicationDate: story.publicationDate,
-        instagramData: { type: "STORY" },
-        facebookData: { type: "STORY" },
       },
     });
   });

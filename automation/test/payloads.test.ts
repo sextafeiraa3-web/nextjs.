@@ -42,14 +42,10 @@ test("video reel payload targets instagram, facebook, tiktok and youtube with th
   assert.equal(reel.date, "2026-10-29T12:30:00-03:00");
 });
 
-test("each reel gets an instagram+facebook story 30 minutes later, without text", () => {
-  const stories = buildPayloads(plan(), urls(), manifest).filter((p) => p.kind === "story");
-  assert.deepEqual(stories.map((s) => s.date).sort(), ["2026-10-29T13:00:00-03:00", "2026-10-29T17:30:00-03:00", "2026-10-29T19:30:00-03:00"]);
-  const info = stories[0].info as Info;
-  assert.deepEqual(networks(info), ["facebook", "instagram"]);
-  assert.equal(info.instagramData.type, "STORY");
-  assert.equal(info.facebookData.type, "STORY");
-  assert.equal("text" in info, false);
+test("no stories are scheduled (Metricool plan limit; owner decision 28/10)", () => {
+  const all = buildPayloads(plan(), urls(), manifest);
+  assert.equal(all.filter((p) => (p.kind as string) === "story").length, 0);
+  assert.equal(all.length, 4);
 });
 
 test("carousel payload is an instagram post plus tiktok photos with JPEGs in order", () => {

@@ -64,7 +64,7 @@ For each keyword add a rule to `src/instagram/automations.ts` (keyword, message 
 
 ## 7. Verify
 `getScheduledPosts(brandId="7384024", fromDate=$DAY 00:00, toDate=$DAY 23:59, timezone="America/Sao_Paulo")`:
-expect 4 posts + 3 stories; every post lists exactly the networks of its payload. Anything missing → reschedule it now.
+expect exactly 4 posts and no stories (stories were dropped on 28/10 to stay within the Metricool plan limit); every post lists exactly the networks of its payload. Anything missing → reschedule it now.
 
 ## 8. Log and commit
 Write `content/log/$DAY.json` (`LogEntry`: topic/keyword of the day's strongest post at top level, one `posts[]` item per post with slot, topic, keyword, metricoolId, networks all `SCHEDULED`).

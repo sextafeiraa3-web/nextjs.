@@ -9,7 +9,7 @@ Runs unattended several times a day. No questions. Silence means everything went
 
 1. `TODAY=$(TZ=America/Sao_Paulo date +%F)`; read `content/log/$TODAY.json` and `content/plans/$TODAY.json` if present.
 2. `getScheduledPosts(brandId="7384024", fromDate=$TODAY 00:00, toDate=$TODAY 23:59, timezone="America/Sao_Paulo")`.
-3. **Missing day:** on the first run of the day (before 09:00), if fewer than 4 non-story posts exist for today, send a push notification and run the `lino-fabrica` skill for **today**, skipping slots already past.
+3. **Missing day:** on the first run of the day (before 09:00), if fewer than 4 posts exist for today, send a push notification and run the `lino-fabrica` skill for **today**, skipping slots already past.
 4. For every post whose time has passed, check each provider's `status`:
    - `PUBLISHED` → mark `PUBLISHED` in the log.
    - `ERROR` with "image/png" (TikTok) → rebuild the images: if the post came from a day plan, rerun `npm --prefix automation run --silent build-day -- content/plans/$TODAY.json` (it renders JPEGs) into `out/fix-$TODAY/`; static.metricool.com answers 403 to cloud sessions, so never try to download the post's own media. If there is no plan for the post (made by hand), send the owner a push notification instead. Otherwise convert any remaining PNG to JPEG (`ffmpeg -i x.png -q:v 2 x.jpg`), publish with `npm --prefix automation run --silent publish-media -- out/fix-$TODAY`, and schedule that network alone 10 min from now; mark `FIXED`.
@@ -17,7 +17,8 @@ Runs unattended several times a day. No questions. Silence means everything went
    - Any other `ERROR`, or still `PENDING` more than 30 min after its time → reschedule once 10 min from now; if this post already has `FIXED`/retry in the log, send a push notification with post, network and `detailedStatus` instead.
 5. Expected network sets, matched by date + time + media URL against `content/log/$TODAY.json` and `out/$TODAY/payloads.json` (if present):
    - Reel (mp4, has text): instagram, facebook, tiktok, youtube.
-   - Story (mp4, no text, 30 min after a reel): instagram, facebook **only** — never add TikTok or YouTube to a story.
+   - Stories are no longer scheduled (owner decision, 28/10). Never create one; an old story with ERROR is ignored.
+   - Any ERROR "You have reached your Metricool account limit" cannot be fixed by rescheduling: send the owner a push notification once per day and stop retrying.
    - Carousel (JPEGs): instagram, tiktok.
    A one-network post that the log records as a Fiscal fix belongs to its original post: count it toward that post, do not "complete" it.
    Only if a network is missing from both the original post and its fixes, schedule that network alone and record it in the log as a fix.
