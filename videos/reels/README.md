@@ -27,6 +27,9 @@ npx remotion render SmartTvAds renders/smart-tv-sem-anuncio.mp4
 npx remotion still SmartTvAds out/hook.png --frame=0   # conferir o gancho
 ```
 
+Na nuvem do Claude Code o Remotion não consegue baixar o navegador; use o já instalado:
+`--browser-executable=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell`
+
 Regras dos ganchos:
 - a frase principal aparece desde o quadro 0, porque ele vira a capa;
 - todo texto importante fica entre 200 px e 1330 px de altura, fora da interface do Instagram.
