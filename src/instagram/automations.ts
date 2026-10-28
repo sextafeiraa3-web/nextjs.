@@ -101,6 +101,62 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei os comandos no direct! 📩",
   },
+  {
+    keyword: "3VERSOES",
+    message:
+      [
+        "Oi! Aqui está o prompt pronto (troque o que está entre colchetes):",
+        "",
+        "\"Me dê 3 versões bem diferentes de [o que você quer: legenda, e-mail, resposta para cliente]. Depois diga qual é a melhor e por quê. Por fim, reescreva a vencedora melhorando os pontos fracos que você apontou.\"",
+        "",
+        "Funciona no ChatGPT, no Claude e no Gemini. Revise sempre antes de usar.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "ALUCINA",
+    message:
+      [
+        "Oi! 3 jeitos de pegar a IA inventando:",
+        "",
+        "1) Peça a fonte com link e abra o link.",
+        "2) Confira números, datas e nomes na fonte, não na resposta.",
+        "3) Escreva no pedido: \"Se você não tiver certeza, diga que não sabe em vez de chutar.\"",
+        "",
+        "Bônus: pergunte \"o que nesta resposta pode estar errado?\" e veja o que ela aponta.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei as dicas no direct! 📩",
+  },
+  {
+    keyword: "SUECIA",
+    message:
+      [
+        "Oi! A matéria sobre o bloqueio na Suécia:",
+        "",
+        "• Desde 26/10/2026, os Escritórios do Governo da Suécia bloquearam ChatGPT e Claude nos computadores da equipe, citando segurança da informação e falta de contrato.",
+        "• O Microsoft Copilot, revisado e com segurança reforçada, continua liberado.",
+        "• Parte da equipe ainda acessa os modelos por uma plataforma interna.",
+        "",
+        "Fonte: Decrypt (https://decrypt.co/381763/sweden-government-offices-block-chatgpt-claude) e Notebookcheck, citando a Sveriges Radio (Ekot).",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
+  {
+    keyword: "NAOCOLE",
+    message:
+      [
+        "Oi! Checklist antes de colar qualquer coisa numa IA:",
+        "",
+        "☐ Tirei senhas, códigos e chaves?",
+        "☐ Apaguei CPF, RG, endereço e assinatura?",
+        "☐ Troquei nomes de clientes por \"Cliente A\"?",
+        "☐ Tirei nome e data de nascimento de exames?",
+        "☐ Não tem contrato, preço interno ou plano secreto da empresa?",
+        "",
+        "Se marcou tudo, pode colar. 😉",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o checklist no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

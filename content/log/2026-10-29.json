@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-29",
+  "topic": "Suécia bloqueia ChatGPT e Claude no governo e mantém o Copilot",
+  "keyword": "SUECIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 coisas para nunca colar no ChatGPT",
+      "keyword": "NAOCOLE",
+      "metricoolId": 408928213,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      }
+    },
+    {
+      "slot": "12:30",
+      "topic": "Pedir três versões e uma crítica para a IA",
+      "keyword": "3VERSOES",
+      "metricoolId": 408929998,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      }
+    },
+    {
+      "slot": "13:00-story",
+      "metricoolId": 408930445,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED"
+      }
+    },
+    {
+      "slot": "17:00",
+      "topic": "O que é alucinação de IA",
+      "keyword": "ALUCINA",
+      "metricoolId": 408930226,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      }
+    },
+    {
+      "slot": "17:30-story",
+      "metricoolId": 408930609,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED"
+      }
+    },
+    {
+      "slot": "19:00",
+      "topic": "Suécia bloqueia ChatGPT e Claude no governo e mantém o Copilot",
+      "keyword": "SUECIA",
+      "metricoolId": 408930357,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      }
+    },
+    {
+      "slot": "19:30-story",
+      "metricoolId": 408931672,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED"
+      }
+    }
+  ]
+}
