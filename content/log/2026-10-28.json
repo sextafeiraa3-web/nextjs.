@@ -9,19 +9,20 @@
       "keyword": "EMAILJA",
       "metricoolId": 408980875,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
+        "instagram": "PUBLISHED",
+        "facebook": "PUBLISHED",
+        "tiktok": "PUBLISHED",
+        "youtube": "PUBLISHED"
       }
     },
     {
       "slot": "13:00-story",
       "metricoolId": 408980907,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED"
-      }
+        "instagram": "ERROR",
+        "facebook": "ERROR"
+      },
+      "error": "You have reached your Metricool account limit."
     },
     {
       "slot": "14:00",
