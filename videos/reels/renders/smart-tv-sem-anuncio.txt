@@ -1,0 +1,16 @@
+Sua Smart TV tá cheia de anúncio? Tem gente resolvendo com IA. 📺
+
+Um dev pediu pro Claude Code limpar a TV dos pais: o agente achou a TV no Wi-Fi, desativou os apps de fábrica e montou uma tela inicial só com os apps que eles usam. Ele postou o prompt no GitHub e, segundo ele, milhares de pessoas repetiram em 2 dias.
+
+Outro usuário contou o resultado de uma tarde: 25 apps desativados e a tela inicial de 192 MB trocada por uma de 83 MB. O objetivo é tirar os anúncios da própria TV e o rastreamento do que você assiste (a tal "reconhecimento automático de conteúdo").
+
+⚠️ Antes de tentar: os projetos ainda estão em teste e tem relato de gente que travou a TV. Faça só na sua própria TV e por sua conta e risco.
+
+Comente TV que eu te mando os 2 projetos no direct.
+
+Fonte: TechCrunch (19/10/2026)
+
+Lino IA - Sua ideia. Nosso próximo projeto.
+@linoia.br
+
+#LinoIA #InteligenciaArtificial #ClaudeCode #SmartTV #Tecnologia
