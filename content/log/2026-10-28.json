@@ -30,9 +30,11 @@
       "keyword": "ESTUDEJA",
       "metricoolId": 408981028,
       "networks": {
-        "instagram": "SCHEDULED",
-        "tiktok": "SCHEDULED"
-      }
+        "instagram": "ERROR",
+        "tiktok": "ERROR"
+      },
+      "error": "You have reached your Metricool account limit.",
+      "note": "Limite do plano Metricool: reagendar não resolve; dono avisado."
     },
     {
       "slot": "17:00",
@@ -40,19 +42,22 @@
       "keyword": "MEUJEITO",
       "metricoolId": 408981151,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
-      }
+        "instagram": "ERROR",
+        "facebook": "ERROR",
+        "tiktok": "ERROR",
+        "youtube": "ERROR"
+      },
+      "error": "You have reached your Metricool account limit.",
+      "note": "Limite do plano Metricool: reagendar não resolve; dono avisado."
     },
     {
       "slot": "17:30-story",
       "metricoolId": 408981172,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED"
-      }
+        "instagram": "CANCELLED",
+        "facebook": "CANCELLED"
+      },
+      "note": "Story virou rascunho (dono tirou os stories em 28/10)."
     },
     {
       "slot": "19:00",
@@ -70,9 +75,10 @@
       "slot": "19:30-story",
       "metricoolId": 408981289,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED"
-      }
+        "instagram": "CANCELLED",
+        "facebook": "CANCELLED"
+      },
+      "note": "Story virou rascunho (dono tirou os stories em 28/10)."
     }
   ]
 }
