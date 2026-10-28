@@ -15,6 +15,8 @@ const eslintConfig = defineConfig([
     // Third-party skills and the video projects (each has its own lint).
     ".claude/**",
     "videos/**",
+    // Daily posting pipeline (Node --experimental-strip-types, own tests).
+    "automation/**",
   ]),
 ]);
 
