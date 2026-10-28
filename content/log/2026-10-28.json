@@ -65,11 +65,13 @@
       "keyword": "CONTAS",
       "metricoolId": 408981266,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
-      }
+        "instagram": "ERROR",
+        "facebook": "ERROR",
+        "tiktok": "ERROR",
+        "youtube": "ERROR"
+      },
+      "error": "You have reached your Metricool account limit.",
+      "note": "Limite do plano Metricool: reagendar não resolve; dono avisado."
     },
     {
       "slot": "19:30-story",
@@ -79,6 +81,18 @@
         "facebook": "CANCELLED"
       },
       "note": "Story virou rascunho (dono tirou os stories em 28/10)."
+    },
+    {
+      "slot": "19:26",
+      "topic": "Instruções do Claude (carrossel criado fora da Fábrica às 19:11)",
+      "keyword": "PROMPT",
+      "metricoolId": 409473670,
+      "networks": {
+        "instagram": "ERROR",
+        "tiktok": "ERROR"
+      },
+      "error": "You have reached your Metricool account limit.",
+      "note": "Não veio do plano do dia; também bloqueado pelo limite."
     }
   ]
 }
