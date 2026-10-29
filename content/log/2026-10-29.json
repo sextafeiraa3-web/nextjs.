@@ -68,11 +68,13 @@
       "keyword": "SUECIA",
       "metricoolId": 408930357,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
-      }
+      },
+      "instagramMediaId": "18124630985313955",
+      "note": "Instagram via Windsor às 19:01. Outras redes: limite do Metricool."
     },
     {
       "slot": "19:30-story",
