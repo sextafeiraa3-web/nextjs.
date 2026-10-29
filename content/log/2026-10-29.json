@@ -9,11 +9,12 @@
       "keyword": "NAOCOLE",
       "metricoolId": 408928213,
       "networks": {
-        "instagram": "ERROR",
+        "instagram": "FIXED",
         "tiktok": "ERROR"
       },
       "error": "You have reached your Metricool account limit.",
-      "note": "Limite do plano Metricool: reagendar não resolve; dono avisado."
+      "note": "Metricool no limite; Instagram publicado via Windsor.ai às 12:08. TikTok não saiu.",
+      "instagramMediaId": "18166542892441862"
     },
     {
       "slot": "12:30",
