@@ -205,6 +205,54 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei os comandos no direct! 📩",
   },
+  {
+    keyword: "SEMANAIA",
+    message:
+      [
+        "Oi! Os 5 prompts para organizar sua semana com IA:",
+        "",
+        "1) Organize esta lista bagunçada de tarefas em grupos: [cole tudo]\n2) Separe em urgente, importante e pode esperar, e diga por quê.\n3) Monte um plano de segunda a sexta com as tarefas difíceis de manhã e pausas.\n4) Perdi a quarta-feira. Reorganize o resto da semana sem atrasar o mais importante.\n5) Na sexta: o que ficou para trás e o que eu mudo na próxima semana?",
+        "",
+        "A IA organiza, mas quem decide é você: revise o plano.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os prompts no direct! 📩",
+  },
+  {
+    keyword: "ENTREVISTA",
+    message:
+      [
+        "Oi! O prompt para a IA te entrevistar antes de responder:",
+        "",
+        "\"Quero [o que você precisa]. Antes de responder, me faça 3 perguntas para entender meu contexto. Só escreva depois que eu responder.\"",
+        "",
+        "Funciona no ChatGPT, no Claude e no Gemini. Revise sempre antes de usar.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "CARBON",
+    message:
+      [
+        "Oi! O anúncio do Gemini 4 Carbon, do Google (28/10):",
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+        "",
+        "Resumo: foco em cibersegurança e tarefas longas. Vai primeiro para defensores de cibersegurança e parceiros do programa Fairwind; ainda sem data para o público. Os resultados de testes são do próprio Google.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o anúncio no direct! 📩",
+  },
+  {
+    keyword: "GENIE4",
+    message:
+      [
+        "Oi! O anúncio oficial do Genie 4, com vídeos:",
+        "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+        "",
+        "Cobertura do TechCrunch: https://techcrunch.com/2026/10/27/googles-genie-4-world-model-adds-audio-more-realistic-worlds-and-real-time-steering/",
+        "",
+        "Por enquanto é uma prévia para testadores convidados.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o vídeo no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

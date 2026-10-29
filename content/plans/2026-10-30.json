@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-30",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Pedir para a IA fazer perguntas antes de responder",
+      "hook": "Faça a IA te entrevistar antes de responder",
+      "scenes": [
+        { "kind": "statement", "title": "A IA chuta quando falta contexto.", "body": "E você recebe uma resposta genérica." },
+        { "kind": "steps", "title": "Peça assim", "steps": ["Diga o que você quer", "Peça 3 perguntas antes", "Responda e só então ela escreve"] }
+      ],
+      "narration": "Sua IA dá resposta genérica? É porque ela está chutando. Antes de pedir o texto, escreva: me faça três perguntas antes de responder. Você responde, e ela escreve com o seu contexto de verdade. Funciona no ChatGPT, no Claude e no Gemini. Comente ENTREVISTA que eu te mando o prompt pronto.",
+      "keyword": "ENTREVISTA",
+      "ctaQuestion": "Quer o prompt pronto?",
+      "caption": "Faça a IA te entrevistar antes de responder.\n\nQuando falta contexto, a IA chuta e a resposta sai genérica. Antes de pedir o texto, peça: \"me faça 3 perguntas antes de responder\". Você responde e ela escreve com as suas informações.\n\nFunciona no ChatGPT, no Claude e no Gemini. Revise sempre antes de usar.\n\nComente ENTREVISTA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Produtividade",
+      "tiktokTitle": "Faça a IA te entrevistar antes de responder",
+      "youtubeTitle": "Faça a IA te entrevistar antes de responder #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Quero [o que você precisa]. Antes de responder, me faça 3 perguntas para entender meu contexto. Só escreva depois que eu responder.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "noticia",
+      "topic": "Google anuncia Gemini 4 Carbon, liberado primeiro só para defensores de cibersegurança",
+      "hook": "A nova IA do Google que você ainda não pode usar",
+      "scenes": [
+        { "kind": "statement", "title": "Google, 28 de outubro.", "body": "Anunciou o Gemini 4 Carbon, focado em cibersegurança." },
+        { "kind": "list", "title": "Quem usa primeiro", "items": ["Defensores de cibersegurança", "Parceiros do programa Fairwind"] },
+        { "kind": "statement", "title": "E o público?", "body": "Ainda sem data para desenvolvedores, empresas e usuários." }
+      ],
+      "narration": "A nova IA do Google que você ainda não pode usar. Em vinte e oito de outubro, o Google anunciou o Gemini 4 Carbon, focado em cibersegurança. Primeiro, ele vai só para um grupo de defensores de segurança. Para o público, ainda não tem data. Você acha certo segurar uma IA assim? Comente CARBON que eu te mando o anúncio.",
+      "keyword": "CARBON",
+      "ctaQuestion": "Certo segurar uma IA assim?",
+      "caption": "A nova IA do Google que você ainda não pode usar. 🔒\n\nEm 28/10, o Google anunciou o Gemini 4 Carbon, seu novo modelo de ponta, com foco em cibersegurança e tarefas longas de engenharia.\n\nPor enquanto, ele vai primeiro para um grupo de defensores de cibersegurança e, depois, para parceiros do programa Fairwind. O Google diz que ainda está ajustando as proteções e não deu data para desenvolvedores, empresas e usuários comuns. Os resultados de testes divulgados são do próprio Google.\n\nVocê acha certo segurar uma IA assim? Comenta aí 👇\nComente CARBON que eu te mando o anúncio completo no direct.\n\nFonte: blog do Google e 9to5Google\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Gemini #Google #Ciberseguranca",
+      "tiktokTitle": "A nova IA do Google que você ainda não pode usar",
+      "youtubeTitle": "Gemini 4 Carbon: a IA do Google que ainda não é para todos #shorts",
+      "sources": [
+        { "name": "Google", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/" },
+        { "name": "9to5Google", "url": "https://9to5google.com/2026/10/28/gemini-4-carbon-announcement/" }
+      ],
+      "firstComment": "Anúncio oficial: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "Google DeepMind lança Genie 4, mundo virtual com som que você muda digitando",
+      "hook": "Um mundo virtual que muda quando você digita",
+      "scenes": [
+        { "kind": "statement", "title": "Genie 4, do Google DeepMind.", "body": "Cria um mundo 3D em tempo real a partir de texto." },
+        { "kind": "list", "title": "O que tem de novo", "items": ["Som, música e falas", "Mude o clima digitando", "Cena estável por até 2 minutos"] },
+        { "kind": "statement", "title": "Quem pode usar?", "body": "Por enquanto, só um grupo de testadores." }
+      ],
+      "narration": "Um mundo virtual que muda quando você digita. O Google DeepMind mostrou o Genie 4. Ele cria um mundo em tempo real, agora com som e falas. No meio da cena, você digita chuva ou mais pessoas, e o mundo muda. Por enquanto, só testadores convidados usam. Comente GENIE4 que eu te mando o vídeo oficial.",
+      "keyword": "GENIE4",
+      "ctaQuestion": "Que mundo você criaria?",
+      "caption": "Um mundo virtual que muda quando você digita. 🌍\n\nO Google DeepMind anunciou o Genie 4, um \"modelo de mundo\": ele gera um ambiente que você explora em tempo real. A novidade é o som gerado junto com a imagem (ambiente, música e falas) e a edição ao vivo: no meio da cena, você digita uma mudança, como o clima ou mais pessoas, e o mundo se adapta.\n\nSegundo o TechCrunch, a cena se mantém consistente por até 2 minutos, o dobro do Genie 3. Por enquanto é uma prévia de pesquisa para testadores convidados; o Google diz que chega em breve aos assinantes do Google AI Ultra.\n\nQue mundo você criaria? Comenta aí 👇\nComente GENIE4 que eu te mando o vídeo oficial no direct.\n\nFonte: Google DeepMind e TechCrunch\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Google #DeepMind #Tecnologia",
+      "tiktokTitle": "Um mundo virtual que muda quando você digita",
+      "youtubeTitle": "Genie 4: o mundo virtual do Google que muda quando você digita #shorts",
+      "sources": [
+        { "name": "Google DeepMind", "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/" },
+        { "name": "TechCrunch", "url": "https://techcrunch.com/2026/10/27/googles-genie-4-world-model-adds-audio-more-realistic-worlds-and-real-time-steering/" }
+      ],
+      "firstComment": "Anúncio oficial com vídeos: https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para organizar a semana com IA",
+    "slides": [
+      { "title": "5 prompts para organizar sua semana com IA", "body": "Copie, troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini." },
+      { "title": "1. Despejo", "body": "\"Organize esta lista bagunçada de tarefas em grupos: [cole tudo]\"" },
+      { "title": "2. Prioridade", "body": "\"Separe em urgente, importante e pode esperar, e diga por quê.\"" },
+      { "title": "3. Agenda", "body": "\"Monte um plano de segunda a sexta com as tarefas difíceis de manhã e pausas.\"" },
+      { "title": "4. Imprevisto", "body": "\"Perdi a quarta-feira. Reorganize o resto da semana sem atrasar o mais importante.\"" },
+      { "title": "5. Revisão", "body": "\"Na sexta: o que ficou para trás e o que eu mudo na próxima semana?\"" }
+    ],
+    "keyword": "SEMANAIA",
+    "caption": "5 prompts para organizar sua semana com IA. 🗓️\n\nCopie, troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA organiza, mas quem decide é você: revise o plano antes de seguir.\n\nSalve para usar na segunda e comente SEMANAIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Produtividade #DicasDeIA",
+    "tiktokTitle": "5 prompts para organizar sua semana com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve o post para copiar na segunda!"
+  }
+}
