@@ -9,9 +9,11 @@
       "keyword": "NAOCOLE",
       "metricoolId": 408928213,
       "networks": {
-        "instagram": "SCHEDULED",
-        "tiktok": "SCHEDULED"
-      }
+        "instagram": "ERROR",
+        "tiktok": "ERROR"
+      },
+      "error": "You have reached your Metricool account limit.",
+      "note": "Limite do plano Metricool: reagendar não resolve; dono avisado."
     },
     {
       "slot": "12:30",
