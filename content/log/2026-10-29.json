@@ -45,11 +45,13 @@
       "keyword": "ALUCINA",
       "metricoolId": 408981560,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
-      }
+      },
+      "instagramMediaId": "17957376891259215",
+      "note": "Instagram via Windsor às 17:01. Outras redes: limite do Metricool."
     },
     {
       "slot": "17:30-story",
