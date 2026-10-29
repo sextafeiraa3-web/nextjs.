@@ -23,19 +23,20 @@
       "metricoolId": 408981483,
       "networks": {
         "instagram": "FIXED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
+        "facebook": "ERROR",
+        "tiktok": "ERROR",
+        "youtube": "ERROR"
       },
       "instagramMediaId": "17954303382319776",
-      "note": "Publicado no Instagram via Windsor às 13:05 (1ª tentativa deu timeout, não apareceu). Outras redes: Metricool no limite."
+      "note": "Publicado no Instagram via Windsor às 13:05 (1ª tentativa deu timeout, não apareceu). Outras redes: Metricool no limite.",
+      "error": "You have reached your Metricool account limit."
     },
     {
       "slot": "13:00-story",
       "metricoolId": 408981592,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED"
+        "instagram": "CANCELLED",
+        "facebook": "CANCELLED"
       }
     },
     {
@@ -54,8 +55,8 @@
       "slot": "17:30-story",
       "metricoolId": 408981627,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED"
+        "instagram": "CANCELLED",
+        "facebook": "CANCELLED"
       }
     },
     {
@@ -74,8 +75,8 @@
       "slot": "19:30-story",
       "metricoolId": 408931672,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED"
+        "instagram": "CANCELLED",
+        "facebook": "CANCELLED"
       }
     }
   ]
