@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-31",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Resumir um PDF longo com IA pedindo a página de cada ponto",
+      "hook": "PDF de 40 páginas? Leia em 1 minuto",
+      "scenes": [
+        { "kind": "statement", "title": "Anexe o PDF na IA.", "body": "ChatGPT, Claude ou Gemini aceitam arquivos." },
+        { "kind": "steps", "title": "Peça assim", "steps": ["Resumo em 5 tópicos", "Página de cada tópico", "O que fazer agora"] }
+      ],
+      "narration": "Recebeu um PDF de quarenta páginas? Anexe na IA e peça um resumo em cinco tópicos, com a página de onde saiu cada um, e o que você precisa fazer agora. Com a página, você confere rapidinho se a IA não inventou nada. Comente RESUMOPDF que eu te mando o prompt pronto.",
+      "keyword": "RESUMOPDF",
+      "ctaQuestion": "Quer o prompt pronto?",
+      "caption": "PDF de 40 páginas? Leia em 1 minuto. 📄\n\nAnexe o arquivo no ChatGPT, no Claude ou no Gemini e peça um resumo em 5 tópicos, com a página de onde saiu cada um e o que você precisa fazer agora.\n\nCom o número da página, você confere em segundos se a IA não inventou nada. Documento sigiloso? Não anexe.\n\nComente RESUMOPDF que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Produtividade",
+      "tiktokTitle": "PDF de 40 páginas? Leia em 1 minuto com IA",
+      "youtubeTitle": "Resuma um PDF de 40 páginas com IA em 1 minuto #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Resuma este PDF em 5 tópicos curtos. Em cada tópico, diga a página de onde tirou a informação. No fim, liste o que eu preciso fazer agora.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "conceito",
+      "topic": "Janela de contexto: por que a IA esquece o começo de conversas longas",
+      "hook": "Por que a IA esquece o que você disse?",
+      "scenes": [
+        { "kind": "statement", "title": "Janela de contexto.", "body": "É quanto texto a IA consegue considerar de uma vez." },
+        { "kind": "list", "title": "Quando a conversa fica longa", "items": ["O começo pode ficar de fora", "A IA perde detalhes", "As respostas pioram"] },
+        { "kind": "statement", "title": "Solução:", "body": "Peça um resumo e comece uma conversa nova com ele." }
+      ],
+      "narration": "Por que a IA esquece o que você disse lá no começo? Cada IA tem uma janela de contexto, o tanto de texto que ela consegue considerar de uma vez. Em conversas muito longas, detalhes do começo se perdem. A saída: peça um resumo da conversa e comece outra com ele. Comente CONTEXTO que eu te mando o prompt.",
+      "keyword": "CONTEXTO",
+      "ctaQuestion": "Já aconteceu com você?",
+      "caption": "Por que a IA esquece o que você disse? 🧠\n\nToda IA tem uma \"janela de contexto\": o tanto de texto que ela consegue considerar de uma vez. Em conversas muito longas, detalhes do começo podem se perder e as respostas pioram. O tamanho dessa janela muda de modelo para modelo.\n\nA saída: peça um resumo da conversa e comece uma nova com ele.\n\nComente CONTEXTO que eu te mando o prompt do resumo no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #IA #Tecnologia",
+      "tiktokTitle": "Por que a IA esquece o que você disse?",
+      "youtubeTitle": "Por que a IA esquece o começo da conversa? #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Resuma nossa conversa em até 10 tópicos com tudo que importa: objetivo, decisões e detalhes. Vou colar esse resumo numa conversa nova.\""
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "OpenAI deixa de treinar seus modelos mais avançados com acesso à internet ao vivo",
+      "hook": "A OpenAI tirou a internet da própria IA",
+      "scenes": [
+        { "kind": "statement", "title": "OpenAI, 23 de outubro.", "body": "Modelos mais avançados agora treinam sem internet ao vivo." },
+        { "kind": "list", "title": "No lugar", "items": ["Uma cópia offline da web", "Testes para ver se a IA escapa"] },
+        { "kind": "statement", "title": "O motivo:", "body": "A empresa citou riscos significativos." }
+      ],
+      "narration": "A OpenAI tirou a internet da própria IA. Em vinte e três de outubro, a empresa disse que vai treinar seus modelos mais avançados sem acesso à internet ao vivo, citando riscos significativos. No lugar, eles usam uma cópia offline da web. Você acha exagero ou precaução? Comente OFFLINE que eu te mando a matéria.",
+      "keyword": "OFFLINE",
+      "ctaQuestion": "Exagero ou precaução?",
+      "caption": "A OpenAI tirou a internet da própria IA. 🔌\n\nEm 23/10, a OpenAI disse que vai treinar seus modelos mais avançados sem acesso à internet ao vivo, citando \"riscos significativos\". No lugar, usa uma cópia offline da web para os modelos continuarem praticando navegação.\n\nSegundo a imprensa, a empresa também testa se grupos de agentes de IA conseguem escapar de ambientes restritos. Especialistas ainda discutem se a medida funciona.\n\nExagero ou precaução? Comenta aí 👇\nComente OFFLINE que eu te mando a matéria completa no direct.\n\nFonte: TechCrunch e Computing\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #OpenAI #ChatGPT #Seguranca",
+      "tiktokTitle": "A OpenAI tirou a internet da própria IA",
+      "youtubeTitle": "OpenAI treina IA sem internet ao vivo: por quê? #shorts",
+      "sources": [
+        { "name": "TechCrunch", "url": "https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/" },
+        { "name": "Computing", "url": "https://www.computing.co.uk/news/2026/ai/openai-cuts-live-internet-access-from-llm-training" }
+      ],
+      "firstComment": "Matéria: https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para criar posts para o seu negócio",
+    "slides": [
+      { "title": "5 prompts para criar posts do seu negócio", "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini." },
+      { "title": "1. Ideias", "body": "\"Me dê 10 ideias de post para [seu negócio] que respondam dúvidas reais de clientes.\"" },
+      { "title": "2. Gancho", "body": "\"Escreva 5 primeiras frases que façam alguém parar de rolar o feed sobre [tema].\"" },
+      { "title": "3. Legenda", "body": "\"Escreva uma legenda curta, no meu tom [descreva], terminando com uma pergunta.\"" },
+      { "title": "4. Calendário", "body": "\"Monte um calendário de 7 dias de posts para [seu negócio], um por dia.\"" },
+      { "title": "5. Revisão", "body": "\"Leia este post e diga o que está confuso ou longo demais: [cole].\"" }
+    ],
+    "keyword": "POSTPRONTO",
+    "caption": "5 prompts para criar posts do seu negócio. ✍️\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA dá o rascunho; a sua voz e a revisão final são suas.\n\nSalve para usar depois e comente POSTPRONTO que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Empreendedorismo #DicasDeIA",
+    "tiktokTitle": "5 prompts para criar posts do seu negócio",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve o post para copiar depois!"
+  }
+}
