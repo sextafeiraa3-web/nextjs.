@@ -8,28 +8,48 @@
       "topic": "5 prompts para organizar a semana com IA",
       "keyword": "SEMANAIA",
       "metricoolId": 409953488,
-      "networks": { "instagram": "SCHEDULED", "tiktok": "SCHEDULED" }
+      "networks": {
+        "instagram": "FIXED",
+        "tiktok": "SCHEDULED"
+      },
+      "instagramMediaId": "18099178100387534",
+      "note": "Instagram via Windsor às 09:02 (Metricool no limite)."
     },
     {
       "slot": "12:30",
       "topic": "Pedir para a IA fazer perguntas antes de responder",
       "keyword": "ENTREVISTA",
       "metricoolId": 409953587,
-      "networks": { "instagram": "SCHEDULED", "facebook": "SCHEDULED", "tiktok": "SCHEDULED", "youtube": "SCHEDULED" }
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      }
     },
     {
       "slot": "17:00",
       "topic": "Google anuncia Gemini 4 Carbon, liberado primeiro só para defensores de cibersegurança",
       "keyword": "CARBON",
       "metricoolId": 409953674,
-      "networks": { "instagram": "SCHEDULED", "facebook": "SCHEDULED", "tiktok": "SCHEDULED", "youtube": "SCHEDULED" }
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      }
     },
     {
       "slot": "19:00",
       "topic": "Google DeepMind lança Genie 4, mundo virtual com som que você muda digitando",
       "keyword": "GENIE4",
       "metricoolId": 409953744,
-      "networks": { "instagram": "SCHEDULED", "facebook": "SCHEDULED", "tiktok": "SCHEDULED", "youtube": "SCHEDULED" }
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      }
     }
   ]
 }
