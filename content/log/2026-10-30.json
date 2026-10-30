@@ -22,11 +22,13 @@
       "keyword": "ENTREVISTA",
       "metricoolId": 409953587,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
-      }
+      },
+      "instagramMediaId": "18150210370604142",
+      "note": "Instagram via Windsor às 13:23 (lembrete atrasou). Outras redes: limite do Metricool."
     },
     {
       "slot": "17:00",
