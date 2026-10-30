@@ -52,11 +52,13 @@
       "keyword": "GENIE4",
       "metricoolId": 409953744,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
-      }
+      },
+      "instagramMediaId": "18112332782463413",
+      "note": "Instagram via Windsor às 19:01. Outras redes: limite do Metricool."
     }
   ]
 }
