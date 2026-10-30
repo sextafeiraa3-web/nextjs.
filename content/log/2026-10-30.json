@@ -10,10 +10,11 @@
       "metricoolId": 409953488,
       "networks": {
         "instagram": "FIXED",
-        "tiktok": "SCHEDULED"
+        "tiktok": "ERROR"
       },
       "instagramMediaId": "18099178100387534",
-      "note": "Instagram via Windsor às 09:02 (Metricool no limite)."
+      "note": "Instagram via Windsor às 09:02 (Metricool no limite).",
+      "error": "You have reached your Metricool account limit."
     },
     {
       "slot": "12:30",
