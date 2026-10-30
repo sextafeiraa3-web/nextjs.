@@ -37,11 +37,13 @@
       "keyword": "CARBON",
       "metricoolId": 409953674,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
-      }
+      },
+      "instagramMediaId": "18029385257871498",
+      "note": "Instagram via Windsor às 17:01. Outras redes: limite do Metricool."
     },
     {
       "slot": "19:00",
