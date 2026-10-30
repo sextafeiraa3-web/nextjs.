@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-31",
+  "topic": "OpenAI deixa de treinar seus modelos mais avançados com acesso à internet ao vivo",
+  "keyword": "OFFLINE",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para criar posts para o seu negócio",
+      "keyword": "POSTPRONTO",
+      "metricoolId": 411445161,
+      "networks": { "instagram": "SCHEDULED", "tiktok": "SCHEDULED" },
+      "note": "Instagram via Windsor (lembrete); Metricool só TikTok."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Resumir um PDF longo com IA pedindo a página de cada ponto",
+      "keyword": "RESUMOPDF",
+      "metricoolId": 411445230,
+      "networks": { "instagram": "SCHEDULED", "facebook": "SCHEDULED", "tiktok": "SCHEDULED", "youtube": "SCHEDULED" },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Janela de contexto: por que a IA esquece o começo de conversas longas",
+      "keyword": "CONTEXTO",
+      "metricoolId": 411445328,
+      "networks": { "instagram": "SCHEDULED", "facebook": "SCHEDULED", "tiktok": "SCHEDULED", "youtube": "SCHEDULED" },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    },
+    {
+      "slot": "19:00",
+      "topic": "OpenAI deixa de treinar seus modelos mais avançados com acesso à internet ao vivo",
+      "keyword": "OFFLINE",
+      "metricoolId": 411445454,
+      "networks": { "instagram": "SCHEDULED", "facebook": "SCHEDULED", "tiktok": "SCHEDULED", "youtube": "SCHEDULED" },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    }
+  ]
+}

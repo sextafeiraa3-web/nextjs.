@@ -253,6 +253,53 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei o vídeo no direct! 📩",
   },
+  {
+    keyword: "POSTPRONTO",
+    message:
+      [
+        "Oi! Os 5 prompts para criar posts do seu negócio:",
+        "",
+        "1) Me dê 10 ideias de post para [seu negócio] que respondam dúvidas reais de clientes.\n2) Escreva 5 primeiras frases que façam alguém parar de rolar o feed sobre [tema].\n3) Escreva uma legenda curta, no meu tom [descreva], terminando com uma pergunta.\n4) Monte um calendário de 7 dias de posts para [seu negócio], um por dia.\n5) Leia este post e diga o que está confuso ou longo demais: [cole].",
+        "",
+        "A IA dá o rascunho; a sua voz e a revisão final são suas.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os prompts no direct! 📩",
+  },
+  {
+    keyword: "RESUMOPDF",
+    message:
+      [
+        "Oi! O prompt para resumir um PDF:",
+        "",
+        "\"Resuma este PDF em 5 tópicos curtos. Em cada tópico, diga a página de onde tirou a informação. No fim, liste o que eu preciso fazer agora.\"",
+        "",
+        "Confira as páginas citadas. Documento sigiloso? Não anexe.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "CONTEXTO",
+    message:
+      [
+        "Oi! O prompt para continuar uma conversa longa sem perder nada:",
+        "",
+        "\"Resuma nossa conversa em até 10 tópicos com tudo que importa: objetivo, decisões e detalhes. Vou colar esse resumo numa conversa nova.\"",
+        "",
+        "Depois, abra uma conversa nova e cole o resumo no começo.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "OFFLINE",
+    message:
+      [
+        "Oi! A matéria sobre a OpenAI treinar os modelos mais avançados sem internet ao vivo (23/10):",
+        "https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/",
+        "",
+        "Outra cobertura: https://www.computing.co.uk/news/2026/ai/openai-cuts-live-internet-access-from-llm-training",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>
