@@ -362,6 +362,7 @@ td.r,th.r{text-align:right}
     <button class="emo senha" type="button" id="btnSenha" hidden>Pedir senha</button>
     <button class="emo" type="button" id="btnAcoes" aria-haspopup="true">Ações ▴</button>
     <button class="emo" type="button" id="btnFrases" aria-haspopup="true">Frases ▴</button>
+    <button class="emo" type="button" id="btnVeic" hidden>Guardar</button>
     <button class="emo" type="button" data-emo="comemorar">Comemorar</button>
     <button class="emo" type="button" id="btnTelao">Telão</button>
     <button class="emo enq-btn" type="button" id="btnEnquete">Enquete</button>
@@ -2213,6 +2214,16 @@ function pose(av,t,dt,st){
     if(st.relax){ p.armL.rotation.x=p.armR.rotation.x=-0.35; p.elL.rotation.x=p.elR.rotation.x=-0.7; p.head.rotation.y=Math.sin(t*0.3)*0.3; }
     else { p.armL.rotation.x=-0.8+Math.sin(t*13)*0.05; p.armR.rotation.x=-0.8+Math.sin(t*13+1.9)*0.05; p.elL.rotation.x=p.elR.rotation.x=-0.75;
       p.head.rotation.x=0.12+Math.sin(t*0.7)*0.03; }
+  } else if(st.veic==='patinete'){
+    const push=st.moving?Math.max(0,Math.sin(t*5)):0;
+    p.legL.rotation.x=-0.12; p.knL.rotation.x=0.12; p.legR.rotation.x=0.05+push*0.55; p.knR.rotation.x=0.1+push*0.5;
+    p.armL.rotation.set(-1.05,0,-0.02); p.armR.rotation.set(-1.05,0,0.02); p.elL.rotation.x=p.elR.rotation.x=-0.3;
+    p.body.rotation.x=0.06; p.head.rotation.x=-0.05; p.body.position.y=push*0.02;
+  } else if(st.veic==='patins' && st.moving){
+    av.walkT+=dt*(st.run?7:5); const s=Math.sin(av.walkT);
+    p.legL.rotation.set(-0.28,0,-Math.max(0,s)*0.3); p.legR.rotation.set(-0.28,0,Math.max(0,-s)*0.3); p.knL.rotation.x=p.knR.rotation.x=0.5;
+    p.armL.rotation.x=s*0.7; p.armR.rotation.x=-s*0.7; p.elL.rotation.x=p.elR.rotation.x=-0.2;
+    p.body.position.y=-0.03; p.body.rotation.x=0.18; p.body.rotation.y=s*0.12;
   } else if(st.moving){
     av.walkT+=dt*(st.run?13:9); const s=Math.sin(av.walkT), amp=st.run?0.75:0.55;
     p.legL.rotation.x=s*amp; p.legR.rotation.x=-s*amp; p.knL.rotation.x=Math.max(0,s)*1.0; p.knR.rotation.x=Math.max(0,-s)*1.0;
@@ -2403,7 +2414,7 @@ function syncRemotes(){
     if(!r || r.key!==key){ if(r){ scene.remove(r.av.group); disposeGeo(r.av.group); } const av=buildCharacter(prof); scene.add(av.group);
       r=Object.assign(r||{},{av,key,x:pz.x,z:pz.z,ry:+pz.ry||0,stText:''}); remotes.set(pr.peer,r); }
     const fresh=!r.synced; r.synced=true;
-    r.uid=uid; r.tx=clamp(pz.x,-OX,TR.x1); r.tz=clamp(pz.z,-OZ,ENT.z1); r.try=+pz.ry||0; r.s=SITS[pz.s]?pz.s:null; r.m=!!pz.m; r.run=!!pz.r; r.h=!!pz.h;
+    r.uid=uid; r.tx=clamp(pz.x,-OX,TR.x1); r.tz=clamp(pz.z,-OZ,ENT.z1); r.try=+pz.ry||0; r.s=SITS[pz.s]?pz.s:null; r.m=!!pz.m; r.run=!!pz.r; r.h=!!pz.h; r.veic=VEIC[pz.v]?pz.v:null;
     { const st=pz.st&&typeof pz.st==='object'&&['ok','pausa','almoco'].includes(pz.st.k)?{k:pz.st.k,ate:/^\d{2}:\d{2}$/.test(pz.st.ate||'')?pz.st.ate:''}:{k:'ok'};
       S.liveStatus[uid]=st; r.at=ATIV[pz.at]?pz.at:null; const tx=textoCabeca(st,r.at); if(r.stText!==tx){ r.stText=tx; setStatusSprite(r.av,tx); } }
     if(typeof pz.fala==='string' && pz.falaTs!==r.falaTs){ const first=r.falaTs===undefined; r.falaTs=pz.falaTs; if(!first||Date.now()-(+pz.falaTs||0)<8000){ const t=pz.fala.slice(0,160), to=['todos','sala','vidro','perto'].includes(pz.falaTo)?pz.falaTo:'perto';
@@ -2741,20 +2752,21 @@ function updatePlayer(dt){
   if(P.hiddenUntil && performance.now()>P.hiddenUntil) P.hiddenUntil=0;
   if(!P.moving && P.auto){ const a=P.auto, [tx,tz]=a.path[a.i], dx=tx-P.x, dz=tz-P.z, d=Math.hypot(dx,dz);
     if(d<0.08){ a.i++; if(a.i>=a.path.length){ P.auto=null; arrive(a.dest); } }
-    else { const st=Math.min(d,3.4*dt); P.x+=dx/d*st; P.z+=dz/d*st; P.ry=angLerp(P.ry,Math.atan2(dx,dz),Math.min(1,dt*12)); P.moving=true; } }
+    else { const st=Math.min(d,(P.veic?6:3.4)*dt); P.x+=dx/d*st; P.z+=dz/d*st; P.ry=angLerp(P.ry,Math.atan2(dx,dz),Math.min(1,dt*12)); P.moving=true; } }
   else if(P.moving){
     if(P.sitting) standUp();
     if(len>1){ ix/=len; iz/=len; }
     const fx=Math.sin(camYaw), fz=Math.cos(camYaw), rx=-Math.cos(camYaw), rz=Math.sin(camYaw);
-    const mx=fx*iz+rx*ix, mz=fz*iz+rz*ix; P.vel=(P.vel||0)+((P.run?5.2:3.0)-(P.vel||0))*Math.min(1,dt*7); const sp=P.vel;
+    const mx=fx*iz+rx*ix, mz=fz*iz+rz*ix; P.vel=(P.vel||0)+((P.veic?VEIC[P.veic].vel*(P.run?1.35:1):P.run?5.2:3.0)-(P.vel||0))*Math.min(1,dt*7); const sp=P.vel;
     [P.x,P.z]=collide(P.x+mx*sp*dt,P.z+mz*sp*dt,0.3);
     P.ry=angLerp(P.ry,Math.atan2(mx,mz),Math.min(1,dt*12));
   }
   if(!P.moving) P.vel=Math.max(0,(P.vel||0)-dt*12);
-  if(P.moving && !P.sitting){ P.stepT=(P.stepT||0)-dt; if(P.stepT<=0){ P.stepT=P.run?0.28:0.4; SFX.step(); } }
+  if(P.moving && !P.sitting && !P.veic){ P.stepT=(P.stepT||0)-dt; if(P.stepT<=0){ P.stepT=P.run?0.28:0.4; SFX.step(); } }
   if(P.sitting && !P.wasSitting) SFX.sit(); P.wasSitting=!!P.sitting;
   if(P.sitting){ P.x=P.sitting.x; P.z=P.sitting.z; P.ry=P.sitting.ry; }
-  if(P.av){ P.av.group.position.set(P.x,altura(P.av,dt),P.z); P.av.group.rotation.y=P.ry; P.av.group.visible=!P.hiddenUntil&&!P.away; }
+  updateVeicBtn();
+  if(P.av){ setVeic(P.av,P.sitting?null:P.veic); P.av.group.position.set(P.x,altura(P.av,dt)+(P.av.veicY||0),P.z); P.av.group.rotation.y=P.ry; P.av.group.visible=!P.hiddenUntil&&!P.away; }
 }
 function updateCamera(dt,t){
   if(!S.playing){ const a=t*0.05; camera.position.set(Math.sin(a)*13,9,Math.cos(a)*13); camera.lookAt(0,0.5,-1); return; }
@@ -2824,7 +2836,7 @@ function sendProfilePresence(){
 }
 function sendPresence(now){
   if(!room||!S.me||!S.playing||now-presT<90) return; presT=now; sendProfilePresence();
-  const p={uid:S.uid,x:+P.x.toFixed(2),z:+P.z.toFixed(2),ry:+P.ry.toFixed(2),s:P.sitting?P.sitting.id:null,m:P.moving?1:0,r:P.run?1:0,h:(P.hiddenUntil||P.away)?1:0};
+  const p={uid:S.uid,x:+P.x.toFixed(2),z:+P.z.toFixed(2),ry:+P.ry.toFixed(2),s:P.sitting?P.sitting.id:null,m:P.moving?1:0,r:P.run?1:0,h:(P.hiddenUntil||P.away)?1:0,v:(!P.sitting&&P.veic)||0};
   const k=JSON.stringify(p); if(k===lastPres) return; lastPres=k; room.presence(p).catch(()=>{});
 }
 function updateAccessBar(){
@@ -2967,6 +2979,7 @@ function computeInteraction(){
   if(S.me.cargo==='supervisor') for(const s of SEATS){ if(s.role!=='supervisor'||s.team!==S.me.time||owners[s.id]||Math.hypot(P.x-s.x,P.z-s.z)>1.3) continue;
     return {label:`Trabalhar nesta fileira (${s.label.toLowerCase()})`,act:()=>trocarFileira(s)}; }
   for(const s of SEATS){ if(Math.hypot(P.x-s.x,P.z-s.z)<0.8){ const o=owners[s.id]; if(o && o!==S.uid) return {label:`Cadeira de ${nomeDe(o)}`,act:()=>toast(`${nomeDe(o)} · ${roleLine(S.profiles[o])}`)}; } }
+  { const g=GAR.perto(P.x,P.z); if(g) return P.veic?{label:`Guardar ${VEIC[P.veic].art}`,act:()=>pegarVeic(null)}:{label:`Pegar ${VEIC[g].art}`,act:()=>pegarVeic(g)}; }
   if(Math.hypot(P.x-SINO.spot.x,P.z-SINO.spot.z)<1.5) return {label:'Tocar o sino',act:tocarSino};
   if(Math.hypot(P.x-KITCHEN.agua.x,P.z-KITCHEN.agua.z)<1.3) return {label:'Beber água',act:()=>{ P.ry=Math.PI; emote('beber'); }};
   if(Math.hypot(P.x-ENT.ponto.x,P.z-ENT.ponto.z)<1.2) return {label:'Bater ponto',act:openPonto};
@@ -3126,10 +3139,10 @@ function loop(now){
       else if(d>0.001){ const k=Math.min(1,dt*(Store.mode==='sb'?5:10)), st=Math.min(d,Math.max(3.4*dt,d*k)); r.x+=dx/d*st; r.z+=dz/d*st; }
       r.walkD=d; r.ry=angLerp(r.ry,r.m||d<0.3?r.try:Math.atan2(dx,dz),Math.min(1,dt*(Store.mode==='sb'?5:10)));
     }
-    r.av.group.position.set(r.x,altura(r.av,dt),r.z); r.av.group.rotation.y=r.ry; r.av.group.visible=!r.h;
-    pose(r.av,t,dt,{sitting:!!r.s,relax:!!(r.s&&SITS[r.s].extra),moving:(r.m||r.walkD>0.3)&&!r.s,run:r.run});
+    setVeic(r.av,r.s?null:r.veic); r.av.group.position.set(r.x,altura(r.av,dt)+(r.av.veicY||0),r.z); r.av.group.rotation.y=r.ry; r.av.group.visible=!r.h;
+    pose(r.av,t,dt,{sitting:!!r.s,relax:!!(r.s&&SITS[r.s].extra),moving:(r.m||r.walkD>0.3)&&!r.s,run:r.run,veic:r.s?null:r.veic});
   }
-  if(P.av) pose(P.av,t,dt,{sitting:!!P.sitting,relax:!!(P.sitting&&P.sitting.extra),moving:P.moving,run:P.run});
+  if(P.av) pose(P.av,t,dt,{sitting:!!P.sitting,relax:!!(P.sitting&&P.sitting.extra),moving:P.moving,run:P.run,veic:P.sitting?null:P.veic});
   updateNPCs(dt,t,now); PODIO.update(t,dt); LUZ.update(dt); updateCleaner(dt,t,now); updateZelador(dt,t,now); SINO.update(dt); RELOGIO.draw(); ENT.update(t,dt); if(S.playing) updateTreino(); else drawTreinoTV(); updateDoor(dt); updateBursts(dt); updateFans(t,dt); BALLOONS.update(t); updateCamera(dt,t); sendPresence(now);
   scrT+=dt; if(scrT>0.45){ scrT=0; SCREENS.forEach(s=>drawScreen(s,t)); }
   drawTicker(dt); drawTelao(); if(S.playing) drawMinimap(dt);
@@ -4201,6 +4214,55 @@ function openAmbiente(){
     el('p',{class:'empty',text:'Cada pessoa pode baixar o volume ou silenciar a música no próprio computador, pelo controle que aparece no canto da tela.'}));
   show('mAmb');
 }
+/* ---- skates and scooters: take one at the rack, ride faster around the office, put it back any time ---- */
+const VEIC={patins:{nome:'Patins',art:'os patins',vel:6.2,y:0.07},patinete:{nome:'Patinete',art:'o patinete',vel:7.2,y:0.09}};
+const wheelM=mat('#f2b33d',{roughness:0.5}), veicDark=mat('#1c1e22',{metalness:0.4,roughness:0.4}), deckM=mat('#dc6029',{roughness:0.6});
+function makeScooter(){
+  const g=new T.Group();
+  box(0.16,0.035,0.72,deckM,0,0.075,0.02,g);
+  for(const z of [-0.33,0.36]) cyl(0.055,0.055,0.035,wheelM,0,0.055,z,g,14).rotation.z=Math.PI/2;
+  box(0.035,1.0,0.035,veicDark,0,0.58,0.42,g).rotation.x=-0.1;
+  box(0.52,0.03,0.03,veicDark,0,1.07,0.46,g);
+  for(const sx of [-1,1]) box(0.09,0.04,0.045,mat('#141414'),sx*0.24,1.07,0.46,g);
+  return g;
+}
+function makeSkate(boot){ // the wheel frame of one inline skate; on an avatar its own shoe is the boot
+  const g=new T.Group(); box(0.07,0.03,0.25,veicDark,0,0,0,g);
+  for(let k=0;k<4;k++) cyl(0.026,0.026,0.03,wheelM,0,-0.03,-0.09+k*0.06,g,10).rotation.z=Math.PI/2;
+  if(boot){ box(0.1,0.16,0.22,mat('#2f5fa8'),0,0.095,-0.01,g); box(0.105,0.03,0.12,mat('#f1f1ec'),0,0.15,0.04,g); }
+  return g;
+}
+function setVeic(av,kind){
+  if(av.veicKind===kind) return;
+  for(const o of av.veicObjs||[]){ if(o.parent) o.parent.remove(o); disposeGeo(o); }
+  av.veicObjs=[]; av.veicKind=kind; av.veicY=kind?VEIC[kind].y:0;
+  if(kind==='patinete'){ const g=makeScooter(); g.position.y=-VEIC.patinete.y/(av.group.scale.y||1); av.group.add(g); av.veicObjs.push(g); }
+  else if(kind==='patins') for(const k of [av.parts.knL,av.parts.knR]){ const g=makeSkate(false); g.position.set(0,-0.505,0.03); k.add(g); av.veicObjs.push(g); }
+}
+const GAR=(()=>{ // the rack goes to the first free spot against a wall
+  const livre=(x,z)=>!BOXES.some(b=>x>b[0]-1.1&&x<b[1]+1.1&&z>b[2]-1.2&&z<b[3]+1.2) && !SEATS.concat(EXTRA_SITS).some(st=>Math.hypot(st.x-x,st.z-z)<1.8);
+  const cand=[[13.1,OZB-1.5],[13.1,OZB-3.3],[13.1,OZB-5.1],[-12.9,OZB-1.5],[-12.9,OZB-3.3],[13.1,-3.5]];
+  const [x,z]=cand.find(([cx,cz])=>livre(cx,cz))||cand[0], ry=x>0?-Math.PI/2:Math.PI/2;
+  const g=new T.Group(); g.position.set(x,0,z); g.rotation.y=ry; scene.add(g);
+  box(1.9,0.06,0.7,mat('#2b2f36'),0,0.03,0,g); box(1.9,1.15,0.05,mat('#14181d'),0,0.64,-0.33,g);
+  const sign=new T.Mesh(new T.PlaneGeometry(1.8,0.3),new T.MeshBasicMaterial({map:canvasTex(720,120,(c,w,h)=>{ c.fillStyle='#dc6029'; c.fillRect(0,0,w,h); c.fillStyle='#ffffff'; c.font='800 58px "Bricolage Grotesque", sans-serif'; c.textAlign='center'; c.textBaseline='middle'; c.fillText('PATINS E PATINETES',w/2,h/2+3); })}));
+  sign.position.set(0,1.05,-0.30); g.add(sign);
+  for(const dx of [-0.75,-0.35]){ const sc=makeScooter(); sc.position.set(dx,0.02,0); sc.rotation.y=0.08; g.add(sc); }
+  for(const [dx,dz] of [[0.35,-0.05],[0.5,-0.05],[0.75,0.12],[0.9,0.12]]){ const sk=makeSkate(true); sk.position.set(dx,0.115,dz); g.add(sk); }
+  const c=Math.cos(ry), sn=Math.sin(ry), w=(lx,lz)=>({x:x+lx*c+lz*sn,z:z-lx*sn+lz*c});
+  BOXES.push(Math.abs(sn)>0.5?[x-0.4,x+0.4,z-0.95,z+0.95]:[x-0.95,x+0.95,z-0.4,z+0.4]);
+  const spots={patinete:w(-0.55,0.95),patins:w(0.62,0.95)};
+  return {x,z,spots,perto(px,pz){ let best=null,bd=1.3; for(const k in spots){ const d=Math.hypot(px-spots[k].x,pz-spots[k].z); if(d<bd){ bd=d; best=k; } } return best; }};
+})();
+function pegarVeic(kind){
+  if(P.sitting) standUp();
+  const antes=P.veic; P.veic=kind||null; SFX.click();
+  if(kind) toast(`Você pegou ${VEIC[kind].art}! Ande normalmente, o Shift acelera. Para guardar, use o botão Guardar ou volte à garagem.`);
+  else if(antes) toast(`Você guardou ${VEIC[antes].art}.`);
+}
+$('#btnVeic').addEventListener('click',()=>{ pegarVeic(null); canvas.focus(); });
+function updateVeicBtn(){ const b=$('#btnVeic'), k=P.veic||''; if(b.dataset.k===k) return; b.dataset.k=k; b.hidden=!k; if(k) b.textContent='Guardar '+VEIC[k].nome.toLowerCase(); }
+
 function onProfiles(list){
   const antes=S.profiles, primeira=!S.perfisOk; S.perfisOk=true;
   S.profiles={}; for(const p of list) S.profiles[p.uid]=p;
