@@ -8,15 +8,24 @@
       "topic": "5 prompts para criar posts para o seu negócio",
       "keyword": "POSTPRONTO",
       "metricoolId": 411445161,
-      "networks": { "instagram": "SCHEDULED", "tiktok": "SCHEDULED" },
-      "note": "Instagram via Windsor (lembrete); Metricool só TikTok."
+      "networks": {
+        "instagram": "FIXED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor às 09:01; Metricool só TikTok.",
+      "instagramMediaId": "17955831450037255"
     },
     {
       "slot": "12:30",
       "topic": "Resumir um PDF longo com IA pedindo a página de cada ponto",
       "keyword": "RESUMOPDF",
       "metricoolId": 411445230,
-      "networks": { "instagram": "SCHEDULED", "facebook": "SCHEDULED", "tiktok": "SCHEDULED", "youtube": "SCHEDULED" },
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
       "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
     },
     {
@@ -24,7 +33,12 @@
       "topic": "Janela de contexto: por que a IA esquece o começo de conversas longas",
       "keyword": "CONTEXTO",
       "metricoolId": 411445328,
-      "networks": { "instagram": "SCHEDULED", "facebook": "SCHEDULED", "tiktok": "SCHEDULED", "youtube": "SCHEDULED" },
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
       "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
     },
     {
@@ -32,7 +46,12 @@
       "topic": "OpenAI deixa de treinar seus modelos mais avançados com acesso à internet ao vivo",
       "keyword": "OFFLINE",
       "metricoolId": 411445454,
-      "networks": { "instagram": "SCHEDULED", "facebook": "SCHEDULED", "tiktok": "SCHEDULED", "youtube": "SCHEDULED" },
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
       "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
     }
   ]
