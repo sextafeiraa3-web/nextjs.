@@ -1,0 +1,146 @@
+{
+  "date": "2026-11-01",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Pedir para a IA escrever no seu nível de conhecimento",
+      "hook": "A IA explica difícil demais? Faça isso",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Diga o seu nível.",
+          "body": "Iniciante, intermediário ou especialista."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça assim",
+          "steps": [
+            "Explique para iniciante",
+            "Use um exemplo do dia a dia",
+            "No fim, 3 perguntas para eu testar"
+          ]
+        }
+      ],
+      "narration": "A IA explica difícil demais? Diga o seu nível. Escreva: explique para um iniciante, com um exemplo do dia a dia, e no fim me faça três perguntas para eu testar se entendi. Funciona no ChatGPT, no Claude e no Gemini. Comente INICIANTE que eu te mando o prompt pronto.",
+      "keyword": "INICIANTE",
+      "ctaQuestion": "Quer o prompt pronto?",
+      "caption": "A IA explica difícil demais? Faça isso. 🎯\n\nDiga o seu nível no pedido: \"explique para um iniciante, com um exemplo do dia a dia, e no fim me faça 3 perguntas para eu testar se entendi\".\n\nFunciona no ChatGPT, no Claude e no Gemini. Se algo não fizer sentido, peça outro exemplo.\n\nComente INICIANTE que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Estudos",
+      "tiktokTitle": "A IA explica difícil demais? Faça isso",
+      "youtubeTitle": "Faça a IA explicar no seu nível #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Explique [assunto] para um iniciante, com um exemplo do dia a dia. No fim, me faça 3 perguntas para eu testar se entendi.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "conceito",
+      "topic": "O que é um agente de IA e como ele difere de um chatbot",
+      "hook": "Chatbot ou agente de IA? A diferença",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Chatbot responde.",
+          "body": "Você pergunta, ele escreve a resposta."
+        },
+        {
+          "kind": "statement",
+          "title": "Agente age.",
+          "body": "Ele usa ferramentas e faz tarefas em vários passos."
+        },
+        {
+          "kind": "list",
+          "title": "Exemplos de agente",
+          "items": [
+            "Pesquisar e montar um relatório",
+            "Organizar arquivos",
+            "Preencher planilhas"
+          ]
+        }
+      ],
+      "narration": "Chatbot ou agente de IA? O chatbot responde: você pergunta e ele escreve. O agente age: ele usa ferramentas e faz uma tarefa em vários passos, como pesquisar e montar um relatório. Por isso, agente pede mais cuidado com o que você deixa ele acessar. Comente AGENTE que eu te mando mais exemplos.",
+      "keyword": "AGENTE",
+      "ctaQuestion": "Você deixaria uma IA agir por você?",
+      "caption": "Chatbot ou agente de IA? A diferença. 🤖\n\nChatbot responde: você pergunta e ele escreve a resposta.\nAgente age: usa ferramentas (navegador, arquivos, planilhas) e faz uma tarefa em vários passos, como pesquisar e montar um relatório.\n\nPor isso, com agentes vale cuidado redobrado com o que você deixa a IA acessar e sempre revisar o resultado.\n\nVocê deixaria uma IA agir por você? Comenta aí 👇\nComente AGENTE que eu te mando mais exemplos no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #AgentesDeIA #ChatGPT #Tecnologia",
+      "tiktokTitle": "Chatbot ou agente de IA? Entenda a diferença",
+      "youtubeTitle": "Chatbot ou agente de IA? A diferença #shorts",
+      "sources": [],
+      "firstComment": "Resumo: chatbot conversa; agente executa tarefas com ferramentas. Antes de usar um agente, veja quais acessos ele pede e revise o que ele fez."
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "Mistral Large 4: modelo de 1 trilhão de parâmetros com foco em cibersegurança e pesos abertos",
+      "hook": "A IA europeia de 1 trilhão de parâmetros",
+      "scenes": [
+        {
+          "kind": "number",
+          "value": "1 tri",
+          "label": "de parâmetros no Mistral Large 4"
+        },
+        {
+          "kind": "statement",
+          "title": "Foco:",
+          "body": "Cibersegurança. A empresa promete liberar os pesos."
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "Os testes divulgados são da própria Mistral."
+        }
+      ],
+      "narration": "A IA europeia de um trilhão de parâmetros. A francesa Mistral apresentou o Mistral Large 4, com foco em cibersegurança. A empresa promete liberar os pesos do modelo, para empresas rodarem nos próprios servidores. Os resultados de testes ainda são da própria Mistral. Comente MISTRAL que eu te mando a matéria.",
+      "keyword": "MISTRAL",
+      "ctaQuestion": "IA aberta é mais segura ou mais perigosa?",
+      "caption": "A IA europeia de 1 trilhão de parâmetros. 🇪🇺\n\nA francesa Mistral apresentou o Mistral Large 4, um modelo de cerca de 1 trilhão de parâmetros com foco em cibersegurança. A empresa abriu uma prévia pela API e promete liberar os pesos do modelo, para empresas e governos rodarem nos próprios servidores.\n\nOs resultados de testes divulgados até agora são da própria Mistral e ainda não foram verificados de forma independente.\n\nIA aberta é mais segura ou mais perigosa? Comenta aí 👇\nComente MISTRAL que eu te mando a matéria completa no direct.\n\nFonte: The New Stack e BetaNews\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Mistral #Ciberseguranca #Tecnologia",
+      "tiktokTitle": "A IA europeia de 1 trilhão de parâmetros",
+      "youtubeTitle": "Mistral Large 4: a IA europeia de 1 trilhão de parâmetros #shorts",
+      "sources": [
+        {
+          "name": "The New Stack",
+          "url": "https://thenewstack.io/mistral-large-4-weights/"
+        },
+        {
+          "name": "BetaNews",
+          "url": "https://betanews.com/article/mistral-large-4-preview-open-weights/"
+        }
+      ],
+      "firstComment": "Matéria: https://thenewstack.io/mistral-large-4-weights/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para planejar as compras do mês com IA",
+    "slides": [
+      {
+        "title": "5 prompts para planejar as compras do mês",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Cardápio",
+        "body": "\"Monte um cardápio de 7 dias para [pessoas] com orçamento de [valor].\""
+      },
+      {
+        "title": "2. Lista",
+        "body": "\"Transforme esse cardápio numa lista de compras por seção do mercado.\""
+      },
+      {
+        "title": "3. Economia",
+        "body": "\"Sugira trocas mais baratas para os 5 itens mais caros da lista.\""
+      },
+      {
+        "title": "4. Sobras",
+        "body": "\"Tenho [ingredientes] sobrando. Que 3 refeições dá para fazer?\""
+      },
+      {
+        "title": "5. Conferência",
+        "body": "\"Some os preços que eu colar e diga se passei do orçamento.\""
+      }
+    ],
+    "keyword": "COMPRAS",
+    "caption": "5 prompts para planejar as compras do mês com IA. 🛒\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. Preços variam: confira no seu mercado antes de fechar a lista.\n\nSalve para usar no próximo mercado e comente COMPRAS que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Economia #DicasDeIA",
+    "tiktokTitle": "5 prompts para planejar as compras do mês com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve o post para usar no próximo mercado!"
+  }
+}
