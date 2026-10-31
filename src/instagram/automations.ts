@@ -300,6 +300,55 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "COMPRAS",
+    message:
+      [
+        "Oi! Os 5 prompts para planejar as compras do mês:",
+        "",
+        "1) Monte um cardápio de 7 dias para [pessoas] com orçamento de [valor].\n2) Transforme esse cardápio numa lista de compras por seção do mercado.\n3) Sugira trocas mais baratas para os 5 itens mais caros da lista.\n4) Tenho [ingredientes] sobrando. Que 3 refeições dá para fazer?\n5) Some os preços que eu colar e diga se passei do orçamento.",
+        "",
+        "Preços variam: confira no seu mercado.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os prompts no direct! 📩",
+  },
+  {
+    keyword: "INICIANTE",
+    message:
+      [
+        "Oi! O prompt para a IA explicar no seu nível:",
+        "",
+        "\"Explique [assunto] para um iniciante, com um exemplo do dia a dia. No fim, me faça 3 perguntas para eu testar se entendi.\"",
+        "",
+        "Se algo não fizer sentido, peça outro exemplo.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "AGENTE",
+    message:
+      [
+        "Oi! Chatbot x agente de IA:",
+        "",
+        "Chatbot conversa: você pergunta e ele responde.\nAgente executa: usa ferramentas (navegador, arquivos, planilhas) e faz tarefas em vários passos.",
+        "",
+        "Exemplos de agente: pesquisar e montar um relatório, organizar arquivos, preencher planilhas. Antes de usar, veja quais acessos ele pede e revise o que ele fez.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os exemplos no direct! 📩",
+  },
+  {
+    keyword: "MISTRAL",
+    message:
+      [
+        "Oi! A matéria sobre o Mistral Large 4:",
+        "https://thenewstack.io/mistral-large-4-weights/",
+        "",
+        "Outra cobertura: https://betanews.com/article/mistral-large-4-preview-open-weights/",
+        "",
+        "Os resultados de testes ainda são da própria Mistral.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

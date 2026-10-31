@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-01",
+  "topic": "Mistral Large 4: modelo de 1 trilhão de parâmetros com foco em cibersegurança e pesos abertos",
+  "keyword": "MISTRAL",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para planejar as compras do mês com IA",
+      "keyword": "COMPRAS",
+      "metricoolId": 412244858,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool só TikTok."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Pedir para a IA escrever no seu nível de conhecimento",
+      "keyword": "INICIANTE",
+      "metricoolId": 412244896,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    },
+    {
+      "slot": "17:00",
+      "topic": "O que é um agente de IA e como ele difere de um chatbot",
+      "keyword": "AGENTE",
+      "metricoolId": 412244948,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Mistral Large 4: modelo de 1 trilhão de parâmetros com foco em cibersegurança e pesos abertos",
+      "keyword": "MISTRAL",
+      "metricoolId": 412245003,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    }
+  ]
+}
