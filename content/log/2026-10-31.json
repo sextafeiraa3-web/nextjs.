@@ -53,12 +53,13 @@
       "metricoolId": 411445454,
       "networks": {
         "instagram": "FIXED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
+        "facebook": "ERROR",
+        "tiktok": "ERROR",
+        "youtube": "ERROR"
       },
       "note": "Instagram via Windsor às 19:01; Metricool sem Instagram.",
-      "instagramMediaId": "18179714818391580"
+      "instagramMediaId": "18179714818391580",
+      "error": "You have reached your Metricool account limit."
     }
   ]
 }
