@@ -22,12 +22,13 @@
       "keyword": "RESUMOPDF",
       "metricoolId": 411445230,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+      "note": "Instagram via Windsor às 12:31; Metricool sem Instagram.",
+      "instagramMediaId": "18131568631695798"
     },
     {
       "slot": "17:00",
