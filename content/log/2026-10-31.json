@@ -37,12 +37,13 @@
       "keyword": "CONTEXTO",
       "metricoolId": 411445328,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+      "note": "Instagram via Windsor às 17:02; Metricool sem Instagram.",
+      "instagramMediaId": "18121022899990711"
     },
     {
       "slot": "19:00",
