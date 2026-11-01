@@ -22,12 +22,13 @@
       "keyword": "INICIANTE",
       "metricoolId": 412244896,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+      "note": "Instagram via Windsor às 12:31; Metricool sem Instagram.",
+      "instagramMediaId": "18076520879767037"
     },
     {
       "slot": "17:00",
