@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-02",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Pedir para a IA comparar duas opções numa tabela com prós, contras e custo",
+      "hook": "Em dúvida entre duas opções? Peça uma tabela",
+      "scenes": [
+        { "kind": "statement", "title": "Dúvida entre A e B?", "body": "Celular, curso, fornecedor, plano de internet." },
+        { "kind": "steps", "title": "Peça assim", "steps": ["Uma tabela A x B", "Prós, contras e custo", "Qual escolher e por quê"] }
+      ],
+      "narration": "Em dúvida entre duas opções? Peça para a IA montar uma tabela comparando as duas, com prós, contras e custo. No fim, peça qual ela escolheria para o seu caso e por quê. Você enxerga tudo lado a lado e decide mais rápido. Comente COMPARA que eu te mando o prompt pronto.",
+      "keyword": "COMPARA",
+      "ctaQuestion": "Quer o prompt pronto?",
+      "caption": "Em dúvida entre duas opções? Peça uma tabela. 📊\n\nCelular, curso, fornecedor, plano de internet: conte para a IA as duas opções e peça uma tabela com prós, contras e custo de cada uma. No fim, peça qual ela escolheria para o seu caso e por quê.\n\nPreços e dados mudam: confira os números na fonte antes de decidir. A decisão final é sua.\n\nComente COMPARA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Produtividade",
+      "tiktokTitle": "Em dúvida entre duas opções? Peça uma tabela para a IA",
+      "youtubeTitle": "Use a IA para comparar duas opções numa tabela #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Compare [opção A] e [opção B] numa tabela com prós, contras e custo. Meu caso: [explique]. No fim, diga qual você escolheria e por quê.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "noticia",
+      "topic": "Opera lança WebAI: IA rodando no próprio computador, dentro do navegador",
+      "hook": "Uma IA que roda no seu PC, sem nuvem",
+      "scenes": [
+        { "kind": "statement", "title": "Opera, 27 de outubro.", "body": "Lançou o WebAI em prévia no Opera One." },
+        { "kind": "list", "title": "Como funciona", "items": ["A IA roda no seu computador", "Sem conta e sem chave de API", "Você libera site por site"] },
+        { "kind": "statement", "title": "Atenção:", "body": "É opcional e depende do seu hardware." }
+      ],
+      "narration": "Uma IA que roda no seu computador, sem nuvem. A Opera lançou o WebAI, em prévia, no navegador Opera One. Sites podem usar um modelo de IA instalado no seu próprio computador, sem conta e sem chave de API. É opcional, e você libera site por site. Comente WEBAI que eu te mando a matéria.",
+      "keyword": "WEBAI",
+      "ctaQuestion": "Você confiaria mais numa IA local?",
+      "caption": "Uma IA que roda no seu PC, sem nuvem. 💻\n\nEm 27/10, a Opera lançou o WebAI em prévia no navegador Opera One. Com ele, sites e extensões podem usar um modelo de IA que roda no seu próprio computador, como o Gemma, do Google, sem conta e sem chave de API.\n\nÉ opcional: você liga nas configurações, o navegador baixa o modelo e você libera site por site. A velocidade depende do seu computador, e o padrão ainda não foi aprovado oficialmente.\n\nVocê confiaria mais numa IA local? Comenta aí 👇\nComente WEBAI que eu te mando a matéria completa no direct.\n\nFonte: Opera e TechCrunch\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Opera #Privacidade #Tecnologia",
+      "tiktokTitle": "Uma IA que roda no seu PC, sem nuvem",
+      "youtubeTitle": "Opera WebAI: IA rodando no seu computador, sem nuvem #shorts",
+      "sources": [
+        { "name": "Opera", "url": "https://blogs.opera.com/news/2026/10/webai-local-ai-for-the-web-now-in-opera/" },
+        { "name": "TechCrunch", "url": "https://techcrunch.com/2026/10/27/opera-introduces-a-new-web-standard-to-let-users-deploy-ai-locally-in-their-browser/" }
+      ],
+      "firstComment": "Anúncio oficial: https://blogs.opera.com/news/2026/10/webai-local-ai-for-the-web-now-in-opera/"
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "ChatGPT agora lê e responde e-mails do iCloud e mexe na agenda do iPhone",
+      "hook": "O ChatGPT agora entra no seu e-mail do iPhone",
+      "scenes": [
+        { "kind": "statement", "title": "Novo no ChatGPT:", "body": "Plugins de Mail e Calendário do iCloud." },
+        { "kind": "list", "title": "O que ele faz", "items": ["Busca e lê e-mails", "Escreve e envia respostas", "Cria e muda eventos"] },
+        { "kind": "statement", "title": "Para quem:", "body": "Todos os planos, inclusive o grátis." }
+      ],
+      "narration": "O ChatGPT agora entra no seu e-mail do iPhone. A OpenAI lançou plugins de Mail e Calendário do iCloud. Ele busca e lê e-mails, escreve respostas e cria eventos na sua agenda. Vale para todos os planos, até o grátis. Você deixaria? Comente ICLOUD que eu te mando o passo a passo.",
+      "keyword": "ICLOUD",
+      "ctaQuestion": "Você deixaria a IA ler seu e-mail?",
+      "caption": "O ChatGPT agora entra no seu e-mail do iPhone. 📧\n\nA OpenAI lançou plugins de iCloud Mail e iCloud Calendar no ChatGPT. Ele busca e lê e-mails, gerencia rascunhos, envia mensagens e cria ou muda eventos da agenda. Está chegando a todos os planos, inclusive o grátis, na web, no computador e no iPhone.\n\nPara conectar, você usa uma senha específica de app da Apple, não a sua senha normal. Gmail e Outlook dentro do app Mail não entram.\n\nVocê deixaria a IA ler seu e-mail? Comenta aí 👇\nComente ICLOUD que eu te mando o passo a passo no direct.\n\nFonte: MacRumors e 9to5Mac\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #iPhone #Tecnologia",
+      "tiktokTitle": "O ChatGPT agora entra no seu e-mail do iPhone",
+      "youtubeTitle": "ChatGPT agora lê seu e-mail e agenda do iCloud #shorts",
+      "sources": [
+        { "name": "MacRumors", "url": "https://www.macrumors.com/2026/10/27/chatgpt-icloud-mail-calendar-plugin/" },
+        { "name": "9to5Mac", "url": "https://9to5mac.com/2026/10/27/icloud-mail-and-calendar-plugins-now-work-with-chatgpt/" }
+      ],
+      "firstComment": "Passo a passo: ChatGPT > Configurações > Plugins > iCloud Mail ou iCloud Calendar. Use uma senha específica de app da Apple. Matéria: https://www.macrumors.com/2026/10/27/chatgpt-icloud-mail-calendar-plugin/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para escrever mensagens difíceis com IA",
+    "slides": [
+      { "title": "5 prompts para mensagens difíceis", "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini." },
+      { "title": "1. Cobrar sem brigar", "body": "\"Escreva uma mensagem educada e firme cobrando [o quê] de [quem], que já atrasou [quanto].\"" },
+      { "title": "2. Dizer não", "body": "\"Me ajude a recusar [convite ou pedido] sem parecer grosso, em 3 frases.\"" },
+      { "title": "3. Pedir desconto", "body": "\"Escreva um pedido de desconto para [serviço], citando que sou cliente há [tempo].\"" },
+      { "title": "4. Pedir desculpas", "body": "\"Escreva um pedido de desculpas curto e sincero por [o que aconteceu], sem dar desculpas.\"" },
+      { "title": "5. Revisar o tom", "body": "\"Leia minha mensagem e diga se ela soa agressiva. Sugira uma versão mais calma: [cole].\"" }
+    ],
+    "keyword": "MSGDIFICIL",
+    "caption": "5 prompts para escrever mensagens difíceis. 💬\n\nCobrar alguém, dizer não, pedir desconto, pedir desculpas: a IA te ajuda a achar as palavras certas. Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. Leia antes de enviar e deixe com o seu jeito.\n\nSalve para usar depois e comente MSGDIFICIL que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Comunicacao #DicasDeIA",
+    "tiktokTitle": "5 prompts para escrever mensagens difíceis com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve o post para copiar quando precisar!"
+  }
+}
