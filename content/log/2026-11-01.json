@@ -9,10 +9,11 @@
       "keyword": "COMPRAS",
       "metricoolId": 412244858,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "tiktok": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool só TikTok."
+      "note": "Instagram via Windsor às 09:01; Metricool só TikTok.",
+      "instagramMediaId": "18120804221073880"
     },
     {
       "slot": "12:30",
