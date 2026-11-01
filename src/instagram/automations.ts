@@ -349,6 +349,61 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "MSGDIFICIL",
+    message:
+      [
+        "Oi! Os 5 prompts para mensagens difíceis:",
+        "",
+        "1. Cobrar sem brigar: \"Escreva uma mensagem educada e firme cobrando [o quê] de [quem], que já atrasou [quanto].\"",
+        "2. Dizer não: \"Me ajude a recusar [convite ou pedido] sem parecer grosso, em 3 frases.\"",
+        "3. Pedir desconto: \"Escreva um pedido de desconto para [serviço], citando que sou cliente há [tempo].\"",
+        "4. Pedir desculpas: \"Escreva um pedido de desculpas curto e sincero por [o que aconteceu], sem dar desculpas.\"",
+        "5. Revisar o tom: \"Leia minha mensagem e diga se ela soa agressiva. Sugira uma versão mais calma: [cole].\"",
+        "",
+        "Leia antes de enviar e deixe com o seu jeito.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 📩",
+  },
+  {
+    keyword: "COMPARA",
+    message:
+      [
+        "Oi! O prompt para comparar duas opções:",
+        "",
+        "\"Compare [opção A] e [opção B] numa tabela com prós, contras e custo. Meu caso: [explique]. No fim, diga qual você escolheria e por quê.\"",
+        "",
+        "Confira preços e dados na fonte antes de decidir.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "WEBAI",
+    message:
+      [
+        "Oi! O anúncio oficial do WebAI da Opera:",
+        "https://blogs.opera.com/news/2026/10/webai-local-ai-for-the-web-now-in-opera/",
+        "",
+        "Matéria do TechCrunch: https://techcrunch.com/2026/10/27/opera-introduces-a-new-web-standard-to-let-users-deploy-ai-locally-in-their-browser/",
+        "",
+        "É uma prévia no Opera One, opcional, e a velocidade depende do seu computador.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
+  {
+    keyword: "ICLOUD",
+    message:
+      [
+        "Oi! Passo a passo para ligar o iCloud no ChatGPT:",
+        "",
+        "1. Crie uma senha específica de app em account.apple.com (não use sua senha normal).",
+        "2. No ChatGPT: Configurações > Plugins > iCloud Mail ou iCloud Calendar.",
+        "3. Mail: e-mail @icloud.com, @me.com ou @mac.com. Calendar: o e-mail principal da sua conta Apple.",
+        "",
+        "Matéria: https://www.macrumors.com/2026/10/27/chatgpt-icloud-mail-calendar-plugin/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o passo a passo no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

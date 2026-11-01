@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-02",
+  "topic": "ChatGPT agora lê e responde e-mails do iCloud e mexe na agenda do iPhone",
+  "keyword": "ICLOUD",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para escrever mensagens difíceis com IA",
+      "keyword": "MSGDIFICIL",
+      "metricoolId": 412828416,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool só TikTok."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Pedir para a IA comparar duas opções numa tabela com prós, contras e custo",
+      "keyword": "COMPARA",
+      "metricoolId": 412828444,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Opera lança WebAI: IA rodando no próprio computador, dentro do navegador",
+      "keyword": "WEBAI",
+      "metricoolId": 412828486,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    },
+    {
+      "slot": "19:00",
+      "topic": "ChatGPT agora lê e responde e-mails do iCloud e mexe na agenda do iPhone",
+      "keyword": "ICLOUD",
+      "metricoolId": 412828530,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    }
+  ]
+}
