@@ -10,10 +10,11 @@
       "metricoolId": 412244858,
       "networks": {
         "instagram": "FIXED",
-        "tiktok": "SCHEDULED"
+        "tiktok": "PUBLISHED"
       },
       "note": "Instagram via Windsor às 09:01; Metricool só TikTok.",
-      "instagramMediaId": "18120804221073880"
+      "instagramMediaId": "18120804221073880",
+      "tiktokUrl": "https://www.tiktok.com/@linoia.br/video/7703172341001424148"
     },
     {
       "slot": "12:30",
