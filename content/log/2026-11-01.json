@@ -36,12 +36,13 @@
       "keyword": "AGENTE",
       "metricoolId": 412244948,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+      "note": "Instagram via Windsor às 17:01; Metricool sem Instagram.",
+      "instagramMediaId": "18122461750947608"
     },
     {
       "slot": "19:00",
