@@ -29,19 +29,21 @@ reescreve toda segunda, com o número que justifica cada mudança.
 - Carrossel: Instagram (carrossel) e TikTok (fotos).
 
 ## Analista: pilares e proporção
-Ponto de partida (27/10):
-- Vídeos: 2 de notícia ou gancho/curiosidade + 1 de dica ou conceito.
-- Carrossel: dica prática (prompt pronto para copiar) ou lista/checklist.
+Semana 26/10–01/11 (Instagram via Windsor, alcance por post):
+- Notícia rende 2× dica: média 23 de alcance (Mistral 46, Genie 4 28, Suécia 22, Offline 12, Carbon 9) contra 12 das dicas/conceitos (Resumo PDF 17, e-mail 14, agente 14, contexto 11).
+- Mantém 2 notícias + 1 dica/conceito nos vídeos. Prioridade: notícia com surpresa ou número grande no gancho ("1 trilhão", "mundo que muda quando você digita").
+- Carrossel alcança pouco no Instagram (3–5 contas por post, nenhum salvamento). Mantém 1 por dia, mas com gancho de lista útil e capa com promessa clara; reavaliar na próxima semana.
 
 ## Analista: horários
-- Carrossel 09:00; vídeos 12:30, 17:00 e 19:00 (o gancho mais forte vai às 19:00 — o código já faz isso).
+- Carrossel 09:00; vídeos 12:30, 17:00 e 19:00. O gancho mais forte fica às 19:00: os 3 maiores alcances da semana foram às 19:00 (46, 28 e 22).
+- Carrossel às 09:00 teve o menor alcance (3–5); testar 11:00 se continuar assim na próxima semana.
 
 ## Analista: o que está funcionando
-Dados de 1 a 27/10 (Metricool):
-- TikTok entrega 10–50× mais que o Instagram com o mesmo conteúdo (até 634 views por vídeo).
-- No Instagram, notícia com polêmica ou surpresa rendeu ~10× mais que dica de prompt ("IA da OpenAI desligou o alarme e mentiu", "trancar conversa com senha": 120–140 de alcance; dicas: 6–22).
-- Quase zero compartilhamentos: falta gancho que dê vontade de mandar para alguém ("marca quem precisa ver").
-- "Comente PROMPT" genérico não gera comentários; palavra específica do tema funciona melhor.
+Dados de 26/10 a 01/11 (Instagram via Windsor; Metricool não trouxe métricas do TikTok nem por post nesta semana):
+- Instagram: 12 → 13 seguidores. Melhor post: "A IA europeia de 1 trilhão de parâmetros" (46 de alcance, 54 views, 1 salvamento).
+- Compartilhamentos continuam em zero em todos os 21 posts: falta frase de "manda para quem precisa" no fim da legenda e do vídeo.
+- Comentários: só o primeiro comentário automático; as palavras-chave ainda não geraram comentários de seguidores.
+- Dados antigos (1 a 27/10): TikTok entrega 10–50× mais que o Instagram com o mesmo conteúdo.
 
 ## Voz
 - Narração por IA (Piper). Usa `voices/pt_BR-faber-medium.onnx` quando existir no repositório; senão `pt-br-edresson-low` (baixada do GitHub).
