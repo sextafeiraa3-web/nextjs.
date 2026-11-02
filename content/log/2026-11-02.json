@@ -35,12 +35,13 @@
       "keyword": "WEBAI",
       "metricoolId": 412828486,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+      "note": "Instagram via Windsor às 17:02; Metricool sem Instagram.",
+      "instagramMediaId": "18569746228073461"
     },
     {
       "slot": "19:00",
