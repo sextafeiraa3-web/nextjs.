@@ -21,12 +21,13 @@
       "keyword": "COMPARA",
       "metricoolId": 412828444,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+      "note": "Instagram via Windsor às 12:49 (lembrete atrasou); Metricool sem Instagram.",
+      "instagramMediaId": "18120535582997261"
     },
     {
       "slot": "17:00",
