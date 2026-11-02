@@ -404,6 +404,58 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei o passo a passo no direct! 📩",
   },
+  {
+    keyword: "ORCAMENTO",
+    message:
+      [
+        "Oi! Os 5 prompts para organizar seu orçamento:",
+        "",
+        "1. Para onde vai: \"Separe estes gastos em categorias e some cada uma: [cole os gastos].\"",
+        "2. Onde cortar: \"Olhando essas categorias, onde dá para economizar sem mudar muito minha rotina?\"",
+        "3. Meta: \"Quero juntar R$ [valor] em [meses]. Quanto preciso guardar por mês?\"",
+        "4. Contas fixas: \"Monte um calendário com o dia de vencimento destas contas: [liste].\"",
+        "5. Revisão: \"No fim do mês: compare o planejado com o gasto real e diga o que mudar.\"",
+        "",
+        "Nunca cole senha, número de cartão ou dados de banco na IA.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 📩",
+  },
+  {
+    keyword: "BAGUNCA",
+    message:
+      [
+        "Oi! O prompt para organizar a bagunça:",
+        "",
+        "\"Transforme o texto abaixo numa lista de tarefas. Uma frase por tarefa, com prazo e prioridade (alta, média, baixa). Comece pela mais urgente: [cole tudo]\"",
+        "",
+        "Confira se nada ficou de fora.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "ROBOTS",
+    message:
+      [
+        "Oi! O anúncio da OpenAI sobre o sinal de treino de IA no robots.txt:",
+        "https://openai.com/index/helping-websites-express-ai-training-preferences",
+        "",
+        "Vale só para treino (não bloqueia busca) e ainda deve chegar nos próximos meses.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o anúncio no direct! 📩",
+  },
+  {
+    keyword: "IPOCLAUDE",
+    message:
+      [
+        "Oi! A matéria sobre o pedido da Anthropic para entrar na bolsa:",
+        "https://www.cnbc.com/2026/10/26/anthropic-ipo-live-updates-ai-s-1-filing.html",
+        "",
+        "Comunicados da Anthropic: https://www.anthropic.com/news",
+        "",
+        "Isto não é recomendação de investimento.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

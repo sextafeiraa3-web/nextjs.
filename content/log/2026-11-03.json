@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-03",
+  "topic": "Anthropic, dona do Claude, entra com pedido público para abrir capital na bolsa",
+  "keyword": "IPOCLAUDE",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para organizar o orçamento do mês com IA",
+      "keyword": "ORCAMENTO",
+      "metricoolId": 413566339,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool só TikTok."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Transformar anotações bagunçadas em lista de tarefas com prazo usando IA",
+      "keyword": "BAGUNCA",
+      "metricoolId": 413566377,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    },
+    {
+      "slot": "17:00",
+      "topic": "OpenAI vai respeitar sinal no robots.txt para sites dizerem não ao treino de IA",
+      "keyword": "ROBOTS",
+      "metricoolId": 413566422,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Anthropic, dona do Claude, entra com pedido público para abrir capital na bolsa",
+      "keyword": "IPOCLAUDE",
+      "metricoolId": 413566454,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    }
+  ]
+}
