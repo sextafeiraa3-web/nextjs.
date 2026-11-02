@@ -50,9 +50,9 @@
       "metricoolId": 412828530,
       "networks": {
         "instagram": "FIXED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
+        "facebook": "PUBLISHED",
+        "tiktok": "PUBLISHED",
+        "youtube": "PUBLISHED"
       },
       "note": "Instagram via Windsor às 19:01; Metricool sem Instagram.",
       "instagramMediaId": "18384708814215150"
