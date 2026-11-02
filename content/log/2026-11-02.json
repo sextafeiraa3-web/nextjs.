@@ -49,12 +49,13 @@
       "keyword": "ICLOUD",
       "metricoolId": 412828530,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+      "note": "Instagram via Windsor às 19:01; Metricool sem Instagram.",
+      "instagramMediaId": "18384708814215150"
     }
   ]
 }
