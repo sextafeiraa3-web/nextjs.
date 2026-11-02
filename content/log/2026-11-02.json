@@ -9,10 +9,11 @@
       "keyword": "MSGDIFICIL",
       "metricoolId": 412828416,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "tiktok": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool só TikTok."
+      "note": "Instagram via Windsor às 09:03; Metricool só TikTok.",
+      "instagramMediaId": "18137008309647666"
     },
     {
       "slot": "12:30",
