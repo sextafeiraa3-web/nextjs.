@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-03",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Transformar anotações bagunçadas em lista de tarefas com prazo usando IA",
+      "hook": "Sua cabeça está uma bagunça? Cole tudo na IA",
+      "scenes": [
+        { "kind": "statement", "title": "Cole tudo do jeito que está.", "body": "Anotação, áudio transcrito, lista solta." },
+        { "kind": "steps", "title": "Peça assim", "steps": ["Lista de tarefas", "Uma frase por tarefa", "Prazo e prioridade"] }
+      ],
+      "narration": "Sua cabeça está uma bagunça? Cole tudo na IA do jeito que está: anotação, recado, lista solta. Peça uma lista de tarefas, uma frase por tarefa, com prazo e prioridade. Em segundos, você sabe por onde começar. Comente BAGUNCA que eu te mando o prompt pronto.",
+      "keyword": "BAGUNCA",
+      "ctaQuestion": "Quer o prompt pronto?",
+      "caption": "Sua cabeça está uma bagunça? Cole tudo na IA. 🧠\n\nAnotação, recado, áudio transcrito, lista solta: cole do jeito que está no ChatGPT, no Claude ou no Gemini e peça uma lista de tarefas, uma frase por tarefa, com prazo e prioridade.\n\nConfira se nada ficou de fora antes de seguir a lista.\n\nComente BAGUNCA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Produtividade",
+      "tiktokTitle": "Sua cabeça está uma bagunça? Cole tudo na IA",
+      "youtubeTitle": "Transforme anotações bagunçadas em lista de tarefas com IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Transforme o texto abaixo numa lista de tarefas. Uma frase por tarefa, com prazo e prioridade (alta, média, baixa). Comece pela mais urgente: [cole tudo]\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "noticia",
+      "topic": "OpenAI vai respeitar sinal no robots.txt para sites dizerem não ao treino de IA",
+      "hook": "Seu site vai poder dizer não para a IA",
+      "scenes": [
+        { "kind": "statement", "title": "OpenAI, 30 de outubro.", "body": "Vai respeitar um sinal comum de treino de IA no robots.txt." },
+        { "kind": "list", "title": "Como funciona", "items": ["Uma linha no robots.txt", "Vale para várias empresas", "Bloqueia só o treino"] },
+        { "kind": "statement", "title": "Atenção:", "body": "Ainda não está valendo. Chega nos próximos meses." }
+      ],
+      "narration": "Seu site vai poder dizer não para a IA. A OpenAI anunciou que vai respeitar um sinal comum no arquivo robots.txt, para o site avisar que não quer ser usado em treino de IA. Vale só para treino, não para busca. Ainda não está valendo: chega nos próximos meses. Comente ROBOTS que eu te mando o anúncio.",
+      "keyword": "ROBOTS",
+      "ctaQuestion": "Você bloquearia seu site?",
+      "caption": "Seu site vai poder dizer não para a IA. 🚫🤖\n\nEm 30/10, a OpenAI anunciou que vai respeitar um sinal comum no arquivo robots.txt: com uma linha, o site avisa que não quer que o conteúdo seja usado para treinar IA, e a ideia é valer para várias empresas ao mesmo tempo.\n\nO sinal vale só para treino: não bloqueia busca nem tira o que já foi coletado. A OpenAI diz que deve implementar nos próximos meses; a proposta ainda é um rascunho, não um padrão oficial.\n\nVocê bloquearia seu site? Comenta aí 👇\nComente ROBOTS que eu te mando o anúncio completo no direct.\n\nFonte: OpenAI\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #OpenAI #Privacidade #Tecnologia",
+      "tiktokTitle": "Seu site vai poder dizer não para a IA",
+      "youtubeTitle": "OpenAI vai respeitar sites que dizem não ao treino de IA #shorts",
+      "sources": [
+        { "name": "OpenAI", "url": "https://openai.com/index/helping-websites-express-ai-training-preferences" }
+      ],
+      "firstComment": "Anúncio oficial: https://openai.com/index/helping-websites-express-ai-training-preferences"
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "Anthropic, dona do Claude, entra com pedido público para abrir capital na bolsa",
+      "hook": "A dona do Claude quer entrar na bolsa",
+      "scenes": [
+        { "kind": "statement", "title": "Anthropic, 26 de outubro.", "body": "Entrou com o pedido público para abrir capital nos EUA." },
+        { "kind": "list", "title": "O que se sabe", "items": ["Pedido feito na SEC", "Plano: Nasdaq", "Código: ANT"] },
+        { "kind": "statement", "title": "Ainda falta:", "body": "Preço e quantidade de ações. Não é recomendação de investimento." }
+      ],
+      "narration": "A dona do Claude quer entrar na bolsa. A Anthropic entrou com o pedido público para abrir capital nos Estados Unidos. Segundo a CNBC, o plano é listar na Nasdaq com o código ANT. Preço e quantidade de ações ainda não saíram. Isso não é recomendação de investimento. Comente IPOCLAUDE que eu te mando a matéria.",
+      "keyword": "IPOCLAUDE",
+      "ctaQuestion": "Você compraria ações de uma empresa de IA?",
+      "caption": "A dona do Claude quer entrar na bolsa. 📈\n\nA Anthropic, empresa que criou o Claude, entrou com o pedido público (formulário S-1) para abrir capital nos Estados Unidos. O documento foi registrado na SEC em 26/10. Segundo a CNBC, o plano é listar as ações na Nasdaq com o código ANT.\n\nPreço e quantidade de ações ainda não foram divulgados, e a oferta só acontece depois da aprovação do registro. Isto não é recomendação de investimento.\n\nVocê compraria ações de uma empresa de IA? Comenta aí 👇\nComente IPOCLAUDE que eu te mando a matéria completa no direct.\n\nFonte: Anthropic e CNBC\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Claude #Anthropic #Tecnologia",
+      "tiktokTitle": "A dona do Claude quer entrar na bolsa",
+      "youtubeTitle": "Anthropic, dona do Claude, pede para entrar na bolsa #shorts",
+      "sources": [
+        { "name": "Anthropic", "url": "https://www.anthropic.com/news" },
+        { "name": "CNBC", "url": "https://www.cnbc.com/2026/10/26/anthropic-ipo-live-updates-ai-s-1-filing.html" }
+      ],
+      "firstComment": "Matéria: https://www.cnbc.com/2026/10/26/anthropic-ipo-live-updates-ai-s-1-filing.html"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para organizar o orçamento do mês com IA",
+    "slides": [
+      { "title": "5 prompts para organizar seu orçamento", "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini." },
+      { "title": "1. Para onde vai", "body": "\"Separe estes gastos em categorias e some cada uma: [cole os gastos].\"" },
+      { "title": "2. Onde cortar", "body": "\"Olhando essas categorias, onde dá para economizar sem mudar muito minha rotina?\"" },
+      { "title": "3. Meta", "body": "\"Quero juntar R$ [valor] em [meses]. Quanto preciso guardar por mês?\"" },
+      { "title": "4. Contas fixas", "body": "\"Monte um calendário com o dia de vencimento destas contas: [liste].\"" },
+      { "title": "5. Revisão", "body": "\"No fim do mês: compare o planejado com o gasto real e diga o que mudar.\"" }
+    ],
+    "keyword": "ORCAMENTO",
+    "caption": "5 prompts para organizar seu orçamento. 💰\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. Não cole senhas, números de cartão ou dados de banco: os valores bastam. A IA ajuda a organizar, mas confira as contas.\n\nSalve para usar no começo do mês e comente ORCAMENTO que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #FinancasPessoais #DicasDeIA",
+    "tiktokTitle": "5 prompts para organizar seu orçamento com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Nunca cole senha ou número de cartão na IA!"
+  }
+}
