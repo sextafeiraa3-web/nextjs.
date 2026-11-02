@@ -10,7 +10,7 @@
       "metricoolId": 412828416,
       "networks": {
         "instagram": "FIXED",
-        "tiktok": "SCHEDULED"
+        "tiktok": "PUBLISHED"
       },
       "note": "Instagram via Windsor às 09:03; Metricool só TikTok.",
       "instagramMediaId": "18137008309647666"
@@ -22,9 +22,9 @@
       "metricoolId": 412828444,
       "networks": {
         "instagram": "FIXED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
+        "facebook": "PUBLISHED",
+        "tiktok": "PUBLISHED",
+        "youtube": "PUBLISHED"
       },
       "note": "Instagram via Windsor às 12:49 (lembrete atrasou); Metricool sem Instagram.",
       "instagramMediaId": "18120535582997261"
