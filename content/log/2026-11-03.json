@@ -21,12 +21,13 @@
       "keyword": "BAGUNCA",
       "metricoolId": 413566377,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+      "note": "Instagram via Windsor às 12:31; Metricool sem Instagram.",
+      "instagramMediaId": "18037045709665005"
     },
     {
       "slot": "17:00",
