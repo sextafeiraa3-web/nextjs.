@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-04",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Pedir para a IA revisar o currículo para uma vaga específica",
+      "hook": "Seu currículo passa no filtro dessa vaga?",
+      "scenes": [
+        { "kind": "statement", "title": "Cole a vaga e o currículo.", "body": "Tire telefone, endereço e documentos antes." },
+        { "kind": "steps", "title": "Peça assim", "steps": ["O que falta para a vaga", "Frases mais fortes", "Nada inventado"] }
+      ],
+      "narration": "Seu currículo passa no filtro dessa vaga? Cole a descrição da vaga e o seu currículo na IA, sem telefone nem endereço. Peça o que está faltando, frases mais fortes e avise: não invente nada. Depois, revise tudo com calma. Manda para quem está procurando emprego. Comente CURRICULO que eu te mando o prompt.",
+      "keyword": "CURRICULO",
+      "ctaQuestion": "Manda para quem está procurando emprego",
+      "caption": "Seu currículo passa no filtro dessa vaga? 📄\n\nCole a descrição da vaga e o seu currículo no ChatGPT, no Claude ou no Gemini, sem telefone, endereço ou documentos. Peça o que está faltando para essa vaga e frases mais fortes, e avise: não invente experiência.\n\nRevise tudo antes de enviar: a decisão e a verdade são suas.\n\nManda para quem está procurando emprego 👇\nComente CURRICULO que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Emprego #DicasDeIA",
+      "tiktokTitle": "Seu currículo passa no filtro dessa vaga? Use a IA",
+      "youtubeTitle": "Use a IA para ajustar o currículo para uma vaga #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Esta é a vaga: [cole]. Este é meu currículo: [cole, sem dados pessoais]. Diga o que falta para essa vaga e reescreva os pontos fracos com frases mais fortes. Não invente nada.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "conceito",
+      "topic": "Por que a IA dá respostas diferentes para a mesma pergunta",
+      "hook": "Mesma pergunta, resposta diferente. Por quê?",
+      "scenes": [
+        { "kind": "statement", "title": "A IA não copia uma resposta pronta.", "body": "Ela escolhe palavra por palavra, com um pouco de sorteio." },
+        { "kind": "list", "title": "Por isso", "items": ["Cada resposta sai diferente", "Vale pedir de novo", "Fato importante: confira"] }
+      ],
+      "narration": "Mesma pergunta, resposta diferente. Por quê? A IA não busca uma resposta pronta. Ela monta o texto palavra por palavra, com um pouco de sorteio em cada escolha. Por isso vale pedir de novo quando não gostar. Mas, se for fato importante, confira na fonte. Comente DIFERENTE que eu te mando mais dicas.",
+      "keyword": "DIFERENTE",
+      "ctaQuestion": "Você já percebeu isso?",
+      "caption": "Mesma pergunta, resposta diferente. Por quê? 🎲\n\nA IA não busca uma resposta pronta num banco de dados. Ela monta o texto palavra por palavra, e em cada escolha entra um pouco de sorteio. Por isso duas respostas para a mesma pergunta quase nunca são iguais.\n\nNão gostou? Peça de novo ou peça outra versão. Mas, se for número, data ou fato importante, confira na fonte.\n\nManda para quem acha que a IA \"sabe tudo\" 👇\nComente DIFERENTE que eu te mando mais dicas no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #IA #Tecnologia",
+      "tiktokTitle": "Mesma pergunta, resposta diferente: por quê?",
+      "youtubeTitle": "Por que a IA responde diferente para a mesma pergunta? #shorts",
+      "sources": [],
+      "firstComment": "Resumo: a IA monta o texto palavra por palavra, com um pouco de sorteio. Não gostou? Peça outra versão. Fato importante? Confira na fonte."
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "Anthropic alerta que a IA pode estar perto de ajudar a construir a próxima versão dela mesma",
+      "hook": "A IA que constrói a próxima IA está chegando?",
+      "scenes": [
+        { "kind": "statement", "title": "Anthropic, dona do Claude.", "body": "Alerta para a IA que ajuda a criar a próxima versão dela." },
+        { "kind": "list", "title": "O que a empresa diz", "items": ["Ainda não chegou lá", "Pode vir antes do esperado", "Defende pausa combinada"] },
+        { "kind": "statement", "title": "Atenção:", "body": "Críticos dizem que pode ser marketing." }
+      ],
+      "narration": "A IA que constrói a próxima IA está chegando? A Anthropic, dona do Claude, alertou que a IA pode em breve ajudar a criar a próxima versão dela mesma, com pouca ajuda humana. A empresa diz que ainda não chegou lá e defende uma pausa combinada entre as empresas. Críticos falam em marketing. Comente IASOZINHA que eu te mando a matéria.",
+      "keyword": "IASOZINHA",
+      "ctaQuestion": "Isso te assusta ou anima?",
+      "caption": "A IA que constrói a próxima IA está chegando? 🤖➡️🤖\n\nA Anthropic, empresa do Claude, publicou um alerta: a IA pode em breve ajudar a desenhar e treinar a próxima versão dela mesma, com pouca participação humana. Segundo o TechCrunch, o tema também aparece no documento atualizado do pedido de abertura de capital da empresa.\n\nA Anthropic diz que nenhum modelo dela chegou lá ainda e defende que as empresas combinem uma forma de desacelerar ou pausar se isso acontecer. Críticos dizem que o alerta também serve de marketing.\n\nIsso te assusta ou te anima? Comenta aí 👇\nComente IASOZINHA que eu te mando a matéria completa no direct.\n\nFonte: Anthropic e TechCrunch\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Claude #Anthropic #Tecnologia",
+      "tiktokTitle": "A IA que constrói a próxima IA está chegando?",
+      "youtubeTitle": "Anthropic alerta: IA que ajuda a criar a próxima IA #shorts",
+      "sources": [
+        { "name": "Anthropic", "url": "https://www.anthropic.com/institute/recursive-self-improvement" },
+        { "name": "TechCrunch", "url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/" }
+      ],
+      "firstComment": "Texto da Anthropic: https://www.anthropic.com/institute/recursive-self-improvement"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para planejar uma viagem com IA",
+    "slides": [
+      { "title": "5 prompts para planejar sua viagem", "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini." },
+      { "title": "1. Roteiro", "body": "\"Monte um roteiro de [dias] dias em [cidade] para quem gosta de [coisas], sem correria.\"" },
+      { "title": "2. Orçamento", "body": "\"Tenho R$ [valor] para essa viagem. Divida entre transporte, hospedagem, comida e passeios.\"" },
+      { "title": "3. Mala", "body": "\"Faça uma lista de mala para [dias] dias em [cidade] em [mês], só o essencial.\"" },
+      { "title": "4. Plano B", "body": "\"Se chover em [cidade], o que dá para fazer perto do roteiro?\"" },
+      { "title": "5. Confira", "body": "\"Liste o que eu preciso confirmar no site oficial antes de ir: horários, preços e reservas.\"" }
+    ],
+    "keyword": "VIAGEMIA",
+    "caption": "5 prompts para planejar sua viagem. ✈️\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA monta o rascunho; horários, preços e reservas você confirma no site oficial antes de ir.\n\nManda para quem vai viajar com você 👇\nSalve e comente VIAGEMIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Viagem #DicasDeIA",
+    "tiktokTitle": "5 prompts para planejar sua viagem com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem vai viajar com você!"
+  }
+}
