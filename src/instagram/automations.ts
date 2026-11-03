@@ -456,6 +456,62 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "VIAGEMIA",
+    message:
+      [
+        "Oi! Os 5 prompts para planejar sua viagem:",
+        "",
+        "1. Roteiro: \"Monte um roteiro de [dias] dias em [cidade] para quem gosta de [coisas], sem correria.\"",
+        "2. Orçamento: \"Tenho R$ [valor] para essa viagem. Divida entre transporte, hospedagem, comida e passeios.\"",
+        "3. Mala: \"Faça uma lista de mala para [dias] dias em [cidade] em [mês], só o essencial.\"",
+        "4. Plano B: \"Se chover em [cidade], o que dá para fazer perto do roteiro?\"",
+        "5. Confira: \"Liste o que eu preciso confirmar no site oficial antes de ir: horários, preços e reservas.\"",
+        "",
+        "Confirme preços e horários no site oficial antes de ir.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 📩",
+  },
+  {
+    keyword: "CURRICULO",
+    message:
+      [
+        "Oi! O prompt para ajustar o currículo para uma vaga:",
+        "",
+        "\"Esta é a vaga: [cole]. Este é meu currículo: [cole, sem dados pessoais]. Diga o que falta para essa vaga e reescreva os pontos fracos com frases mais fortes. Não invente nada.\"",
+        "",
+        "Tire telefone, endereço e documentos antes de colar. Revise tudo antes de enviar.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "DIFERENTE",
+    message:
+      [
+        "Oi! Por que a IA responde diferente para a mesma pergunta:",
+        "",
+        "Ela monta o texto palavra por palavra, com um pouco de sorteio em cada escolha.",
+        "",
+        "Dicas:",
+        "1. Não gostou? Peça outra versão.",
+        "2. Quer respostas mais parecidas? Dê exemplos e um formato fixo.",
+        "3. Número, data ou fato importante? Confira na fonte.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei as dicas no direct! 📩",
+  },
+  {
+    keyword: "IASOZINHA",
+    message:
+      [
+        "Oi! O texto da Anthropic sobre IA que ajuda a construir a próxima IA:",
+        "https://www.anthropic.com/institute/recursive-self-improvement",
+        "",
+        "Matéria do TechCrunch: https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
+        "",
+        "A empresa diz que nenhum modelo chegou lá ainda.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

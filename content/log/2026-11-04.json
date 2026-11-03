@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-04",
+  "topic": "Anthropic alerta que a IA pode estar perto de ajudar a construir a próxima versão dela mesma",
+  "keyword": "IASOZINHA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para planejar uma viagem com IA",
+      "keyword": "VIAGEMIA",
+      "metricoolId": 414854795,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool só TikTok."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Pedir para a IA revisar o currículo para uma vaga específica",
+      "keyword": "CURRICULO",
+      "metricoolId": 414854834,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Por que a IA dá respostas diferentes para a mesma pergunta",
+      "keyword": "DIFERENTE",
+      "metricoolId": 414854874,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Anthropic alerta que a IA pode estar perto de ajudar a construir a próxima versão dela mesma",
+      "keyword": "IASOZINHA",
+      "metricoolId": 414854918,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    }
+  ]
+}
