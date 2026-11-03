@@ -9,10 +9,11 @@
       "keyword": "ORCAMENTO",
       "metricoolId": 413566339,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "tiktok": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool só TikTok."
+      "note": "Instagram via Windsor às 09:02; Metricool só TikTok.",
+      "instagramMediaId": "17909936145333141"
     },
     {
       "slot": "12:30",
