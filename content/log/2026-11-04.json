@@ -9,10 +9,11 @@
       "keyword": "VIAGEMIA",
       "metricoolId": 414854795,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "tiktok": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool só TikTok."
+      "note": "Instagram via Windsor às 09:02; Metricool só TikTok.",
+      "instagramMediaId": "18148959523555408"
     },
     {
       "slot": "12:30",
