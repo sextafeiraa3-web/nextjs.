@@ -36,9 +36,9 @@
       "metricoolId": 414854874,
       "networks": {
         "instagram": "FIXED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
+        "facebook": "PUBLISHED",
+        "tiktok": "PUBLISHED",
+        "youtube": "PUBLISHED"
       },
       "note": "Instagram via Windsor (lembrete); Metricool sem Instagram. IG via Windsor (1ª tentativa: container ERROR, 2ª OK; comentário 18433278604145647).",
       "instagramMediaId": "17892957414456055"
