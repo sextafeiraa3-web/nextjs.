@@ -512,6 +512,60 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "GELADEIRA",
+    message:
+      [
+        "Oi! Os 5 prompts para cozinhar com o que tem em casa:",
+        "",
+        "1. Geladeira: \"Tenho [ingredientes]. Me dê 3 receitas simples que usem só isso e o básico da despensa.\"",
+        "2. Rápido: \"Uma receita com [ingrediente] que fique pronta em 15 minutos.\"",
+        "3. Sobras: \"Sobrou [comida de ontem]. Como transformar em um prato novo?\"",
+        "4. Cardápio: \"Monte um cardápio de 5 jantares baratos para [número] pessoas.\"",
+        "5. Troca: \"Não tenho [ingrediente]. Pelo que posso trocar nessa receita?\"",
+        "",
+        "Confira tempo de preparo e alergias antes de servir.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 📩",
+  },
+  {
+    keyword: "CONTRATO",
+    message:
+      [
+        "Oi! O prompt para entender um contrato antes de assinar:",
+        "",
+        "\"Explique este contrato em linguagem simples. Liste multas, prazos e obrigações, e diga 5 perguntas que eu deveria fazer antes de assinar: [cole, sem dados pessoais]\"",
+        "",
+        "Apague nome, CPF e endereço antes de colar. Isso não substitui um advogado.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "IMITA",
+    message:
+      [
+        "Oi! O prompt para a IA escrever no seu estilo:",
+        "",
+        "\"Este é um texto meu: [cole]. Escreva sobre [novo assunto] com o mesmo tom, tamanho e jeito de falar. Não copie frases, só o estilo.\"",
+        "",
+        "Quanto mais parecido o exemplo com o que você quer, melhor o resultado.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "SIRIIA",
+    message:
+      [
+        "Oi! Passo a passo para ativar a Siri com IA em português:",
+        "",
+        "1. Atualize o iPhone para o iOS 27.2.",
+        "2. Ajustes > Siri > Idioma > Português (Brasil).",
+        "3. Só funciona em iPhones compatíveis com a Apple Intelligence.",
+        "",
+        "Matéria: https://tecnoblog.net/noticias/ios-27-2-libera-nova-siri-em-portugues-no-brasil/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o passo a passo no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

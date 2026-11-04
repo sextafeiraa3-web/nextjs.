@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-05",
+  "topic": "A nova Siri com IA da Apple chega em português do Brasil no iOS 27.2",
+  "keyword": "SIRIIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para cozinhar com o que tem na geladeira",
+      "keyword": "GELADEIRA",
+      "metricoolId": 416104900,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool só TikTok."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Usar a IA para entender um contrato antes de assinar",
+      "keyword": "CONTRATO",
+      "metricoolId": 416104942,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Mostrar um exemplo para a IA imitar o estilo do texto",
+      "keyword": "IMITA",
+      "metricoolId": 416104995,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    },
+    {
+      "slot": "19:00",
+      "topic": "A nova Siri com IA da Apple chega em português do Brasil no iOS 27.2",
+      "keyword": "SIRIIA",
+      "metricoolId": 416105043,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+    }
+  ]
+}
