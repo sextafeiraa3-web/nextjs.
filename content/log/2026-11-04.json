@@ -49,12 +49,13 @@
       "keyword": "IASOZINHA",
       "metricoolId": 414854918,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram. IG via Windsor (comentário 18427228771158804).",
+      "instagramMediaId": "17985524531898214"
     }
   ]
 }
