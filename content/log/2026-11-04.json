@@ -21,12 +21,13 @@
       "keyword": "CURRICULO",
       "metricoolId": 414854834,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram. IG via Windsor (comentário 17943651687369251).",
+      "instagramMediaId": "18421746862155192"
     },
     {
       "slot": "17:00",
