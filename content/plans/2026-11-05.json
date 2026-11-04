@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-05",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Usar a IA para entender um contrato antes de assinar",
+      "hook": "Vai assinar um contrato? Faça isso antes",
+      "scenes": [
+        { "kind": "statement", "title": "Cole o contrato na IA.", "body": "Antes, apague nome, CPF, endereço e valores pessoais." },
+        { "kind": "steps", "title": "Peça assim", "steps": ["Resumo em linguagem simples", "Multas e prazos", "O que perguntar antes"] }
+      ],
+      "narration": "Vai assinar um contrato? Faça isso antes. Apague nome, CPF e endereço, cole o texto na IA e peça um resumo em linguagem simples, as multas e prazos, e o que você deveria perguntar antes de assinar. Não substitui um advogado, mas você chega preparado. Comente CONTRATO que eu te mando o prompt.",
+      "keyword": "CONTRATO",
+      "ctaQuestion": "Manda para quem vai assinar contrato",
+      "caption": "Vai assinar um contrato? Faça isso antes. 📝\n\nApague nome, CPF, endereço e dados pessoais, cole o texto no ChatGPT, no Claude ou no Gemini e peça: um resumo em linguagem simples, as multas e os prazos, e as perguntas que você deveria fazer antes de assinar.\n\nIsso não substitui um advogado: serve para você chegar preparado e entender o que está assinando.\n\nManda para quem vai alugar, contratar ou assinar algo 👇\nComente CONTRATO que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Direitos",
+      "tiktokTitle": "Vai assinar um contrato? Use a IA antes",
+      "youtubeTitle": "Use a IA para entender um contrato antes de assinar #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Explique este contrato em linguagem simples. Liste multas, prazos e obrigações, e diga 5 perguntas que eu deveria fazer antes de assinar: [cole, sem dados pessoais]\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "dica",
+      "topic": "Mostrar um exemplo para a IA imitar o estilo do texto",
+      "hook": "A IA não escreve do seu jeito? Mostre um exemplo",
+      "scenes": [
+        { "kind": "statement", "title": "Descrever o estilo não basta.", "body": "Mostrar um exemplo funciona muito melhor." },
+        { "kind": "steps", "title": "Peça assim", "steps": ["Cole um texto seu", "Peça o mesmo tom e tamanho", "Dê o novo assunto"] }
+      ],
+      "narration": "A IA não escreve do seu jeito? Mostre um exemplo. Em vez de explicar o estilo, cole um texto que você já escreveu e peça: escreva sobre este novo assunto com o mesmo tom, o mesmo tamanho e o mesmo jeito de falar. Funciona para legenda, e-mail e mensagem. Comente IMITA que eu te mando o prompt.",
+      "keyword": "IMITA",
+      "ctaQuestion": "Manda para quem vive reescrevendo o que a IA faz",
+      "caption": "A IA não escreve do seu jeito? Mostre um exemplo. ✍️\n\nExplicar o estilo (\"seja descontraído\") costuma dar resultado genérico. Funciona melhor colar um texto que você já escreveu e pedir: \"escreva sobre [novo assunto] com o mesmo tom, tamanho e jeito de falar deste exemplo\".\n\nServe para legenda, e-mail, mensagem de cliente. Revise antes de usar.\n\nManda para quem vive reescrevendo o que a IA faz 👇\nComente IMITA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Produtividade",
+      "tiktokTitle": "A IA não escreve do seu jeito? Mostre um exemplo",
+      "youtubeTitle": "Faça a IA escrever no seu estilo com um exemplo #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Este é um texto meu: [cole]. Escreva sobre [novo assunto] com o mesmo tom, tamanho e jeito de falar. Não copie frases, só o estilo.\""
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "A nova Siri com IA da Apple chega em português do Brasil no iOS 27.2",
+      "hook": "A Siri com IA agora fala português",
+      "scenes": [
+        { "kind": "statement", "title": "Apple, iOS 27.2.", "body": "A Siri AI ganhou suporte a português do Brasil." },
+        { "kind": "steps", "title": "Como ativar", "steps": ["Atualize para o iOS 27.2", "Ajustes > Siri > Idioma", "Português (Brasil)"] },
+        { "kind": "statement", "title": "Atenção:", "body": "Só em iPhones compatíveis com Apple Intelligence." }
+      ],
+      "narration": "A Siri com IA agora fala português. Com o iOS 27.2, a Apple liberou a Siri AI em português do Brasil. Para ativar, atualize o iPhone, vá em Ajustes, Siri, Idioma, e escolha Português Brasil. Atenção: só funciona em iPhones compatíveis com a Apple Intelligence. Comente SIRIIA que eu te mando o passo a passo.",
+      "keyword": "SIRIIA",
+      "ctaQuestion": "Você já testou a nova Siri?",
+      "caption": "A Siri com IA agora fala português. 🗣️📱\n\nCom o iOS 27.2, lançado no fim de outubro, a Apple liberou a Siri AI em português do Brasil, junto com francês, japonês, coreano e espanhol.\n\nPara ativar: atualize o iPhone para o iOS 27.2 e vá em Ajustes > Siri > Idioma > Português (Brasil). Só funciona em iPhones compatíveis com a Apple Intelligence, e na União Europeia (incluindo Portugal) ainda não está disponível.\n\nVocê já testou a nova Siri? Comenta aí 👇\nManda para quem tem iPhone 📲\nComente SIRIIA que eu te mando o passo a passo no direct.\n\nFonte: Apple, Tecnoblog e Canaltech\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Siri #Apple #iPhone",
+      "tiktokTitle": "A Siri com IA agora fala português",
+      "youtubeTitle": "Siri AI em português: como ativar no iOS 27.2 #shorts",
+      "sources": [
+        { "name": "Tecnoblog", "url": "https://tecnoblog.net/noticias/ios-27-2-libera-nova-siri-em-portugues-no-brasil/" },
+        { "name": "9to5Mac", "url": "https://9to5mac.com/2026/10/26/apple-announces-siri-ai-will-expand-to-these-new-languages-soon/" }
+      ],
+      "firstComment": "Passo a passo: atualize para o iOS 27.2 > Ajustes > Siri > Idioma > Português (Brasil). Matéria: https://tecnoblog.net/noticias/ios-27-2-libera-nova-siri-em-portugues-no-brasil/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para cozinhar com o que tem na geladeira",
+    "slides": [
+      { "title": "5 prompts para cozinhar com o que tem em casa", "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini." },
+      { "title": "1. Geladeira", "body": "\"Tenho [ingredientes]. Me dê 3 receitas simples que usem só isso e o básico da despensa.\"" },
+      { "title": "2. Rápido", "body": "\"Uma receita com [ingrediente] que fique pronta em 15 minutos.\"" },
+      { "title": "3. Sobras", "body": "\"Sobrou [comida de ontem]. Como transformar em um prato novo?\"" },
+      { "title": "4. Cardápio", "body": "\"Monte um cardápio de 5 jantares baratos para [número] pessoas.\"" },
+      { "title": "5. Troca", "body": "\"Não tenho [ingrediente]. Pelo que posso trocar nessa receita?\"" }
+    ],
+    "keyword": "GELADEIRA",
+    "caption": "5 prompts para cozinhar com o que tem em casa. 🍳\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA dá a ideia; tempo de forno, ponto e alergias você confere antes de servir.\n\nManda para quem nunca sabe o que fazer de jantar 👇\nSalve e comente GELADEIRA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Receitas #DicasDeIA",
+    "tiktokTitle": "5 prompts para cozinhar com o que tem na geladeira",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem nunca sabe o que fazer de jantar!"
+  }
+}
