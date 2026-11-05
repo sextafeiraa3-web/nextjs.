@@ -566,6 +566,59 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei o passo a passo no direct! 📩",
   },
+  {
+    keyword: "IDIOMA",
+    message:
+      [
+        "Oi! Os 5 prompts para praticar outro idioma com IA:",
+        "",
+        "1. Converse comigo em [idioma] sobre [assunto]. Corrija meus erros no fim de cada resposta.",
+        "2. Fale comigo em [idioma] como se eu fosse iniciante. Frases curtas e palavras simples.",
+        "3. Me ensine 10 palavras de [idioma] para [viagem, trabalho...], com uma frase de exemplo cada.",
+        "4. Finja ser um garçom em [país]. Eu peço a comida em [idioma] e você responde.",
+        "5. Corrija este texto que escrevi em [idioma] e explique cada erro em português: [texto]",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 📩",
+  },
+  {
+    keyword: "REVISAO",
+    message:
+      [
+        "Oi! O prompt para a IA corrigir sem mudar o seu jeito:",
+        "",
+        "\"Corrija só os erros de português deste texto, mantenha meu tom e meu tamanho, e depois liste cada mudança que você fez: [cole o texto]\"",
+        "",
+        "Com a lista, você decide o que aceitar.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "GIFIA",
+    message:
+      [
+        "Oi! Como fazer GIF no ChatGPT (Images 2.6):",
+        "",
+        "1. Abra o ChatGPT e mande uma foto ou descreva a cena.",
+        "2. Peça: \"transforme isto em um GIF animado\".",
+        "3. Ajuste a velocidade ou edite quadro a quadro.",
+        "4. Para reutilizar uma foto, salve com um nome e chame depois com @nome.",
+        "",
+        "Anúncio da OpenAI: https://openai.com/index/introducing-images-2-6/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o passo a passo no direct! 📩",
+  },
+  {
+    keyword: "UBERIA",
+    message:
+      [
+        "Oi! A matéria sobre os agentes de IA no Uber:",
+        "",
+        "Na semana do Halloween, a mais movimentada de outubro, só 4 corridas foram pedidas por agentes de IA, e cerca de 500 pedidos no Uber Eats.",
+        "",
+        "TechCrunch: https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

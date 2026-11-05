@@ -49,12 +49,13 @@
       "keyword": "SIRIIA",
       "metricoolId": 416105043,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram. IG via Windsor (comentário 18014772770768203).",
+      "instagramMediaId": "18138933628636129"
     }
   ]
 }
