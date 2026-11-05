@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-06",
+  "topic": "Uber diz que agentes de IA pediram só 4 corridas na semana mais movimentada de outubro",
+  "keyword": "UBERIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para praticar um idioma com IA",
+      "keyword": "IDIOMA",
+      "metricoolId": 418246609,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool só FB/TikTok/YT."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Pedir para a IA revisar um texto e mostrar só o que mudou",
+      "keyword": "REVISAO",
+      "metricoolId": 418246189,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool só FB/TikTok/YT."
+    },
+    {
+      "slot": "17:00",
+      "topic": "ChatGPT Images 2.6: o ChatGPT agora cria GIFs animados e salva fotos para reutilizar",
+      "keyword": "GIFIA",
+      "metricoolId": 418246365,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool só FB/TikTok/YT."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Uber diz que agentes de IA pediram só 4 corridas na semana mais movimentada de outubro",
+      "keyword": "UBERIA",
+      "metricoolId": 418246530,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool só FB/TikTok/YT."
+    }
+  ]
+}
