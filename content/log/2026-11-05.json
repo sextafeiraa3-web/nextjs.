@@ -9,10 +9,11 @@
       "keyword": "GELADEIRA",
       "metricoolId": 416104900,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "tiktok": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool só TikTok."
+      "note": "Instagram via Windsor (lembrete); Metricool só TikTok. IG via Windsor (comentário 18017828018750835). TikTok AWAITING_CONFIRMATION às 09:00 (Published:7704656521036302357).",
+      "instagramMediaId": "18250495843312372"
     },
     {
       "slot": "12:30",
