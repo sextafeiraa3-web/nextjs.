@@ -7,8 +7,20 @@
       "topic": "Pedir para a IA revisar um texto e mostrar só o que mudou",
       "hook": "A IA mudou seu texto inteiro? Peça só isso",
       "scenes": [
-        { "kind": "statement", "title": "Pedir \"melhore\" muda tudo.", "body": "E você perde o seu jeito de escrever." },
-        { "kind": "steps", "title": "Peça assim", "steps": ["Corrija só erros", "Mantenha meu tom", "Liste o que mudou"] }
+        {
+          "kind": "statement",
+          "title": "Pedir \"melhore\" muda tudo.",
+          "body": "E você perde o seu jeito de escrever."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça assim",
+          "steps": [
+            "Corrija só erros",
+            "Mantenha meu tom",
+            "Liste o que mudou"
+          ]
+        }
       ],
       "narration": "A IA mudou seu texto inteiro? Peça só isso. Em vez de melhore este texto, diga: corrija só os erros, mantenha meu tom e liste cada mudança que você fez. Assim você vê o que mudou e decide o que aceitar. Comente REVISAO que eu te mando o prompt.",
       "keyword": "REVISAO",
@@ -25,9 +37,25 @@
       "topic": "ChatGPT Images 2.6: o ChatGPT agora cria GIFs animados e salva fotos para reutilizar",
       "hook": "O ChatGPT agora faz GIF",
       "scenes": [
-        { "kind": "statement", "title": "OpenAI, 4 de novembro.", "body": "ChatGPT Images 2.6 cria GIFs animados." },
-        { "kind": "list", "title": "O que mudou", "items": ["GIF a partir de texto ou foto", "Salvar foto e chamar com @nome", "Imagens 50% mais rápidas"] },
-        { "kind": "statement", "title": "Para todos os planos.", "body": "Web, celular e computador." }
+        {
+          "kind": "statement",
+          "title": "OpenAI, 4 de novembro.",
+          "body": "ChatGPT Images 2.6 cria GIFs animados."
+        },
+        {
+          "kind": "list",
+          "title": "O que mudou",
+          "items": [
+            "GIF a partir de texto ou foto",
+            "Salvar foto e chamar com @nome",
+            "Imagens 50% mais rápidas"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Para todos os planos.",
+          "body": "Web, celular e computador."
+        }
       ],
       "narration": "O ChatGPT agora faz GIF. A OpenAI lançou o Images 2.6: você descreve ou manda uma foto e ele cria um GIF animado. Também dá para salvar uma foto sua ou do seu pet e chamar depois pelo nome. Segundo a OpenAI, as imagens saem cinquenta por cento mais rápido. Comente GIFIA que eu te mando o passo a passo.",
       "keyword": "GIFIA",
@@ -36,8 +64,14 @@
       "tiktokTitle": "O ChatGPT agora faz GIF animado",
       "youtubeTitle": "ChatGPT agora cria GIFs: Images 2.6 da OpenAI #shorts",
       "sources": [
-        { "name": "OpenAI", "url": "https://openai.com/index/introducing-images-2-6/" },
-        { "name": "TestingCatalog", "url": "https://www.testingcatalog.com/openai-launches-images-2-6-with-gifs-and-image-reference/" }
+        {
+          "name": "OpenAI",
+          "url": "https://openai.com/index/introducing-images-2-6/"
+        },
+        {
+          "name": "TestingCatalog",
+          "url": "https://www.testingcatalog.com/openai-launches-images-2-6-with-gifs-and-image-reference/"
+        }
       ],
       "firstComment": "Anúncio da OpenAI: https://openai.com/index/introducing-images-2-6/ Para testar: peça no ChatGPT \"transforme esta foto em um GIF animado\"."
     },
@@ -47,9 +81,21 @@
       "topic": "Uber diz que agentes de IA pediram só 4 corridas na semana mais movimentada de outubro",
       "hook": "Agentes de IA pediram só 4 corridas no Uber",
       "scenes": [
-        { "kind": "number", "title": "4 corridas", "body": "pedidas por agentes de IA na semana mais movimentada de outubro." },
-        { "kind": "statement", "title": "No Uber Eats:", "body": "cerca de 500 pedidos feitos por agentes." },
-        { "kind": "statement", "title": "Recado:", "body": "as pessoas ainda preferem abrir o app." }
+        {
+          "kind": "number",
+          "value": "4",
+          "label": "corridas pedidas por agentes de IA na semana mais cheia"
+        },
+        {
+          "kind": "statement",
+          "title": "No Uber Eats:",
+          "body": "cerca de 500 pedidos feitos por agentes."
+        },
+        {
+          "kind": "statement",
+          "title": "Recado:",
+          "body": "as pessoas ainda preferem abrir o app."
+        }
       ],
       "narration": "Agentes de IA pediram só quatro corridas no Uber. Na apresentação de resultados, a empresa contou que, na semana do Halloween, a mais movimentada de outubro, só quatro viagens vieram de agentes de IA, e uns quinhentos pedidos no Uber Eats. Por enquanto, a gente ainda prefere abrir o app. Comente UBERIA que eu te mando a matéria.",
       "keyword": "UBERIA",
@@ -58,8 +104,14 @@
       "tiktokTitle": "Agentes de IA pediram só 4 corridas no Uber",
       "youtubeTitle": "Uber: agentes de IA pediram só 4 corridas em uma semana #shorts",
       "sources": [
-        { "name": "TechCrunch", "url": "https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/" },
-        { "name": "Nation's Restaurant News", "url": "https://www.nrn.com/restaurant-technology/uber-eats-sees-little-traffic-from-ai-agents" }
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/"
+        },
+        {
+          "name": "Nation's Restaurant News",
+          "url": "https://www.nrn.com/restaurant-technology/uber-eats-sees-little-traffic-from-ai-agents"
+        }
       ],
       "firstComment": "Matéria do TechCrunch: https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/"
     }
@@ -69,12 +121,30 @@
     "pillar": "dica",
     "topic": "5 prompts para praticar um idioma com IA",
     "slides": [
-      { "title": "5 prompts para praticar outro idioma com IA", "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini." },
-      { "title": "1. Conversa", "body": "\"Converse comigo em [idioma] sobre [assunto]. Corrija meus erros no fim de cada resposta.\"" },
-      { "title": "2. Nível", "body": "\"Fale comigo em [idioma] como se eu fosse iniciante. Frases curtas e palavras simples.\"" },
-      { "title": "3. Vocabulário", "body": "\"Me ensine 10 palavras de [idioma] para [viagem, trabalho...], com uma frase de exemplo cada.\"" },
-      { "title": "4. Simulação", "body": "\"Finja ser um garçom em [país]. Eu peço a comida em [idioma] e você responde.\"" },
-      { "title": "5. Revisão", "body": "\"Corrija este texto que escrevi em [idioma] e explique cada erro em português: [texto]\"" }
+      {
+        "title": "5 prompts para praticar outro idioma com IA",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Conversa",
+        "body": "\"Converse comigo em [idioma] sobre [assunto]. Corrija meus erros no fim de cada resposta.\""
+      },
+      {
+        "title": "2. Nível",
+        "body": "\"Fale comigo em [idioma] como se eu fosse iniciante. Frases curtas e palavras simples.\""
+      },
+      {
+        "title": "3. Vocabulário",
+        "body": "\"Me ensine 10 palavras de [idioma] para [viagem, trabalho...], com uma frase de exemplo cada.\""
+      },
+      {
+        "title": "4. Simulação",
+        "body": "\"Finja ser um garçom em [país]. Eu peço a comida em [idioma] e você responde.\""
+      },
+      {
+        "title": "5. Revisão",
+        "body": "\"Corrija este texto que escrevi em [idioma] e explique cada erro em português: [texto]\""
+      }
     ],
     "keyword": "IDIOMA",
     "caption": "5 prompts para praticar outro idioma com IA. 🌎\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA é ótima para treinar conversa sem vergonha de errar; para provas e certificados, confira com um professor ou material oficial.\n\nManda para quem está aprendendo inglês ou espanhol 👇\nSalve e comente IDIOMA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Idiomas #DicasDeIA",
