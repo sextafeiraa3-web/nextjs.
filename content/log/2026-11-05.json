@@ -35,12 +35,13 @@
       "keyword": "IMITA",
       "metricoolId": 416104995,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram."
+      "note": "Instagram via Windsor (lembrete); Metricool sem Instagram. IG via Windsor (comentário 18100781576391617).",
+      "instagramMediaId": "18105789590152120"
     },
     {
       "slot": "19:00",
