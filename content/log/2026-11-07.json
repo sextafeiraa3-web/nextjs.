@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-07",
+  "topic": "Google vai tirar a Busca dos alunos de escolas que desligarem as ferramentas de IA",
+  "keyword": "ESCOLAIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para organizar a faxina e a rotina da casa com IA",
+      "keyword": "FAXINA",
+      "metricoolId": 418543152,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido em 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Transformar anotações de reunião em ata com a IA",
+      "keyword": "ATAIA",
+      "metricoolId": 418543013,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido em 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "OpenAI promete pagar toda a energia dos seus data centers depois de derrotas nas urnas nos EUA",
+      "keyword": "ENERGIAIA",
+      "metricoolId": 418543056,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido em 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Google vai tirar a Busca dos alunos de escolas que desligarem as ferramentas de IA",
+      "keyword": "ESCOLAIA",
+      "metricoolId": 418543108,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido em 05/11."
+    }
+  ]
+}

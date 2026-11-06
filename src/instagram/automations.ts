@@ -619,6 +619,59 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "FAXINA",
+    message:
+      [
+        "Oi! Os 5 prompts para organizar a casa com IA:",
+        "",
+        "1. Tenho [30 minutos]. Monte uma faxina rápida para [cômodos], em ordem.",
+        "2. Divida as tarefas da casa em 7 dias, com no máximo 20 minutos por dia.",
+        "3. Divida estas tarefas de forma justa entre [pessoas e idades]: [tarefas].",
+        "4. Como tirar [mancha] de [tecido] com o que tenho em casa? Quais cuidados?",
+        "5. Me faça perguntas para decidir o que guardar, doar ou jogar fora de [lugar].",
+        "",
+        "Produto de limpeza: leia o rótulo e nunca misture sem conferir.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 📩",
+  },
+  {
+    keyword: "ATAIA",
+    message:
+      [
+        "Oi! O prompt para transformar anotações em ata:",
+        "",
+        "\"Transforme estas anotações de reunião em uma ata com: decisões tomadas, tarefas com responsável e prazo, e pontos em aberto. Não invente nada: [cole as anotações]\"",
+        "",
+        "Tire dados sensíveis antes de colar e confira antes de enviar.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "ENERGIAIA",
+    message:
+      [
+        "Oi! O compromisso da OpenAI sobre energia dos data centers:",
+        "",
+        "Ela promete pagar toda a eletricidade que usa, divulgar o consumo de água e energia de cada local e não assinar acordos de sigilo com autoridades. Vale só para os data centers que ela tem e opera.",
+        "",
+        "OpenAI: https://openai.com/index/setting-new-standard-responsible-ai-infrastructure/",
+        "CNBC: https://www.cnbc.com/2026/11/05/openai-to-pay-for-data-center-power-after-election-shows-ai-concern.html",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
+  {
+    keyword: "ESCOLAIA",
+    message:
+      [
+        "Oi! A matéria sobre o Google e as escolas:",
+        "",
+        "A partir de 2027, Gemini e Busca vêm desligados para alunos nos EUA. Se a escola bloquear toda a IA, os alunos perdem também a Busca. O Google diz que cada ferramenta pode ser ligada separadamente.",
+        "",
+        "TechCrunch: https://techcrunch.com/2026/11/03/google-will-let-schools-disable-its-ai-tools-but-not-without-sacrificing-search/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>
