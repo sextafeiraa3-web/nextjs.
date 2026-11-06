@@ -49,12 +49,13 @@
       "keyword": "UBERIA",
       "metricoolId": 418246530,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (send_later); Metricool só FB/TikTok/YT."
+      "note": "Instagram via Windsor (send_later); Metricool só FB/TikTok/YT. IG via Windsor (comentário 18105350687644651).",
+      "instagramMediaId": "18138959794712561"
     }
   ]
 }
