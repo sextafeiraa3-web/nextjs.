@@ -35,12 +35,13 @@
       "keyword": "GIFIA",
       "metricoolId": 418246365,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (send_later); Metricool só FB/TikTok/YT."
+      "note": "Instagram via Windsor (send_later); Metricool só FB/TikTok/YT. IG via Windsor (comentário 18080106944720290).",
+      "instagramMediaId": "18064884923556128"
     },
     {
       "slot": "19:00",
