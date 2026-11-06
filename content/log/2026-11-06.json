@@ -21,12 +21,13 @@
       "keyword": "REVISAO",
       "metricoolId": 418246189,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (send_later); Metricool só FB/TikTok/YT."
+      "note": "Instagram via Windsor (send_later); Metricool só FB/TikTok/YT. IG via Windsor (comentário 18108660676966097).",
+      "instagramMediaId": "18116508905164269"
     },
     {
       "slot": "17:00",
