@@ -9,10 +9,11 @@
       "keyword": "IDIOMA",
       "metricoolId": 418246609,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "tiktok": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (send_later); Metricool só FB/TikTok/YT."
+      "note": "Instagram via Windsor (send_later); Metricool só FB/TikTok/YT. IG via Windsor (comentário 18078643583733998).",
+      "instagramMediaId": "18494619151106386"
     },
     {
       "slot": "12:30",
