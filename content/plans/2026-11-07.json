@@ -7,8 +7,20 @@
       "topic": "Transformar anotações de reunião em ata com a IA",
       "hook": "Saiu da reunião sem ata? Faça isso",
       "scenes": [
-        { "kind": "statement", "title": "Cole suas anotações na IA.", "body": "Mesmo bagunçadas, do jeito que você escreveu." },
-        { "kind": "steps", "title": "Peça assim", "steps": ["Decisões tomadas", "Quem faz o quê", "Prazos"] }
+        {
+          "kind": "statement",
+          "title": "Cole suas anotações na IA.",
+          "body": "Mesmo bagunçadas, do jeito que você escreveu."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça assim",
+          "steps": [
+            "Decisões tomadas",
+            "Quem faz o quê",
+            "Prazos"
+          ]
+        }
       ],
       "narration": "Saiu da reunião sem ata? Faça isso. Cole suas anotações na IA, mesmo bagunçadas, e peça: liste as decisões tomadas, quem ficou responsável por cada tarefa e os prazos. Em um minuto você tem a ata pronta para mandar no grupo. Confira antes de enviar. Comente ATAIA que eu te mando o prompt.",
       "keyword": "ATAIA",
@@ -25,19 +37,41 @@
       "topic": "OpenAI promete pagar toda a energia dos seus data centers depois de derrotas nas urnas nos EUA",
       "hook": "A OpenAI vai pagar a conta de luz da IA",
       "scenes": [
-        { "kind": "statement", "title": "Eleições nos EUA:", "body": "eleitores votaram contra novos data centers de IA." },
-        { "kind": "list", "title": "O que a OpenAI prometeu", "items": ["Pagar toda a energia que usa", "Divulgar água e luz de cada local", "Sem acordos de sigilo com políticos"] },
-        { "kind": "statement", "title": "Atenção:", "body": "vale só para os data centers dela, nos EUA." }
+        {
+          "kind": "statement",
+          "title": "Eleições nos EUA:",
+          "body": "eleitores votaram contra novos data centers de IA."
+        },
+        {
+          "kind": "list",
+          "title": "O que a OpenAI prometeu",
+          "items": [
+            "Pagar toda a energia que usa",
+            "Divulgar água e luz de cada local",
+            "Sem acordos de sigilo com políticos"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "vale só para os data centers dela, nos EUA."
+        }
       ],
-      "narration": "A OpenAI vai pagar a conta de luz da IA. Depois que eleitores americanos votaram contra novos data centers, a empresa prometeu pagar toda a energia que usa, divulgar o consumo de água e luz de cada local e não assinar acordos de sigilo com políticos. Vale só para os data centers dela. Comente ENERGIAIA que eu te mando a matéria.",
+      "narration": "A OpenAI vai pagar a conta de luz da IA. Depois que eleitores americanos votaram contra novos data centers, a empresa prometeu pagar toda a energia que usa, divulgar o consumo de água e luz de cada local e não assinar acordos de sigilo com políticos. Vale só para os data centers dela. Comente ENERGIAIA que eu mando a matéria.",
       "keyword": "ENERGIAIA",
       "ctaQuestion": "Você sabia que a IA gasta tanta energia?",
       "caption": "A OpenAI vai pagar a conta de luz da IA. ⚡\n\nDois dias depois de eleitores nos EUA votarem contra a expansão de data centers de IA em várias cidades, a OpenAI publicou um compromisso: vai pagar toda a eletricidade que usa e a estrutura de rede que precisar, para não encarecer a conta dos vizinhos.\n\nTambém prometeu divulgar o consumo de água e energia de cada local e não assinar acordos de sigilo com autoridades. Vale só para os data centers que ela mesma tem e opera, e ainda não está claro quem vai fiscalizar.\n\nVocê sabia que a IA gasta tanta energia? Comenta aí 👇\nManda para quem acha que IA não tem custo nenhum\nComente ENERGIAIA que eu te mando a matéria completa no direct.\n\nFonte: OpenAI, CNBC e Engadget\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #OpenAI #Energia #Tecnologia",
       "tiktokTitle": "A OpenAI vai pagar a conta de luz da IA",
       "youtubeTitle": "OpenAI promete pagar toda a energia dos seus data centers #shorts",
       "sources": [
-        { "name": "OpenAI", "url": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure/" },
-        { "name": "CNBC", "url": "https://www.cnbc.com/2026/11/05/openai-to-pay-for-data-center-power-after-election-shows-ai-concern.html" }
+        {
+          "name": "OpenAI",
+          "url": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure/"
+        },
+        {
+          "name": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/05/openai-to-pay-for-data-center-power-after-election-shows-ai-concern.html"
+        }
       ],
       "firstComment": "Compromisso da OpenAI: https://openai.com/index/setting-new-standard-responsible-ai-infrastructure/"
     },
@@ -47,9 +81,21 @@
       "topic": "Google vai tirar a Busca dos alunos de escolas que desligarem as ferramentas de IA",
       "hook": "Escola sem IA vai ficar sem Google?",
       "scenes": [
-        { "kind": "statement", "title": "Google, escolas dos EUA:", "body": "a partir de 2027, Gemini e Busca vêm desligados para alunos." },
-        { "kind": "statement", "title": "O detalhe:", "body": "se a escola bloquear toda a IA, o aluno perde também a Busca do Google." },
-        { "kind": "statement", "title": "Reação:", "body": "políticos chamaram de chantagem; o Google diz que dá para ligar cada ferramenta separado." }
+        {
+          "kind": "statement",
+          "title": "Google, escolas dos EUA:",
+          "body": "a partir de 2027, Gemini e Busca vêm desligados para alunos."
+        },
+        {
+          "kind": "statement",
+          "title": "O detalhe:",
+          "body": "se a escola bloquear toda a IA, o aluno perde também a Busca do Google."
+        },
+        {
+          "kind": "statement",
+          "title": "Reação:",
+          "body": "políticos chamaram de chantagem; o Google diz que dá para ligar cada ferramenta separado."
+        }
       ],
       "narration": "Escola sem IA vai ficar sem Google? O Google anunciou que, a partir de 2027, Gemini e Busca vêm desligados para alunos. Mas se a escola bloquear toda a IA, o aluno perde também a Busca, porque, segundo o Google, as duas estão integradas. Políticos chamaram de chantagem. Comente ESCOLAIA que eu te mando a matéria.",
       "keyword": "ESCOLAIA",
@@ -58,8 +104,14 @@
       "tiktokTitle": "Escola sem IA vai ficar sem Google?",
       "youtubeTitle": "Google: escola que bloquear IA perde a Busca #shorts",
       "sources": [
-        { "name": "TechCrunch", "url": "https://techcrunch.com/2026/11/03/google-will-let-schools-disable-its-ai-tools-but-not-without-sacrificing-search/" },
-        { "name": "Engadget", "url": "https://www.engadget.com/2305432/google-says-that-students-in-schools-that-ban-ai-wont-have-access-to-search/" }
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/03/google-will-let-schools-disable-its-ai-tools-but-not-without-sacrificing-search/"
+        },
+        {
+          "name": "Engadget",
+          "url": "https://www.engadget.com/2305432/google-says-that-students-in-schools-that-ban-ai-wont-have-access-to-search/"
+        }
       ],
       "firstComment": "Matéria do TechCrunch: https://techcrunch.com/2026/11/03/google-will-let-schools-disable-its-ai-tools-but-not-without-sacrificing-search/"
     }
@@ -69,12 +121,30 @@
     "pillar": "dica",
     "topic": "5 prompts para organizar a faxina e a rotina da casa com IA",
     "slides": [
-      { "title": "5 prompts para organizar a casa com IA", "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini." },
-      { "title": "1. Faxina rápida", "body": "\"Tenho [30 minutos]. Monte uma faxina rápida para [cômodos], em ordem.\"" },
-      { "title": "2. Semana", "body": "\"Divida as tarefas da casa em 7 dias, com no máximo 20 minutos por dia.\"" },
-      { "title": "3. Divisão", "body": "\"Divida estas tarefas de forma justa entre [pessoas e idades]: [tarefas].\"" },
-      { "title": "4. Mancha", "body": "\"Como tirar [mancha] de [tecido] com o que tenho em casa? Quais cuidados?\"" },
-      { "title": "5. Destralhe", "body": "\"Me faça perguntas para decidir o que guardar, doar ou jogar fora de [lugar].\"" }
+      {
+        "title": "5 prompts para organizar a casa com IA",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Faxina rápida",
+        "body": "\"Tenho [30 minutos]. Monte uma faxina rápida para [cômodos], em ordem.\""
+      },
+      {
+        "title": "2. Semana",
+        "body": "\"Divida as tarefas da casa em 7 dias, com no máximo 20 minutos por dia.\""
+      },
+      {
+        "title": "3. Divisão",
+        "body": "\"Divida estas tarefas de forma justa entre [pessoas e idades]: [tarefas].\""
+      },
+      {
+        "title": "4. Mancha",
+        "body": "\"Como tirar [mancha] de [tecido] com o que tenho em casa? Quais cuidados?\""
+      },
+      {
+        "title": "5. Destralhe",
+        "body": "\"Me faça perguntas para decidir o que guardar, doar ou jogar fora de [lugar].\""
+      }
     ],
     "keyword": "FAXINA",
     "caption": "5 prompts para organizar a casa com IA. 🧹\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. Para produtos de limpeza, sempre leia o rótulo e nunca misture produtos sem conferir.\n\nManda para quem divide a casa com você 👇\nSalve e comente FAXINA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Casa #DicasDeIA",
