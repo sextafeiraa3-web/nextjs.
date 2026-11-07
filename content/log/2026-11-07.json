@@ -35,12 +35,13 @@
       "keyword": "ENERGIAIA",
       "metricoolId": 418543056,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido em 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido em 05/11. IG via Windsor (comentário 18114557516466051).",
+      "instagramMediaId": "17907382863599476"
     },
     {
       "slot": "19:00",
