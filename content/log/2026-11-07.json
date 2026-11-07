@@ -49,12 +49,13 @@
       "keyword": "ESCOLAIA",
       "metricoolId": 418543108,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido em 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido em 05/11. IG via Windsor (comentário 17961909516249267).",
+      "instagramMediaId": "17873622330645231"
     }
   ]
 }
