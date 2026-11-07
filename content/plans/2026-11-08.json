@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-08",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Mandar print de uma mensagem de erro para a IA explicar e resolver",
+      "hook": "Apareceu um erro na tela? Mande o print",
+      "scenes": [
+        { "kind": "statement", "title": "Tire um print do erro.", "body": "Do celular, do computador ou de um site." },
+        { "kind": "steps", "title": "Peça assim", "steps": ["O que esse erro significa?", "Passo a passo para resolver", "Em linguagem simples"] }
+      ],
+      "narration": "Apareceu um erro na tela? Mande o print. Tire um print da mensagem, envie para o ChatGPT, o Claude ou o Gemini e pergunte: o que esse erro significa e qual o passo a passo para resolver, em linguagem simples. Antes, cubra senhas e dados pessoais. Comente PRINTIA que eu te mando o prompt.",
+      "keyword": "PRINTIA",
+      "ctaQuestion": "Manda para quem sempre te liga quando o computador trava",
+      "caption": "Apareceu um erro na tela? Mande o print. 📸\n\nTire um print da mensagem de erro, do celular, do computador ou de um site, envie para o ChatGPT, o Claude ou o Gemini e pergunte: \"o que esse erro significa e qual o passo a passo para resolver, em linguagem simples?\".\n\nAntes de enviar, cubra senhas, e-mails e dados pessoais. E se a solução mexer em configurações importantes ou pedir para instalar algo, confira na página oficial do fabricante.\n\nManda para quem sempre te liga quando o computador trava 👇\nComente PRINTIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Tecnologia",
+      "tiktokTitle": "Apareceu um erro na tela? Mande o print para a IA",
+      "youtubeTitle": "Mande o print do erro para a IA resolver #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Este é um print de um erro no meu [celular/computador/site]. Explique o que ele significa e me dê o passo a passo para resolver, em linguagem simples. Se não tiver certeza, diga.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "noticia",
+      "topic": "Perplexity lança Teammates, agentes de IA que trabalham sozinhos em tarefas longas",
+      "hook": "A Perplexity agora te dá um colega de trabalho de IA",
+      "scenes": [
+        { "kind": "statement", "title": "Perplexity Teammates:", "body": "agentes que tocam tarefas longas sozinhos." },
+        { "kind": "list", "title": "O que eles fazem", "items": ["Dividem o objetivo em tarefas", "Trabalham em paralelo", "Lembram o histórico do projeto"] },
+        { "kind": "statement", "title": "Por enquanto:", "body": "em teste, só no plano mais caro, o Max." }
+      ],
+      "narration": "A Perplexity agora te dá um colega de trabalho de IA. Os novos Teammates recebem um objetivo, dividem em tarefas, trabalham em paralelo, cada um com seu próprio computador na nuvem, e lembram o histórico do projeto. Por enquanto é um teste, só no plano mais caro, o Max. Comente PERPLEXITY que eu te mando a matéria.",
+      "keyword": "PERPLEXITY",
+      "ctaQuestion": "Você colocaria uma IA no seu time?",
+      "caption": "A Perplexity agora te dá um colega de trabalho de IA. 🤖💼\n\nA Perplexity lançou os Teammates: agentes que recebem um objetivo, dividem em tarefas, trabalham em paralelo e lembram o histórico do projeto entre uma execução e outra. Cada um tem o próprio computador e navegador na nuvem e pode acompanhar ferramentas como Slack e GitHub.\n\nPor enquanto é uma versão de teste, na web, só para quem assina o Max, o plano mais caro da Perplexity.\n\nVocê colocaria uma IA no seu time? Comenta aí 👇\nManda para aquele colega que vive sobrecarregado\nComente PERPLEXITY que eu te mando a matéria completa no direct.\n\nFonte: Perplexity e Engadget\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Perplexity #AgentesDeIA #Tecnologia",
+      "tiktokTitle": "A Perplexity agora te dá um colega de trabalho de IA",
+      "youtubeTitle": "Perplexity Teammates: agentes de IA para tarefas longas #shorts",
+      "sources": [
+        { "name": "Perplexity", "url": "https://www.perplexity.ai/hub/blog/teammates-are-agents-for-complex-ongoing-work" },
+        { "name": "Engadget", "url": "https://www.engadget.com/2308870/perplexity-teammates-ai-agents-for-ongoing-work/" }
+      ],
+      "firstComment": "Anúncio da Perplexity: https://www.perplexity.ai/hub/blog/teammates-are-agents-for-complex-ongoing-work"
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "IA da OpenAI para segurança encontrou 81 falhas graves no Firefox e quase mil no Linux",
+      "hook": "Uma IA achou 81 falhas graves no Firefox",
+      "scenes": [
+        { "kind": "number", "value": "81", "label": "falhas graves inéditas no Firefox achadas pela IA" },
+        { "kind": "statement", "title": "E no Linux:", "body": "quase mil falhas que dava para explorar, revisadas por pessoas." },
+        { "kind": "statement", "title": "O que fazer:", "body": "mantenha navegador e sistema sempre atualizados." }
+      ],
+      "narration": "Uma IA achou oitenta e uma falhas graves no Firefox. A OpenAI lançou o GPT seis Cyber, um modelo para segurança, liberado só para empresas verificadas. Ele achou falhas inéditas no Firefox, que a Mozilla já está corrigindo, e quase mil no Linux. Recado: mantenha seu navegador sempre atualizado. Comente BRECHAIA que eu te mando a matéria.",
+      "keyword": "BRECHAIA",
+      "ctaQuestion": "Seu navegador está atualizado?",
+      "caption": "Uma IA achou 81 falhas graves no Firefox. 🛡️🦊\n\nA OpenAI lançou o GPT-6 Cyber, um modelo voltado para segurança, liberado só para um grupo de usuários verificados. Segundo a OpenAI, ele encontrou 81 falhas inéditas classificadas pela Mozilla como graves no Firefox, e a Mozilla já começou a publicar as correções. No Linux, o modelo produziu ataques funcionais para 948 falhas, revisadas por pesquisadores humanos antes de serem reportadas.\n\nA própria OpenAI classificou o risco do modelo em segurança como \"crítico\", o nível mais alto. A Mozilla alerta que atacantes também usam IA para explorar falhas logo depois que a correção sai.\n\nSeu navegador está atualizado? Comenta aí 👇\nManda para quem nunca clica em \"atualizar\"\nComente BRECHAIA que eu te mando a matéria completa no direct.\n\nFonte: OpenAI, Axios e The Register\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #OpenAI #Seguranca #Tecnologia",
+      "tiktokTitle": "Uma IA achou 81 falhas graves no Firefox",
+      "youtubeTitle": "IA da OpenAI acha 81 falhas graves no Firefox #shorts",
+      "sources": [
+        { "name": "OpenAI", "url": "https://openai.com/index/introducing-gpt-6-cyber/" },
+        { "name": "Axios", "url": "https://www.axios.com/2026/11/05/openai-linux-cyber-model" }
+      ],
+      "firstComment": "Anúncio da OpenAI: https://openai.com/index/introducing-gpt-6-cyber/ Dica: no Firefox, menu > Ajuda > Sobre o Firefox atualiza o navegador."
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para escolher um presente com IA",
+    "slides": [
+      { "title": "5 prompts para escolher um presente com IA", "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini." },
+      { "title": "1. Ideias", "body": "\"Me dê 10 ideias de presente para [pessoa], que gosta de [gostos], até R$ [valor].\"" },
+      { "title": "2. Experiência", "body": "\"Sugira 5 presentes que sejam experiências, não objetos, para [pessoa] em [cidade].\"" },
+      { "title": "3. Feito à mão", "body": "\"Que presente eu consigo fazer em casa para [pessoa] com até R$ [valor]?\"" },
+      { "title": "4. Cartão", "body": "\"Escreva uma mensagem curta e sincera para [pessoa] sobre [lembrança].\"" },
+      { "title": "5. Desempate", "body": "\"Estou em dúvida entre [opção A] e [opção B] para [pessoa]. Prós e contras de cada.\"" }
+    ],
+    "keyword": "PRESENTEIA",
+    "caption": "5 prompts para escolher um presente com IA. 🎁\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA dá as ideias; preço, estoque e prazo de entrega você confere na loja antes de comprar.\n\nManda para quem sempre deixa o presente para a última hora 👇\nSalve e comente PRESENTEIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Presentes #DicasDeIA",
+    "tiktokTitle": "5 prompts para escolher um presente com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem sempre deixa o presente para a última hora!"
+  }
+}
