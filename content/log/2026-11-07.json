@@ -9,10 +9,11 @@
       "keyword": "FAXINA",
       "metricoolId": 418543152,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "tiktok": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido em 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido em 05/11. IG via Windsor (comentário 18082550324713507).",
+      "instagramMediaId": "18100384142376310"
     },
     {
       "slot": "12:30",
