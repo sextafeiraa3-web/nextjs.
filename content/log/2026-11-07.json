@@ -21,12 +21,13 @@
       "keyword": "ATAIA",
       "metricoolId": 418543013,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido em 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido em 05/11. IG via Windsor (comentário 18132574078869864).",
+      "instagramMediaId": "18088102706687144"
     },
     {
       "slot": "17:00",
