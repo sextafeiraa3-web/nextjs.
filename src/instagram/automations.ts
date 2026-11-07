@@ -672,6 +672,57 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "PRESENTEIA",
+    message:
+      [
+        "Oi! Os 5 prompts para escolher um presente com IA:",
+        "",
+        "1. Me dê 10 ideias de presente para [pessoa], que gosta de [gostos], até R$ [valor].",
+        "2. Sugira 5 presentes que sejam experiências, não objetos, para [pessoa] em [cidade].",
+        "3. Que presente eu consigo fazer em casa para [pessoa] com até R$ [valor]?",
+        "4. Escreva uma mensagem curta e sincera para [pessoa] sobre [lembrança].",
+        "5. Estou em dúvida entre [opção A] e [opção B] para [pessoa]. Prós e contras de cada.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 📩",
+  },
+  {
+    keyword: "PRINTIA",
+    message:
+      [
+        "Oi! O prompt para a IA explicar um erro pelo print:",
+        "",
+        "\"Este é um print de um erro no meu [celular/computador/site]. Explique o que ele significa e me dê o passo a passo para resolver, em linguagem simples. Se não tiver certeza, diga.\"",
+        "",
+        "Cubra senhas e dados pessoais antes de enviar.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "PERPLEXITY",
+    message:
+      [
+        "Oi! Sobre os Teammates da Perplexity:",
+        "",
+        "São agentes que recebem um objetivo, dividem em tarefas, trabalham em paralelo e lembram o histórico do projeto. Por enquanto é um teste, na web, só no plano Max.",
+        "",
+        "Anúncio: https://www.perplexity.ai/hub/blog/teammates-are-agents-for-complex-ongoing-work",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
+  {
+    keyword: "BRECHAIA",
+    message:
+      [
+        "Oi! Sobre a IA que achou falhas no Firefox:",
+        "",
+        "O GPT-6 Cyber, da OpenAI, encontrou 81 falhas graves inéditas no Firefox, que a Mozilla já está corrigindo. Mantenha o navegador atualizado: no Firefox, menu > Ajuda > Sobre o Firefox.",
+        "",
+        "OpenAI: https://openai.com/index/introducing-gpt-6-cyber/",
+        "Axios: https://www.axios.com/2026/11/05/openai-linux-cyber-model",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

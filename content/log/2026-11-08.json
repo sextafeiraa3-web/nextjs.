@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-08",
+  "topic": "IA da OpenAI para segurança encontrou 81 falhas graves no Firefox e quase mil no Linux",
+  "keyword": "BRECHAIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para escolher um presente com IA",
+      "keyword": "PRESENTEIA",
+      "metricoolId": 419854231,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Mandar print de uma mensagem de erro para a IA explicar e resolver",
+      "keyword": "PRINTIA",
+      "metricoolId": 419854085,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Perplexity lança Teammates, agentes de IA que trabalham sozinhos em tarefas longas",
+      "keyword": "PERPLEXITY",
+      "metricoolId": 419854141,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "IA da OpenAI para segurança encontrou 81 falhas graves no Firefox e quase mil no Linux",
+      "keyword": "BRECHAIA",
+      "metricoolId": 419854183,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}
