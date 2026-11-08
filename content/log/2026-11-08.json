@@ -10,9 +10,9 @@
       "metricoolId": 419854231,
       "networks": {
         "instagram": "FIXED",
-        "tiktok": "SCHEDULED"
+        "tiktok": "ERROR"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11. IG via Windsor (comentário 18103370057565266).",
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11. IG via Windsor (comentário 18103370057565266). TikTok ERROR: limite da conta do Metricool.",
       "instagramMediaId": "17942282457390232"
     },
     {
