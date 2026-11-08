@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-09",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Pedir para o Gemini resumir um vídeo longo do YouTube",
+      "hook": "Vídeo de 1 hora? Leia o resumo em 1 minuto",
+      "scenes": [
+        { "kind": "statement", "title": "Copie o link do vídeo.", "body": "Do YouTube, aquele de uma hora." },
+        { "kind": "steps", "title": "No Gemini, peça", "steps": ["Resuma em 5 pontos", "Com o minuto de cada um", "O que vale assistir inteiro"] }
+      ],
+      "narration": "Vídeo de uma hora? Leia o resumo em um minuto. Copie o link do vídeo do YouTube, cole no Gemini e peça: resuma em cinco pontos, com o minuto de cada um, e diga que parte vale assistir inteira. Depois confira o trecho que importa no próprio vídeo. Comente YTRESUMO que eu te mando o prompt.",
+      "keyword": "YTRESUMO",
+      "ctaQuestion": "Manda para quem vive com vídeo salvo para ver depois",
+      "caption": "Vídeo de 1 hora? Leia o resumo em 1 minuto. ⏱️\n\nCopie o link do vídeo do YouTube, cole no Gemini e peça: \"resuma em 5 pontos, com o minuto de cada um, e diga que parte vale assistir inteira\". Funciona melhor em vídeos com legenda.\n\nA IA pode errar um detalhe: antes de usar uma informação importante, confira o trecho no próprio vídeo.\n\nManda para quem vive com vídeo salvo para ver depois 👇\nComente YTRESUMO que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Gemini #DicasDeIA #YouTube",
+      "tiktokTitle": "Vídeo de 1 hora? Resuma em 1 minuto com IA",
+      "youtubeTitle": "Resuma um vídeo longo do YouTube com o Gemini #shorts",
+      "sources": [],
+      "firstComment": "Prompt no Gemini: \"[cole o link do YouTube] Resuma este vídeo em 5 pontos, com o minuto de cada um, e diga que parte vale assistir inteira.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "noticia",
+      "topic": "Estudo da Anthropic com 207 mil sessões diz que a IA pode dobrar a produção de pesquisa em algumas áreas",
+      "hook": "A IA pode dobrar a velocidade da ciência?",
+      "scenes": [
+        { "kind": "number", "value": "207 mil", "label": "sessões de pesquisa com o Claude analisadas" },
+        { "kind": "statement", "title": "A conclusão:", "body": "em áreas como estatística e computação, a produção pode quase dobrar." },
+        { "kind": "statement", "title": "Atenção:", "body": "é uma estimativa; hoje a IA mais ajuda do que trabalha sozinha." }
+      ],
+      "narration": "A IA pode dobrar a velocidade da ciência? A Anthropic analisou duzentas e sete mil sessões de pesquisa com o Claude e ouviu mais de quinhentos cientistas. A estimativa: em áreas como estatística e computação, a produção pode quase dobrar. Mas é uma estimativa, e hoje a IA mais ajuda do que trabalha sozinha. Comente CIENCIAIA que eu te mando o estudo.",
+      "keyword": "CIENCIAIA",
+      "ctaQuestion": "Você usa IA no trabalho ou na faculdade?",
+      "caption": "A IA pode dobrar a velocidade da ciência? 🔬\n\nA Anthropic, empresa do Claude, analisou 207 mil sessões de pesquisa feitas com o Claude e o Claude Code e ouviu 528 cientistas. A estimativa do estudo: se o que a IA já faz hoje fosse usado em larga escala, a produção de pesquisa poderia quase dobrar em áreas como estatística e computação, e subir uns 35% a 40% em áreas como artes e química.\n\nO próprio estudo avisa: é um modelo, não uma medição, e hoje a IA mais ajuda os pesquisadores do que trabalha sozinha.\n\nVocê usa IA no trabalho ou na faculdade? Comenta aí 👇\nManda para quem está escrevendo TCC ou tese\nComente CIENCIAIA que eu te mando o estudo completo no direct.\n\nFonte: Anthropic\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Claude #Ciencia #Pesquisa",
+      "tiktokTitle": "A IA pode dobrar a velocidade da ciência?",
+      "youtubeTitle": "Estudo: IA pode quase dobrar a produção científica #shorts",
+      "sources": [
+        { "name": "Anthropic", "url": "https://www.anthropic.com/research/how-researchers-use-claude" }
+      ],
+      "firstComment": "Estudo da Anthropic: https://www.anthropic.com/research/how-researchers-use-claude"
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "Meta libera chamada de voz e vídeo com avatar animado da IA Muse nos EUA",
+      "hook": "Agora dá para fazer chamada de vídeo com uma IA",
+      "scenes": [
+        { "kind": "statement", "title": "Meta Muse Voice:", "body": "converse por voz com a IA, em tempo real." },
+        { "kind": "list", "title": "Como funciona", "items": ["Avatar que muda de expressão", "Só voz, lado a lado ou tela cheia", "Celular, web e Mac"] },
+        { "kind": "statement", "title": "Por enquanto:", "body": "só nos Estados Unidos." }
+      ],
+      "narration": "Agora dá para fazer chamada de vídeo com uma IA. A Meta liberou o Muse Voice: você conversa por voz, em tempo real, com um avatar animado que muda de expressão conforme a conversa. Funciona no celular, na web e no Mac. Por enquanto, só nos Estados Unidos. Comente MUSEVOZ que eu te mando a matéria.",
+      "keyword": "MUSEVOZ",
+      "ctaQuestion": "Você faria chamada de vídeo com uma IA?",
+      "caption": "Agora dá para fazer chamada de vídeo com uma IA. 📹🤖\n\nA Meta liberou o Muse Voice no app Muse: você conversa por voz, em tempo real, com um avatar animado que muda as expressões e os gestos de acordo com o tom da conversa. Dá para usar só a voz, o avatar ao lado do chat ou em tela cheia, no celular, na web e no Mac.\n\nPor enquanto, só nos Estados Unidos. A Meta diz que a voz chega depois aos óculos com IA e ao Muse Charm, um chaveiro com tela.\n\nVocê faria chamada de vídeo com uma IA? Comenta aí 👇\nManda para quem ainda acha isso coisa de filme\nComente MUSEVOZ que eu te mando a matéria completa no direct.\n\nFonte: Meta e TechCrunch\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Meta #Muse #Tecnologia",
+      "tiktokTitle": "Agora dá para fazer chamada de vídeo com uma IA",
+      "youtubeTitle": "Meta Muse Voice: chamada de vídeo com avatar de IA #shorts",
+      "sources": [
+        { "name": "Meta", "url": "https://about.fb.com/news/2026/11/introducing-muse-ai-voice-expressive-avatars/" },
+        { "name": "TechCrunch", "url": "https://techcrunch.com/2026/11/05/meta-says-us-users-can-now-video-chat-with-their-muse-ai-avatar/" }
+      ],
+      "firstComment": "Anúncio da Meta: https://about.fb.com/news/2026/11/introducing-muse-ai-voice-expressive-avatars/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para planejar programas com crianças com IA",
+    "slides": [
+      { "title": "5 prompts para planejar programas com crianças", "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini." },
+      { "title": "1. Em casa", "body": "\"Sugira 5 brincadeiras em casa para crianças de [idade], sem gastar nada.\"" },
+      { "title": "2. Chuva", "body": "\"Está chovendo. Monte uma tarde divertida para [idades] com o que tenho em casa.\"" },
+      { "title": "3. Passeio", "body": "\"Ideias de passeio barato com crianças de [idade] em [cidade]. Confirme horários no site oficial.\"" },
+      { "title": "4. Cozinha", "body": "\"Uma receita simples que crianças de [idade] possam ajudar a fazer, com supervisão.\"" },
+      { "title": "5. História", "body": "\"Crie uma história curta para dormir sobre [tema], para uma criança de [idade].\"" }
+    ],
+    "keyword": "CRIANCAIA",
+    "caption": "5 prompts para planejar programas com crianças. 🧸\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA dá as ideias; horários, preços e segurança dos lugares você confere antes de sair.\n\nManda para quem tem criança em casa 👇\nSalve e comente CRIANCAIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Familia #DicasDeIA",
+    "tiktokTitle": "5 prompts para planejar programas com crianças",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem tem criança em casa!"
+  }
+}
