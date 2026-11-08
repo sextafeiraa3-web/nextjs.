@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-09",
+  "topic": "Meta libera chamada de voz e vídeo com avatar animado da IA Muse nos EUA",
+  "keyword": "MUSEVOZ",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para planejar programas com crianças com IA",
+      "keyword": "CRIANCAIA",
+      "metricoolId": 420729572,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Pedir para o Gemini resumir um vídeo longo do YouTube",
+      "keyword": "YTRESUMO",
+      "metricoolId": 420729334,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Estudo da Anthropic com 207 mil sessões diz que a IA pode dobrar a produção de pesquisa em algumas áreas",
+      "keyword": "CIENCIAIA",
+      "metricoolId": 420729401,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Meta libera chamada de voz e vídeo com avatar animado da IA Muse nos EUA",
+      "keyword": "MUSEVOZ",
+      "metricoolId": 420729477,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}

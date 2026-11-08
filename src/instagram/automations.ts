@@ -723,6 +723,57 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "CRIANCAIA",
+    message:
+      [
+        "Oi! Os 5 prompts para planejar programas com crianças:",
+        "",
+        "1. Sugira 5 brincadeiras em casa para crianças de [idade], sem gastar nada.",
+        "2. Está chovendo. Monte uma tarde divertida para [idades] com o que tenho em casa.",
+        "3. Ideias de passeio barato com crianças de [idade] em [cidade]. Confirme horários no site oficial.",
+        "4. Uma receita simples que crianças de [idade] possam ajudar a fazer, com supervisão.",
+        "5. Crie uma história curta para dormir sobre [tema], para uma criança de [idade].",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 📩",
+  },
+  {
+    keyword: "YTRESUMO",
+    message:
+      [
+        "Oi! O prompt para resumir vídeo do YouTube no Gemini:",
+        "",
+        "\"[cole o link do YouTube] Resuma este vídeo em 5 pontos, com o minuto de cada um, e diga que parte vale assistir inteira.\"",
+        "",
+        "Confira no vídeo qualquer informação importante.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "CIENCIAIA",
+    message:
+      [
+        "Oi! O estudo da Anthropic sobre IA na pesquisa:",
+        "",
+        "Analisou 207 mil sessões com o Claude e ouviu 528 cientistas. Estimativa: em estatística e computação a produção pode quase dobrar. É um modelo, não uma medição.",
+        "",
+        "Estudo: https://www.anthropic.com/research/how-researchers-use-claude",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o estudo no direct! 📩",
+  },
+  {
+    keyword: "MUSEVOZ",
+    message:
+      [
+        "Oi! Sobre o Muse Voice da Meta:",
+        "",
+        "Conversa por voz em tempo real com um avatar animado, no celular, na web e no Mac. Por enquanto só nos EUA.",
+        "",
+        "Meta: https://about.fb.com/news/2026/11/introducing-muse-ai-voice-expressive-avatars/",
+        "TechCrunch: https://techcrunch.com/2026/11/05/meta-says-us-users-can-now-video-chat-with-their-muse-ai-avatar/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>
