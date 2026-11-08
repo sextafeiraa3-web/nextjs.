@@ -21,12 +21,13 @@
       "keyword": "PRINTIA",
       "metricoolId": 419854085,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11. IG via Windsor (comentário 18133278085773985).",
+      "instagramMediaId": "18116507242845168"
     },
     {
       "slot": "17:00",
