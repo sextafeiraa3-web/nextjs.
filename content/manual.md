@@ -34,10 +34,10 @@ Semana 02/11–08/11 (Instagram via Windsor, alcance por post; 28 posts):
 - Mantém 2 notícias + 1 dica nos vídeos.
 - Notícia que funciona tem conflito ou efeito no dia a dia: OpenAI paga a conta de luz (33), escola sem IA fica sem Google (27), IA acha 81 falhas no Firefox (25), ChatGPT no e-mail do iPhone (22). Notícia de mercado/empresa sem efeito para a pessoa foi mal: IPO da Anthropic (3), robots.txt (5), Perplexity Teammates (9). Evitar esse tipo ou trocar o gancho para "o que muda para você".
 - Dica que funciona resolve um problema visível e concreto: print do erro (51), revisão de texto (13), ata de reunião (13). Conceito abstrato ou dica de estilo foi mal: imitar estilo (3), resposta diferente (8), tabela de comparação (8).
-- Carrossel: média 3,7 de alcance em 7 posts e nenhum salvamento pela 2ª semana. Mantém 1 por dia (regra do dono), mas vai para 11:00 (ver horários).
+- Carrossel: média 3,7 de alcance em 7 posts e nenhum salvamento pela 2ª semana. Mantém 1 por dia (regra do dono); testar 11:00 quando o dono liberar (ver horários).
 
 ## Analista: horários
-- Carrossel passa para 11:00 a partir da próxima Fábrica: às 09:00 teve 3–6 de alcance nas duas semanas (média 3,7 nesta).
+- Carrossel continua às 09:00: o validador (automation/src/validate.ts) só aceita esse horário. Mudar para 11:00 é recomendado (3–6 de alcance às 09:00 nas duas semanas, média 3,7 nesta), mas depende de o dono liberar a mudança no código.
 - Vídeos 12:30, 17:00 e 19:00. Médias de alcance: 12:30 = 15,3; 17:00 = 13,0; 19:00 = 17,0. Mantém a notícia mais forte às 19:00.
 
 ## Analista: o que está funcionando
