@@ -29,21 +29,25 @@ reescreve toda segunda, com o número que justifica cada mudança.
 - Carrossel: Instagram (carrossel) e TikTok (fotos).
 
 ## Analista: pilares e proporção
-Semana 26/10–01/11 (Instagram via Windsor, alcance por post):
-- Notícia rende 2× dica: média 23 de alcance (Mistral 46, Genie 4 28, Suécia 22, Offline 12, Carbon 9) contra 12 das dicas/conceitos (Resumo PDF 17, e-mail 14, agente 14, contexto 11).
-- Mantém 2 notícias + 1 dica/conceito nos vídeos. Prioridade: notícia com surpresa ou número grande no gancho ("1 trilhão", "mundo que muda quando você digita").
-- Carrossel alcança pouco no Instagram (3–5 contas por post, nenhum salvamento). Mantém 1 por dia, mas com gancho de lista útil e capa com promessa clara; reavaliar na próxima semana.
+Semana 02/11–08/11 (Instagram via Windsor, alcance por post; 28 posts):
+- Notícia segue na frente: média 16,6 de alcance em 12 reels contra 13,1 das dicas/conceitos em 9 reels (8,4 sem o PRINTIA, que fez 51).
+- Mantém 2 notícias + 1 dica nos vídeos.
+- Notícia que funciona tem conflito ou efeito no dia a dia: OpenAI paga a conta de luz (33), escola sem IA fica sem Google (27), IA acha 81 falhas no Firefox (25), ChatGPT no e-mail do iPhone (22). Notícia de mercado/empresa sem efeito para a pessoa foi mal: IPO da Anthropic (3), robots.txt (5), Perplexity Teammates (9). Evitar esse tipo ou trocar o gancho para "o que muda para você".
+- Dica que funciona resolve um problema visível e concreto: print do erro (51), revisão de texto (13), ata de reunião (13). Conceito abstrato ou dica de estilo foi mal: imitar estilo (3), resposta diferente (8), tabela de comparação (8).
+- Carrossel: média 3,7 de alcance em 7 posts e nenhum salvamento pela 2ª semana. Mantém 1 por dia (regra do dono), mas vai para 11:00 (ver horários).
 
 ## Analista: horários
-- Carrossel 09:00; vídeos 12:30, 17:00 e 19:00. O gancho mais forte fica às 19:00: os 3 maiores alcances da semana foram às 19:00 (46, 28 e 22).
-- Carrossel às 09:00 teve o menor alcance (3–5); testar 11:00 se continuar assim na próxima semana.
+- Carrossel passa para 11:00 a partir da próxima Fábrica: às 09:00 teve 3–6 de alcance nas duas semanas (média 3,7 nesta).
+- Vídeos 12:30, 17:00 e 19:00. Médias de alcance: 12:30 = 15,3; 17:00 = 13,0; 19:00 = 17,0. Mantém a notícia mais forte às 19:00.
 
 ## Analista: o que está funcionando
-Dados de 26/10 a 01/11 (Instagram via Windsor; Metricool não trouxe métricas do TikTok nem por post nesta semana):
-- Instagram: 12 → 13 seguidores. Melhor post: "A IA europeia de 1 trilhão de parâmetros" (46 de alcance, 54 views, 1 salvamento).
-- Compartilhamentos continuam em zero em todos os 21 posts: falta frase de "manda para quem precisa" no fim da legenda e do vídeo.
-- Comentários: só o primeiro comentário automático; as palavras-chave ainda não geraram comentários de seguidores.
-- Dados antigos (1 a 27/10): TikTok entrega 10–50× mais que o Instagram com o mesmo conteúdo.
+Dados de 02/11 a 08/11 (Instagram via Windsor). Facebook, TikTok e YouTube não publicaram desde 05/11 19:00 (limite da conta do Metricool), então não há números deles nesta semana.
+- Seguidores: Instagram 13 → 13; TikTok 186 → 186 (parado, sem posts).
+- Melhores posts: "Apareceu um erro na tela? Mande o print." (51 de alcance, 64 views, 1 salvamento); "A OpenAI vai pagar a conta de luz da IA" (33); "Escola sem IA vai ficar sem Google?" (27).
+- A segunda metade da semana rendeu o dobro: reels de 06–08/11 tiveram média 21,6 de alcance contra 10,3 em 02–05/11.
+- Taxa de pulo nos 3 primeiros segundos ficou em torno de 80% em quase todos os reels (100% em IPO da Anthropic e imitar estilo). O gancho precisa prender em 1 segundo: começar pelo problema ou pelo número, sem introdução.
+- Os reels com maior tempo médio assistido foram notícias com efeito direto: Siri em português (6,0 s), Uber (5,9 s), conta de luz (4,6 s).
+- Compartilhamentos: zero em todos os 28 posts, mesmo com o "Manda para quem…" desde 04/11. Salvamentos: só 2 (ICLOUD e PRINTIA). Comentários de seguidores com palavra-chave: nenhum.
 
 ## Voz
 - Narração por IA (Piper). Usa `voices/pt_BR-faber-medium.onnx` quando existir no repositório; senão `pt-br-edresson-low` (baixada do GitHub).
