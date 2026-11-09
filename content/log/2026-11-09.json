@@ -35,12 +35,13 @@
       "keyword": "CIENCIAIA",
       "metricoolId": 420729401,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
+        "instagram": "FIXED",
+        "facebook": "ERROR",
+        "tiktok": "ERROR",
+        "youtube": "ERROR"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11. Instagram publicado com ~2h de atraso (reinício da sessão).",
+      "instagramMediaId": "18115855304027140"
     },
     {
       "slot": "19:00",
@@ -48,12 +49,13 @@
       "keyword": "MUSEVOZ",
       "metricoolId": 420729477,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
+        "instagram": "FIXED",
+        "facebook": "ERROR",
+        "tiktok": "ERROR",
+        "youtube": "ERROR"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11.",
+      "instagramMediaId": "18403478857200170"
     }
   ]
 }
