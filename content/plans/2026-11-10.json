@@ -1,0 +1,160 @@
+{
+  "date": "2026-11-10",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Pedir para a IA apontar os pontos fracos da sua ideia antes de você colocar em prática",
+      "hook": "Sua ideia é boa mesmo? Peça para a IA criticar",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "O problema:",
+          "body": "a IA tende a concordar com tudo o que você diz."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça assim",
+          "steps": [
+            "Aponte 3 pontos fracos",
+            "Diga o que pode dar errado",
+            "Sugira como resolver"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Resultado:",
+          "body": "você corrige antes de gastar tempo e dinheiro."
+        }
+      ],
+      "narration": "Sua ideia é boa mesmo? Peça para a IA criticar. Ela tende a concordar com tudo, então peça direto: aponte três pontos fracos desta ideia, diga o que pode dar errado e como resolver. Você corrige antes de gastar tempo e dinheiro. Comente CRITICA que eu te mando o prompt.",
+      "keyword": "CRITICA",
+      "ctaQuestion": "Manda para aquele amigo cheio de ideias",
+      "caption": "Sua ideia é boa mesmo? Peça para a IA criticar. 🧐\n\nA IA tende a concordar com o que você diz. Para ter uma opinião útil, peça direto: \"Aponte 3 pontos fracos desta ideia, o que pode dar errado e como resolver cada um\". Vale para negócio, projeto, texto ou plano de viagem.\n\nA decisão continua sendo sua: use as críticas como lista do que conferir, não como sentença.\n\nManda para aquele amigo cheio de ideias 👇\nComente CRITICA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Empreendedorismo",
+      "tiktokTitle": "Sua ideia é boa mesmo? Peça para a IA criticar",
+      "youtubeTitle": "Peça para a IA criticar sua ideia #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[descreva sua ideia] Aponte 3 pontos fracos desta ideia, o que pode dar errado e como resolver cada um. Seja direto, sem elogios.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "noticia",
+      "topic": "Claude lança Personal Finance: conecta a conta do banco e analisa seus gastos",
+      "hook": "Agora o Claude pode ler o extrato do seu banco",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Claude Personal Finance:",
+          "body": "conecta a conta do banco e analisa seus gastos."
+        },
+        {
+          "kind": "list",
+          "title": "Como funciona",
+          "items": [
+            "Conexão pela Plaid, sem sua senha",
+            "Só lê, não mexe no dinheiro",
+            "Até 24 meses de transações"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Por enquanto:",
+          "body": "em teste, só nos EUA e em planos pagos."
+        }
+      ],
+      "narration": "Agora o Claude pode ler o extrato do seu banco. A Anthropic lançou o Personal Finance: você conecta a conta pela Plaid, sem dar a senha, e o Claude analisa até vinte e quatro meses de gastos. Ele só lê, não mexe no dinheiro. Por enquanto é teste, só nos Estados Unidos. Comente FINANCIA que eu te mando a matéria.",
+      "keyword": "FINANCIA",
+      "ctaQuestion": "Você deixaria uma IA ver seu extrato?",
+      "caption": "Agora o Claude pode ler o extrato do seu banco. 🏦\n\nA Anthropic lançou o Personal Finance no Claude: você conecta suas contas pela Plaid, sem entregar a senha do banco, e o Claude mostra saldos, organiza os gastos e responde perguntas sobre até 24 meses de transações. Ele só lê: não transfere, não paga e não investe nada. A Anthropic diz que essas conversas não são usadas para treinar a IA.\n\nPor enquanto é um teste, liberado aos poucos, só para bancos dos EUA e para quem assina Pro, Max ou Ultra. O ChatGPT lançou algo parecido em maio.\n\nVocê deixaria uma IA ver seu extrato? Comenta aí 👇\nManda para aquele amigo que nunca sabe para onde foi o salário\nComente FINANCIA que eu te mando a matéria completa no direct.\n\nFonte: Anthropic e TechCrunch\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Claude #Financas #Tecnologia",
+      "tiktokTitle": "Agora o Claude pode ler o extrato do seu banco",
+      "youtubeTitle": "Claude Personal Finance: a IA que analisa seus gastos #shorts",
+      "sources": [
+        {
+          "name": "Anthropic",
+          "url": "https://claude.com/resources/articles/introducing-personal-finance-in-claude"
+        },
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/"
+        }
+      ],
+      "firstComment": "Anúncio da Anthropic: https://claude.com/resources/articles/introducing-personal-finance-in-claude"
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "OpenAI recebe US$ 11 bilhões em rodada que avalia a empresa em US$ 1,25 trilhão",
+      "hook": "A dona do ChatGPT agora vale US$ 1,25 trilhão",
+      "scenes": [
+        {
+          "kind": "number",
+          "value": "11 bi",
+          "label": "de dólares já entraram no caixa da OpenAI"
+        },
+        {
+          "kind": "number",
+          "value": "1,25 tri",
+          "label": "de dólares: quanto a empresa vale nessa rodada"
+        },
+        {
+          "kind": "statement",
+          "title": "Mas:",
+          "body": "a meta era maior e a rodada foi reduzida."
+        }
+      ],
+      "narration": "A dona do ChatGPT agora vale um vírgula vinte e cinco trilhão de dólares. Segundo a Bloomberg e a CNBC, a OpenAI recebeu onze bilhões de dólares, a primeira parte de uma rodada que pode chegar a vinte bilhões. Mas a meta era maior e foi reduzida. Comente TRILHAO que eu te mando a matéria.",
+      "keyword": "TRILHAO",
+      "ctaQuestion": "Você acha que a IA vale tudo isso?",
+      "caption": "A dona do ChatGPT agora vale US$ 1,25 trilhão. 💰\n\nSegundo a Bloomberg e a CNBC, a OpenAI recebeu cerca de US$ 11 bilhões, a primeira parte de uma rodada de investimento que pode chegar a US$ 20 bilhões e avalia a empresa em US$ 1,25 trilhão. Entre os investidores citados estão SoftBank, Sequoia e um grupo dos Emirados Árabes.\n\nA meta era maior: a empresa chegou a buscar US$ 30 bilhões, mas reduziu depois da queda das ações de tecnologia. A OpenAI ainda planeja abrir capital em 2027.\n\nVocê acha que a IA vale tudo isso? Comenta aí 👇\nManda para quem acha que IA é moda passageira\nComente TRILHAO que eu te mando a matéria completa no direct.\n\nFonte: Bloomberg, CNBC e TechCrunch\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #OpenAI #ChatGPT #Tecnologia",
+      "tiktokTitle": "A dona do ChatGPT agora vale US$ 1,25 trilhão",
+      "youtubeTitle": "OpenAI recebe US$ 11 bilhões e vale US$ 1,25 trilhão #shorts",
+      "sources": [
+        {
+          "name": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/06/open-ai-data-centers-election.html"
+        },
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/"
+        }
+      ],
+      "firstComment": "Matéria do TechCrunch: https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para organizar o fim de ano com IA",
+    "slides": [
+      {
+        "title": "5 prompts para organizar o fim de ano",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Lista de tarefas",
+        "body": "\"Monte uma lista do que preciso resolver até 31/12, por semana: [cole suas pendências].\""
+      },
+      {
+        "title": "2. Ceia",
+        "body": "\"Planeje uma ceia para [número] pessoas com orçamento de R$ [valor], com lista de compras.\""
+      },
+      {
+        "title": "3. Amigo secreto",
+        "body": "\"Organize um amigo secreto para [número] pessoas, com regras e valor de R$ [valor].\""
+      },
+      {
+        "title": "4. Mensagens",
+        "body": "\"Escreva uma mensagem curta de boas festas para [pessoa], num tom [carinhoso/divertido].\""
+      },
+      {
+        "title": "5. Metas",
+        "body": "\"Me ajude a escolher 3 metas realistas para o próximo ano sobre [área], com o primeiro passo de cada.\""
+      }
+    ],
+    "keyword": "FIMDEANO",
+    "caption": "5 prompts para organizar o fim de ano com IA. 🎄\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini: lista de pendências, ceia, amigo secreto, mensagens e metas. Preços e prazos você confere antes.\n\nManda para quem já está surtando com dezembro 👇\nSalve e comente FIMDEANO que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #FimDeAno #DicasDeIA",
+    "tiktokTitle": "5 prompts para organizar o fim de ano com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem já está surtando com dezembro!"
+  }
+}

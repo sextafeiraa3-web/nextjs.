@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-10",
+  "topic": "OpenAI recebe US$ 11 bilhões em rodada que avalia a empresa em US$ 1,25 trilhão",
+  "keyword": "TRILHAO",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para organizar o fim de ano com IA",
+      "keyword": "FIMDEANO",
+      "metricoolId": 421380350,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Pedir para a IA apontar os pontos fracos da sua ideia antes de você colocar em prática",
+      "keyword": "CRITICA",
+      "metricoolId": 421380384,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Claude lança Personal Finance: conecta a conta do banco e analisa seus gastos",
+      "keyword": "FINANCIA",
+      "metricoolId": 421380420,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "OpenAI recebe US$ 11 bilhões em rodada que avalia a empresa em US$ 1,25 trilhão",
+      "keyword": "TRILHAO",
+      "metricoolId": 421380475,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}

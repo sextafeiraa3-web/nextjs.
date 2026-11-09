@@ -774,6 +774,60 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "FIMDEANO",
+    message:
+      [
+        "Oi! Aqui estão os 5 prompts para organizar o fim de ano:",
+        "",
+        "1. \"Monte uma lista do que preciso resolver até 31/12, por semana: [cole suas pendências].\"",
+        "2. \"Planeje uma ceia para [número] pessoas com orçamento de R$ [valor], com lista de compras.\"",
+        "3. \"Organize um amigo secreto para [número] pessoas, com regras e valor de R$ [valor].\"",
+        "4. \"Escreva uma mensagem curta de boas festas para [pessoa], num tom [carinhoso/divertido].\"",
+        "5. \"Me ajude a escolher 3 metas realistas para o próximo ano sobre [área], com o primeiro passo de cada.\"",
+        "",
+        "Preços e prazos você confere antes.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 📩",
+  },
+  {
+    keyword: "CRITICA",
+    message:
+      [
+        "Oi! Aqui está o prompt:",
+        "",
+        "\"[descreva sua ideia] Aponte 3 pontos fracos desta ideia, o que pode dar errado e como resolver cada um. Seja direto, sem elogios.\"",
+        "",
+        "Use as críticas como lista do que conferir: a decisão continua sendo sua.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "FINANCIA",
+    message:
+      [
+        "Oi! Sobre o Personal Finance do Claude:",
+        "",
+        "Você conecta suas contas pela Plaid, sem dar a senha do banco, e o Claude analisa saldos e até 24 meses de gastos. Ele só lê, não mexe no dinheiro. Por enquanto é teste, só para bancos dos EUA e planos Pro, Max e Ultra.",
+        "",
+        "Anthropic: https://claude.com/resources/articles/introducing-personal-finance-in-claude",
+        "TechCrunch: https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
+  {
+    keyword: "TRILHAO",
+    message:
+      [
+        "Oi! Sobre a OpenAI valer US$ 1,25 trilhão:",
+        "",
+        "Segundo a Bloomberg e a CNBC, a OpenAI recebeu cerca de US$ 11 bilhões, a primeira parte de uma rodada que pode chegar a US$ 20 bilhões. A meta inicial era maior e foi reduzida.",
+        "",
+        "TechCrunch: https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+        "CNBC: https://www.cnbc.com/2026/11/06/open-ai-data-centers-election.html",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>
