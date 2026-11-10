@@ -9,10 +9,11 @@
       "keyword": "FIMDEANO",
       "metricoolId": 421380350,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "tiktok": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11.",
+      "instagramMediaId": "18250564735313594"
     },
     {
       "slot": "12:30",
