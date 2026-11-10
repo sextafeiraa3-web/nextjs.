@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-11",
+  "topic": "Meta leva para o mundo todo a IA que descobre a idade real de adolescentes no Instagram",
+  "keyword": "IDADEIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para vender o que você não usa mais com IA",
+      "keyword": "DESAPEGO",
+      "metricoolId": 422743015,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Mandar a foto da conta de luz para a IA explicar cada cobrança",
+      "keyword": "CONTALUZ",
+      "metricoolId": 422743076,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Anthropic lança Claude Fable 5.2 e Mythos 5.2, modelos mais baratos para desenvolvedores",
+      "keyword": "FABLE",
+      "metricoolId": 422743146,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Meta leva para o mundo todo a IA que descobre a idade real de adolescentes no Instagram",
+      "keyword": "IDADEIA",
+      "metricoolId": 422743193,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}

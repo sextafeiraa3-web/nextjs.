@@ -828,6 +828,60 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "DESAPEGO",
+    message:
+      [
+        "Oi! Aqui estão os 5 prompts para vender o que você não usa mais:",
+        "",
+        "1. \"Quanto devo pedir por [item, marca, estado, anos de uso]? Me dê uma faixa e o que conferir nos anúncios.\"",
+        "2. \"Escreva um anúncio curto e honesto para vender [item], com estado, defeitos e motivo da venda.\"",
+        "3. \"Que 5 fotos devo tirar de [item] para o anúncio passar confiança?\"",
+        "4. \"O comprador ofereceu R$ [valor] por [item] de R$ [preço]. Escreva uma resposta educada com contraproposta.\"",
+        "5. \"Liste os golpes mais comuns ao vender [item] pela internet e como me proteger.\"",
+        "",
+        "Nunca envie o produto antes de o pagamento cair na conta.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 📩",
+  },
+  {
+    keyword: "CONTALUZ",
+    message:
+      [
+        "Oi! Aqui está o prompt:",
+        "",
+        "\"[foto da conta, sem nome, endereço e número do cliente] Explique cada cobrança desta conta de luz em linguagem simples, compare o consumo com o mês anterior e me dê 3 jeitos de gastar menos.\"",
+        "",
+        "Confira os valores na própria conta: a IA pode ler um número errado. Cobrança estranha? Fale com a distribuidora.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "FABLE",
+    message:
+      [
+        "Oi! Sobre o Claude Fable 5.2:",
+        "",
+        "Liberado para quem assina Pro, Max, Ultra, Team e Enterprise. Para desenvolvedores, o preço caiu de US$ 10 para US$ 8 por milhão de tokens de entrada. O Mythos 5.2 é o mesmo modelo com menos travas, só para grupos verificados.",
+        "",
+        "Anthropic: https://www.anthropic.com/claude-fable-and-mythos-5-2",
+        "CNBC: https://www.cnbc.com/2026/11/09/anthropic-claude-fable-5-2-mythos-5-2.html",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
+  {
+    keyword: "IDADEIA",
+    message:
+      [
+        "Oi! Sobre a IA do Instagram que estima a idade:",
+        "",
+        "A Meta levou para o mundo todo (no Brasil já rodava desde maio) a IA que procura pistas no perfil, como foto de aniversário e série da escola. Se a conta parecer de adolescente, vira Conta de Adolescente, com mais proteção.",
+        "",
+        "Meta: https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/",
+        "TechCrunch: https://techcrunch.com/2026/11/09/meta-expands-instagrams-ai-age-guessing-tech-globally/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

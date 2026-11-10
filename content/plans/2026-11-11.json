@@ -1,0 +1,160 @@
+{
+  "date": "2026-11-11",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Mandar a foto da conta de luz para a IA explicar cada cobrança",
+      "hook": "Conta de luz veio alta? Mande a foto para a IA",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Tire uma foto da conta.",
+          "body": "Cubra nome, endereço e número do cliente."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça para a IA",
+          "steps": [
+            "Explique cada cobrança",
+            "Compare com o mês passado",
+            "Diga como gastar menos"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Achou algo estranho?",
+          "body": "Confirme com a distribuidora antes de reclamar."
+        }
+      ],
+      "narration": "Conta de luz veio alta? Mande a foto para a IA. Cubra nome e endereço, envie a foto e peça: explique cada cobrança em linguagem simples, compare com o mês passado e diga como gastar menos. Achou algo estranho? Confirme com a distribuidora. Comente CONTALUZ que eu te mando o prompt.",
+      "keyword": "CONTALUZ",
+      "ctaQuestion": "Manda para quem levou susto com a conta este mês",
+      "caption": "Conta de luz veio alta? Mande a foto para a IA. ⚡\n\nTire uma foto da conta, cubra nome, endereço e número do cliente, e envie para o ChatGPT, o Claude ou o Gemini pedindo: \"explique cada cobrança em linguagem simples, compare o consumo com o mês anterior e me dê 3 jeitos de gastar menos\". Bandeira tarifária, iluminação pública, impostos: tudo fica claro.\n\nA IA pode ler um número errado: confira os valores na conta e, se achar cobrança estranha, fale com a distribuidora.\n\nManda para quem levou susto com a conta este mês 👇\nComente CONTALUZ que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Economia",
+      "tiktokTitle": "Conta de luz veio alta? Mande a foto para a IA",
+      "youtubeTitle": "Use a IA para entender sua conta de luz #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[foto da conta, sem nome e endereço] Explique cada cobrança desta conta de luz em linguagem simples, compare o consumo com o mês anterior e me dê 3 jeitos de gastar menos.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "noticia",
+      "topic": "Anthropic lança Claude Fable 5.2 e Mythos 5.2, modelos mais baratos para desenvolvedores",
+      "hook": "Saiu o novo Claude, e ele ficou mais barato",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Claude Fable 5.2:",
+          "body": "liberado para quem assina Pro, Max, Ultra e empresas."
+        },
+        {
+          "kind": "number",
+          "value": "-20%",
+          "label": "no preço para desenvolvedores, contra a versão 5.1"
+        },
+        {
+          "kind": "statement",
+          "title": "E o Mythos 5.2?",
+          "body": "o mesmo modelo, com menos travas, só para grupos verificados."
+        }
+      ],
+      "narration": "Saiu o novo Claude, e ele ficou mais barato. A Anthropic lançou o Claude Fable 5.2 para quem assina os planos pagos, com preço vinte por cento menor para desenvolvedores. E o Mythos 5.2, o mesmo modelo com menos travas, fica só para grupos verificados de segurança e ciência. Comente FABLE que eu te mando a matéria.",
+      "keyword": "FABLE",
+      "ctaQuestion": "Você usa o Claude ou o ChatGPT?",
+      "caption": "Saiu o novo Claude, e ele ficou mais barato. 🤖\n\nA Anthropic lançou nesta segunda (9/11) o Claude Fable 5.2, liberado para quem assina Pro, Max, Ultra, Team e Enterprise. Para desenvolvedores, o preço caiu de US$ 10 para US$ 8 por milhão de tokens de entrada, e de US$ 50 para US$ 40 na saída.\n\nJunto veio o Mythos 5.2: segundo a Anthropic, é o mesmo modelo, mas sem parte das travas de segurança, por isso só grupos verificados de cibersegurança e ciências da vida podem usar. A CNBC lembra que é o primeiro lançamento desde que o CEO, Dario Amodei, pediu para o setor desacelerar.\n\nVocê usa o Claude ou o ChatGPT? Comenta aí 👇\nManda para quem ainda acha que só existe o ChatGPT\nComente FABLE que eu te mando a matéria completa no direct.\n\nFonte: Anthropic e CNBC\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Claude #Anthropic #Tecnologia",
+      "tiktokTitle": "Saiu o novo Claude, e ele ficou mais barato",
+      "youtubeTitle": "Claude Fable 5.2 e Mythos 5.2: o que mudou #shorts",
+      "sources": [
+        {
+          "name": "Anthropic",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+        },
+        {
+          "name": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/09/anthropic-claude-fable-5-2-mythos-5-2.html"
+        }
+      ],
+      "firstComment": "Anúncio da Anthropic: https://www.anthropic.com/claude-fable-and-mythos-5-2"
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "Meta leva para o mundo todo a IA que descobre a idade real de adolescentes no Instagram",
+      "hook": "O Instagram usa IA para descobrir sua idade real",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Mentiu a idade?",
+          "body": "a IA do Instagram procura pistas no perfil."
+        },
+        {
+          "kind": "list",
+          "title": "Que pistas",
+          "items": [
+            "Fotos de aniversário",
+            "Série da escola",
+            "Posts, bio e comentários"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Se parecer adolescente:",
+          "body": "a conta vira Conta de Adolescente, com mais proteção."
+        }
+      ],
+      "narration": "O Instagram usa IA para descobrir sua idade real. A Meta levou para o mundo todo a ferramenta que procura pistas no perfil, como foto de aniversário e série da escola, mesmo quando a pessoa colocou idade de adulto. Se parecer adolescente, a conta ganha as proteções da Conta de Adolescente. Comente IDADEIA que eu te mando a matéria.",
+      "keyword": "IDADEIA",
+      "ctaQuestion": "Você acha certo a IA adivinhar a idade?",
+      "caption": "O Instagram usa IA para descobrir sua idade real. 🔎\n\nA Meta anunciou nesta segunda (9/11) que a IA que estima a idade dos usuários do Instagram vai funcionar no mundo todo. No Brasil, ela já rodava desde maio. A ferramenta procura pistas no perfil, como foto de festa de aniversário ou menção à série da escola, em posts, bio, legendas e comentários, mesmo quando a pessoa colocou uma data de nascimento de adulto.\n\nSe a conta parecer de adolescente, ela passa para a Conta de Adolescente, com mais privacidade e limites de conteúdo.\n\nVocê acha certo a IA adivinhar a idade? Comenta aí 👇\nManda para quem tem filho adolescente no Instagram\nComente IDADEIA que eu te mando a matéria completa no direct.\n\nFonte: Meta e TechCrunch\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Instagram #Meta #Seguranca",
+      "tiktokTitle": "O Instagram usa IA para descobrir sua idade real",
+      "youtubeTitle": "Instagram usa IA para descobrir a idade real dos usuários #shorts",
+      "sources": [
+        {
+          "name": "Meta",
+          "url": "https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/"
+        },
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/09/meta-expands-instagrams-ai-age-guessing-tech-globally/"
+        }
+      ],
+      "firstComment": "Anúncio da Meta: https://about.fb.com/news/2026/11/expanding-teen-account-protections-to-teens-around-the-world/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para vender o que você não usa mais com IA",
+    "slides": [
+      {
+        "title": "5 prompts para vender o que você não usa mais",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Preço",
+        "body": "\"Quanto devo pedir por [item, marca, estado, anos de uso]? Me dê uma faixa e o que conferir nos anúncios.\""
+      },
+      {
+        "title": "2. Anúncio",
+        "body": "\"Escreva um anúncio curto e honesto para vender [item], com estado, defeitos e motivo da venda.\""
+      },
+      {
+        "title": "3. Foto",
+        "body": "\"Que 5 fotos devo tirar de [item] para o anúncio passar confiança?\""
+      },
+      {
+        "title": "4. Negociação",
+        "body": "\"O comprador ofereceu R$ [valor] por [item] de R$ [preço]. Escreva uma resposta educada com contraproposta.\""
+      },
+      {
+        "title": "5. Segurança",
+        "body": "\"Liste os golpes mais comuns ao vender [item] pela internet e como me proteger.\""
+      }
+    ],
+    "keyword": "DESAPEGO",
+    "caption": "5 prompts para vender o que você não usa mais. 📦\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini: preço, anúncio, fotos, negociação e segurança. Confira os preços em anúncios reais e nunca envie o produto antes de o pagamento cair na conta.\n\nManda para quem tem um armário cheio de coisa parada 👇\nSalve e comente DESAPEGO que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Desapego #DicasDeIA",
+    "tiktokTitle": "5 prompts para vender o que você não usa mais",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem tem um armário cheio de coisa parada!"
+  }
+}
