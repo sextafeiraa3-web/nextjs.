@@ -49,12 +49,13 @@
       "keyword": "IDADEIA",
       "metricoolId": 422743193,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
+        "instagram": "FIXED",
+        "facebook": "ERROR",
+        "tiktok": "ERROR",
+        "youtube": "ERROR"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11. Instagram publicado com ~1h de atraso (reinício da sessão).",
+      "instagramMediaId": "18496784413129322"
     }
   ]
 }
