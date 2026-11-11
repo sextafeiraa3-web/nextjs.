@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-12",
+  "topic": "OpenAI lança Businesses in ChatGPT: empresas podem assumir o perfil que aparece nas respostas",
+  "keyword": "NEGOCIOIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para montar um treino em casa com IA",
+      "keyword": "TREINOIA",
+      "metricoolId": 424024239,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Mandar print de mensagem suspeita para a IA apontar sinais de golpe",
+      "keyword": "GOLPEIA",
+      "metricoolId": 424024267,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Spotify dá novas vozes ao DJ com IA e opção para ele falar menos entre as músicas",
+      "keyword": "DJIA",
+      "metricoolId": 424024293,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "OpenAI lança Businesses in ChatGPT: empresas podem assumir o perfil que aparece nas respostas",
+      "keyword": "NEGOCIOIA",
+      "metricoolId": 424024321,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}

@@ -882,6 +882,60 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "TREINOIA",
+    message:
+      [
+        "Oi! Aqui estão os 5 prompts para treinar em casa:",
+        "",
+        "1. \"Monte um treino de [minutos] em casa, sem equipamento, para iniciante.\"",
+        "2. \"Crie um plano de 3 dias por semana em casa, alternando pernas, braços e abdômen.\"",
+        "3. \"Explique passo a passo como fazer [exercício] do jeito certo e os erros comuns.\"",
+        "4. \"Tenho dor no [joelho/costas]. Que exercício posso fazer no lugar de [exercício]?\"",
+        "5. \"Me ajude a criar uma meta simples de 30 dias e um jeito de acompanhar.\"",
+        "",
+        "Sentiu dor ou tem algum problema de saúde? Fale com um médico ou educador físico antes.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 📩",
+  },
+  {
+    keyword: "GOLPEIA",
+    message:
+      [
+        "Oi! Aqui está o prompt:",
+        "",
+        "\"[print da mensagem, sem seus dados] Quais sinais de golpe tem nesta mensagem, o que eu nunca devo fazer e como confirmar com segurança?\"",
+        "",
+        "A IA ajuda, mas não garante nada: na dúvida, não clique, não pague e ligue para o número oficial.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "DJIA",
+    message:
+      [
+        "Oi! Sobre o DJ do Spotify:",
+        "",
+        "Agora dá para desligar os comentários entre as músicas, e ele ganhou 7 vozes novas em inglês e 2 em espanhol. É para assinantes Premium onde o DJ funciona; no Brasil ele fala português desde maio.",
+        "",
+        "Spotify: https://newsroom.spotify.com/2026-11-10/dj-new-voices-controls/",
+        "TechCrunch: https://techcrunch.com/2026/11/10/spotifys-ai-dj-gets-new-voices-personalities-and-an-option-for-less-chatter/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
+  {
+    keyword: "NEGOCIOIA",
+    message:
+      [
+        "Oi! Sobre o Businesses in ChatGPT:",
+        "",
+        "Em teste, a empresa assume o perfil que aparece nas recomendações do ChatGPT, atualiza dados e produtos e vê menções e cliques. Quem pode participar depende do setor e do país, e ter o perfil não garante aparecer mais.",
+        "",
+        "Anúncio: https://openai.com/index/introducing-businesses-chatgpt/",
+        "Para reivindicar: https://openai.com/business/businesses-in-chatgpt/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o link no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

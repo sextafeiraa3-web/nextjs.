@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-12",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Mandar print de mensagem suspeita para a IA apontar sinais de golpe",
+      "hook": "Mensagem estranha no WhatsApp? Pergunte para a IA",
+      "scenes": [
+        {"kind": "statement", "title": "Tire um print.", "body": "Cubra seus dados e os números da conversa."},
+        {"kind": "steps", "title": "Peça para a IA", "steps": ["Quais sinais de golpe tem aqui", "O que nunca devo fazer", "Como confirmar com segurança"]},
+        {"kind": "statement", "title": "Na dúvida:", "body": "não clique, não pague e ligue no número oficial."}
+      ],
+      "narration": "Mensagem estranha no WhatsApp? Pergunte para a IA. Tire um print, cubra seus dados e pergunte: quais sinais de golpe tem aqui, o que eu nunca devo fazer e como confirmar com segurança. Na dúvida, não clique, não pague e ligue para o número oficial. Comente GOLPEIA que eu te mando o prompt.",
+      "keyword": "GOLPEIA",
+      "ctaQuestion": "Manda para quem sempre recebe mensagem de golpe",
+      "caption": "Mensagem estranha no WhatsApp? Pergunte para a IA. 🚨\n\nTire um print da mensagem, cubra seus dados e envie para o ChatGPT, o Claude ou o Gemini perguntando: \"quais sinais de golpe tem nesta mensagem, o que eu nunca devo fazer e como confirmar com segurança?\". Pedido urgente de PIX, link estranho e parente com número novo são clássicos.\n\nA IA ajuda a enxergar os sinais, mas não garante nada: na dúvida, não clique, não pague e ligue para o número oficial da pessoa ou da empresa.\n\nManda para quem sempre recebe mensagem de golpe 👇\nComente GOLPEIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Seguranca",
+      "tiktokTitle": "Mensagem estranha no WhatsApp? Pergunte para a IA",
+      "youtubeTitle": "Use a IA para identificar mensagem de golpe #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[print da mensagem, sem seus dados] Quais sinais de golpe tem nesta mensagem, o que eu nunca devo fazer e como confirmar com segurança?\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "noticia",
+      "topic": "Spotify dá novas vozes ao DJ com IA e opção para ele falar menos entre as músicas",
+      "hook": "O DJ do Spotify fala demais? Agora dá para calar",
+      "scenes": [
+        {"kind": "statement", "title": "DJ do Spotify:", "body": "nova opção para tirar os comentários entre as músicas."},
+        {"kind": "number", "value": "7", "label": "novas vozes em inglês, cada uma com personalidade"},
+        {"kind": "statement", "title": "Para quem:", "body": "assinantes Premium onde o DJ funciona."}
+      ],
+      "narration": "O DJ do Spotify fala demais? Agora dá para calar. A Spotify lançou uma opção que tira os comentários entre as músicas, ótima para festa. E ganhou sete vozes novas em inglês e duas em espanhol, cada uma com personalidade. É para assinantes Premium onde o DJ funciona. Comente DJIA que eu te mando a matéria.",
+      "keyword": "DJIA",
+      "ctaQuestion": "Você usa o DJ do Spotify?",
+      "caption": "O DJ do Spotify fala demais? Agora dá para calar. 🎧\n\nA Spotify anunciou nesta terça (10/11) uma opção que desliga os comentários do DJ com IA entre as músicas. Ele só fala rapidinho quando você liga o DJ ou pede para mudar o clima. A empresa sugere o modo para festas e jantares.\n\nO DJ também ganhou 7 vozes novas em inglês, com sotaques diferentes e personalidade própria, e 2 em espanhol. A voz original continua. É para assinantes Premium onde o DJ está disponível; no Brasil, o DJ fala português desde maio.\n\nVocê usa o DJ do Spotify? Comenta aí 👇\nManda para quem não vive sem playlist\nComente DJIA que eu te mando a matéria completa no direct.\n\nFonte: Spotify e TechCrunch\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Spotify #Musica #Tecnologia",
+      "tiktokTitle": "O DJ do Spotify fala demais? Agora dá para calar",
+      "youtubeTitle": "DJ do Spotify ganha vozes novas e modo sem comentários #shorts",
+      "sources": [
+        {"name": "Spotify", "url": "https://newsroom.spotify.com/2026-11-10/dj-new-voices-controls/"},
+        {"name": "TechCrunch", "url": "https://techcrunch.com/2026/11/10/spotifys-ai-dj-gets-new-voices-personalities-and-an-option-for-less-chatter/"}
+      ],
+      "firstComment": "Anúncio da Spotify: https://newsroom.spotify.com/2026-11-10/dj-new-voices-controls/"
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "OpenAI lança Businesses in ChatGPT: empresas podem assumir o perfil que aparece nas respostas",
+      "hook": "Sua empresa agora pode ter perfil dentro do ChatGPT",
+      "scenes": [
+        {"kind": "statement", "title": "Businesses in ChatGPT:", "body": "a empresa assume o perfil que aparece nas respostas."},
+        {"kind": "list", "title": "O que dá para fazer", "items": ["Atualizar dados e produtos", "Ver menções e cliques", "Ter um atendente com IA (EUA)"]},
+        {"kind": "statement", "title": "Mas atenção:", "body": "não garante aparecer mais nas respostas."}
+      ],
+      "narration": "Sua empresa agora pode ter perfil dentro do ChatGPT. A OpenAI lançou em teste o Businesses in ChatGPT: a empresa assume o perfil que aparece nas respostas, atualiza dados e produtos e vê quantas vezes foi citada. Mas a OpenAI avisa que isso não garante aparecer mais. Comente NEGOCIOIA que eu te mando o link.",
+      "keyword": "NEGOCIOIA",
+      "ctaQuestion": "Você já achou uma loja pelo ChatGPT?",
+      "caption": "Sua empresa agora pode ter perfil dentro do ChatGPT. 🏪\n\nA OpenAI lançou nesta terça (10/11), em teste, o Businesses in ChatGPT. A empresa assume o perfil que aparece quando o ChatGPT recomenda lojas e serviços, atualiza informações, produtos e preços, e vê quantas vezes foi mencionada e quantos cliques recebeu. Nos EUA, algumas lojas online também podem ter um atendente com IA que tira dúvidas e manda para o site.\n\nA OpenAI avisa: ter o perfil não garante aparecer mais nas respostas, e quem pode participar depende do setor e do país. A empresa diz que vai liberar para mais mercados com o tempo.\n\nVocê já achou uma loja pelo ChatGPT? Comenta aí 👇\nManda para quem tem um negócio\nComente NEGOCIOIA que eu te mando o link oficial no direct.\n\nFonte: OpenAI\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Empreendedorismo #Negocios",
+      "tiktokTitle": "Sua empresa agora pode ter perfil dentro do ChatGPT",
+      "youtubeTitle": "Businesses in ChatGPT: sua empresa dentro do ChatGPT #shorts",
+      "sources": [
+        {"name": "OpenAI", "url": "https://openai.com/index/introducing-businesses-chatgpt/"}
+      ],
+      "firstComment": "Anúncio da OpenAI: https://openai.com/index/introducing-businesses-chatgpt/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para montar um treino em casa com IA",
+    "slides": [
+      {"title": "5 prompts para treinar em casa", "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."},
+      {"title": "1. Começar do zero", "body": "\"Monte um treino de [minutos] em casa, sem equipamento, para iniciante.\""},
+      {"title": "2. Rotina da semana", "body": "\"Crie um plano de 3 dias por semana em casa, alternando pernas, braços e abdômen.\""},
+      {"title": "3. Explicar o movimento", "body": "\"Explique passo a passo como fazer [exercício] do jeito certo e os erros comuns.\""},
+      {"title": "4. Trocar exercício", "body": "\"Tenho dor no [joelho/costas]. Que exercício posso fazer no lugar de [exercício]?\""},
+      {"title": "5. Não desistir", "body": "\"Me ajude a criar uma meta simples de 30 dias e um jeito de acompanhar.\""}
+    ],
+    "keyword": "TREINOIA",
+    "caption": "5 prompts para montar um treino em casa com IA. 🏋️\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA ajuda a organizar, mas não substitui um profissional: se sentir dor ou tiver algum problema de saúde, fale com um médico ou educador físico antes.\n\nManda para quem vive dizendo que vai começar segunda 👇\nSalve e comente TREINOIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Treino #DicasDeIA",
+    "tiktokTitle": "5 prompts para montar um treino em casa com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem vive dizendo que vai começar segunda!"
+  }
+}
