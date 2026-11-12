@@ -34,12 +34,13 @@
       "keyword": "DJIA",
       "metricoolId": 424024293,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "ERROR",
         "tiktok": "ERROR",
         "youtube": "ERROR"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11. Sessão fora do ar no horário; Instagram reagendado para a noite."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11. Sessão fora do ar no horário; Instagram reagendado para a noite.",
+      "instagramMediaId": "18139439743645134"
     },
     {
       "slot": "19:00",
