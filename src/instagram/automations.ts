@@ -936,6 +936,64 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei o link no direct! 📩",
   },
+  {
+    keyword: "BLACKIA",
+    message:
+      [
+        "Oi! Aqui estão os 5 prompts para a Black Friday:",
+        "",
+        "1. \"Tenho R$ [valor]. Me ajude a priorizar o que comprar desta lista: [itens].\"",
+        "2. \"Compare [produto A] e [produto B] para quem vai usar para [uso]. Qual vale mais?\"",
+        "3. \"Como confirmo se o desconto de [produto] é real? Que sites mostram o histórico de preço?\"",
+        "4. \"Que sinais mostram que uma loja online é golpe? Faça um checklist rápido.\"",
+        "5. \"Explique meu direito de devolver uma compra online em até 7 dias, em linguagem simples.\"",
+        "",
+        "Confira preço e loja antes de pagar.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 📩",
+  },
+  {
+    keyword: "RECLAMA",
+    message:
+      [
+        "Oi! Aqui está o prompt:",
+        "",
+        "\"[conte o que aconteceu, com datas, valores e número do pedido] Escreva uma reclamação curta, educada e firme, dizendo o que eu quero que resolvam e um prazo para resposta.\"",
+        "",
+        "Não cole senha, documento ou dados do cartão. Sem solução? Use o mesmo texto no Procon ou em https://www.consumidor.gov.br",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "PLANILHAIA",
+    message:
+      [
+        "Oi! Sobre o Claude Sheets:",
+        "",
+        "O Claude agora monta planilhas com abas, fórmulas e listas, e exporta para Excel ou CSV. Junto vieram o Whiteboards (quadro para brainstorm) e o Data (painéis). Sheets e Whiteboards estão em teste, para planos pagos.",
+        "",
+        "Anthropic: https://claude.com/resources/articles/sheets-whiteboards-data",
+        "Engadget: https://www.engadget.com/2312177/anthropic-takes-on-google-and-microsoft-with-claude-sheets/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
+  {
+    keyword: "GEMINICAR",
+    message:
+      [
+        "Oi! Como usar o Gemini no CarPlay:",
+        "",
+        "1. Atualize o app Gemini no iPhone.",
+        "2. Libere o microfone para o app.",
+        "3. Use o Gemini Live pelo menos uma vez no celular.",
+        "4. No carro, toque no ícone do Gemini na tela do CarPlay.",
+        "",
+        "A liberação é gradual. Atenção no trânsito em primeiro lugar!",
+        "",
+        "Google: https://blog.google/innovation-and-ai/products/gemini-app/gemini-on-apple-carplay/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o passo a passo no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

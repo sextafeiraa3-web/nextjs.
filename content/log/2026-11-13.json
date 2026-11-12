@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-13",
+  "topic": "Gemini chega ao Apple CarPlay para conversar por voz no carro, em todo o mundo",
+  "keyword": "GEMINICAR",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para não cair em cilada na Black Friday",
+      "keyword": "BLACKIA",
+      "metricoolId": 425282223,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Usar a IA para escrever uma reclamação clara para empresa ou Reclame Aqui",
+      "keyword": "RECLAMA",
+      "metricoolId": 425282269,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Anthropic lança Claude Sheets e Claude Whiteboards, planilhas e quadros criados com IA",
+      "keyword": "PLANILHAIA",
+      "metricoolId": 425282304,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Gemini chega ao Apple CarPlay para conversar por voz no carro, em todo o mundo",
+      "keyword": "GEMINICAR",
+      "metricoolId": 425282350,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}

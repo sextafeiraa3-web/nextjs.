@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-13",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Usar a IA para escrever uma reclamação clara para empresa ou Reclame Aqui",
+      "hook": "Empresa te enrolou? A IA escreve a reclamação",
+      "scenes": [
+        {"kind": "statement", "title": "Conte o que aconteceu.", "body": "Datas, valores e número do pedido, sem senha nem documento."},
+        {"kind": "steps", "title": "Peça para a IA", "steps": ["Um texto curto e educado", "Com o que você quer resolver", "E um prazo para resposta"]},
+        {"kind": "statement", "title": "Sem resposta?", "body": "leve o mesmo texto ao Procon ou ao consumidor.gov.br."}
+      ],
+      "narration": "Empresa te enrolou? A IA escreve a reclamação. Conte o que aconteceu, com datas, valores e número do pedido, e peça um texto curto e educado, dizendo o que você quer e um prazo para resposta. Sem solução, leve o mesmo texto ao Procon ou ao consumidor ponto gov. Comente RECLAMA que eu te mando o prompt.",
+      "keyword": "RECLAMA",
+      "ctaQuestion": "Manda para quem está brigando com alguma empresa",
+      "caption": "Empresa te enrolou? A IA escreve a reclamação. 📝\n\nConte para o ChatGPT, o Claude ou o Gemini o que aconteceu, com datas, valores e número do pedido, e peça: \"escreva uma reclamação curta, educada e firme, dizendo o que eu quero que resolvam e um prazo para resposta\". Serve para SAC, e-mail ou Reclame Aqui.\n\nNão cole senha, documento ou dados do cartão. E se a empresa não resolver, use o mesmo texto no Procon ou no consumidor.gov.br.\n\nManda para quem está brigando com alguma empresa 👇\nComente RECLAMA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #DireitoDoConsumidor",
+      "tiktokTitle": "Empresa te enrolou? A IA escreve a reclamação",
+      "youtubeTitle": "Use a IA para escrever uma reclamação que funciona #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[conte o que aconteceu, com datas, valores e número do pedido] Escreva uma reclamação curta, educada e firme, dizendo o que eu quero que resolvam e um prazo para resposta.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "noticia",
+      "topic": "Anthropic lança Claude Sheets e Claude Whiteboards, planilhas e quadros criados com IA",
+      "hook": "Agora o Claude também faz planilha",
+      "scenes": [
+        {"kind": "statement", "title": "Claude Sheets:", "body": "planilha com abas, fórmulas e listas, criada conversando."},
+        {"kind": "list", "title": "Também chegou", "items": ["Whiteboards: quadro para brainstorm", "Data: painéis com seus dados", "Exporta para Excel e CSV"]},
+        {"kind": "statement", "title": "Por enquanto:", "body": "em teste, para quem assina planos pagos."}
+      ],
+      "narration": "Agora o Claude também faz planilha. A Anthropic lançou o Claude Sheets: você pede e ele monta a planilha com abas, fórmulas e listas, e dá para exportar para Excel. Veio junto o Whiteboards, um quadro para brainstorm. Por enquanto é teste, para planos pagos. Comente PLANILHAIA que eu te mando a matéria.",
+      "keyword": "PLANILHAIA",
+      "ctaQuestion": "Você ainda monta planilha na mão?",
+      "caption": "Agora o Claude também faz planilha. 📊\n\nA Anthropic lançou nesta terça (10/11) o Claude Sheets: você descreve o que precisa e o Claude monta a planilha com várias abas, fórmulas e listas de opções. Dá para exportar para Excel ou CSV. Junto chegou o Claude Whiteboards, um quadro para fazer brainstorm com a IA, e o Claude Data, que cria painéis a partir dos dados da empresa.\n\nSheets e Whiteboards estão em teste, para quem assina planos pagos. A própria Anthropic diz que, por enquanto, a planilha é simples: para recursos avançados, o caminho é exportar para o Excel.\n\nVocê ainda monta planilha na mão? Comenta aí 👇\nManda para quem vive no Excel\nComente PLANILHAIA que eu te mando a matéria completa no direct.\n\nFonte: Anthropic e Engadget\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Claude #Planilhas #Produtividade",
+      "tiktokTitle": "Agora o Claude também faz planilha",
+      "youtubeTitle": "Claude Sheets: planilhas criadas com IA #shorts",
+      "sources": [
+        {"name": "Anthropic", "url": "https://claude.com/resources/articles/sheets-whiteboards-data"},
+        {"name": "Engadget", "url": "https://www.engadget.com/2312177/anthropic-takes-on-google-and-microsoft-with-claude-sheets/"}
+      ],
+      "firstComment": "Anúncio da Anthropic: https://claude.com/resources/articles/sheets-whiteboards-data"
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "Gemini chega ao Apple CarPlay para conversar por voz no carro, em todo o mundo",
+      "hook": "Agora dá para conversar com o Gemini no carro",
+      "scenes": [
+        {"kind": "statement", "title": "Gemini no CarPlay:", "body": "converse por voz com a IA enquanto dirige."},
+        {"kind": "steps", "title": "Para usar", "steps": ["Atualize o app Gemini", "Libere o microfone", "Use o Gemini Live uma vez no celular"]},
+        {"kind": "statement", "title": "Liberando:", "body": "no mundo todo, para iPhone, a partir desta semana."}
+      ],
+      "narration": "Agora dá para conversar com o Gemini no carro. O Google liberou o app do Gemini no Apple CarPlay, no mundo todo. Atualize o app no iPhone, libere o microfone e use o Gemini Live uma vez no celular. Depois é só tocar no ícone na tela do carro. Comente GEMINICAR que eu te mando o passo a passo.",
+      "keyword": "GEMINICAR",
+      "ctaQuestion": "Você conversaria com uma IA dirigindo?",
+      "caption": "Agora dá para conversar com o Gemini no carro. 🚗\n\nO Google anunciou nesta quarta (11/11) que o app do Gemini chegou ao Apple CarPlay e está sendo liberado para todos os usuários de iPhone no mundo. Você conversa por voz com o Gemini Live, e a conversa fica salva no app do celular.\n\nPara usar: atualize o app Gemini no iPhone, libere o microfone e use o Gemini Live pelo menos uma vez no celular. Depois é só tocar no ícone do Gemini na tela do carro. A liberação é gradual, então pode demorar alguns dias para aparecer. E lembre: atenção no trânsito em primeiro lugar.\n\nVocê conversaria com uma IA dirigindo? Comenta aí 👇\nManda para quem passa horas no trânsito\nComente GEMINICAR que eu te mando o passo a passo no direct.\n\nFonte: Google e Engadget\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Gemini #CarPlay #Tecnologia",
+      "tiktokTitle": "Agora dá para conversar com o Gemini no carro",
+      "youtubeTitle": "Gemini chega ao Apple CarPlay: como usar #shorts",
+      "sources": [
+        {"name": "Google", "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-on-apple-carplay/"},
+        {"name": "Engadget", "url": "https://www.engadget.com/2314093/google-brings-the-gemini-app-to-apple-carplay/"}
+      ],
+      "firstComment": "Anúncio do Google: https://blog.google/innovation-and-ai/products/gemini-app/gemini-on-apple-carplay/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para não cair em cilada na Black Friday",
+    "slides": [
+      {"title": "5 prompts para a Black Friday", "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."},
+      {"title": "1. Lista de compras", "body": "\"Tenho R$ [valor]. Me ajude a priorizar o que comprar desta lista: [itens].\""},
+      {"title": "2. Comparar modelos", "body": "\"Compare [produto A] e [produto B] para quem vai usar para [uso]. Qual vale mais?\""},
+      {"title": "3. Desconto real?", "body": "\"Como confirmo se o desconto de [produto] é real? Que sites mostram o histórico de preço?\""},
+      {"title": "4. Loja confiável", "body": "\"Que sinais mostram que uma loja online é golpe? Faça um checklist rápido.\""},
+      {"title": "5. Arrependimento", "body": "\"Explique meu direito de devolver uma compra online em até 7 dias, em linguagem simples.\""}
+    ],
+    "keyword": "BLACKIA",
+    "caption": "5 prompts para não cair em cilada na Black Friday. 🛒\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA ajuda a pensar, mas preço e estoque mudam rápido: confira na loja e em sites de histórico de preço antes de pagar.\n\nManda para quem já está com o carrinho cheio 👇\nSalve e comente BLACKIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #BlackFriday #DicasDeIA",
+    "tiktokTitle": "5 prompts para não cair em cilada na Black Friday",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem já está com o carrinho cheio!"
+  }
+}
