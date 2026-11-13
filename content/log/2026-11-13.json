@@ -10,7 +10,7 @@
       "metricoolId": 425282223,
       "networks": {
         "instagram": "FIXED",
-        "tiktok": "SCHEDULED"
+        "tiktok": "ERROR"
       },
       "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11.",
       "instagramMediaId": "17919716841259789"
@@ -21,12 +21,13 @@
       "keyword": "RECLAMA",
       "metricoolId": 425282269,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
+        "instagram": "FIXED",
+        "facebook": "ERROR",
+        "tiktok": "ERROR",
+        "youtube": "ERROR"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+      "note": "Instagram via Windsor (Reel + 1º comentário). FB/TikTok/YT: limite da conta Metricool atingido.",
+      "instagramMediaId": "18413177485080888"
     },
     {
       "slot": "17:00",
