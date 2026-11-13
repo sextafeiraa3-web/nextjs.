@@ -994,6 +994,60 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei o passo a passo no direct! 📩",
   },
+  {
+    keyword: "DECIMO",
+    message:
+      [
+        "Oi! Aqui estão os 5 prompts para usar bem o 13º:",
+        "",
+        "1. \"Vou receber R$ [valor] de 13º. Tenho estas contas: [lista]. Como dividir?\"",
+        "2. \"Tenho estas dívidas e juros: [lista]. Qual pagar primeiro e por quê?\"",
+        "3. \"Monte um plano simples para guardar R$ [valor] por mês para emergências.\"",
+        "4. \"Liste os gastos que costumam chegar em janeiro e quanto separar para cada um.\"",
+        "5. \"Tenho R$ [valor] para presentes de [número] pessoas. Monte uma lista que caiba no orçamento.\"",
+        "",
+        "Não cole senha nem dados do banco. Para investir, procure um profissional.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 📩",
+  },
+  {
+    keyword: "TRADUZFOTO",
+    message:
+      [
+        "Oi! Aqui está o prompt:",
+        "",
+        "\"[foto do cardápio, placa ou rótulo] Traduza para o português, explique o que é cada item e avise se tiver algum ingrediente que costuma causar alergia.\"",
+        "",
+        "Para remédio ou alergia grave, confirme sempre com um profissional.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📩",
+  },
+  {
+    keyword: "BUSCAIA",
+    message:
+      [
+        "Oi! Sobre o Modo IA da Busca do Google:",
+        "",
+        "Agora ele usa o Gemini 4 Hydrogen, para todos os usuários do mundo. Segundo o Google, entende melhor perguntas longas ou com erro e responde com mais imagens, tabelas e links.",
+        "",
+        "Google: https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
+        "TechCrunch: https://techcrunch.com/2026/11/12/googles-latest-search-upgrade-promises-better-answers-to-your-most-complicated-questions/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
+  {
+    keyword: "NVIDIA",
+    message:
+      [
+        "Oi! Sobre a saída de Jensen Huang da Nvidia:",
+        "",
+        "Ele renunciou aos cargos de CEO e de membro do conselho em 12/11. A diretora financeira, Colette Kress, assume como CEO interina enquanto a empresa procura um nome definitivo.",
+        "",
+        "TechCrunch: https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/",
+        "CNBC: https://www.cnbc.com/2026/11/12/nvidia-jensen-huang-ceo-live-updates.html",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

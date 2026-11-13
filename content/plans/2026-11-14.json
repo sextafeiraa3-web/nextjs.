@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-14",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Tirar foto de cardápio, placa ou rótulo em outra língua e pedir para a IA traduzir e explicar",
+      "hook": "Não entendeu o cardápio? Tire uma foto",
+      "scenes": [
+        {"kind": "statement", "title": "Viajando ou comprando importado?", "body": "tire uma foto do texto em outra língua."},
+        {"kind": "steps", "title": "Peça para a IA", "steps": ["Traduza para o português", "Explique o que é cada item", "Avise o que tiver alergênico"]},
+        {"kind": "statement", "title": "Atenção:", "body": "remédio e alergia grave, confirme com um profissional."}
+      ],
+      "narration": "Não entendeu o cardápio? Tire uma foto. Mande a foto do cardápio, da placa ou do rótulo para o ChatGPT, o Claude ou o Gemini e peça: traduza para o português, explique cada item e avise o que tiver alergênico. Remédio e alergia grave, confirme com um profissional. Comente TRADUZFOTO que eu te mando o prompt.",
+      "keyword": "TRADUZFOTO",
+      "ctaQuestion": "Manda para quem vai viajar para fora",
+      "caption": "Não entendeu o cardápio? Tire uma foto. 📸\n\nEm viagem ou comprando produto importado, tire uma foto do cardápio, da placa ou do rótulo e envie para o ChatGPT, o Claude ou o Gemini pedindo: \"traduza para o português, explique o que é cada item e avise se tiver algum ingrediente que costuma causar alergia\".\n\nA IA pode errar uma palavra: para remédio ou alergia grave, confirme com o garçom, o farmacêutico ou um médico.\n\nManda para quem vai viajar para fora 👇\nComente TRADUZFOTO que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Viagem",
+      "tiktokTitle": "Não entendeu o cardápio? Tire uma foto e peça para a IA",
+      "youtubeTitle": "Traduza cardápio e rótulo com uma foto e a IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[foto do cardápio, placa ou rótulo] Traduza para o português, explique o que é cada item e avise se tiver algum ingrediente que costuma causar alergia.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "noticia",
+      "topic": "Google atualiza o Modo IA da Busca com o Gemini 4 Hydrogen para todos os usuários do mundo",
+      "hook": "A busca do Google ficou mais esperta",
+      "scenes": [
+        {"kind": "statement", "title": "Modo IA da Busca:", "body": "agora com o Gemini 4 Hydrogen, para todo mundo."},
+        {"kind": "list", "title": "O que melhora", "items": ["Entende pergunta longa e com erro", "Mais imagens e tabelas", "Mais links de sites diferentes"]},
+        {"kind": "statement", "title": "Dica:", "body": "faça a pergunta completa, do jeito que você falaria."}
+      ],
+      "narration": "A busca do Google ficou mais esperta. O Modo IA da Busca passou a usar o Gemini 4 Hydrogen, para todos os usuários do mundo. Segundo o Google, ele entende melhor pergunta longa e com erro de digitação, e responde com mais imagens, tabelas e links. Comente BUSCAIA que eu te mando a matéria.",
+      "keyword": "BUSCAIA",
+      "ctaQuestion": "Você já usa o Modo IA do Google?",
+      "caption": "A busca do Google ficou mais esperta. 🔍\n\nO Google anunciou nesta quinta (12/11) que o Modo IA da Busca passou a usar o Gemini 4 Hydrogen, liberado para todos os usuários do mundo, em todos os idiomas do Modo IA. Segundo a empresa, ele entende melhor perguntas longas, com várias partes ou com erro de digitação, e responde com mais imagens, tabelas de comparação e links para sites que você talvez não encontraria.\n\nAs melhorias são o que o Google diz; ainda não há testes independentes. Vale testar com uma pergunta completa, do jeito que você falaria.\n\nVocê já usa o Modo IA do Google? Comenta aí 👇\nManda para quem ainda pesquisa só com 2 palavras\nComente BUSCAIA que eu te mando a matéria completa no direct.\n\nFonte: Google e TechCrunch\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Google #Gemini #Tecnologia",
+      "tiktokTitle": "A busca do Google ficou mais esperta",
+      "youtubeTitle": "Modo IA do Google ganha o Gemini 4 Hydrogen #shorts",
+      "sources": [
+        {"name": "Google", "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/"},
+        {"name": "TechCrunch", "url": "https://techcrunch.com/2026/11/12/googles-latest-search-upgrade-promises-better-answers-to-your-most-complicated-questions/"}
+      ],
+      "firstComment": "Anúncio do Google: https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/"
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "Jensen Huang deixa o comando da Nvidia, a empresa dos chips que movem a IA",
+      "hook": "O chefe da maior empresa de chips de IA saiu",
+      "scenes": [
+        {"kind": "statement", "title": "Jensen Huang", "body": "renunciou ao cargo de CEO da Nvidia."},
+        {"kind": "statement", "title": "Por quê:", "body": "após admitir um caso extraconjugal que virou escândalo."},
+        {"kind": "statement", "title": "No lugar dele:", "body": "Colette Kress, diretora financeira, como CEO interina."}
+      ],
+      "narration": "O chefe da maior empresa de chips de IA saiu. Jensen Huang renunciou ao comando da Nvidia, a empresa que faz os chips que rodam o ChatGPT e quase toda a IA, depois de admitir um caso extraconjugal que virou escândalo. A diretora financeira, Colette Kress, assume interinamente. Comente NVIDIA que eu te mando a matéria.",
+      "keyword": "NVIDIA",
+      "ctaQuestion": "Você acha que isso muda o ritmo da IA?",
+      "caption": "O chefe da maior empresa de chips de IA saiu. 💥\n\nJensen Huang, cofundador da Nvidia, renunciou nesta quinta (12/11) aos cargos de CEO e de membro do conselho. A Nvidia faz os chips que rodam boa parte da IA do mundo, inclusive o ChatGPT. Segundo a CNBC e o TechCrunch, a saída veio depois que ele admitiu um caso extraconjugal, e reportagens levantaram preocupações de segurança nacional nos EUA.\n\nA diretora financeira, Colette Kress, assume como CEO interina enquanto a empresa procura um nome definitivo. As ações da Nvidia fecharam em queda de mais de 4% no dia.\n\nVocê acha que isso muda o ritmo da IA? Comenta aí 👇\nManda para quem acompanha tecnologia e bolsa\nComente NVIDIA que eu te mando a matéria completa no direct.\n\nFonte: CNBC e TechCrunch\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Nvidia #Tecnologia #Mercado",
+      "tiktokTitle": "O chefe da maior empresa de chips de IA saiu",
+      "youtubeTitle": "Jensen Huang deixa a Nvidia: o que aconteceu #shorts",
+      "sources": [
+        {"name": "CNBC", "url": "https://www.cnbc.com/2026/11/12/nvidia-jensen-huang-ceo-live-updates.html"},
+        {"name": "TechCrunch", "url": "https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/"}
+      ],
+      "firstComment": "Matéria do TechCrunch: https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para usar bem o 13º salário com IA",
+    "slides": [
+      {"title": "5 prompts para usar bem o 13º", "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."},
+      {"title": "1. Prioridades", "body": "\"Vou receber R$ [valor] de 13º. Tenho estas contas: [lista]. Como dividir?\""},
+      {"title": "2. Dívidas", "body": "\"Tenho estas dívidas e juros: [lista]. Qual pagar primeiro e por quê?\""},
+      {"title": "3. Reserva", "body": "\"Monte um plano simples para guardar R$ [valor] por mês para emergências.\""},
+      {"title": "4. Contas de janeiro", "body": "\"Liste os gastos que costumam chegar em janeiro e quanto separar para cada um.\""},
+      {"title": "5. Presentes", "body": "\"Tenho R$ [valor] para presentes de [número] pessoas. Monte uma lista que caiba no orçamento.\""}
+    ],
+    "keyword": "DECIMO",
+    "caption": "5 prompts para usar bem o 13º salário. 💸\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. Não cole senha nem dados do banco: os valores bastam. A IA ajuda a organizar, mas não é consultoria financeira; para investir, procure um profissional.\n\nManda para quem já gastou o 13º antes de receber 👇\nSalve e comente DECIMO que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DecimoTerceiro #DicasDeIA",
+    "tiktokTitle": "5 prompts para usar bem o 13º salário",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem já gastou o 13º antes de receber!"
+  }
+}

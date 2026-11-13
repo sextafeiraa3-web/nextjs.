@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-14",
+  "topic": "Jensen Huang deixa o comando da Nvidia, a empresa dos chips que movem a IA",
+  "keyword": "NVIDIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para usar bem o 13º salário com IA",
+      "keyword": "DECIMO",
+      "metricoolId": 426557304,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Tirar foto de cardápio, placa ou rótulo em outra língua e pedir para a IA traduzir e explicar",
+      "keyword": "TRADUZFOTO",
+      "metricoolId": 426557344,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Google atualiza o Modo IA da Busca com o Gemini 4 Hydrogen para todos os usuários do mundo",
+      "keyword": "BUSCAIA",
+      "metricoolId": 426557399,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Jensen Huang deixa o comando da Nvidia, a empresa dos chips que movem a IA",
+      "keyword": "NVIDIA",
+      "metricoolId": 426557455,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}
