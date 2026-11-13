@@ -9,10 +9,11 @@
       "keyword": "BLACKIA",
       "metricoolId": 425282223,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "tiktok": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11.",
+      "instagramMediaId": "17919716841259789"
     },
     {
       "slot": "12:30",
