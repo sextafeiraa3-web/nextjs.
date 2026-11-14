@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-15",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Tirar foto da etiqueta da roupa e pedir para a IA explicar os símbolos de lavagem",
+      "hook": "Não entende a etiqueta da roupa? Tire uma foto",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Medo de estragar a roupa?",
+          "body": "tire uma foto da etiqueta de lavagem."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça para a IA",
+          "steps": [
+            "Explique cada símbolo",
+            "Diga a temperatura da água",
+            "Pode secadora ou ferro?"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "peça delicada ou cara, siga o que a marca recomenda."
+        }
+      ],
+      "narration": "Não entende a etiqueta da roupa? Tire uma foto dela e mande para o ChatGPT, o Claude ou o Gemini. Peça: explique cada símbolo, diga a temperatura da água e se pode usar secadora ou ferro. Peça delicada ou cara, siga o que a marca recomenda. Comente LAVAROUPA que eu te mando o prompt.",
+      "keyword": "LAVAROUPA",
+      "ctaQuestion": "Manda para quem já encolheu uma roupa na máquina",
+      "caption": "Não entende a etiqueta da roupa? Tire uma foto. 👕\n\nAntes de jogar a roupa na máquina, tire uma foto da etiqueta de lavagem e envie para o ChatGPT, o Claude ou o Gemini pedindo: \"explique o que significa cada símbolo, a temperatura da água, se pode usar alvejante, secadora e ferro\".\n\nA foto precisa estar nítida, e a IA pode confundir um símbolo apagado. Para peça delicada ou cara, siga a orientação da marca ou de uma lavanderia.\n\nManda para quem já encolheu uma roupa na máquina 👇\nComente LAVAROUPA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Casa",
+      "tiktokTitle": "Não entende a etiqueta da roupa? Tire uma foto e pergunte à IA",
+      "youtubeTitle": "Símbolos da etiqueta de roupa: a IA explica com uma foto #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[foto da etiqueta] Explique o que significa cada símbolo desta etiqueta: temperatura da água, se pode alvejante, secadora, ferro e lavagem a seco.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "noticia",
+      "topic": "ONGs processam OpenAI, Google, Meta, Anthropic e a IA da SpaceX pedindo para congelar a IA mais avançada",
+      "hook": "Querem congelar a IA na Justiça",
+      "scenes": [
+        {
+          "kind": "number",
+          "value": "5",
+          "label": "empresas de IA processadas nos EUA"
+        },
+        {
+          "kind": "list",
+          "title": "Na lista",
+          "items": [
+            "OpenAI e Google",
+            "Meta",
+            "Anthropic",
+            "IA da SpaceX"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "O pedido:",
+          "body": "congelar os modelos mais avançados."
+        }
+      ],
+      "narration": "Querem congelar a IA na Justiça. Quatro ONGs americanas processaram OpenAI, Google, Meta, Anthropic e a divisão de IA da SpaceX. Elas pedem que a Justiça congele os modelos mais avançados, citando risco de ataques hackers e armas biológicas. Nada foi decidido ainda. Comente PROCESSOIA que eu te mando a matéria.",
+      "keyword": "PROCESSOIA",
+      "ctaQuestion": "Você acha que a IA devia dar uma pausa?",
+      "caption": "Querem congelar a IA na Justiça. ⚖️\n\nQuatro organizações sem fins lucrativos dos EUA, entre elas a Public Citizen, entraram nesta quinta (12/11) com um processo na Califórnia contra OpenAI, Google, Meta, Anthropic e a divisão de IA da SpaceX. Elas pedem uma ordem de emergência para congelar o desenvolvimento dos modelos mais avançados, citando riscos de ataques hackers e de ajuda na criação de armas biológicas.\n\nÉ só o pedido: a Justiça ainda não decidiu nada, e o ChatGPT, o Gemini e o Claude seguem funcionando normalmente. A Meta não quis comentar; as outras empresas não responderam aos pedidos da imprensa.\n\nVocê acha que a IA devia dar uma pausa? Comenta aí 👇\nManda para quem acha que a IA está indo rápido demais\nComente PROCESSOIA que eu te mando a matéria completa no direct.\n\nFonte: Public Citizen e Quartz\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #OpenAI #Google #Tecnologia",
+      "tiktokTitle": "ONGs pedem na Justiça para congelar a IA mais avançada",
+      "youtubeTitle": "ONGs processam OpenAI, Google e Meta para congelar a IA #shorts",
+      "sources": [
+        {
+          "name": "Public Citizen",
+          "url": "https://www.citizen.org/news/coalition-of-nonprofits-files-landmark-lawsuit-to-stop-development-of-advanced-ai-systems-at-anthropic-google-meta-openai-and-spacexsi-that-proliferate-bioweapons-and-cyberattacks/"
+        },
+        {
+          "name": "Quartz",
+          "url": "https://qz.com/nonprofits-sue-ai-giants-freeze-frontier-model-development-111226"
+        }
+      ],
+      "firstComment": "Matéria do Quartz: https://qz.com/nonprofits-sue-ai-giants-freeze-frontier-model-development-111226"
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "OpenAI lança o ChatGPT Wallet: os agentes do ChatGPT passam a fazer compras pelo usuário",
+      "hook": "O ChatGPT agora compra por você",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "ChatGPT Wallet:",
+          "body": "você salva o cartão e o agente faz a compra."
+        },
+        {
+          "kind": "steps",
+          "title": "Como funciona",
+          "steps": [
+            "O agente monta o carrinho",
+            "Você confere itens e total",
+            "Aprova com Face ID ou digital"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Por enquanto:",
+          "body": "só nos EUA, no plano Pro."
+        }
+      ],
+      "narration": "O ChatGPT agora compra por você. A OpenAI lançou o ChatGPT Wallet: você cadastra o cartão uma vez e o agente do ChatGPT faz a compra. Antes de pagar, você confere os itens e o total e aprova com o rosto ou a digital. Por enquanto, só nos EUA, no plano Pro. Comente COMPRAIA que eu te mando a matéria.",
+      "keyword": "COMPRAIA",
+      "ctaQuestion": "Você deixaria a IA comprar por você?",
+      "caption": "O ChatGPT agora compra por você. 💳\n\nA OpenAI lançou nesta sexta (13/11) o ChatGPT Wallet. Você cadastra o cartão uma vez e os agentes do ChatGPT passam a finalizar compras nos sites por você. Antes de cada compra, você confere os itens, o total e o cartão, e aprova com Face ID ou digital. Segundo a OpenAI, o agente e a loja não veem o número do cartão.\n\nPor enquanto é só para assinantes do plano Pro nos Estados Unidos, com cartões americanos. E nem todo site aceita: lojas como a Amazon bloqueiam agentes de IA.\n\nVocê deixaria a IA comprar por você? Comenta aí 👇\nManda para quem vive comprando pela internet\nComente COMPRAIA que eu te mando a matéria completa no direct.\n\nFonte: CNBC e Engadget\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #OpenAI #ComprasOnline",
+      "tiktokTitle": "O ChatGPT agora compra por você: conheça o ChatGPT Wallet",
+      "youtubeTitle": "ChatGPT Wallet: a IA que faz compras por você #shorts",
+      "sources": [
+        {
+          "name": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/13/openai-chatgpt-wallet-dot-purchases.html"
+        },
+        {
+          "name": "Engadget",
+          "url": "https://www.engadget.com/2316137/you-can-now-tempt-fate-and-give-your-banking-information-to-chatgpt/"
+        }
+      ],
+      "firstComment": "Matéria da CNBC: https://www.cnbc.com/2026/11/13/openai-chatgpt-wallet-dot-purchases.html"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para se preparar para uma entrevista de emprego com IA",
+    "slides": [
+      {
+        "title": "5 prompts para mandar bem na entrevista",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Perguntas prováveis",
+        "body": "\"Vou fazer entrevista para [vaga] na [empresa]. Liste as 10 perguntas mais prováveis.\""
+      },
+      {
+        "title": "2. Treino",
+        "body": "\"Faça o papel do recrutador: me pergunte uma de cada vez e comente minhas respostas.\""
+      },
+      {
+        "title": "3. Sua apresentação",
+        "body": "\"Com esta experiência: [resumo], monte uma apresentação de 1 minuto sobre mim.\""
+      },
+      {
+        "title": "4. Pergunta difícil",
+        "body": "\"Como responder com sinceridade 'qual seu maior defeito?' na área de [sua área]?\""
+      },
+      {
+        "title": "5. Suas perguntas",
+        "body": "\"Sugira 5 perguntas inteligentes para eu fazer no fim da entrevista para [vaga].\""
+      }
+    ],
+    "keyword": "VAGAIA",
+    "caption": "5 prompts para mandar bem na entrevista de emprego. 💼\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA ajuda a treinar, mas responda com a sua experiência real: recrutador percebe resposta decorada. Não cole documentos com dados pessoais, um resumo basta.\n\nManda para quem está procurando emprego 👇\nSalve e comente VAGAIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Emprego #DicasDeIA",
+    "tiktokTitle": "5 prompts para mandar bem na entrevista de emprego",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem está procurando emprego!"
+  }
+}

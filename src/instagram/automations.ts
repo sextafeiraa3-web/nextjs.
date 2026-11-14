@@ -1048,6 +1048,60 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "VAGAIA",
+    message:
+      [
+        "Oi! Os 5 prompts para a entrevista de emprego (troque o que está entre colchetes):",
+        "",
+        "1. \"Vou fazer entrevista para [vaga] na [empresa]. Liste as 10 perguntas mais prováveis.\"",
+        "2. \"Faça o papel do recrutador: me pergunte uma de cada vez e comente minhas respostas.\"",
+        "3. \"Com esta experiência: [resumo], monte uma apresentação de 1 minuto sobre mim.\"",
+        "4. \"Como responder com sinceridade 'qual seu maior defeito?' na área de [sua área]?\"",
+        "5. \"Sugira 5 perguntas inteligentes para eu fazer no fim da entrevista para [vaga].\"",
+        "",
+        "Responda com a sua experiência real e não cole documentos com dados pessoais.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "LAVAROUPA",
+    message:
+      [
+        "Oi! O prompt para entender a etiqueta da roupa:",
+        "",
+        "\"[foto da etiqueta] Explique o que significa cada símbolo desta etiqueta: temperatura da água, se pode alvejante, secadora, ferro e lavagem a seco.\"",
+        "",
+        "Tire a foto bem nítida. Para peça delicada ou cara, siga a orientação da marca ou de uma lavanderia.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "PROCESSOIA",
+    message:
+      [
+        "Oi! Sobre o processo que pede para congelar a IA mais avançada:",
+        "",
+        "Quatro ONGs dos EUA, entre elas a Public Citizen, processaram OpenAI, Google, Meta, Anthropic e a divisão de IA da SpaceX em 12/11, na Califórnia. Elas pedem uma ordem de emergência para congelar os modelos mais avançados. A Justiça ainda não decidiu nada.",
+        "",
+        "Public Citizen: https://www.citizen.org/news/coalition-of-nonprofits-files-landmark-lawsuit-to-stop-development-of-advanced-ai-systems-at-anthropic-google-meta-openai-and-spacexsi-that-proliferate-bioweapons-and-cyberattacks/",
+        "Quartz: https://qz.com/nonprofits-sue-ai-giants-freeze-frontier-model-development-111226",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
+  {
+    keyword: "COMPRAIA",
+    message:
+      [
+        "Oi! Sobre o ChatGPT Wallet:",
+        "",
+        "A OpenAI lançou em 13/11 uma carteira para os agentes do ChatGPT fazerem compras por você. Você aprova cada compra com Face ID ou digital, e o agente e a loja não veem o número do cartão. Por enquanto, só para o plano Pro nos EUA, com cartões americanos.",
+        "",
+        "CNBC: https://www.cnbc.com/2026/11/13/openai-chatgpt-wallet-dot-purchases.html",
+        "Engadget: https://www.engadget.com/2316137/you-can-now-tempt-fate-and-give-your-banking-information-to-chatgpt/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

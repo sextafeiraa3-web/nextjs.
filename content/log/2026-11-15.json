@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-15",
+  "topic": "OpenAI lança o ChatGPT Wallet: os agentes do ChatGPT passam a fazer compras pelo usuário",
+  "keyword": "COMPRAIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para se preparar para uma entrevista de emprego com IA",
+      "keyword": "VAGAIA",
+      "metricoolId": 427952551,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Tirar foto da etiqueta da roupa e pedir para a IA explicar os símbolos de lavagem",
+      "keyword": "LAVAROUPA",
+      "metricoolId": 427952681,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "ONGs processam OpenAI, Google, Meta, Anthropic e a IA da SpaceX pedindo para congelar a IA mais avançada",
+      "keyword": "PROCESSOIA",
+      "metricoolId": 427952749,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "OpenAI lança o ChatGPT Wallet: os agentes do ChatGPT passam a fazer compras pelo usuário",
+      "keyword": "COMPRAIA",
+      "metricoolId": 427952812,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}
