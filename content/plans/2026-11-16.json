@@ -1,0 +1,154 @@
+{
+  "date": "2026-11-16",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Tirar foto de uma planta doente e pedir para a IA dizer o que ela tem e como cuidar",
+      "hook": "Sua planta está morrendo? Tire uma foto",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Folha amarela ou manchada?",
+          "body": "tire uma foto da planta e da folha de perto."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça para a IA",
+          "steps": [
+            "Qual é essa planta?",
+            "O que ela tem?",
+            "Como cuidar: água, luz e vaso"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Dica:",
+          "body": "diga onde ela fica e quanto você rega."
+        }
+      ],
+      "narration": "Sua planta está morrendo? Tire uma foto da planta e da folha de perto e mande para o ChatGPT, o Claude ou o Gemini. Pergunte que planta é, o que ela tem e como cuidar. Diga onde ela fica e quanto você rega. Comente PLANTAIA que eu te mando o prompt.",
+      "keyword": "PLANTAIA",
+      "ctaQuestion": "Manda para quem mata até cacto",
+      "caption": "Sua planta está morrendo? Tire uma foto. 🪴\n\nFolha amarela, manchada ou caindo? Tire uma foto da planta inteira e outra da folha de perto e envie para o ChatGPT, o Claude ou o Gemini pedindo: \"que planta é essa, o que ela tem e como eu cuido: quanta água, quanta luz e se preciso trocar o vaso\". Conte onde ela fica e de quanto em quanto tempo você rega.\n\nA IA pode errar o diagnóstico. Se for praga forte ou planta cara, confirme numa loja de jardinagem antes de usar qualquer produto.\n\nManda para quem mata até cacto 👇\nComente PLANTAIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Plantas",
+      "tiktokTitle": "Sua planta está morrendo? Tire uma foto e pergunte à IA",
+      "youtubeTitle": "Planta doente? A IA diz o que ela tem com uma foto #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[foto da planta e da folha] Que planta é essa, o que ela tem e como eu cuido? Ela fica [lugar] e eu rego [frequência].\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "dica",
+      "topic": "Copiar a conversa longa do grupo e pedir para a IA resumir o que foi decidido",
+      "hook": "200 mensagens no grupo? A IA resume",
+      "scenes": [
+        {
+          "kind": "number",
+          "value": "200",
+          "label": "mensagens não lidas no grupo"
+        },
+        {
+          "kind": "steps",
+          "title": "Faça assim",
+          "steps": [
+            "Copie as mensagens",
+            "Cole no ChatGPT, Claude ou Gemini",
+            "Peça: o que foi decidido?"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Cuidado:",
+          "body": "apague telefones e dados pessoais antes de colar."
+        }
+      ],
+      "narration": "Duzentas mensagens no grupo? A IA resume. Copie as mensagens, cole no ChatGPT, no Claude ou no Gemini e peça: o que foi decidido, quem ficou de fazer o quê e o que estão me perguntando. Antes, apague telefones e dados pessoais. Comente RESUMOZAP que eu te mando o prompt.",
+      "keyword": "RESUMOZAP",
+      "ctaQuestion": "Manda para quem tem grupo de família lotado",
+      "caption": "200 mensagens no grupo? A IA resume. 💬\n\nSelecione as mensagens do grupo, copie, cole no ChatGPT, no Claude ou no Gemini e peça: \"resuma em tópicos o que foi decidido, quem ficou de fazer o quê, datas combinadas e se alguém me perguntou alguma coisa\".\n\nAntes de colar, apague telefones, endereços e qualquer dado pessoal. E confira o que for importante na conversa original: a IA pode deixar passar um detalhe.\n\nManda para quem tem grupo de família lotado 👇\nComente RESUMOZAP que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Produtividade",
+      "tiktokTitle": "200 mensagens no grupo? Peça para a IA resumir",
+      "youtubeTitle": "Resuma a conversa do grupo com a IA em segundos #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Resuma em tópicos esta conversa: o que foi decidido, quem ficou de fazer o quê, datas combinadas e se alguém me perguntou algo. [cole as mensagens]\""
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "OpenAI vai aposentar as vozes Avançada e Padrão do ChatGPT em 11 de dezembro e deixar só o GPT-Live",
+      "hook": "A voz do ChatGPT vai mudar",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "11 de dezembro:",
+          "body": "saem as vozes Avançada e Padrão do ChatGPT."
+        },
+        {
+          "kind": "statement",
+          "title": "No lugar:",
+          "body": "fica só o GPT-Live, lançado em julho."
+        },
+        {
+          "kind": "list",
+          "title": "O que não muda",
+          "items": [
+            "Suas conversas antigas",
+            "Vídeo e tela ao vivo, por enquanto"
+          ]
+        }
+      ],
+      "narration": "A voz do ChatGPT vai mudar. A OpenAI avisou que no dia onze de dezembro as vozes Avançada e Padrão saem do ChatGPT. Fica só o GPT-Live, e quem usa as antigas vai ser trocado automaticamente. As conversas antigas continuam salvas. Comente VOZCHAT que eu te mando o aviso.",
+      "keyword": "VOZCHAT",
+      "ctaQuestion": "Você conversa por voz com o ChatGPT?",
+      "caption": "A voz do ChatGPT vai mudar. 🎙️\n\nA OpenAI avisou que no dia 11 de dezembro as vozes Avançada e Padrão saem do ChatGPT. A partir daí, o modo de voz passa a ser só o GPT-Live, lançado em julho, e quem ainda usa uma das antigas vai ser trocado automaticamente. Segundo a empresa, quase todo mundo que usa voz já está no GPT-Live.\n\nAs conversas antigas continuam no histórico. Vídeo ao vivo e compartilhamento de tela seguem na voz Avançada até o GPT-Live ganhar essa função. Alguns usuários reclamam que o GPT-Live interrompe rápido demais.\n\nVocê conversa por voz com o ChatGPT? Comenta aí 👇\nManda para quem usa o ChatGPT por voz\nComente VOZCHAT que eu te mando o aviso da OpenAI no direct.\n\nFonte: OpenAI e Android Authority\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #OpenAI #Tecnologia",
+      "tiktokTitle": "A voz do ChatGPT vai mudar em 11 de dezembro",
+      "youtubeTitle": "ChatGPT aposenta as vozes antigas: o que muda #shorts",
+      "sources": [
+        {
+          "name": "OpenAI",
+          "url": "https://help.openai.com/en/articles/20001638-retiring-advanced-and-standard-voice-in-chatgpt"
+        },
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com/openai-retiring-chatgpt-advanced-standard-voice-3733978/"
+        }
+      ],
+      "firstComment": "Aviso da OpenAI: https://help.openai.com/en/articles/20001638-retiring-advanced-and-standard-voice-in-chatgpt"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para gastar menos no supermercado com IA",
+    "slides": [
+      {
+        "title": "5 prompts para gastar menos no mercado",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Cardápio da semana",
+        "body": "\"Monte um cardápio de 7 dias para [número] pessoas com até R$ [valor] de mercado.\""
+      },
+      {
+        "title": "2. Lista por corredor",
+        "body": "\"Transforme este cardápio numa lista de compras separada por seção do mercado.\""
+      },
+      {
+        "title": "3. Trocas mais baratas",
+        "body": "\"Nesta lista: [itens], o que posso trocar por algo parecido e mais barato?\""
+      },
+      {
+        "title": "4. Sem desperdício",
+        "body": "\"Sobrou [ingredientes]. Que receitas faço antes que estraguem?\""
+      },
+      {
+        "title": "5. Preço por quilo",
+        "body": "\"Compare: [produto A, peso, preço] e [produto B, peso, preço]. Qual sai mais barato?\""
+      }
+    ],
+    "keyword": "MERCADOIA",
+    "caption": "5 prompts para gastar menos no supermercado. 🛒\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA não sabe o preço de hoje no seu mercado: use os valores da etiqueta ou do app da loja, e confira a conta antes de decidir.\n\nManda para quem faz as compras da casa 👇\nSalve e comente MERCADOIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Economia #DicasDeIA",
+    "tiktokTitle": "5 prompts para gastar menos no supermercado",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem faz as compras da casa!"
+  }
+}

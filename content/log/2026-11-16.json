@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-16",
+  "topic": "OpenAI vai aposentar as vozes Avançada e Padrão do ChatGPT em 11 de dezembro e deixar só o GPT-Live",
+  "keyword": "VOZCHAT",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para gastar menos no supermercado com IA",
+      "keyword": "MERCADOIA",
+      "metricoolId": 428607967,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Tirar foto de uma planta doente e pedir para a IA dizer o que ela tem e como cuidar",
+      "keyword": "PLANTAIA",
+      "metricoolId": 428608048,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Copiar a conversa longa do grupo e pedir para a IA resumir o que foi decidido",
+      "keyword": "RESUMOZAP",
+      "metricoolId": 428608093,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "OpenAI vai aposentar as vozes Avançada e Padrão do ChatGPT em 11 de dezembro e deixar só o GPT-Live",
+      "keyword": "VOZCHAT",
+      "metricoolId": 428608137,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}

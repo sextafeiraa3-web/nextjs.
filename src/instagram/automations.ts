@@ -1102,6 +1102,59 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "MERCADOIA",
+    message:
+      [
+        "Oi! Os 5 prompts para gastar menos no mercado (troque o que está entre colchetes):",
+        "",
+        "1. \"Monte um cardápio de 7 dias para [número] pessoas com até R$ [valor] de mercado.\"",
+        "2. \"Transforme este cardápio numa lista de compras separada por seção do mercado.\"",
+        "3. \"Nesta lista: [itens], o que posso trocar por algo parecido e mais barato?\"",
+        "4. \"Sobrou [ingredientes]. Que receitas faço antes que estraguem?\"",
+        "5. \"Compare: [produto A, peso, preço] e [produto B, peso, preço]. Qual sai mais barato?\"",
+        "",
+        "A IA não sabe o preço de hoje: use os valores da etiqueta ou do app da loja.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "PLANTAIA",
+    message:
+      [
+        "Oi! O prompt para descobrir o que a sua planta tem:",
+        "",
+        "\"[foto da planta e da folha de perto] Que planta é essa, o que ela tem e como eu cuido: quanta água, quanta luz e se preciso trocar o vaso? Ela fica [lugar] e eu rego [frequência].\"",
+        "",
+        "A IA pode errar o diagnóstico: para praga forte ou planta cara, confirme numa loja de jardinagem.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "RESUMOZAP",
+    message:
+      [
+        "Oi! O prompt para resumir a conversa do grupo:",
+        "",
+        "\"Resuma em tópicos esta conversa: o que foi decidido, quem ficou de fazer o quê, datas combinadas e se alguém me perguntou algo. [cole as mensagens]\"",
+        "",
+        "Antes de colar, apague telefones, endereços e dados pessoais. E confira o que for importante na conversa original.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "VOZCHAT",
+    message:
+      [
+        "Oi! Sobre a mudança na voz do ChatGPT:",
+        "",
+        "Em 11/12 as vozes Avançada e Padrão saem do ChatGPT e fica só o GPT-Live. Quem usa as antigas é trocado automaticamente. As conversas antigas continuam no histórico, e vídeo ao vivo e compartilhamento de tela seguem na voz Avançada por enquanto.",
+        "",
+        "Aviso da OpenAI: https://help.openai.com/en/articles/20001638-retiring-advanced-and-standard-voice-in-chatgpt",
+        "Android Authority: https://www.androidauthority.com/openai-retiring-chatgpt-advanced-standard-voice-3733978/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>
