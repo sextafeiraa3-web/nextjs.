@@ -41,7 +41,7 @@ Semana 09/11–15/11: sem números por post. A leitura do Instagram pelo Windsor
 
 ## Analista: o que está funcionando
 Dados de 09/11 a 15/11:
-- Seguidores no Instagram: 13 → 12 (Metricool). TikTok, Facebook e YouTube não publicaram nada na semana porque a conta do Metricool atingiu o limite; todos os 21 envios para essas redes deram ERROR.
+- Seguidores no Instagram: 13 → 12 (Metricool). TikTok, Facebook e YouTube não publicaram nada na semana porque a conta do Metricool atingiu o limite; todos os envios para essas redes deram ERROR.
 - Instagram publicou 28 de 28 posts pelo Windsor, alguns com atraso: em 12/11 o das 12:30 saiu às 21:30 e o das 17:00 às 20:30, por queda da sessão.
 - Não há números por post: o Windsor parou de liberar leituras até a conta ter só 1 conector (ou upgrade). Sem isso, o Analista não consegue medir alcance, salvamentos e compartilhamentos.
 - Lições da semana anterior que continuam valendo: o gancho precisa prender em 1 segundo (cerca de 80% de pulo nos 3 primeiros segundos), começando pelo problema ou pelo número.
