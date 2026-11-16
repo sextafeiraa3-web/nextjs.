@@ -29,25 +29,22 @@ reescreve toda segunda, com o número que justifica cada mudança.
 - Carrossel: Instagram (carrossel) e TikTok (fotos).
 
 ## Analista: pilares e proporção
-Semana 02/11–08/11 (Instagram via Windsor, alcance por post; 28 posts):
-- Notícia segue na frente: média 16,6 de alcance em 12 reels contra 13,1 das dicas/conceitos em 9 reels (8,4 sem o PRINTIA, que fez 51).
-- Mantém 2 notícias + 1 dica nos vídeos.
-- Notícia que funciona tem conflito ou efeito no dia a dia: OpenAI paga a conta de luz (33), escola sem IA fica sem Google (27), IA acha 81 falhas no Firefox (25), ChatGPT no e-mail do iPhone (22). Notícia de mercado/empresa sem efeito para a pessoa foi mal: IPO da Anthropic (3), robots.txt (5), Perplexity Teammates (9). Evitar esse tipo ou trocar o gancho para "o que muda para você".
-- Dica que funciona resolve um problema visível e concreto: print do erro (51), revisão de texto (13), ata de reunião (13). Conceito abstrato ou dica de estilo foi mal: imitar estilo (3), resposta diferente (8), tabela de comparação (8).
-- Carrossel: média 3,7 de alcance em 7 posts e nenhum salvamento pela 2ª semana. Mantém 1 por dia (regra do dono); testar 11:00 quando o dono liberar (ver horários).
+Semana 09/11–15/11: sem números por post. A leitura do Instagram pelo Windsor foi bloqueada (plano grátis permite 1 conta conectada e há 3: instagram, instagram_public e tiktok_organic) e o Metricool não traz métricas por post do Instagram. Regras mantidas da semana 02/11–08/11 até haver dados:
+- Mantém 2 notícias + 1 dica nos vídeos. Na semana anterior, notícia teve média 16,6 de alcance contra 13,1 das dicas/conceitos.
+- Notícia só com efeito no dia a dia ou conflito (conta de luz 33, escola sem Google 27, falhas no Firefox 25). Notícia de mercado/empresa sem efeito para a pessoa foi mal (IPO da Anthropic 3, robots.txt 5).
+- Dica precisa resolver um problema visível e concreto (print do erro 51). Conceito abstrato ou dica de estilo foi mal (imitar estilo 3).
+- Sem notícia confirmada por duas fontes, a vaga vira dica (aplicado em 16/11).
 
 ## Analista: horários
-- Carrossel continua às 09:00: o validador (automation/src/validate.ts) só aceita esse horário. Mudar para 11:00 é recomendado (3–6 de alcance às 09:00 nas duas semanas, média 3,7 nesta), mas depende de o dono liberar a mudança no código.
-- Vídeos 12:30, 17:00 e 19:00. Médias de alcance: 12:30 = 15,3; 17:00 = 13,0; 19:00 = 17,0. Mantém a notícia mais forte às 19:00.
+- Carrossel continua às 09:00 porque o validador (automation/src/validate.ts) só aceita esse horário. Testar 11:00 continua recomendado (3–6 de alcance às 09:00 em 02/11–08/11), mas depende de o dono liberar a mudança no código.
+- Vídeos às 12:30, 17:00 e 19:00. Médias de alcance em 02/11–08/11: 12:30 = 15,3; 17:00 = 13,0; 19:00 = 17,0. Mantém a notícia mais forte às 19:00.
 
 ## Analista: o que está funcionando
-Dados de 02/11 a 08/11 (Instagram via Windsor). Facebook, TikTok e YouTube não publicaram desde 05/11 19:00 (limite da conta do Metricool), então não há números deles nesta semana.
-- Seguidores: Instagram 13 → 13; TikTok 186 → 186 (parado, sem posts).
-- Melhores posts: "Apareceu um erro na tela? Mande o print." (51 de alcance, 64 views, 1 salvamento); "A OpenAI vai pagar a conta de luz da IA" (33); "Escola sem IA vai ficar sem Google?" (27).
-- A segunda metade da semana rendeu o dobro: reels de 06–08/11 tiveram média 21,6 de alcance contra 10,3 em 02–05/11.
-- Taxa de pulo nos 3 primeiros segundos ficou em torno de 80% em quase todos os reels (100% em IPO da Anthropic e imitar estilo). O gancho precisa prender em 1 segundo: começar pelo problema ou pelo número, sem introdução.
-- Os reels com maior tempo médio assistido foram notícias com efeito direto: Siri em português (6,0 s), Uber (5,9 s), conta de luz (4,6 s).
-- Compartilhamentos: zero em todos os 28 posts, mesmo com o "Manda para quem…" desde 04/11. Salvamentos: só 2 (ICLOUD e PRINTIA). Comentários de seguidores com palavra-chave: nenhum.
+Dados de 09/11 a 15/11:
+- Seguidores no Instagram: 13 → 12 (Metricool). TikTok, Facebook e YouTube não publicaram nada na semana porque a conta do Metricool atingiu o limite; todos os 21 envios para essas redes deram ERROR.
+- Instagram publicou 28 de 28 posts pelo Windsor, alguns com atraso: em 12/11 o das 12:30 saiu às 21:30 e o das 17:00 às 20:30, por queda da sessão.
+- Não há números por post: o Windsor parou de liberar leituras até a conta ter só 1 conector (ou upgrade). Sem isso, o Analista não consegue medir alcance, salvamentos e compartilhamentos.
+- Lições da semana anterior que continuam valendo: o gancho precisa prender em 1 segundo (cerca de 80% de pulo nos 3 primeiros segundos), começando pelo problema ou pelo número.
 
 ## Voz
 - Narração por IA (Piper). Usa `voices/pt_BR-faber-medium.onnx` quando existir no repositório; senão `pt-br-edresson-low` (baixada do GitHub).
