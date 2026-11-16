@@ -1155,6 +1155,57 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei no direct! 📩",
   },
+  {
+    keyword: "MUDANCAIA",
+    message:
+      [
+        "Oi! Os 5 prompts para organizar a mudança (troque o que está entre colchetes):",
+        "",
+        "1. \"Vou me mudar em [data]. Monte um cronograma semana a semana do que fazer.\"",
+        "2. \"Crie uma lista de etiquetas para as caixas, separadas por cômodo: [cômodos].\"",
+        "3. \"Liste os serviços e cadastros que preciso transferir ou atualizar quando mudo de endereço.\"",
+        "4. \"Tenho R$ [valor]. Monte um orçamento para frete, embalagens e gastos da mudança.\"",
+        "5. \"Monte a lista do que levar numa caixa separada para o primeiro dia na casa nova.\"",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "PAINELIA",
+    message:
+      [
+        "Oi! O prompt para entender a luz do painel:",
+        "",
+        "\"[foto do painel] Meu carro é [modelo e ano]. Que luz é essa, posso continuar dirigindo e o que devo verificar?\"",
+        "",
+        "Tire a foto com o carro parado em lugar seguro. Luz vermelha costuma ser sinal para parar: na dúvida, chame o seguro ou um mecânico.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "MEMORIAIA",
+    message:
+      [
+        "Oi! Sobre o Resumo de memória do Gemini:",
+        "",
+        "Ele mostra, por assunto, o que o Gemini lembra sobre você, e dá para corrigir, apagar ou desligar a memória. Está sendo liberado nos EUA, no app e no site, em Configurações > Inteligência pessoal > Resumo de memória.",
+        "",
+        "Ajuda do Google: https://support.google.com/gemini/answer/18617127",
+        "Android Authority: https://www.androidauthority.com/google-gemini-memory-summary-rollout-3733179/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
+  {
+    keyword: "SITEFALSO",
+    message:
+      [
+        "Oi! Sobre os sites falsos que imitam apps de IA:",
+        "",
+        "A empresa Island achou 186 endereços com letra trocada que imitam ChatGPT, Claude, Gemini e outras 24 ferramentas. Alguns mostram uma falsa verificação que pede para colar um comando e instalam programas maliciosos. Use o app oficial ou os favoritos e nunca cole comandos que um site pedir.",
+        "",
+        "The Hacker News: https://thehackernews.com/2026/11/186-fake-ai-domains-redirect-users-to.html",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

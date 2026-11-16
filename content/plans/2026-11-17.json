@@ -1,0 +1,164 @@
+{
+  "date": "2026-11-17",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Tirar foto da luz acesa no painel do carro e pedir para a IA explicar o que significa",
+      "hook": "Acendeu uma luz no painel? Tire uma foto",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Luz estranha no painel?",
+          "body": "pare em lugar seguro e tire uma foto."
+        },
+        {
+          "kind": "steps",
+          "title": "Pergunte à IA",
+          "steps": [
+            "Que luz é essa?",
+            "Posso continuar dirigindo?",
+            "O que devo verificar?"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "luz vermelha, pare e chame ajuda ou um mecânico."
+        }
+      ],
+      "narration": "Acendeu uma luz no painel? Pare em lugar seguro e tire uma foto. Mande para o ChatGPT, o Claude ou o Gemini com o modelo do carro e pergunte que luz é, se pode continuar dirigindo e o que verificar. Luz vermelha, pare e chame ajuda. Comente PAINELIA que eu te mando o prompt.",
+      "keyword": "PAINELIA",
+      "ctaQuestion": "Manda para quem ignora luz no painel",
+      "caption": "Acendeu uma luz no painel? Tire uma foto. 🚗\n\nPare em lugar seguro, tire uma foto do painel e envie para o ChatGPT, o Claude ou o Gemini com o modelo e o ano do carro, pedindo: \"que luz é essa, posso continuar dirigindo e o que devo verificar?\". Nunca mexa no celular com o carro andando.\n\nA IA dá uma ideia, mas não substitui o manual do carro nem o mecânico. Luz vermelha costuma ser sinal para parar: na dúvida, chame o seguro ou a assistência.\n\nManda para quem ignora luz no painel 👇\nComente PAINELIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Carro",
+      "tiktokTitle": "Acendeu uma luz no painel? Tire uma foto e pergunte à IA",
+      "youtubeTitle": "Luz acesa no painel do carro? A IA explica com uma foto #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[foto do painel] Meu carro é [modelo e ano]. Que luz é essa, posso continuar dirigindo e o que devo verificar?\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "noticia",
+      "topic": "Gemini ganha o Resumo de memória para ver, corrigir e apagar o que a IA lembra sobre você",
+      "hook": "O que o Gemini sabe sobre você?",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Resumo de memória:",
+          "body": "o Gemini mostra o que lembra sobre você."
+        },
+        {
+          "kind": "list",
+          "title": "Você pode",
+          "items": [
+            "Ver por assunto",
+            "Corrigir o que está errado",
+            "Apagar o que não quer"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Por enquanto:",
+          "body": "liberando nos EUA, no app e no site."
+        }
+      ],
+      "narration": "O que o Gemini sabe sobre você? O Google liberou o Resumo de memória: o Gemini mostra o que lembra sobre você, separado por assunto, e você pode corrigir ou apagar o que quiser. Por enquanto, está chegando nos Estados Unidos. Comente MEMORIAIA que eu te mando a matéria.",
+      "keyword": "MEMORIAIA",
+      "ctaQuestion": "Você deixa a IA lembrar de você?",
+      "caption": "O que o Gemini sabe sobre você? 🧠\n\nO Google começou a liberar o Resumo de memória do Gemini. Ele mostra, separado por assunto (trabalho, interesses, preferências), o que a IA aprendeu sobre você nas conversas. Dá para corrigir uma informação, apagar o que não quer que ela lembre, ver o histórico de mudanças ou desligar a memória de vez.\n\nPor enquanto está sendo liberado nos Estados Unidos, no app e no site do Gemini, para contas pessoais de maiores de 18 anos. Fica em Configurações, Inteligência pessoal, Resumo de memória.\n\nVocê deixa a IA lembrar de você? Comenta aí 👇\nManda para quem conta tudo para o Gemini\nComente MEMORIAIA que eu te mando a matéria completa no direct.\n\nFonte: Google e Android Authority\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Gemini #Google #Privacidade",
+      "tiktokTitle": "O que o Gemini sabe sobre você? Agora dá para ver e apagar",
+      "youtubeTitle": "Gemini mostra o que lembra sobre você: o Resumo de memória #shorts",
+      "sources": [
+        {
+          "name": "Google",
+          "url": "https://support.google.com/gemini/answer/18617127?hl=en&co=GENIE.Platform%3DAndroid"
+        },
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com/google-gemini-memory-summary-rollout-3733179/"
+        }
+      ],
+      "firstComment": "Matéria do Android Authority: https://www.androidauthority.com/google-gemini-memory-summary-rollout-3733179/"
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "Pesquisa acha 186 sites falsos que imitam ChatGPT, Claude e Gemini para espalhar vírus",
+      "hook": "Errou uma letra? Pode ser um site falso",
+      "scenes": [
+        {
+          "kind": "number",
+          "value": "186",
+          "label": "sites falsos imitando apps de IA"
+        },
+        {
+          "kind": "list",
+          "title": "O golpe",
+          "items": [
+            "Endereço com letra trocada",
+            "Falsa verificação de segurança",
+            "Pede para colar um comando"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Proteja-se:",
+          "body": "use o app oficial ou salve o site nos favoritos."
+        }
+      ],
+      "narration": "Errou uma letra? Pode ser um site falso. Uma empresa de segurança achou cento e oitenta e seis endereços que imitam o ChatGPT, o Claude e o Gemini. Quem digita errado cai numa falsa verificação que pede para colar um comando e instala vírus. Use o app oficial ou os favoritos. Comente SITEFALSO que eu te mando a matéria.",
+      "keyword": "SITEFALSO",
+      "ctaQuestion": "Você digita o endereço ou usa o app?",
+      "caption": "Errou uma letra? Pode ser um site falso. ⚠️\n\nA empresa de segurança Island encontrou 186 endereços que imitam 27 ferramentas de IA, como ChatGPT, Claude e Gemini, com uma letra trocada (tipo \"cloude\" no lugar de \"claude\"). Quem digita errado pode cair numa falsa verificação de segurança que manda colar um comando no computador, numa extensão que sequestra as buscas ou num programa malicioso.\n\nNem todo endereço está ativo, e a pesquisa não aponta quantas pessoas foram infectadas. Para se proteger: use o app oficial ou salve o site nos favoritos, e nunca cole comandos que uma página pedir para \"provar que você é humano\".\n\nVocê digita o endereço ou usa o app? Comenta aí 👇\nManda para quem usa IA no computador\nComente SITEFALSO que eu te mando a matéria completa no direct.\n\nFonte: Island e The Hacker News\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Seguranca #Golpe",
+      "tiktokTitle": "Errou uma letra? Pode ser um site falso de IA",
+      "youtubeTitle": "186 sites falsos imitam ChatGPT e Claude: como se proteger #shorts",
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/186-fake-ai-domains-redirect-users-to.html"
+        },
+        {
+          "name": "Cloud Security Alliance",
+          "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-typoprompting-ai-brand-lookalike-domains-2/"
+        }
+      ],
+      "firstComment": "Matéria do The Hacker News: https://thehackernews.com/2026/11/186-fake-ai-domains-redirect-users-to.html"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para organizar uma mudança de casa com IA",
+    "slides": [
+      {
+        "title": "5 prompts para organizar a mudança",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Cronograma",
+        "body": "\"Vou me mudar em [data]. Monte um cronograma semana a semana do que fazer.\""
+      },
+      {
+        "title": "2. Caixas por cômodo",
+        "body": "\"Crie uma lista de etiquetas para as caixas, separadas por cômodo: [cômodos].\""
+      },
+      {
+        "title": "3. Contas e endereço",
+        "body": "\"Liste os serviços e cadastros que preciso transferir ou atualizar quando mudo de endereço.\""
+      },
+      {
+        "title": "4. Orçamento",
+        "body": "\"Tenho R$ [valor]. Monte um orçamento para frete, embalagens e gastos da mudança.\""
+      },
+      {
+        "title": "5. Primeiro dia",
+        "body": "\"Monte a lista do que levar numa caixa separada para o primeiro dia na casa nova.\""
+      }
+    ],
+    "keyword": "MUDANCAIA",
+    "caption": "5 prompts para organizar a mudança de casa. 📦\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA organiza a lista, mas confira prazos e regras do seu condomínio, da transportadora e dos serviços da sua cidade.\n\nManda para quem vai se mudar 👇\nSalve e comente MUDANCAIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Mudanca #DicasDeIA",
+    "tiktokTitle": "5 prompts para organizar a mudança de casa",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem vai se mudar!"
+  }
+}

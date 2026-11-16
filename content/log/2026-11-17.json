@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-17",
+  "topic": "Pesquisa acha 186 sites falsos que imitam ChatGPT, Claude e Gemini para espalhar vírus",
+  "keyword": "SITEFALSO",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para organizar uma mudança de casa com IA",
+      "keyword": "MUDANCAIA",
+      "metricoolId": 429603996,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Tirar foto da luz acesa no painel do carro e pedir para a IA explicar o que significa",
+      "keyword": "PAINELIA",
+      "metricoolId": 429604041,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Gemini ganha o Resumo de memória para ver, corrigir e apagar o que a IA lembra sobre você",
+      "keyword": "MEMORIAIA",
+      "metricoolId": 429604092,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Pesquisa acha 186 sites falsos que imitam ChatGPT, Claude e Gemini para espalhar vírus",
+      "keyword": "SITEFALSO",
+      "metricoolId": 429604155,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}
