@@ -9,10 +9,11 @@
       "keyword": "MUDANCAIA",
       "metricoolId": 429603996,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "tiktok": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+      "note": "Instagram via Windsor (carrossel + 1º comentário). TikTok: limite da conta Metricool.",
+      "instagramMediaId": "18134435272689950"
     },
     {
       "slot": "12:30",
