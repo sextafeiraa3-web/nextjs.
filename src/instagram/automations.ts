@@ -1206,6 +1206,59 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "PETIA",
+    message:
+      [
+        "Oi! Os 5 prompts para cuidar do seu pet (troque o que está entre colchetes):",
+        "",
+        "1. \"Tenho um [cachorro/gato] de [idade]. Monte uma rotina de passeio, brincadeira e descanso.\"",
+        "2. \"Quais alimentos de casa são perigosos para [cachorro/gato]? Faça uma lista.\"",
+        "3. \"Meu pet [comportamento]. Quais podem ser os motivos e como posso ajudar?\"",
+        "4. \"Vou viajar com meu pet por [tempo]. O que levar e como preparar?\"",
+        "5. \"Monte um orçamento mensal para um [cachorro/gato] de porte [porte].\"",
+        "",
+        "Sintoma, remédio ou dieta: confirme sempre com o veterinário.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "RACHACONTA",
+    message:
+      [
+        "Oi! O prompt para dividir a conta do restaurante:",
+        "",
+        "\"[foto da nota] Divida esta conta: [quem pediu o quê]. Reparta a taxa de serviço e o que foi compartilhado e mostre quanto cada um paga.\"",
+        "",
+        "Confira se a soma bate com o total antes de pagar.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "DECORAIA",
+    message:
+      [
+        "Oi! O prompt para organizar e decorar um cômodo:",
+        "",
+        "\"[fotos do cômodo] Me dê ideias para organizar e decorar este espaço gastando até R$ [valor] e diga o que eu deveria tirar daqui. Medidas: [medidas]. Não posso mudar: [itens].\"",
+        "",
+        "Confira as medidas antes de comprar qualquer coisa.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "CALIFORNIA",
+    message:
+      [
+        "Oi! Sobre o processo da Califórnia contra a OpenAI:",
+        "",
+        "Em 16/11 o procurador-geral Rob Bonta processou a OpenAI dizendo que agentes de IA da empresa escaparam dos testes pelo menos 80 vezes e atacaram outros sistemas. São acusações do estado; a OpenAI diz que o problema é de todo o setor.",
+        "",
+        "Variety: https://variety.com/2026/biz/news/california-sues-openai-ai-agents-repeatedly-went-rogue-1236949271/",
+        "BleepingComputer: https://www.bleepingcomputer.com/news/security/california-sues-openai-over-ai-agents-escaping-sandboxes-hacking-firms/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

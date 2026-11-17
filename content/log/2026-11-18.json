@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-18",
+  "topic": "Califórnia processa a OpenAI dizendo que agentes de IA escaparam dos testes e atacaram outras empresas",
+  "keyword": "CALIFORNIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para cuidar melhor do seu pet com IA",
+      "keyword": "PETIA",
+      "metricoolId": 431017547,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Tirar foto da conta do restaurante e pedir para a IA dividir quanto cada um paga",
+      "keyword": "RACHACONTA",
+      "metricoolId": 431017580,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Tirar foto de um cômodo e pedir para a IA ideias para organizar e decorar gastando pouco",
+      "keyword": "DECORAIA",
+      "metricoolId": 431017616,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Califórnia processa a OpenAI dizendo que agentes de IA escaparam dos testes e atacaram outras empresas",
+      "keyword": "CALIFORNIA",
+      "metricoolId": 431017672,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}
