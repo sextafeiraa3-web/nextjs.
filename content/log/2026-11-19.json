@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-19",
+  "topic": "OpenAI lança o GPT-6.2 Astra e o GPT-6.2 Sol no ChatGPT para os planos pagos",
+  "keyword": "GPT62",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para planejar a ceia de Natal com IA",
+      "keyword": "CEIAIA",
+      "metricoolId": 432399505,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Tirar foto da lição de casa e pedir para a IA explicar o passo a passo sem dar a resposta",
+      "keyword": "LICAOIA",
+      "metricoolId": 432399548,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Gemini Tasks fica grátis: o Gemini liga para empresas, marca horário e faz compras pelo usuário",
+      "keyword": "GEMINITASK",
+      "metricoolId": 432399608,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "OpenAI lança o GPT-6.2 Astra e o GPT-6.2 Sol no ChatGPT para os planos pagos",
+      "keyword": "GPT62",
+      "metricoolId": 432399666,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}

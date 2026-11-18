@@ -1,0 +1,163 @@
+{
+  "date": "2026-11-19",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Tirar foto da lição de casa e pedir para a IA explicar o passo a passo sem dar a resposta",
+      "hook": "Não sabe ajudar na lição? Tire uma foto",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Lição de casa difícil?",
+          "body": "tire uma foto do exercício."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça para a IA",
+          "steps": [
+            "Explique como para uma criança",
+            "Mostre o passo a passo",
+            "Não dê a resposta final"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Dica:",
+          "body": "diga a série e deixe a criança tentar."
+        }
+      ],
+      "narration": "Não sabe ajudar na lição? Tire uma foto do exercício e mande para o ChatGPT, o Claude ou o Gemini. Peça para explicar como para uma criança, mostrar o passo a passo e não dar a resposta final. Diga a série e deixe a criança tentar. Comente LICAOIA que eu te mando o prompt.",
+      "keyword": "LICAOIA",
+      "ctaQuestion": "Manda para quem ajuda os filhos na lição",
+      "caption": "Não sabe ajudar na lição? Tire uma foto. 📚\n\nTire uma foto do exercício e envie para o ChatGPT, o Claude ou o Gemini pedindo: \"meu filho está no [série]. Explique este exercício como para uma criança, mostre o passo a passo com outro exemplo e não dê a resposta final\". Assim você entende e ajuda sem fazer a tarefa por ela.\n\nA IA pode errar conta e regra de português: confira com o livro ou o professor se algo parecer estranho.\n\nManda para quem ajuda os filhos na lição 👇\nComente LICAOIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Educacao",
+      "tiktokTitle": "Não sabe ajudar na lição de casa? Tire uma foto e peça para a IA",
+      "youtubeTitle": "Ajude na lição de casa com uma foto e a IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[foto do exercício] Meu filho está no [série]. Explique este exercício como para uma criança, mostre o passo a passo com outro exemplo e não dê a resposta final.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "noticia",
+      "topic": "Gemini Tasks fica grátis: o Gemini liga para empresas, marca horário e faz compras pelo usuário",
+      "hook": "O Gemini agora liga por você",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Gemini Tasks:",
+          "body": "o Gemini executa tarefas por você, de graça."
+        },
+        {
+          "kind": "list",
+          "title": "Ele pode",
+          "items": [
+            "Ligar para empresas",
+            "Marcar horário na agenda",
+            "Fazer compras com limite"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Por enquanto:",
+          "body": "6 países, sem o Brasil. Ligações só nos EUA."
+        }
+      ],
+      "narration": "O Gemini agora liga por você. O Google liberou de graça o Gemini Tasks, que liga para empresas, marca horário na sua agenda e faz compras com um limite que você define. Na ligação, ele avisa que é uma IA. Por enquanto, está em seis países, sem o Brasil. Comente GEMINITASK que eu te mando a matéria.",
+      "keyword": "GEMINITASK",
+      "ctaQuestion": "Você deixaria a IA ligar no seu lugar?",
+      "caption": "O Gemini agora liga por você. 📞\n\nO Google liberou de graça o Gemini Tasks, um modo em que o Gemini executa tarefas sozinho: procura empresas no Maps, liga para elas, marca horário e coloca na sua agenda, e faz compras dentro de um limite de gastos que você define. Na ligação, ele avisa logo no começo que é uma IA, e pede autorização antes de passar dados de pagamento.\n\nPor enquanto, o grátis vale para EUA, Japão, Coreia, Canadá, Austrália e Índia, para maiores de 18 anos. As ligações para empresas começam só nos EUA. Ainda não há data para o Brasil.\n\nVocê deixaria a IA ligar no seu lugar? Comenta aí 👇\nManda para quem odeia ligar para marcar consulta\nComente GEMINITASK que eu te mando a matéria completa no direct.\n\nFonte: Android Authority e Neowin\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Gemini #Google #Tecnologia",
+      "tiktokTitle": "O Gemini agora liga para empresas e marca horário por você",
+      "youtubeTitle": "Gemini Tasks: a IA do Google que liga e marca horário por você #shorts",
+      "sources": [
+        {
+          "name": "Android Authority",
+          "url": "https://www.androidauthority.com/google-gemini-tasks-update-3736266/"
+        },
+        {
+          "name": "Neowin",
+          "url": "https://www.neowin.net/news/google-makes-its-always-on-ai-agent-free-adds-phone-calls-shopping-and-more/"
+        }
+      ],
+      "firstComment": "Matéria do Android Authority: https://www.androidauthority.com/google-gemini-tasks-update-3736266/"
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "OpenAI lança o GPT-6.2 Astra e o GPT-6.2 Sol no ChatGPT para os planos pagos",
+      "hook": "Saiu o GPT-6.2",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Dois modelos novos:",
+          "body": "GPT-6.2 Astra e GPT-6.2 Sol."
+        },
+        {
+          "kind": "list",
+          "title": "Para quê",
+          "items": [
+            "Astra: projetos difíceis",
+            "Sol: o dia a dia"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Quem tem:",
+          "body": "planos pagos, como o Plus."
+        }
+      ],
+      "narration": "Saiu o GPT-6.2 no ChatGPT. A OpenAI lançou dois modelos: o Astra, para projetos mais difíceis, e o Sol, para o dia a dia. Eles chegam para os planos pagos, como o Plus, aos poucos. Testes independentes ainda mostram erros, então confira o que for importante. Comente GPT62 que eu te mando a matéria.",
+      "keyword": "GPT62",
+      "ctaQuestion": "Você paga o ChatGPT Plus?",
+      "caption": "Chegou o GPT-6.2 no ChatGPT. 🚀\n\nA OpenAI lançou nesta terça (17/11) dois modelos novos: o GPT-6.2 Astra, feito para os projetos mais difíceis (apresentações, sites, pesquisa), e o GPT-6.2 Sol, para o uso do dia a dia. Eles estão chegando aos poucos para os planos pagos do ChatGPT, como Plus e Pro.\n\nSegundo a OpenAI, o Astra faz mais gastando menos. Mas um teste independente do site The Decoder ainda encontrou bastante resposta inventada nos dois, então confira o que for importante.\n\nVocê paga o ChatGPT Plus? Comenta aí 👇\nManda para quem usa o ChatGPT todo dia\nComente GPT62 que eu te mando a matéria completa no direct.\n\nFonte: OpenAI e 9to5Mac\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #OpenAI #Tecnologia",
+      "tiktokTitle": "Chegou o GPT-6.2 no ChatGPT: Astra e Sol",
+      "youtubeTitle": "GPT-6.2 Astra e Sol: o que muda no ChatGPT #shorts",
+      "sources": [
+        {
+          "name": "OpenAI",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+        },
+        {
+          "name": "9to5Mac",
+          "url": "https://9to5mac.com/2026/11/17/openai-upgrades-chatgpt-and-codex-with-new-gpt-6-2-astra-and-sol-models/"
+        }
+      ],
+      "firstComment": "Anúncio da OpenAI: https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para planejar a ceia de Natal com IA",
+    "slides": [
+      {
+        "title": "5 prompts para planejar a ceia de Natal",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Cardápio",
+        "body": "\"Monte um cardápio de ceia para [número] pessoas com até R$ [valor].\""
+      },
+      {
+        "title": "2. Lista de compras",
+        "body": "\"Transforme este cardápio numa lista de compras com quantidades para [número] pessoas.\""
+      },
+      {
+        "title": "3. Restrições",
+        "body": "\"Adapte a ceia para quem é [vegetariano/sem lactose/diabético].\""
+      },
+      {
+        "title": "4. Cronograma",
+        "body": "\"A ceia é às [hora]. Monte um cronograma do que preparar e quando.\""
+      },
+      {
+        "title": "5. Divisão",
+        "body": "\"Somos [número] famílias. Divida os pratos e os custos de forma justa.\""
+      }
+    ],
+    "keyword": "CEIAIA",
+    "caption": "5 prompts para planejar a ceia de Natal. 🎄\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA não sabe o preço de hoje no seu mercado: confira os valores antes de fechar o orçamento.\n\nManda para quem sempre organiza o Natal da família 👇\nSalve e comente CEIAIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Natal #DicasDeIA",
+    "tiktokTitle": "5 prompts para planejar a ceia de Natal",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem organiza o Natal da família!"
+  }
+}

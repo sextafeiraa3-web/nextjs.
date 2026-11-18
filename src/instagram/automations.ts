@@ -1259,6 +1259,58 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "CEIAIA",
+    message:
+      [
+        "Oi! Os 5 prompts para planejar a ceia de Natal (troque o que está entre colchetes):",
+        "",
+        "1. \"Monte um cardápio de ceia para [número] pessoas com até R$ [valor].\"",
+        "2. \"Transforme este cardápio numa lista de compras com quantidades para [número] pessoas.\"",
+        "3. \"Adapte a ceia para quem é [vegetariano/sem lactose/diabético].\"",
+        "4. \"A ceia é às [hora]. Monte um cronograma do que preparar e quando.\"",
+        "5. \"Somos [número] famílias. Divida os pratos e os custos de forma justa.\"",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "LICAOIA",
+    message:
+      [
+        "Oi! O prompt para ajudar na lição de casa:",
+        "",
+        "\"[foto do exercício] Meu filho está no [série]. Explique este exercício como para uma criança, mostre o passo a passo com outro exemplo e não dê a resposta final.\"",
+        "",
+        "A IA pode errar: se algo parecer estranho, confira com o livro ou o professor.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "GEMINITASK",
+    message:
+      [
+        "Oi! Sobre o Gemini Tasks:",
+        "",
+        "O Google liberou de graça um modo em que o Gemini liga para empresas, marca horário e faz compras com um limite que você define. Por enquanto vale para EUA, Japão, Coreia, Canadá, Austrália e Índia; as ligações começam só nos EUA. Ainda não há data para o Brasil.",
+        "",
+        "Android Authority: https://www.androidauthority.com/google-gemini-tasks-update-3736266/",
+        "Neowin: https://www.neowin.net/news/google-makes-its-always-on-ai-agent-free-adds-phone-calls-shopping-and-more/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
+  {
+    keyword: "GPT62",
+    message:
+      [
+        "Oi! Sobre o GPT-6.2:",
+        "",
+        "A OpenAI lançou em 17/11 o GPT-6.2 Astra, para projetos difíceis, e o GPT-6.2 Sol, para o dia a dia. Eles estão chegando aos poucos para os planos pagos do ChatGPT. Testes independentes ainda encontram respostas inventadas, então confira o que for importante.",
+        "",
+        "OpenAI: https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+        "9to5Mac: https://9to5mac.com/2026/11/17/openai-upgrades-chatgpt-and-codex-with-new-gpt-6-2-astra-and-sol-models/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>
