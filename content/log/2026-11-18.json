@@ -9,10 +9,11 @@
       "keyword": "PETIA",
       "metricoolId": 431017547,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "tiktok": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+      "note": "Instagram via Windsor (carrossel + 1º comentário). TikTok: limite da conta Metricool.",
+      "instagramMediaId": "18120422645321030"
     },
     {
       "slot": "12:30",
