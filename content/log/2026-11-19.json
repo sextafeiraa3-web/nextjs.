@@ -50,9 +50,9 @@
       "metricoolId": 432399666,
       "networks": {
         "instagram": "FIXED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
+        "facebook": "ERROR",
+        "tiktok": "ERROR",
+        "youtube": "ERROR"
       },
       "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11.",
       "instagramMediaId": "18122770798748222"
