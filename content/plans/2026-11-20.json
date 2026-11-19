@@ -1,0 +1,151 @@
+{
+  "date": "2026-11-20",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Tirar foto de um prato e pedir para a IA a receita para fazer em casa",
+      "hook": "Comeu algo gostoso? A IA te dá a receita",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Prato bom no restaurante?",
+          "body": "tire uma foto antes de comer."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça para a IA",
+          "steps": [
+            "Que prato é esse?",
+            "Receita para 2 pessoas",
+            "Com o que tenho em casa"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "é uma versão aproximada, prove e ajuste o tempero."
+        }
+      ],
+      "narration": "Comeu algo gostoso? A IA te dá a receita. Tire uma foto do prato e mande para o ChatGPT, o Claude ou o Gemini. Pergunte que prato é, peça a receita para duas pessoas e adapte ao que você tem em casa. É uma versão aproximada, então prove e ajuste o tempero. Comente RECEITAIA que eu te mando o prompt.",
+      "keyword": "RECEITAIA",
+      "ctaQuestion": "Manda para quem sempre pede a receita",
+      "caption": "Comeu algo gostoso? A IA te dá a receita. 🍝\n\nTire uma foto do prato e envie para o ChatGPT, o Claude ou o Gemini pedindo: \"que prato é esse? Me passe uma receita para 2 pessoas, com a lista de ingredientes e o passo a passo, usando o que eu tenho em casa: [ingredientes]\".\n\nA IA chuta a receita pela aparência: é uma versão aproximada, não a do restaurante. Prove e ajuste o tempero, e avise se alguém tiver alergia.\n\nManda para quem sempre pede a receita 👇\nComente RECEITAIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Receitas",
+      "tiktokTitle": "Comeu algo gostoso? Tire uma foto e peça a receita para a IA",
+      "youtubeTitle": "Descubra a receita de um prato com uma foto e a IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[foto do prato] Que prato é esse? Me passe uma receita para 2 pessoas, com ingredientes e passo a passo, usando o que eu tenho em casa: [ingredientes].\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "dica",
+      "topic": "Usar a IA para achar assinaturas esquecidas na fatura do cartão",
+      "hook": "Quanto você paga de assinatura sem saber?",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Fatura do cartão:",
+          "body": "cole só a lista de compras, sem número do cartão."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça para a IA",
+          "steps": [
+            "Ache as cobranças que se repetem",
+            "Some quanto dá por mês",
+            "Diga quais posso cancelar"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Cuidado:",
+          "body": "apague nome, CPF e número do cartão antes."
+        }
+      ],
+      "narration": "Quanto você paga de assinatura sem saber? Copie a lista de compras da fatura do cartão, sem nome nem número do cartão, e cole no ChatGPT, no Claude ou no Gemini. Peça para achar as cobranças que se repetem, somar quanto dá por mês e dizer quais dá para cancelar. Comente ASSINAIA que eu te mando o prompt.",
+      "keyword": "ASSINAIA",
+      "ctaQuestion": "Manda para quem esquece de cancelar teste grátis",
+      "caption": "Quanto você paga de assinatura sem saber? 💳\n\nCopie só a lista de compras da fatura do cartão (data, nome da loja e valor) e cole no ChatGPT, no Claude ou no Gemini pedindo: \"ache as cobranças que se repetem todo mês, some quanto eu gasto com assinaturas e me diga quais parecem esquecidas\".\n\nAntes de colar, apague nome, CPF e número do cartão: a IA não precisa disso. E confira cada cobrança no app do banco antes de cancelar.\n\nManda para quem esquece de cancelar teste grátis 👇\nComente ASSINAIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Financas",
+      "tiktokTitle": "Quanto você paga de assinatura sem saber? A IA acha na fatura",
+      "youtubeTitle": "Ache assinaturas esquecidas na fatura com a IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[cole data, loja e valor das compras, sem dados pessoais] Ache as cobranças que se repetem todo mês, some quanto gasto com assinaturas e diga quais parecem esquecidas.\""
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "ChatGPT ganha o Ditado ao vivo: o texto aparece enquanto você fala e acaba o limite de 10 minutos",
+      "hook": "O ChatGPT agora escreve enquanto você fala",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Ditado ao vivo:",
+          "body": "o texto aparece na hora, enquanto você fala."
+        },
+        {
+          "kind": "number",
+          "value": "10 min",
+          "label": "era o limite de gravação, e agora acabou"
+        },
+        {
+          "kind": "statement",
+          "title": "Quem tem:",
+          "body": "todos os planos, inclusive o grátis."
+        }
+      ],
+      "narration": "O ChatGPT agora escreve enquanto você fala. A OpenAI lançou o ditado ao vivo: o texto aparece na tela na hora, e acabou o limite de dez minutos de gravação. Vale para todos os planos, inclusive o grátis, no celular e no computador. Comente DITADO que eu te mando a matéria.",
+      "keyword": "DITADO",
+      "ctaQuestion": "Você fala ou digita com o ChatGPT?",
+      "caption": "O ChatGPT agora escreve enquanto você fala. 🎤\n\nA OpenAI lançou nesta quarta (18/11) o ditado ao vivo no ChatGPT: em vez de esperar você terminar de gravar, o texto vai aparecendo na tela enquanto você fala. E acabou o limite de 10 minutos por gravação. Está chegando para todos os planos, inclusive o grátis, no iPhone, Android, site e app de computador.\n\nÉ diferente do modo de voz: o ditado só transforma sua fala em texto, para você revisar antes de enviar. A liberação é gradual.\n\nVocê fala ou digita com o ChatGPT? Comenta aí 👇\nManda para quem odeia digitar no celular\nComente DITADO que eu te mando a matéria completa no direct.\n\nFonte: OpenAI e 9to5Mac\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #OpenAI #Tecnologia",
+      "tiktokTitle": "O ChatGPT agora escreve enquanto você fala, sem limite de tempo",
+      "youtubeTitle": "ChatGPT ganha ditado ao vivo e sem limite de 10 minutos #shorts",
+      "sources": [
+        {
+          "name": "OpenAI",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+        },
+        {
+          "name": "9to5Mac",
+          "url": "https://9to5mac.com/2026/11/18/chatgpt-app-gains-enhanced-live-dictation-streaming-without-10-minute-limit/"
+        }
+      ],
+      "firstComment": "Matéria do 9to5Mac: https://9to5mac.com/2026/11/18/chatgpt-app-gains-enhanced-live-dictation-streaming-without-10-minute-limit/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para planejar um feriado barato com IA",
+    "slides": [
+      {
+        "title": "5 prompts para um feriado barato",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Destino",
+        "body": "\"Moro em [cidade]. Sugira 5 lugares a até [horas] de carro para um feriado com até R$ [valor].\""
+      },
+      {
+        "title": "2. Roteiro",
+        "body": "\"Monte um roteiro de [dias] dias em [lugar] com atrações grátis ou baratas.\""
+      },
+      {
+        "title": "3. Em casa",
+        "body": "\"Vou ficar em casa no feriado. Sugira programas baratos para [quem vai estar].\""
+      },
+      {
+        "title": "4. Mala",
+        "body": "\"Monte a lista do que levar para [dias] dias em [lugar] com [clima].\""
+      },
+      {
+        "title": "5. Contas",
+        "body": "\"Somos [número] pessoas. Divida os gastos de combustível, comida e hospedagem.\""
+      }
+    ],
+    "keyword": "FERIADOIA",
+    "caption": "5 prompts para um feriado barato. 🏖️\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA dá ideias, mas preço, horário e funcionamento mudam: confira no site oficial antes de sair de casa.\n\nManda para quem vai aproveitar o feriado 👇\nSalve e comente FERIADOIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Feriado #DicasDeIA",
+    "tiktokTitle": "5 prompts para planejar um feriado barato",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem vai aproveitar o feriado!"
+  }
+}

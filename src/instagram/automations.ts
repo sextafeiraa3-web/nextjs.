@@ -1311,6 +1311,59 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "FERIADOIA",
+    message:
+      [
+        "Oi! Os 5 prompts para um feriado barato (troque o que está entre colchetes):",
+        "",
+        "1. \"Moro em [cidade]. Sugira 5 lugares a até [horas] de carro para um feriado com até R$ [valor].\"",
+        "2. \"Monte um roteiro de [dias] dias em [lugar] com atrações grátis ou baratas.\"",
+        "3. \"Vou ficar em casa no feriado. Sugira programas baratos para [quem vai estar].\"",
+        "4. \"Monte a lista do que levar para [dias] dias em [lugar] com [clima].\"",
+        "5. \"Somos [número] pessoas. Divida os gastos de combustível, comida e hospedagem.\"",
+        "",
+        "Preço, horário e funcionamento mudam: confira no site oficial antes de sair.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "RECEITAIA",
+    message:
+      [
+        "Oi! O prompt para descobrir a receita de um prato:",
+        "",
+        "\"[foto do prato] Que prato é esse? Me passe uma receita para 2 pessoas, com ingredientes e passo a passo, usando o que eu tenho em casa: [ingredientes].\"",
+        "",
+        "É uma versão aproximada: prove, ajuste o tempero e avise se alguém tiver alergia.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "ASSINAIA",
+    message:
+      [
+        "Oi! O prompt para achar assinaturas esquecidas:",
+        "",
+        "\"[cole data, loja e valor das compras, sem dados pessoais] Ache as cobranças que se repetem todo mês, some quanto gasto com assinaturas e diga quais parecem esquecidas.\"",
+        "",
+        "Antes de colar, apague nome, CPF e número do cartão. Confira cada cobrança no app do banco antes de cancelar.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "DITADO",
+    message:
+      [
+        "Oi! Sobre o ditado ao vivo do ChatGPT:",
+        "",
+        "A OpenAI lançou em 18/11 o ditado ao vivo: o texto aparece enquanto você fala e acabou o limite de 10 minutos por gravação. Está chegando aos poucos para todos os planos, inclusive o grátis, no iPhone, Android, site e app de computador.",
+        "",
+        "OpenAI: https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+        "9to5Mac: https://9to5mac.com/2026/11/18/chatgpt-app-gains-enhanced-live-dictation-streaming-without-10-minute-limit/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

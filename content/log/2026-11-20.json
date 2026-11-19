@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-20",
+  "topic": "ChatGPT ganha o Ditado ao vivo: o texto aparece enquanto você fala e acaba o limite de 10 minutos",
+  "keyword": "DITADO",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para planejar um feriado barato com IA",
+      "keyword": "FERIADOIA",
+      "metricoolId": 433782425,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Tirar foto de um prato e pedir para a IA a receita para fazer em casa",
+      "keyword": "RECEITAIA",
+      "metricoolId": 433782479,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Usar a IA para achar assinaturas esquecidas na fatura do cartão",
+      "keyword": "ASSINAIA",
+      "metricoolId": 433782625,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "ChatGPT ganha o Ditado ao vivo: o texto aparece enquanto você fala e acaba o limite de 10 minutos",
+      "keyword": "DITADO",
+      "metricoolId": 433782698,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}
