@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-21",
+  "topic": "Pedir para a IA escrever um recado educado para o vizinho ou o grupo do condomínio sobre barulho ou outro problema",
+  "keyword": "VIZINHOIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para planejar uma pequena reforma em casa com IA",
+      "keyword": "REFORMAIA",
+      "metricoolId": 435142211,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Colar as ofertas de plano de celular ou internet e pedir para a IA calcular o custo real em 12 meses",
+      "keyword": "OFERTAIA",
+      "metricoolId": 435142239,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Mandar o anúncio de um carro ou moto usado para a IA listar o que perguntar e conferir antes de comprar",
+      "keyword": "USADOIA",
+      "metricoolId": 435142283,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Pedir para a IA escrever um recado educado para o vizinho ou o grupo do condomínio sobre barulho ou outro problema",
+      "keyword": "VIZINHOIA",
+      "metricoolId": 435142330,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}

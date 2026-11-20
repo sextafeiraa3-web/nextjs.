@@ -1364,6 +1364,58 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "REFORMAIA",
+    message:
+      [
+        "Oi! Os 5 prompts para uma reforma sem susto (troque o que está entre colchetes):",
+        "",
+        "1. \"Quero [reforma] num cômodo de [m²]. Liste os gastos para eu não esquecer nada.\"",
+        "2. \"Calcule a tinta e os materiais para pintar [m²] de parede, com sobra.\"",
+        "3. \"Em que ordem fazer [serviços] para não estragar o que já ficou pronto?\"",
+        "4. \"Que perguntas faço ao [pedreiro/pintor] antes de fechar o serviço?\"",
+        "5. \"Compare estes orçamentos e diga o que cada um inclui ou deixa de fora: [cole].\"",
+        "",
+        "Preço e quantidade de material: confira na loja e com quem vai fazer o serviço.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "OFERTAIA",
+    message:
+      [
+        "Oi! O prompt para comparar planos de celular ou internet:",
+        "",
+        "\"[cole as ofertas] Compare estes planos e calcule o custo total de cada um em 12 meses, contando o preço depois da promoção, taxas de instalação e multa de fidelidade. Monte uma tabela.\"",
+        "",
+        "Confira os valores no site da operadora antes de assinar.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "USADOIA",
+    message:
+      [
+        "Oi! O prompt para quem vai ver um carro usado:",
+        "",
+        "\"[cole o anúncio] Vou ver este carro usado. Liste as perguntas para fazer ao vendedor, o que conferir na visita e no test drive, e os documentos que devo pedir.\"",
+        "",
+        "A IA não vê o carro: consulte a placa no Detran do seu estado e leve um mecânico de confiança.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "VIZINHOIA",
+    message:
+      [
+        "Oi! O prompt para escrever um recado ao vizinho:",
+        "",
+        "\"Escreva uma mensagem curta, educada e firme para o meu vizinho sobre [problema]. Sem acusar, explique como isso me afeta e proponha uma solução.\"",
+        "",
+        "Leia antes de mandar e tire o que não for verdade. Se não resolver, o caminho é o síndico.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

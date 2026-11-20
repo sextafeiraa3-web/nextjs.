@@ -1,0 +1,146 @@
+{
+  "date": "2026-11-21",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Colar as ofertas de plano de celular ou internet e pedir para a IA calcular o custo real em 12 meses",
+      "hook": "Qual plano sai mais barato de verdade?",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Promoção de plano?",
+          "body": "o preço muda depois de alguns meses."
+        },
+        {
+          "kind": "steps",
+          "title": "Cole as ofertas na IA",
+          "steps": [
+            "Preço com e sem promoção",
+            "Taxas e fidelidade",
+            "Custo total em 12 meses"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "confira os valores no site da operadora antes de assinar."
+        }
+      ],
+      "narration": "Qual plano sai mais barato de verdade? Copie as ofertas de celular ou internet e cole no ChatGPT, no Claude ou no Gemini. Peça o custo total em doze meses, contando o preço depois da promoção, as taxas e a multa de fidelidade. Confira no site antes de assinar. Comente OFERTAIA que eu te mando o prompt.",
+      "keyword": "OFERTAIA",
+      "ctaQuestion": "Manda para quem vai trocar de plano",
+      "caption": "Qual plano sai mais barato de verdade? 📱\n\nCopie o texto das ofertas de celular ou internet e cole no ChatGPT, no Claude ou no Gemini pedindo: \"compare estes planos e calcule o custo total de cada um em 12 meses, contando o preço depois da promoção, taxas de instalação e multa de fidelidade. Monte uma tabela\".\n\nA IA só sabe o que você colou: se faltar o preço depois da promoção, ela vai avisar ou chutar. Confira os valores no site da operadora antes de assinar.\n\nManda para quem vai trocar de plano 👇\nComente OFERTAIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Economia",
+      "tiktokTitle": "Qual plano de celular sai mais barato? A IA calcula em 12 meses",
+      "youtubeTitle": "Compare planos de celular e internet com a IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[cole as ofertas] Compare estes planos e calcule o custo total de cada um em 12 meses, contando o preço depois da promoção, taxas e multa de fidelidade. Monte uma tabela.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "dica",
+      "topic": "Mandar o anúncio de um carro ou moto usado para a IA listar o que perguntar e conferir antes de comprar",
+      "hook": "Vai comprar carro usado? Faça isto antes",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Achou um usado?",
+          "body": "copie o anúncio inteiro."
+        },
+        {
+          "kind": "list",
+          "title": "A IA lista",
+          "items": [
+            "Perguntas para o vendedor",
+            "O que olhar na visita",
+            "Documentos para pedir"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "a IA não vê o carro. Leve um mecânico de confiança."
+        }
+      ],
+      "narration": "Vai comprar carro usado? Faça isto antes. Copie o anúncio com modelo, ano e quilometragem e cole no ChatGPT, no Claude ou no Gemini. Peça as perguntas para o vendedor, o que olhar na visita e os documentos para pedir. A IA não vê o carro, então leve um mecânico. Comente USADOIA que eu te mando o prompt.",
+      "keyword": "USADOIA",
+      "ctaQuestion": "Manda para quem está procurando carro",
+      "caption": "Vai comprar carro usado? Faça isto antes. 🚗\n\nCopie o anúncio (modelo, ano, quilometragem e o que o vendedor escreveu) e cole no ChatGPT, no Claude ou no Gemini pedindo: \"vou ver este carro usado. Liste as perguntas para fazer ao vendedor, o que conferir na visita e no test drive, e os documentos que devo pedir\".\n\nA IA não vê o carro nem consulta multas: use a lista como roteiro, consulte a placa no Detran do seu estado e leve um mecânico de confiança.\n\nManda para quem está procurando carro 👇\nComente USADOIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Carros",
+      "tiktokTitle": "Vai comprar carro usado? Peça para a IA o que perguntar ao vendedor",
+      "youtubeTitle": "O que perguntar antes de comprar carro usado: use a IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[cole o anúncio] Vou ver este carro usado. Liste as perguntas para fazer ao vendedor, o que conferir na visita e no test drive, e os documentos que devo pedir.\""
+    },
+    {
+      "slot": "19:00",
+      "pillar": "dica",
+      "topic": "Pedir para a IA escrever um recado educado para o vizinho ou o grupo do condomínio sobre barulho ou outro problema",
+      "hook": "Problema com vizinho? A IA escreve o recado",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Barulho, vaga, lixo?",
+          "body": "falar com raiva só piora."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça para a IA",
+          "steps": [
+            "Conte o que acontece",
+            "Peça um tom educado e firme",
+            "Proponha uma solução"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Antes de mandar:",
+          "body": "leia e tire o que não é verdade."
+        }
+      ],
+      "narration": "Problema com vizinho? A IA escreve o recado. Conte para o ChatGPT, o Claude ou o Gemini o que acontece, seja barulho, vaga ou lixo, e peça uma mensagem educada e firme, com uma solução. Leia antes de mandar e tire o que não for verdade. Comente VIZINHOIA que eu te mando o prompt.",
+      "keyword": "VIZINHOIA",
+      "ctaQuestion": "Manda para quem tem um vizinho difícil",
+      "caption": "Problema com vizinho? A IA escreve o recado. 🏠\n\nConte para o ChatGPT, o Claude ou o Gemini o que acontece (barulho, vaga, lixo, vazamento) e peça: \"escreva uma mensagem curta, educada e firme para o meu vizinho sobre [problema]. Sem acusar, explique como isso me afeta e proponha uma solução\". Serve também para o grupo do condomínio.\n\nLeia antes de mandar, tire o que não for verdade e ajuste para o seu jeito de falar. Se não resolver, o caminho é o síndico.\n\nManda para quem tem um vizinho difícil 👇\nComente VIZINHOIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Condominio",
+      "tiktokTitle": "Problema com vizinho? Peça para a IA escrever um recado educado",
+      "youtubeTitle": "Peça para a IA escrever um recado educado para o vizinho #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Escreva uma mensagem curta, educada e firme para o meu vizinho sobre [problema]. Sem acusar, explique como isso me afeta e proponha uma solução.\""
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para planejar uma pequena reforma em casa com IA",
+    "slides": [
+      {
+        "title": "5 prompts para uma reforma sem susto",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Orçamento",
+        "body": "\"Quero [reforma] num cômodo de [m²]. Liste os gastos para eu não esquecer nada.\""
+      },
+      {
+        "title": "2. Materiais",
+        "body": "\"Calcule a tinta e os materiais para pintar [m²] de parede, com sobra.\""
+      },
+      {
+        "title": "3. Ordem",
+        "body": "\"Em que ordem fazer [serviços] para não estragar o que já ficou pronto?\""
+      },
+      {
+        "title": "4. Profissional",
+        "body": "\"Que perguntas faço ao [pedreiro/pintor] antes de fechar o serviço?\""
+      },
+      {
+        "title": "5. Orçamentos",
+        "body": "\"Compare estes orçamentos e diga o que cada um inclui ou deixa de fora: [cole].\""
+      }
+    ],
+    "keyword": "REFORMAIA",
+    "caption": "5 prompts para uma reforma sem susto. 🔨\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA ajuda a planejar, mas não substitui o profissional: preço e quantidade de material você confere na loja e com quem vai fazer o serviço.\n\nManda para quem está pensando em reformar 👇\nSalve e comente REFORMAIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Reforma #DicasDeIA",
+    "tiktokTitle": "5 prompts para planejar uma reforma em casa com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem está pensando em reformar!"
+  }
+}
