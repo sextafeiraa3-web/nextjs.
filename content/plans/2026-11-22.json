@@ -1,0 +1,155 @@
+{
+  "date": "2026-11-22",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Tirar foto do rótulo de dois produtos no mercado e pedir para a IA comparar qual é mais saudável e qual rende mais",
+      "hook": "Qual dos dois é melhor? Mostre o rótulo à IA",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Na dúvida no mercado?",
+          "body": "tire foto do rótulo dos dois produtos."
+        },
+        {
+          "kind": "list",
+          "title": "A IA compara",
+          "items": [
+            "Açúcar, sódio e gordura",
+            "Preço por quilo ou litro",
+            "Qual rende mais"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "dieta especial ou alergia? Confirme com seu médico ou nutricionista."
+        }
+      ],
+      "narration": "Qual dos dois é melhor? Mostre o rótulo à IA. No mercado, tire foto da tabela nutricional e do preço dos dois produtos e mande para o ChatGPT, o Claude ou o Gemini. Peça para comparar açúcar, sódio e o preço por quilo. Com dieta especial, confirme com seu médico. Comente ROTULOIA que eu te mando o prompt.",
+      "keyword": "ROTULOIA",
+      "ctaQuestion": "Manda para quem faz as compras da casa",
+      "caption": "Qual dos dois é melhor? Mostre o rótulo à IA. 🛒\n\nNo mercado, tire foto da tabela nutricional e da etiqueta de preço dos dois produtos e mande para o ChatGPT, o Claude ou o Gemini pedindo: \"compare estes dois produtos: qual tem menos açúcar, sódio e gordura, e qual sai mais barato por quilo ou litro? Responda em 3 linhas\".\n\nSe a foto estiver tremida, a IA pode ler errado: confira os números. Quem tem dieta especial ou alergia deve confirmar com o médico ou nutricionista.\n\nManda para quem faz as compras da casa 👇\nComente ROTULOIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Mercado",
+      "tiktokTitle": "Na dúvida entre dois produtos? Mostre o rótulo para a IA comparar",
+      "youtubeTitle": "Compare dois produtos do mercado pelo rótulo com a IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[fotos dos rótulos e preços] Compare estes dois produtos: qual tem menos açúcar, sódio e gordura, e qual sai mais barato por quilo ou litro? Responda em 3 linhas.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "dica",
+      "topic": "Celular sem espaço: pedir para a IA um passo a passo para liberar memória no seu modelo de celular",
+      "hook": "Celular sem espaço? Pergunte à IA o caminho",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Memória cheia?",
+          "body": "diga o modelo do seu celular para a IA."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça o passo a passo",
+          "steps": [
+            "Ver o que ocupa mais",
+            "Limpar sem perder fotos",
+            "Apagar o cache do WhatsApp"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Antes de apagar:",
+          "body": "faça backup das fotos e conversas."
+        }
+      ],
+      "narration": "Celular sem espaço? Pergunte à IA o caminho. Diga para o ChatGPT, o Claude ou o Gemini o modelo do seu celular e peça um passo a passo para ver o que ocupa mais memória e liberar espaço sem perder fotos. Antes de apagar, faça backup. Comente ESPACOIA que eu te mando o prompt.",
+      "keyword": "ESPACOIA",
+      "ctaQuestion": "Manda para quem vive com o celular lotado",
+      "caption": "Celular sem espaço? Pergunte à IA o caminho. 📱\n\nDiga para o ChatGPT, o Claude ou o Gemini o modelo do seu celular e peça: \"meu [modelo] está sem espaço. Me dê um passo a passo, com o nome exato de cada menu, para ver o que ocupa mais memória e liberar espaço sem perder minhas fotos e conversas do WhatsApp\".\n\nOs menus mudam de uma versão para outra: se o caminho não bater, mande um print da tela e peça para a IA ajustar. Antes de apagar qualquer coisa, faça backup das fotos e das conversas.\n\nManda para quem vive com o celular lotado 👇\nComente ESPACOIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Celular",
+      "tiktokTitle": "Celular sem espaço? Peça para a IA o passo a passo do seu modelo",
+      "youtubeTitle": "Libere espaço no celular com a ajuda da IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Meu [modelo] está sem espaço. Me dê um passo a passo, com o nome exato de cada menu, para ver o que ocupa mais memória e liberar espaço sem perder fotos e conversas do WhatsApp.\""
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "Google libera o uso do computador no app do Gemini para Mac: a IA mexe em apps, arquivos e sites em segundo plano",
+      "hook": "O Gemini agora mexe no seu computador",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Gemini no Mac:",
+          "body": "abre apps, arquivos e sites para fazer a tarefa."
+        },
+        {
+          "kind": "list",
+          "title": "Como funciona",
+          "items": [
+            "Trabalha numa janela separada",
+            "Pede permissão antes de agir",
+            "Você escolhe os apps liberados"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Quem tem:",
+          "body": "planos pagos, só nos EUA. Ainda sem data para o Brasil."
+        }
+      ],
+      "narration": "O Gemini agora mexe no seu computador. O Google liberou no app do Gemini para Mac uma função que abre programas, arquivos e sites para fazer tarefas por você, numa janela separada. Ele pede permissão antes de agir, mas pode errar. Por enquanto é só para planos pagos nos Estados Unidos. Comente GEMINIMAC que eu te mando a matéria.",
+      "keyword": "GEMINIMAC",
+      "ctaQuestion": "Você deixaria a IA mexer no seu computador?",
+      "caption": "O Gemini agora mexe no seu computador. 💻\n\nO Google anunciou nesta quinta (19/11) o uso do computador no app do Gemini para Mac: você pede uma tarefa e a IA abre programas, arquivos e sites para fazer o trabalho, numa janela separada, enquanto você continua usando o computador. Ela pede sua aprovação antes de ações importantes, e você escolhe quais apps ela pode usar.\n\nO próprio Google avisa que o Gemini pode errar, inclusive apagar ou compartilhar arquivos. Por enquanto, só funciona em Mac com chip da Apple e para assinantes dos planos pagos nos EUA. Não há data para o Brasil nem para Windows.\n\nVocê deixaria a IA mexer no seu computador? Comenta aí 👇\nManda para quem trabalha no Mac\nComente GEMINIMAC que eu te mando a matéria completa no direct.\n\nFonte: MacRumors e Decrypt\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Gemini #Google #Tecnologia",
+      "tiktokTitle": "O Gemini agora mexe no seu computador: abre apps e arquivos por você",
+      "youtubeTitle": "Gemini ganha uso do computador no Mac: o que ele faz #shorts",
+      "sources": [
+        {
+          "name": "MacRumors",
+          "url": "https://www.macrumors.com/2026/11/19/google-gemini-mac-app-control/"
+        },
+        {
+          "name": "Decrypt",
+          "url": "https://decrypt.co/383733/google-gives-gemini-control-mac-apps-ai-agent"
+        }
+      ],
+      "firstComment": "Matéria do MacRumors: https://www.macrumors.com/2026/11/19/google-gemini-mac-app-control/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para escrever mensagens de fim de ano com IA",
+    "slides": [
+      {
+        "title": "5 prompts para mensagens de fim de ano",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Família",
+        "body": "\"Escreva uma mensagem de Natal carinhosa para [pessoa], lembrando de [momento do ano].\""
+      },
+      {
+        "title": "2. Trabalho",
+        "body": "\"Mensagem curta de boas festas para minha equipe, agradecendo por [conquista].\""
+      },
+      {
+        "title": "3. Clientes",
+        "body": "\"Mensagem de fim de ano para clientes da minha [loja/serviço], sem parecer propaganda.\""
+      },
+      {
+        "title": "4. Quem está longe",
+        "body": "\"Mensagem para [pessoa] que não vejo há tempos, sem parecer forçada.\""
+      },
+      {
+        "title": "5. Grupo",
+        "body": "\"Resposta divertida e curta para o grupo da [família/firma] desejando boas festas.\""
+      }
+    ],
+    "keyword": "NATALMSG",
+    "caption": "5 prompts para mensagens de fim de ano. 🎄\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. Dica: dê um detalhe real (um momento, uma conquista) para a mensagem não sair genérica, e leia antes de mandar para ajustar ao seu jeito de falar.\n\nManda para quem sempre trava na hora de escrever 👇\nSalve e comente NATALMSG que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Natal #DicasDeIA",
+    "tiktokTitle": "5 prompts para escrever mensagens de fim de ano com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem sempre trava na hora de escrever!"
+  }
+}

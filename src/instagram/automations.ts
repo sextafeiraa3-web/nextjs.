@@ -1416,6 +1416,59 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei no direct! 📩",
   },
+  {
+    keyword: "NATALMSG",
+    message:
+      [
+        "Oi! Os 5 prompts para mensagens de fim de ano (troque o que está entre colchetes):",
+        "",
+        "1. \"Escreva uma mensagem de Natal carinhosa para [pessoa], lembrando de [momento do ano].\"",
+        "2. \"Mensagem curta de boas festas para minha equipe, agradecendo por [conquista].\"",
+        "3. \"Mensagem de fim de ano para clientes da minha [loja/serviço], sem parecer propaganda.\"",
+        "4. \"Mensagem para [pessoa] que não vejo há tempos, sem parecer forçada.\"",
+        "5. \"Resposta divertida e curta para o grupo da [família/firma] desejando boas festas.\"",
+        "",
+        "Leia antes de mandar e ajuste ao seu jeito de falar.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "ROTULOIA",
+    message:
+      [
+        "Oi! O prompt para comparar dois produtos pelo rótulo:",
+        "",
+        "\"[fotos dos rótulos e preços] Compare estes dois produtos: qual tem menos açúcar, sódio e gordura, e qual sai mais barato por quilo ou litro? Responda em 3 linhas.\"",
+        "",
+        "Confira os números se a foto estiver tremida. Dieta especial ou alergia: confirme com o médico ou nutricionista.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "ESPACOIA",
+    message:
+      [
+        "Oi! O prompt para liberar espaço no celular:",
+        "",
+        "\"Meu [modelo] está sem espaço. Me dê um passo a passo, com o nome exato de cada menu, para ver o que ocupa mais memória e liberar espaço sem perder fotos e conversas do WhatsApp.\"",
+        "",
+        "Se o menu não bater, mande um print da tela para a IA ajustar. Faça backup antes de apagar.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "GEMINIMAC",
+    message:
+      [
+        "Oi! Sobre o Gemini no Mac:",
+        "",
+        "O Google liberou em 19/11 o uso do computador no app do Gemini para Mac: a IA abre apps, arquivos e sites para fazer tarefas, numa janela separada, e pede aprovação antes de ações importantes. Pode errar, inclusive apagar arquivos. Por enquanto é só para planos pagos nos EUA, em Mac com chip da Apple.",
+        "",
+        "MacRumors: https://www.macrumors.com/2026/11/19/google-gemini-mac-app-control/",
+        "Decrypt: https://decrypt.co/383733/google-gives-gemini-control-mac-apps-ai-agent",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

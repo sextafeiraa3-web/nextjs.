@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-22",
+  "topic": "Google libera o uso do computador no app do Gemini para Mac: a IA mexe em apps, arquivos e sites em segundo plano",
+  "keyword": "GEMINIMAC",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para escrever mensagens de fim de ano com IA",
+      "keyword": "NATALMSG",
+      "metricoolId": 436392007,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Tirar foto do rótulo de dois produtos no mercado e pedir para a IA comparar qual é mais saudável e qual rende mais",
+      "keyword": "ROTULOIA",
+      "metricoolId": 436392043,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Celular sem espaço: pedir para a IA um passo a passo para liberar memória no seu modelo de celular",
+      "keyword": "ESPACOIA",
+      "metricoolId": 436392095,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Google libera o uso do computador no app do Gemini para Mac: a IA mexe em apps, arquivos e sites em segundo plano",
+      "keyword": "GEMINIMAC",
+      "metricoolId": 436392133,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}
