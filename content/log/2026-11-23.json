@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-23",
+  "topic": "OpenAI libera o Space do ChatGPT para o plano Plus: um espaço para trabalhar em grupo com a IA",
+  "keyword": "SPACEGPT",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para organizar um churrasco com IA",
+      "keyword": "CHURRASIA",
+      "metricoolId": 437282184,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Pedir para a IA montar as marmitas da semana com cardápio, lista de compras e ordem de preparo no domingo",
+      "keyword": "MARMITAIA",
+      "metricoolId": 437282236,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Mandar o holerite sem dados pessoais para a IA explicar cada desconto do salário",
+      "keyword": "HOLERITE",
+      "metricoolId": 437282261,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "OpenAI libera o Space do ChatGPT para o plano Plus: um espaço para trabalhar em grupo com a IA",
+      "keyword": "SPACEGPT",
+      "metricoolId": 437282295,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}

@@ -1469,6 +1469,59 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "CHURRASIA",
+    message:
+      [
+        "Oi! Os 5 prompts para um churrasco sem perrengue (troque o que está entre colchetes):",
+        "",
+        "1. \"Quanto de carne, pão e bebida compro para [número] adultos e [número] crianças?\"",
+        "2. \"Monte a lista de compras do churrasco com até R$ [valor] no total.\"",
+        "3. \"Sugira 3 opções no espeto para quem não come carne.\"",
+        "4. \"Divida as tarefas do churrasco entre [nomes] de forma justa.\"",
+        "5. \"Gastamos R$ [valor]. Divida entre [número] pessoas, com quem não bebe pagando menos.\"",
+        "",
+        "Os preços você confere no mercado.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "MARMITAIA",
+    message:
+      [
+        "Oi! O prompt para as marmitas da semana:",
+        "",
+        "\"Monte 5 marmitas para a semana com até R$ [valor], para [número] pessoas, sem repetir prato. Me dê a lista de compras e a ordem de preparo para cozinhar tudo no domingo em até 2 horas.\"",
+        "",
+        "Pergunte também quantos dias cada prato dura na geladeira.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "HOLERITE",
+    message:
+      [
+        "Oi! O prompt para entender o holerite:",
+        "",
+        "\"[foto do holerite, sem nome e CPF] Explique em palavras simples cada linha, o que é cada desconto e por que o valor líquido mudou em relação ao mês passado: [valor].\"",
+        "",
+        "Cubra nome, CPF e dados do banco antes de mandar. Se algo parecer errado, confirme com o RH ou um contador.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "SPACEGPT",
+    message:
+      [
+        "Oi! Sobre o ChatGPT Space:",
+        "",
+        "A OpenAI liberou em 20/11 o Space para o plano Plus: um lugar para reunir conversas e arquivos de um projeto, convidar outras pessoas e editar pelo celular. A liberação é aos poucos, para maiores de 18 anos, e quem usa o plano grátis não abre o que for compartilhado.",
+        "",
+        "Engadget: https://www.engadget.com/2323016/openai-brings-its-collaborative-space-hubs-to-plus-users/",
+        "Analytics Insight: https://www.analyticsinsight.net/news/openai-chatgpt-spaces-now-available-to-chatgpt-plus-users",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

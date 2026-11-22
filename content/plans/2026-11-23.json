@@ -1,0 +1,155 @@
+{
+  "date": "2026-11-23",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Pedir para a IA montar as marmitas da semana com cardápio, lista de compras e ordem de preparo no domingo",
+      "hook": "Marmita da semana pronta em 2 horas",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Sem tempo na semana?",
+          "body": "cozinhe tudo de uma vez no domingo."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça para a IA",
+          "steps": [
+            "Cardápio de 5 marmitas",
+            "Lista de compras",
+            "Ordem de preparo"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "confira quantos dias cada prato dura na geladeira."
+        }
+      ],
+      "narration": "Marmita da semana pronta em duas horas. Peça para o ChatGPT, o Claude ou o Gemini um cardápio de cinco marmitas com o seu orçamento, a lista de compras e a ordem de preparo para cozinhar tudo no domingo. Confira quantos dias cada prato dura na geladeira. Comente MARMITAIA que eu te mando o prompt.",
+      "keyword": "MARMITAIA",
+      "ctaQuestion": "Manda para quem almoça marmita",
+      "caption": "Marmita da semana pronta em 2 horas. 🍱\n\nPeça para o ChatGPT, o Claude ou o Gemini: \"monte 5 marmitas para a semana com até R$ [valor], para [número] pessoas, sem repetir prato. Me dê a lista de compras e a ordem de preparo para cozinhar tudo no domingo em até 2 horas\".\n\nA IA não sabe o preço do seu mercado: confira os valores. E pergunte quantos dias cada prato dura na geladeira; o que passar disso vai para o congelador.\n\nManda para quem almoça marmita 👇\nComente MARMITAIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Marmita",
+      "tiktokTitle": "Marmita da semana em 2 horas: a IA monta cardápio e lista de compras",
+      "youtubeTitle": "Planeje as marmitas da semana com a IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Monte 5 marmitas para a semana com até R$ [valor], para [número] pessoas, sem repetir prato. Me dê a lista de compras e a ordem de preparo para cozinhar tudo no domingo em até 2 horas.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "dica",
+      "topic": "Mandar o holerite sem dados pessoais para a IA explicar cada desconto do salário",
+      "hook": "Não entende o seu holerite? A IA explica",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "INSS, IRRF, FGTS?",
+          "body": "tire foto do holerite e cubra seus dados."
+        },
+        {
+          "kind": "list",
+          "title": "A IA explica",
+          "items": [
+            "O que é cada desconto",
+            "Por que o valor mudou",
+            "O que perguntar ao RH"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "achou erro? Confirme com o RH ou um contador."
+        }
+      ],
+      "narration": "Não entende o seu holerite? A IA explica. Tire foto do holerite, cubra nome e CPF, e mande para o ChatGPT, o Claude ou o Gemini. Peça para explicar cada desconto e por que o valor mudou neste mês. Achou algo estranho? Confirme com o RH. Comente HOLERITE que eu te mando o prompt.",
+      "keyword": "HOLERITE",
+      "ctaQuestion": "Manda para quem nunca entendeu o holerite",
+      "caption": "Não entende o seu holerite? A IA explica. 🧾\n\nTire foto do holerite, cubra nome, CPF e dados do banco, e mande para o ChatGPT, o Claude ou o Gemini pedindo: \"explique em palavras simples cada linha deste holerite, o que é cada desconto e por que o valor líquido mudou em relação ao mês passado: [valor do mês passado]\".\n\nA IA pode errar regras de imposto e de benefício. Se algo parecer errado, confirme com o RH da empresa ou com um contador antes de reclamar.\n\nManda para quem nunca entendeu o holerite 👇\nComente HOLERITE que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Trabalho",
+      "tiktokTitle": "Não entende o seu holerite? Mande para a IA explicar cada desconto",
+      "youtubeTitle": "Entenda os descontos do seu holerite com a IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[foto do holerite, sem nome e CPF] Explique em palavras simples cada linha, o que é cada desconto e por que o valor líquido mudou em relação ao mês passado: [valor].\""
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "OpenAI libera o Space do ChatGPT para o plano Plus: um espaço para trabalhar em grupo com a IA",
+      "hook": "O ChatGPT agora tem espaço para trabalhar em grupo",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "ChatGPT Space:",
+          "body": "um lugar para reunir conversas e arquivos de um projeto."
+        },
+        {
+          "kind": "list",
+          "title": "O que dá para fazer",
+          "items": [
+            "Convidar outras pessoas",
+            "Editar pelo celular",
+            "Agendar tarefas"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Quem tem:",
+          "body": "agora o plano Plus, liberando aos poucos."
+        }
+      ],
+      "narration": "O ChatGPT agora tem espaço para trabalhar em grupo. A OpenAI liberou o Space para quem assina o plano Plus. É um lugar para juntar conversas e arquivos de um projeto, convidar outras pessoas e editar pelo celular. Antes era só dos planos mais caros, e está chegando aos poucos. Comente SPACEGPT que eu te mando a matéria.",
+      "keyword": "SPACEGPT",
+      "ctaQuestion": "Você usaria o ChatGPT em grupo?",
+      "caption": "O ChatGPT agora tem espaço para trabalhar em grupo. 👥\n\nA OpenAI liberou nesta sexta (20/11) o Space para quem assina o ChatGPT Plus. O Space é um lugar para reunir as conversas e os arquivos de um projeto, convidar outras pessoas para trabalhar junto e editar pelo celular. Até agora, ele era só dos planos Pro, Business e Enterprise.\n\nA liberação é aos poucos, para maiores de 18 anos. No Plus, os agentes Dot não funcionam dentro do Space, e quem usa o plano grátis não consegue abrir o que for compartilhado.\n\nVocê usaria o ChatGPT em grupo? Comenta aí 👇\nManda para quem faz trabalho em equipe\nComente SPACEGPT que eu te mando a matéria completa no direct.\n\nFonte: Engadget e Analytics Insight\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #OpenAI #Tecnologia",
+      "tiktokTitle": "O ChatGPT agora tem um espaço para trabalhar em grupo no plano Plus",
+      "youtubeTitle": "ChatGPT Space chega ao plano Plus: o que muda #shorts",
+      "sources": [
+        {
+          "name": "Engadget",
+          "url": "https://www.engadget.com/2323016/openai-brings-its-collaborative-space-hubs-to-plus-users/"
+        },
+        {
+          "name": "Analytics Insight",
+          "url": "https://www.analyticsinsight.net/news/openai-chatgpt-spaces-now-available-to-chatgpt-plus-users"
+        }
+      ],
+      "firstComment": "Matéria do Engadget: https://www.engadget.com/2323016/openai-brings-its-collaborative-space-hubs-to-plus-users/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para organizar um churrasco com IA",
+    "slides": [
+      {
+        "title": "5 prompts para um churrasco sem perrengue",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Quantidade",
+        "body": "\"Quanto de carne, pão e bebida compro para [número] adultos e [número] crianças?\""
+      },
+      {
+        "title": "2. Orçamento",
+        "body": "\"Monte a lista de compras do churrasco com até R$ [valor] no total.\""
+      },
+      {
+        "title": "3. Sem carne",
+        "body": "\"Sugira 3 opções no espeto para quem não come carne.\""
+      },
+      {
+        "title": "4. Tarefas",
+        "body": "\"Divida as tarefas do churrasco entre [nomes] de forma justa.\""
+      },
+      {
+        "title": "5. Vaquinha",
+        "body": "\"Gastamos R$ [valor]. Divida entre [número] pessoas, com quem não bebe pagando menos.\""
+      }
+    ],
+    "keyword": "CHURRASIA",
+    "caption": "5 prompts para um churrasco sem perrengue. 🔥\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA calcula pela média: se a turma come muito, peça para ela somar uma margem. Os preços você confere no mercado.\n\nManda para quem sempre organiza o churrasco 👇\nSalve e comente CHURRASIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Churrasco #DicasDeIA",
+    "tiktokTitle": "5 prompts para organizar um churrasco com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem sempre organiza o churrasco!"
+  }
+}
