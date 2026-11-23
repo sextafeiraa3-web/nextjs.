@@ -9,10 +9,11 @@
       "keyword": "CHURRASIA",
       "metricoolId": 437282184,
       "networks": {
-        "instagram": "SCHEDULED",
-        "tiktok": "SCHEDULED"
+        "instagram": "FIXED",
+        "tiktok": "ERROR"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11. Instagram publicado com atraso às 19:0x de 23/11 (sessão reiniciou várias vezes).",
+      "instagramMediaId": "18123238318997706"
     },
     {
       "slot": "12:30",
@@ -20,12 +21,13 @@
       "keyword": "MARMITAIA",
       "metricoolId": 437282236,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
+        "instagram": "FIXED",
+        "facebook": "ERROR",
+        "tiktok": "ERROR",
+        "youtube": "ERROR"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11. Instagram publicado com atraso às 19:0x de 23/11 (sessão reiniciou várias vezes).",
+      "instagramMediaId": "18153570454561757"
     },
     {
       "slot": "17:00",
@@ -33,12 +35,13 @@
       "keyword": "HOLERITE",
       "metricoolId": 437282261,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
+        "instagram": "FIXED",
+        "facebook": "ERROR",
+        "tiktok": "ERROR",
+        "youtube": "ERROR"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11. Instagram publicado com atraso às 19:0x de 23/11 (sessão reiniciou várias vezes).",
+      "instagramMediaId": "17926596324219962"
     },
     {
       "slot": "19:00",
@@ -46,12 +49,13 @@
       "keyword": "SPACEGPT",
       "metricoolId": 437282295,
       "networks": {
-        "instagram": "SCHEDULED",
-        "facebook": "SCHEDULED",
-        "tiktok": "SCHEDULED",
-        "youtube": "SCHEDULED"
+        "instagram": "FIXED",
+        "facebook": "ERROR",
+        "tiktok": "ERROR",
+        "youtube": "ERROR"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11.",
+      "instagramMediaId": "18111976298262448"
     }
   ]
 }
