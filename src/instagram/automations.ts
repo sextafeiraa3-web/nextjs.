@@ -1522,6 +1522,56 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "MESADAIA",
+    message:
+      [
+        "Oi! Os 5 prompts para ensinar dinheiro às crianças (troque o que está entre colchetes):",
+        "",
+        "1. \"Quanto dar de mesada para uma criança de [idade] e como combinar as regras?\"",
+        "2. \"Explique o que é juros para uma criança de [idade] com um exemplo de brinquedo.\"",
+        "3. \"Meu filho quer comprar [item] de R$ [valor]. Monte um plano para ele juntar o dinheiro.\"",
+        "4. \"Crie um jogo de mercadinho em casa para ensinar troco a uma criança de [idade].\"",
+        "5. \"Como explicar para meu filho que não dá para comprar [item] agora, sem brigar?\"",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "CODIGOIA",
+    message:
+      [
+        "Oi! O prompt para entender o código de erro do aparelho:",
+        "",
+        "\"Minha [máquina/geladeira/micro-ondas] [marca e modelo] mostra o erro [código]. O que significa, o que posso verificar com segurança e quando devo chamar a assistência?\"",
+        "",
+        "Desligue da tomada, não abra o aparelho e confira no manual ou no site da marca.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "DIVIDAIA",
+    message:
+      [
+        "Oi! O prompt para montar o plano das dívidas:",
+        "",
+        "\"Tenho R$ [valor] por mês para pagar dívidas: [lista com valor, juros e parcela]. Monte um plano dizendo qual quitar primeiro, quanto pagar em cada uma e em quantos meses termino. Compare pagar a de juros mais alto primeiro com pagar a menor primeiro.\"",
+        "",
+        "Não cole CPF nem número de contrato. Confirme os juros com o banco antes de fechar acordo.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "FAKEIA",
+    message:
+      [
+        "Oi! O prompt para desconfiar de notícia falsa:",
+        "",
+        "\"[cole a mensagem] Esta mensagem tem sinais de notícia falsa? Aponte o que é exagero, o que precisa de fonte e em quais sites confiáveis eu posso conferir.\"",
+        "",
+        "A IA também erra: confirme em sites de checagem como Agência Lupa, Aos Fatos ou Fato ou Fake antes de repassar.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

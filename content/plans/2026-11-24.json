@@ -1,0 +1,146 @@
+{
+  "date": "2026-11-24",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Mandar foto do código de erro do eletrodoméstico para a IA explicar o que significa e o que dá para fazer antes de chamar o técnico",
+      "hook": "Máquina mostrando E3? A IA te diz o que é",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Código de erro no visor?",
+          "body": "tire foto do visor e da etiqueta do modelo."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça para a IA",
+          "steps": [
+            "O que o código significa",
+            "O que checar com segurança",
+            "Quando chamar o técnico"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "desligue da tomada e não abra o aparelho."
+        }
+      ],
+      "narration": "Máquina mostrando um código de erro? A IA te diz o que é. Tire foto do visor e da etiqueta do modelo e mande para o ChatGPT, o Claude ou o Gemini. Pergunte o que o código significa, o que checar com segurança e quando chamar o técnico. Não abra o aparelho. Comente CODIGOIA que eu te mando o prompt.",
+      "keyword": "CODIGOIA",
+      "ctaQuestion": "Manda para quem brigou com a máquina de lavar",
+      "caption": "Máquina mostrando E3? A IA te diz o que é. 🔧\n\nTire foto do visor com o código e da etiqueta com marca e modelo (fica atrás ou na porta) e mande para o ChatGPT, o Claude ou o Gemini pedindo: \"minha [máquina/geladeira/micro-ondas] [marca e modelo] mostra o erro [código]. O que significa, o que posso verificar com segurança e quando devo chamar a assistência?\".\n\nCódigos mudam de um modelo para outro: confira no manual ou no site da marca. Desligue da tomada antes de mexer, não abra o aparelho e, se estiver na garantia, chame a assistência autorizada.\n\nManda para quem brigou com a máquina de lavar 👇\nComente CODIGOIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Casa",
+      "tiktokTitle": "Código de erro na máquina? Mande uma foto para a IA explicar",
+      "youtubeTitle": "Descubra o que significa o código de erro do eletrodoméstico com a IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Minha [máquina] [marca e modelo] mostra o erro [código]. O que significa, o que posso verificar com segurança e quando devo chamar a assistência?\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "dica",
+      "topic": "Pedir para a IA montar um plano para pagar as dívidas, decidindo qual quitar primeiro",
+      "hook": "Muitas dívidas? A IA monta a ordem de pagar",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Cartão, empréstimo, carnê?",
+          "body": "liste valor, juros e parcela de cada um."
+        },
+        {
+          "kind": "list",
+          "title": "A IA mostra",
+          "items": [
+            "Qual pagar primeiro",
+            "Quanto sobra por mês",
+            "Quando você quita tudo"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Antes de fechar acordo:",
+          "body": "confira os juros direto com o banco."
+        }
+      ],
+      "narration": "Muitas dívidas? A IA monta a ordem de pagar. Liste cada dívida com valor, juros e parcela, e cole no ChatGPT, no Claude ou no Gemini com quanto sobra por mês. Peça qual pagar primeiro e quando você quita tudo. Antes de fechar acordo, confira os juros com o banco. Comente DIVIDAIA que eu te mando o prompt.",
+      "keyword": "DIVIDAIA",
+      "ctaQuestion": "Manda para quem quer sair do vermelho",
+      "caption": "Muitas dívidas? A IA monta a ordem de pagar. 💸\n\nListe cada dívida com o valor que falta, os juros ao mês e a parcela, e cole no ChatGPT, no Claude ou no Gemini pedindo: \"tenho R$ [valor] por mês para pagar dívidas. Monte um plano dizendo qual quitar primeiro, quanto pagar em cada uma e em quantos meses termino. Compare pagar a de juros mais alto primeiro com pagar a menor primeiro\".\n\nNão cole CPF nem número de contrato. A IA faz conta com o que você informou: confirme os juros e o valor de quitação com o banco antes de fechar qualquer acordo.\n\nManda para quem quer sair do vermelho 👇\nComente DIVIDAIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Financas",
+      "tiktokTitle": "Muitas dívidas? Peça para a IA a ordem certa de pagar",
+      "youtubeTitle": "Monte um plano para pagar suas dívidas com a IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Tenho R$ [valor] por mês para pagar dívidas: [lista com valor, juros e parcela]. Monte um plano dizendo qual quitar primeiro, quanto pagar em cada uma e em quantos meses termino.\""
+    },
+    {
+      "slot": "19:00",
+      "pillar": "dica",
+      "topic": "Usar a IA para checar se uma notícia que chegou no WhatsApp é falsa antes de repassar",
+      "hook": "Essa notícia é verdade? Pergunte antes de repassar",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Chegou no grupo?",
+          "body": "copie o texto antes de compartilhar."
+        },
+        {
+          "kind": "list",
+          "title": "A IA aponta",
+          "items": [
+            "Sinais de notícia falsa",
+            "O que precisa de fonte",
+            "Onde conferir"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "a IA também erra. Confirme em um site de jornal."
+        }
+      ],
+      "narration": "Essa notícia é verdade? Pergunte antes de repassar. Copie o texto que chegou no WhatsApp e cole no ChatGPT, no Claude ou no Gemini. Peça os sinais de notícia falsa, o que precisa de fonte e onde conferir. A IA também erra, então confirme em um site de jornal. Comente FAKEIA que eu te mando o prompt.",
+      "keyword": "FAKEIA",
+      "ctaQuestion": "Manda para o grupo da família",
+      "caption": "Essa notícia é verdade? Pergunte antes de repassar. 📰\n\nCopie o texto que chegou no WhatsApp e cole no ChatGPT, no Claude ou no Gemini pedindo: \"esta mensagem tem sinais de notícia falsa? Aponte o que é exagero, o que precisa de fonte e em quais sites confiáveis eu posso conferir\".\n\nA IA não sabe tudo o que aconteceu hoje e também erra. Use a resposta como alerta e confirme num site de jornal ou de checagem, como Agência Lupa, Aos Fatos ou Fato ou Fake, antes de repassar.\n\nManda para o grupo da família 👇\nComente FAKEIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #FakeNews",
+      "tiktokTitle": "Essa notícia é verdade? Pergunte para a IA antes de repassar",
+      "youtubeTitle": "Use a IA para desconfiar de notícia falsa no WhatsApp #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[cole a mensagem] Esta mensagem tem sinais de notícia falsa? Aponte o que é exagero, o que precisa de fonte e em quais sites confiáveis eu posso conferir.\""
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para ensinar as crianças a lidar com dinheiro com IA",
+    "slides": [
+      {
+        "title": "5 prompts para ensinar dinheiro às crianças",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Mesada",
+        "body": "\"Quanto dar de mesada para uma criança de [idade] e como combinar as regras?\""
+      },
+      {
+        "title": "2. Explicar",
+        "body": "\"Explique o que é juros para uma criança de [idade] com um exemplo de brinquedo.\""
+      },
+      {
+        "title": "3. Meta",
+        "body": "\"Meu filho quer comprar [item] de R$ [valor]. Monte um plano para ele juntar o dinheiro.\""
+      },
+      {
+        "title": "4. Jogo",
+        "body": "\"Crie um jogo de mercadinho em casa para ensinar troco a uma criança de [idade].\""
+      },
+      {
+        "title": "5. Conversa",
+        "body": "\"Como explicar para meu filho que não dá para comprar [item] agora, sem brigar?\""
+      }
+    ],
+    "keyword": "MESADAIA",
+    "caption": "5 prompts para ensinar dinheiro às crianças. 🐷\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA dá ideias; você ajusta ao jeito e ao orçamento da sua casa.\n\nManda para quem quer ensinar os filhos a poupar 👇\nSalve e comente MESADAIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Educacao #DicasDeIA",
+    "tiktokTitle": "5 prompts para ensinar as crianças a lidar com dinheiro",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem quer ensinar os filhos a poupar!"
+  }
+}

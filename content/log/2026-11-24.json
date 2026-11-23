@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-24",
+  "topic": "Usar a IA para checar se uma notícia que chegou no WhatsApp é falsa antes de repassar",
+  "keyword": "FAKEIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para ensinar as crianças a lidar com dinheiro com IA",
+      "keyword": "MESADAIA",
+      "metricoolId": 438307412,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Mandar foto do código de erro do eletrodoméstico para a IA explicar o que significa e o que dá para fazer antes de chamar o técnico",
+      "keyword": "CODIGOIA",
+      "metricoolId": 438307471,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Pedir para a IA montar um plano para pagar as dívidas, decidindo qual quitar primeiro",
+      "keyword": "DIVIDAIA",
+      "metricoolId": 438307528,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Usar a IA para checar se uma notícia que chegou no WhatsApp é falsa antes de repassar",
+      "keyword": "FAKEIA",
+      "metricoolId": 438307589,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}
