@@ -1,0 +1,155 @@
+{
+  "date": "2026-11-25",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Usar a IA para preparar a conversa de pedir aumento: argumentos, ensaio e respostas para objeções",
+      "hook": "Vai pedir aumento? Ensaie com a IA antes",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Medo da conversa?",
+          "body": "liste o que você entregou este ano."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça para a IA",
+          "steps": [
+            "Organizar seus argumentos",
+            "Simular o chefe",
+            "Responder um não"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "pesquise a faixa salarial do seu cargo antes."
+        }
+      ],
+      "narration": "Vai pedir aumento? Ensaie com a IA antes. Liste o que você entregou no ano e peça para o ChatGPT, o Claude ou o Gemini organizar seus argumentos. Depois peça para ele fazer o papel do chefe e treinar as respostas para um não. Pesquise antes a faixa salarial do seu cargo. Comente AUMENTOIA que eu te mando o prompt.",
+      "keyword": "AUMENTOIA",
+      "ctaQuestion": "Manda para quem merece um aumento",
+      "caption": "Vai pedir aumento? Ensaie com a IA antes. 💼\n\nListe o que você entregou no ano (projetos, resultados, novas tarefas) e peça para o ChatGPT, o Claude ou o Gemini: \"organize estes pontos em 3 argumentos curtos para pedir aumento. Depois faça o papel do meu chefe, com objeções difíceis, e me ajude a responder\".\n\nA IA não conhece sua empresa: use como treino, não como roteiro decorado. Pesquise antes a faixa salarial do seu cargo em sites de vagas e evite colar dados internos da empresa.\n\nManda para quem merece um aumento 👇\nComente AUMENTOIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Carreira",
+      "tiktokTitle": "Vai pedir aumento? Treine a conversa com a IA antes",
+      "youtubeTitle": "Ensaie o pedido de aumento com a IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[o que você entregou no ano] Organize estes pontos em 3 argumentos curtos para pedir aumento. Depois faça o papel do meu chefe, com objeções difíceis, e me ajude a responder.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "dica",
+      "topic": "Tirar foto das roupas do armário e pedir para a IA montar looks com o que você já tem",
+      "hook": "Nada para vestir? A IA monta o look",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Armário cheio e nada para vestir?",
+          "body": "tire foto das peças em cima da cama."
+        },
+        {
+          "kind": "list",
+          "title": "A IA sugere",
+          "items": [
+            "3 looks com o que você tem",
+            "O que combina com o quê",
+            "O que falta comprar"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Dica:",
+          "body": "diga a ocasião e o clima do dia."
+        }
+      ],
+      "narration": "Nada para vestir? A IA monta o look. Coloque as peças em cima da cama, tire uma foto e mande para o ChatGPT, o Claude ou o Gemini. Diga a ocasião e o clima e peça três looks só com o que você já tem. No fim, pergunte o que falta comprar. Comente LOOKIA que eu te mando o prompt.",
+      "keyword": "LOOKIA",
+      "ctaQuestion": "Manda para quem nunca tem roupa",
+      "caption": "Nada para vestir? A IA monta o look. 👗\n\nColoque as peças em cima da cama, tire uma foto e mande para o ChatGPT, o Claude ou o Gemini pedindo: \"monte 3 looks só com estas peças para [ocasião], com [clima]. Diga o que combina com o quê e qual peça faria mais falta se eu fosse comprar uma só\".\n\nCor na foto pode enganar, então confira de perto. A IA dá ideias, o gosto final é seu.\n\nManda para quem nunca tem roupa 👇\nComente LOOKIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Moda",
+      "tiktokTitle": "Nada para vestir? Mande foto das roupas e a IA monta o look",
+      "youtubeTitle": "Monte looks com as roupas que você já tem usando IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[foto das peças] Monte 3 looks só com estas peças para [ocasião], com [clima]. Diga o que combina com o quê e qual peça faria mais falta se eu fosse comprar uma só.\""
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "Gemini passa a criar GIFs animados a partir de um texto, com liberação aos poucos",
+      "hook": "O Gemini agora cria GIFs",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Novidade no Gemini:",
+          "body": "descreva a cena e ele cria um GIF de uns 3 segundos."
+        },
+        {
+          "kind": "list",
+          "title": "Dá para usar",
+          "items": [
+            "Só um texto",
+            "Uma foto sua",
+            "Modelos de meme"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "liberação aos poucos, sem data confirmada no Brasil."
+        }
+      ],
+      "narration": "O Gemini agora cria GIFs. O Google liberou no Gemini a criação de GIFs animados de uns três segundos: você descreve a cena, ou manda uma foto, e ele faz a animação. Também tem modelos prontos de meme. A liberação é aos poucos e ainda sem data confirmada no Brasil. Comente GEMINIGIF que eu te mando a matéria.",
+      "keyword": "GEMINIGIF",
+      "ctaQuestion": "Qual GIF você faria primeiro?",
+      "caption": "O Gemini agora cria GIFs. 🎞️\n\nO Google liberou no app do Gemini a criação de GIFs animados de uns 3 segundos: você descreve a cena (o exemplo do Google é \"um cachorro surfando\"), ou manda uma foto, e ele faz a animação. Também há modelos prontos para memes de reação.\n\nA liberação é aos poucos, e as fontes não batem sobre quais países têm de graça. Ainda não há confirmação para o Brasil. O ChatGPT já fazia GIFs desde o começo do mês.\n\nQual GIF você faria primeiro? Comenta aí 👇\nManda para quem vive mandando GIF no grupo\nComente GEMINIGIF que eu te mando a matéria completa no direct.\n\nFonte: Digital Trends e Neowin\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Gemini #Google #Tecnologia",
+      "tiktokTitle": "O Gemini agora cria GIFs animados a partir de um texto",
+      "youtubeTitle": "Gemini agora cria GIFs animados: o que muda #shorts",
+      "sources": [
+        {
+          "name": "Digital Trends",
+          "url": "https://www.digitaltrends.com/cool-tech/google-gemini-ai-gif-generation/"
+        },
+        {
+          "name": "Neowin",
+          "url": "https://www.neowin.net/news/google-follows-chatgpt-with-ai-generated-gifs-in-gemini-available-even-to-free-users/"
+        }
+      ],
+      "firstComment": "Matéria da Digital Trends: https://www.digitaltrends.com/cool-tech/google-gemini-ai-gif-generation/"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para enfrentar o calor do verão com IA",
+    "slides": [
+      {
+        "title": "5 prompts para sobreviver ao calor",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Casa fresca",
+        "body": "\"Como deixar meu [quarto/apartamento] mais fresco sem ar-condicionado?\""
+      },
+      {
+        "title": "2. Conta de luz",
+        "body": "\"Quanto gasto por mês usando o ar [potência] por [horas] por dia? Como economizar?\""
+      },
+      {
+        "title": "3. Cardápio",
+        "body": "\"Sugira 5 refeições leves e baratas para dias de calor para [número] pessoas.\""
+      },
+      {
+        "title": "4. Roupa",
+        "body": "\"Que tecidos e cores esquentam menos para trabalhar de [tipo de roupa]?\""
+      },
+      {
+        "title": "5. Passeio",
+        "body": "\"Sugira programas baratos e na sombra em [cidade] para um dia de muito calor.\""
+      }
+    ],
+    "keyword": "VERAOIA",
+    "caption": "5 prompts para sobreviver ao calor. ☀️\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A conta de luz é uma estimativa: a tarifa muda por estado. E em dia muito quente, beba água e siga os alertas da Defesa Civil.\n\nManda para quem não aguenta mais o calor 👇\nSalve e comente VERAOIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Verao #DicasDeIA",
+    "tiktokTitle": "5 prompts para enfrentar o calor do verão com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem não aguenta mais o calor!"
+  }
+}

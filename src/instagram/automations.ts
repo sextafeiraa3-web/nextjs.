@@ -1572,6 +1572,57 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei no direct! 📩",
   },
+  {
+    keyword: "VERAOIA",
+    message:
+      [
+        "Oi! Os 5 prompts para sobreviver ao calor (troque o que está entre colchetes):",
+        "",
+        "1. \"Como deixar meu [quarto/apartamento] mais fresco sem ar-condicionado?\"",
+        "2. \"Quanto gasto por mês usando o ar [potência] por [horas] por dia? Como economizar?\"",
+        "3. \"Sugira 5 refeições leves e baratas para dias de calor para [número] pessoas.\"",
+        "4. \"Que tecidos e cores esquentam menos para trabalhar de [tipo de roupa]?\"",
+        "5. \"Sugira programas baratos e na sombra em [cidade] para um dia de muito calor.\"",
+        "",
+        "A conta de luz é estimativa: a tarifa muda por estado.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "AUMENTOIA",
+    message:
+      [
+        "Oi! O prompt para ensaiar o pedido de aumento:",
+        "",
+        "\"[o que você entregou no ano] Organize estes pontos em 3 argumentos curtos para pedir aumento. Depois faça o papel do meu chefe, com objeções difíceis, e me ajude a responder.\"",
+        "",
+        "Pesquise antes a faixa salarial do seu cargo e não cole dados internos da empresa.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "LOOKIA",
+    message:
+      [
+        "Oi! O prompt para montar looks com o que você tem:",
+        "",
+        "\"[foto das peças] Monte 3 looks só com estas peças para [ocasião], com [clima]. Diga o que combina com o quê e qual peça faria mais falta se eu fosse comprar uma só.\"",
+      ].join("\n") + signature,
+    publicReply: "Te mandei no direct! 📩",
+  },
+  {
+    keyword: "GEMINIGIF",
+    message:
+      [
+        "Oi! Sobre os GIFs no Gemini:",
+        "",
+        "O Google liberou no app do Gemini a criação de GIFs animados de uns 3 segundos, a partir de um texto ou de uma foto, com modelos prontos de meme. A liberação é aos poucos e ainda não há confirmação para o Brasil.",
+        "",
+        "Digital Trends: https://www.digitaltrends.com/cool-tech/google-gemini-ai-gif-generation/",
+        "Neowin: https://www.neowin.net/news/google-follows-chatgpt-with-ai-generated-gifs-in-gemini-available-even-to-free-users/",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 📩",
+  },
 ];
 
 const normalize = (text: string) =>

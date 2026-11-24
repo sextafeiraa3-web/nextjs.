@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-25",
+  "topic": "Gemini passa a criar GIFs animados a partir de um texto, com liberação aos poucos",
+  "keyword": "GEMINIGIF",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para enfrentar o calor do verão com IA",
+      "keyword": "VERAOIA",
+      "metricoolId": 439820230,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Usar a IA para preparar a conversa de pedir aumento: argumentos, ensaio e respostas para objeções",
+      "keyword": "AUMENTOIA",
+      "metricoolId": 439820254,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Tirar foto das roupas do armário e pedir para a IA montar looks com o que você já tem",
+      "keyword": "LOOKIA",
+      "metricoolId": 439820287,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Gemini passa a criar GIFs animados a partir de um texto, com liberação aos poucos",
+      "keyword": "GEMINIGIF",
+      "metricoolId": 439820333,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}
