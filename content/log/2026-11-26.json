@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-26",
+  "topic": "Gemini passa a deixar o histórico ligado sem usar as conversas para treinar a IA",
+  "keyword": "PRIVAIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para cuidar da saúde no dia a dia com IA",
+      "keyword": "SAUDEIA",
+      "metricoolId": 441277460,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Pedir para a IA um passo a passo simples para os pais ou avós usarem uma função do celular",
+      "keyword": "VOVOIA",
+      "metricoolId": 441277525,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Pedir para a IA explicar e simular poupança, CDB e Tesouro para o seu valor e prazo",
+      "keyword": "POUPAIA",
+      "metricoolId": 441277594,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Gemini passa a deixar o histórico ligado sem usar as conversas para treinar a IA",
+      "keyword": "PRIVAIA",
+      "metricoolId": 441277633,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}

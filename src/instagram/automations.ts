@@ -1623,6 +1623,59 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 📩",
   },
+  {
+    keyword: "SAUDEIA",
+    message:
+      [
+        "Aqui estão os 5 prompts para cuidar da saúde 🩺",
+        "",
+        "1. Consulta: \"Vou ao [especialista] por causa de [sintoma]. Que perguntas devo levar para a consulta?\"",
+        "2. Exame: \"Explique em palavras simples o que significa cada item deste exame: [cole o texto].\"",
+        "3. Remédios: \"Monte uma tabela de horários para estes remédios que o médico receitou: [lista].\"",
+        "4. Sono: \"Me dê 5 hábitos simples para dormir melhor, para quem acorda às [hora].\"",
+        "5. Caminhada: \"Monte um plano de 4 semanas de caminhada para quem está parado há [tempo].\"",
+        "",
+        "A IA ajuda a organizar, mas diagnóstico, dose e remédio são sempre com o médico.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 🩺",
+  },
+  {
+    keyword: "VOVOIA",
+    message:
+      [
+        "Aqui está o prompt para ensinar seus pais a usar o celular 📱",
+        "",
+        "\"Escreva um passo a passo para uma pessoa de [idade] que não tem costume com tecnologia [o que ela quer fazer] num [modelo do celular]. Use frases curtas, palavras simples e diga o nome exato de cada botão.\"",
+        "",
+        "Teste o passo a passo antes de mandar: os menus mudam de uma versão para outra.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📱",
+  },
+  {
+    keyword: "POUPAIA",
+    message:
+      [
+        "Aqui está o prompt para comparar poupança, CDB e Tesouro 💰",
+        "",
+        "\"Tenho R$ [valor] para guardar por [prazo] e talvez precise sacar antes. Explique em palavras simples poupança, CDB e Tesouro Selic: quando posso sacar, se tem imposto e simule quanto cada um renderia. Use as taxas: [taxas de hoje].\"",
+        "",
+        "Pegue as taxas de hoje no app do seu banco. Isso é explicação, não recomendação de investimento.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 💰",
+  },
+  {
+    keyword: "PRIVAIA",
+    message:
+      [
+        "Aqui está a matéria sobre a nova opção de privacidade do Gemini 🔒",
+        "",
+        "9to5Google: https://9to5google.com/2026/11/24/gemini-history-ai-training",
+        "Tom's Guide: https://tomsguide.com/ai/google-gemini/how-to-stop-gemini-from-training-on-your-data",
+        "",
+        "Onde fica: página de Atividade do Gemini > mantenha o histórico ligado > desmarque o uso das conversas para treinar a IA. Vale só para conversas futuras.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei a matéria no direct! 🔒",
+  },
 ];
 
 const normalize = (text: string) =>

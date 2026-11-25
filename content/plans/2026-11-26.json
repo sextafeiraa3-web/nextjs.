@@ -1,0 +1,155 @@
+{
+  "date": "2026-11-26",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Pedir para a IA um passo a passo simples para os pais ou avós usarem uma função do celular",
+      "hook": "Seus pais travam no celular? A IA ensina",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Seus pais travam no celular?",
+          "body": "diga o modelo e o que eles querem fazer."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça para a IA",
+          "steps": [
+            "Passo a passo do modelo",
+            "Frases curtas",
+            "Palavras simples"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Dica:",
+          "body": "imprima ou mande para eles no WhatsApp."
+        }
+      ],
+      "narration": "Seus pais travam no celular? A IA ensina. Diga para o ChatGPT, o Claude ou o Gemini o modelo do celular e o que eles querem fazer, como mandar foto no WhatsApp. Peça um passo a passo com frases curtas e palavras simples. Depois, imprima ou mande para eles. Comente VOVOIA que eu te mando o prompt.",
+      "keyword": "VOVOIA",
+      "ctaQuestion": "Manda para quem é o suporte técnico da família",
+      "caption": "Seus pais travam no celular? A IA ensina. 👵📱\n\nDiga para o ChatGPT, o Claude ou o Gemini o modelo do celular e o que eles querem fazer, e peça: \"escreva um passo a passo para uma pessoa de [idade] que não tem costume com tecnologia [mandar foto no WhatsApp / fazer chamada de vídeo / aumentar a letra] num [modelo]. Use frases curtas, palavras simples e diga o nome exato de cada botão\".\n\nOs menus mudam de uma versão para outra: teste o passo a passo antes de mandar. E lembre seus pais de nunca passar senha ou código por mensagem.\n\nManda para quem é o suporte técnico da família 👇\nComente VOVOIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Familia",
+      "tiktokTitle": "Seus pais travam no celular? Peça para a IA um passo a passo simples",
+      "youtubeTitle": "Ensine seus pais a usar o celular com a ajuda da IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Escreva um passo a passo para uma pessoa de [idade] que não tem costume com tecnologia [o que ela quer fazer] num [modelo]. Use frases curtas, palavras simples e diga o nome exato de cada botão.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "dica",
+      "topic": "Pedir para a IA explicar e simular poupança, CDB e Tesouro para o seu valor e prazo",
+      "hook": "Poupança, CDB ou Tesouro? Peça a conta à IA",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Dinheiro parado?",
+          "body": "diga o valor e por quanto tempo vai guardar."
+        },
+        {
+          "kind": "list",
+          "title": "A IA explica",
+          "items": [
+            "Como cada opção rende",
+            "Quando dá para sacar",
+            "Quanto vai de imposto"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "confira as taxas de hoje no seu banco."
+        }
+      ],
+      "narration": "Poupança, CDB ou Tesouro? Peça a conta à IA. Diga o valor, por quanto tempo vai guardar e se pode precisar sacar antes. Peça para o ChatGPT, o Claude ou o Gemini explicar cada opção e simular quanto rende, já com imposto. Confira as taxas de hoje no seu banco. Comente POUPAIA que eu te mando o prompt.",
+      "keyword": "POUPAIA",
+      "ctaQuestion": "Manda para quem deixa tudo na poupança",
+      "caption": "Poupança, CDB ou Tesouro? Peça a conta à IA. 💰\n\nDiga o valor, o prazo e se pode precisar do dinheiro antes, e peça para o ChatGPT, o Claude ou o Gemini: \"tenho R$ [valor] para guardar por [prazo] e talvez precise sacar antes. Explique em palavras simples poupança, CDB e Tesouro Selic: quando posso sacar, se tem imposto e simule quanto cada um renderia. Use as taxas que eu informar: [taxas]\".\n\nA IA pode usar taxas desatualizadas: pegue as de hoje no app do seu banco e passe para ela. Isso é explicação, não recomendação de investimento.\n\nManda para quem deixa tudo na poupança 👇\nComente POUPAIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Dinheiro",
+      "tiktokTitle": "Poupança, CDB ou Tesouro? Peça para a IA simular para o seu valor",
+      "youtubeTitle": "Poupança, CDB ou Tesouro: a IA explica e simula #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Tenho R$ [valor] para guardar por [prazo] e talvez precise sacar antes. Explique em palavras simples poupança, CDB e Tesouro Selic: quando posso sacar, se tem imposto e simule quanto cada um renderia. Use as taxas: [taxas de hoje].\""
+    },
+    {
+      "slot": "19:00",
+      "pillar": "noticia",
+      "topic": "Gemini passa a deixar o histórico ligado sem usar as conversas para treinar a IA",
+      "hook": "O Gemini agora separa histórico e treino",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Novidade no Gemini:",
+          "body": "histórico ligado sem treinar a IA com suas conversas."
+        },
+        {
+          "kind": "steps",
+          "title": "Onde fica",
+          "steps": [
+            "Atividade do Gemini",
+            "Histórico ligado",
+            "Desmarque o treino"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "vale só para conversas daqui para a frente."
+        }
+      ],
+      "narration": "O Gemini agora separa histórico e treino. O Google liberou uma opção nova: você mantém o histórico das conversas ligado e desliga o uso delas para treinar a IA. Vale só para conversas futuras. Fica na página de Atividade do Gemini. Comente PRIVAIA que eu te mando a matéria.",
+      "keyword": "PRIVAIA",
+      "ctaQuestion": "Você vai desligar o treino?",
+      "caption": "O Gemini agora separa histórico e treino. 🔒\n\nAntes, para o Google não usar suas conversas no treino da IA, era preciso desligar o histórico inteiro. Agora há uma opção separada: você mantém o histórico ligado e desmarca o uso do conteúdo das conversas para treinar os modelos. Fica na página de Atividade do Gemini, e a liberação começou nesta semana.\n\nA mudança vale só para conversas daqui para a frente, e as fontes divergem sobre como a opção vem marcada: confira a sua. O Google diz que alguns dados ainda podem ser guardados por até 3 anos.\n\nVocê vai desligar o treino? Comenta aí 👇\nManda para quem usa o Gemini todo dia\nComente PRIVAIA que eu te mando a matéria completa no direct.\n\nFonte: 9to5Google e Tom's Guide\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #Gemini #Google #Privacidade",
+      "tiktokTitle": "Gemini agora deixa manter o histórico sem treinar a IA com suas conversas",
+      "youtubeTitle": "Gemini: histórico ligado sem treinar a IA #shorts",
+      "sources": [
+        {
+          "name": "9to5Google",
+          "url": "https://9to5google.com/2026/11/24/gemini-history-ai-training"
+        },
+        {
+          "name": "Tom's Guide",
+          "url": "https://tomsguide.com/ai/google-gemini/how-to-stop-gemini-from-training-on-your-data"
+        }
+      ],
+      "firstComment": "Matéria do 9to5Google: https://9to5google.com/2026/11/24/gemini-history-ai-training"
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para cuidar da saúde no dia a dia com IA",
+    "slides": [
+      {
+        "title": "5 prompts para cuidar da saúde",
+        "body": "Troque o que está entre colchetes. A IA ajuda a se organizar, mas não substitui o médico."
+      },
+      {
+        "title": "1. Consulta",
+        "body": "\"Vou ao [especialista] por causa de [sintoma]. Que perguntas devo levar para a consulta?\""
+      },
+      {
+        "title": "2. Exame",
+        "body": "\"Explique em palavras simples o que significa cada item deste exame: [cole o texto].\""
+      },
+      {
+        "title": "3. Remédios",
+        "body": "\"Monte uma tabela de horários para estes remédios que o médico receitou: [lista].\""
+      },
+      {
+        "title": "4. Sono",
+        "body": "\"Me dê 5 hábitos simples para dormir melhor, para quem acorda às [hora].\""
+      },
+      {
+        "title": "5. Caminhada",
+        "body": "\"Monte um plano de 4 semanas de caminhada para quem está parado há [tempo].\""
+      }
+    ],
+    "keyword": "SAUDEIA",
+    "caption": "5 prompts para cuidar da saúde. 🩺\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA ajuda a organizar e entender, mas diagnóstico, dose e mudança de remédio são sempre com o médico. Evite colar nome completo e documentos junto com os exames.\n\nManda para quem vive adiando a consulta 👇\nSalve e comente SAUDEIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Saude #DicasDeIA",
+    "tiktokTitle": "5 prompts para cuidar da saúde no dia a dia com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem vive adiando a consulta!"
+  }
+}
