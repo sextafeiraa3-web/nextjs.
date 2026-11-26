@@ -35,12 +35,13 @@
       "keyword": "POUPAIA",
       "metricoolId": 441277594,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "facebook": "SCHEDULED",
         "tiktok": "SCHEDULED",
         "youtube": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11.",
+      "instagramMediaId": "17977995675166638"
     },
     {
       "slot": "19:00",
