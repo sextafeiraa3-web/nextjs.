@@ -1676,6 +1676,58 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei a matéria no direct! 🔒",
   },
+  {
+    keyword: "CARROIA",
+    message:
+      [
+        "Aqui estão os 5 prompts para cuidar do carro 🚗",
+        "",
+        "1. Revisão: \"Meu [modelo e ano] está com [km]. Que itens costumam ser trocados nessa revisão?\"",
+        "2. Barulho: \"Meu carro faz um barulho de [tipo] quando [situação]. Quais as causas mais comuns?\"",
+        "3. Consumo: \"Meu carro faz [km/l] na cidade. Que hábitos ajudam a gastar menos combustível?\"",
+        "4. Viagem: \"Monte um checklist para revisar o carro antes de uma viagem de [distância] km.\"",
+        "5. Custos: \"Monte uma planilha com os gastos anuais do meu carro: [seguro, IPVA, combustível, revisões].\"",
+        "",
+        "Quem confirma é o manual do carro e um mecânico de confiança.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 🚗",
+  },
+  {
+    keyword: "FICHAIA",
+    message:
+      [
+        "Aqui está o prompt para entender a ficha técnica 📺",
+        "",
+        "\"[cole a ficha técnica] Explique cada item desta ficha técnica em palavras simples. Eu vou usar para [seu uso]. Diga o que faz diferença para mim, o que é só propaganda e o que devo comparar com outros modelos.\"",
+        "",
+        "Confira o modelo exato no site do fabricante.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📺",
+  },
+  {
+    keyword: "DEVOLVEIA",
+    message:
+      [
+        "Aqui está o prompt para pedir a devolução 📦",
+        "",
+        "\"Escreva uma mensagem curta e educada para a loja [nome] pedindo a devolução do pedido [número], recebido em [data], com base no direito de arrependimento do artigo 49 do CDC, e o reembolso integral, inclusive do frete.\"",
+        "",
+        "São 7 dias a partir do recebimento, em compras pela internet ou telefone. Guarde prints de tudo; se não resolver, use o consumidor.gov.br ou o Procon.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📦",
+  },
+  {
+    keyword: "GARANTIA",
+    message:
+      [
+        "Aqui está o prompt para analisar a garantia estendida 🛡️",
+        "",
+        "\"[cole as condições] Resuma o que esta garantia estendida cobre e o que não cobre, quanto ela custa em porcentagem do produto e o que já está coberto pela garantia do fabricante. Responda em tópicos.\"",
+        "",
+        "Lembre: ela é opcional. Condicionar a venda a ela é venda casada, proibida pelo CDC.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 🛡️",
+  },
 ];
 
 const normalize = (text: string) =>

@@ -1,0 +1,146 @@
+{
+  "date": "2026-11-27",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Colar a ficha técnica de uma TV ou celular e pedir para a IA explicar o que importa antes de comprar",
+      "hook": "Ficha técnica confusa? A IA traduz",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Vai comprar TV ou celular?",
+          "body": "copie a ficha técnica do produto."
+        },
+        {
+          "kind": "list",
+          "title": "A IA explica",
+          "items": [
+            "Cada item em palavras simples",
+            "O que muda no seu uso",
+            "O que é só propaganda"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "confira o modelo exato no site do fabricante."
+        }
+      ],
+      "narration": "Ficha técnica confusa? A IA traduz. Antes de comprar uma TV ou um celular na Black Friday, copie a ficha técnica e cole no ChatGPT, no Claude ou no Gemini. Peça para explicar cada item em palavras simples e dizer o que faz diferença para o seu uso. Comente FICHAIA que eu te mando o prompt.",
+      "keyword": "FICHAIA",
+      "ctaQuestion": "Manda para quem vai comprar na Black Friday",
+      "caption": "Ficha técnica confusa? A IA traduz. 📺\n\nCopie a ficha técnica do produto e cole no ChatGPT, no Claude ou no Gemini pedindo: \"explique cada item desta ficha técnica em palavras simples. Eu vou usar para [seu uso]. Diga o que faz diferença para mim, o que é só propaganda e o que devo comparar com outros modelos\".\n\nA IA só sabe o que você colou: confira o modelo exato no site do fabricante, porque um número diferente no nome pode mudar tudo.\n\nManda para quem vai comprar na Black Friday 👇\nComente FICHAIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #BlackFriday",
+      "tiktokTitle": "Ficha técnica confusa? Peça para a IA explicar antes de comprar",
+      "youtubeTitle": "A IA explica a ficha técnica antes de você comprar #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[cole a ficha técnica] Explique cada item desta ficha técnica em palavras simples. Eu vou usar para [seu uso]. Diga o que faz diferença para mim, o que é só propaganda e o que devo comparar com outros modelos.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "dica",
+      "topic": "Usar a IA para escrever o pedido de devolução de uma compra online dentro dos 7 dias de arrependimento",
+      "hook": "Comprou e se arrependeu? A IA te ajuda",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Compra pela internet?",
+          "body": "você tem 7 dias para desistir depois de receber."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça para a IA",
+          "steps": [
+            "Escrever o pedido à loja",
+            "Citar o prazo de 7 dias",
+            "Pedir o reembolso"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Dica:",
+          "body": "guarde prints do pedido e da conversa."
+        }
+      ],
+      "narration": "Comprou e se arrependeu? A IA te ajuda. Em compra pela internet, você tem sete dias para desistir. Conte para o ChatGPT, o Claude ou o Gemini o que comprou e quando chegou, e peça a mensagem para a loja pedindo a devolução e o reembolso. Guarde os prints. Comente DEVOLVEIA que eu te mando o prompt.",
+      "keyword": "DEVOLVEIA",
+      "ctaQuestion": "Manda para quem comprou por impulso",
+      "caption": "Comprou e se arrependeu? A IA te ajuda. 📦\n\nEm compra feita pela internet ou pelo telefone, o Código de Defesa do Consumidor dá 7 dias, a partir do recebimento, para desistir sem precisar explicar o motivo. Peça para o ChatGPT, o Claude ou o Gemini: \"escreva uma mensagem curta e educada para a loja [nome] pedindo a devolução do pedido [número], recebido em [data], com base no direito de arrependimento do artigo 49 do CDC, e o reembolso integral, inclusive do frete\".\n\nMande pelo canal oficial da loja e guarde prints de tudo. Se a loja não responder, o caminho é o consumidor.gov.br ou o Procon.\n\nManda para quem comprou por impulso 👇\nComente DEVOLVEIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #BlackFriday",
+      "tiktokTitle": "Comprou online e se arrependeu? A IA escreve o pedido de devolução",
+      "youtubeTitle": "Devolver compra online em 7 dias com ajuda da IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Escreva uma mensagem curta e educada para a loja [nome] pedindo a devolução do pedido [número], recebido em [data], com base no direito de arrependimento do artigo 49 do CDC, e o reembolso integral, inclusive do frete.\""
+    },
+    {
+      "slot": "19:00",
+      "pillar": "dica",
+      "topic": "Colar as condições da garantia estendida e pedir para a IA dizer o que cobre e se vale o preço",
+      "hook": "Garantia estendida vale a pena? Pergunte à IA",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Ofereceram garantia estendida?",
+          "body": "peça as condições antes de aceitar."
+        },
+        {
+          "kind": "list",
+          "title": "A IA mostra",
+          "items": [
+            "O que cobre",
+            "O que não cobre",
+            "Quanto custa perto do produto"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Lembre:",
+          "body": "ela é opcional. Ninguém pode te obrigar."
+        }
+      ],
+      "narration": "Garantia estendida vale a pena? Pergunte à IA. Antes de aceitar no caixa, peça o contrato ou as condições e cole no ChatGPT, no Claude ou no Gemini. Peça o que cobre, o que não cobre e quanto custa em relação ao produto. Ela é opcional: ninguém pode te obrigar. Comente GARANTIA que eu te mando o prompt.",
+      "keyword": "GARANTIA",
+      "ctaQuestion": "Manda para quem sempre cai na garantia estendida",
+      "caption": "Garantia estendida vale a pena? Pergunte à IA. 🛡️\n\nAntes de aceitar, peça as condições por escrito (ou tire foto) e mande para o ChatGPT, o Claude ou o Gemini pedindo: \"resuma o que esta garantia estendida cobre e o que não cobre, quanto ela custa em porcentagem do produto e o que já está coberto pela garantia do fabricante. Responda em tópicos\".\n\nLembre: a garantia estendida é opcional, e condicionar a venda a ela é venda casada, proibida pelo CDC. O produto já tem a garantia legal e a do fabricante.\n\nManda para quem sempre cai na garantia estendida 👇\nComente GARANTIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #BlackFriday",
+      "tiktokTitle": "Garantia estendida vale a pena? Peça para a IA ler as condições",
+      "youtubeTitle": "Garantia estendida: a IA mostra o que cobre #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[cole as condições] Resuma o que esta garantia estendida cobre e o que não cobre, quanto ela custa em porcentagem do produto e o que já está coberto pela garantia do fabricante. Responda em tópicos.\""
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para cuidar do carro com IA",
+    "slides": [
+      {
+        "title": "5 prompts para cuidar do carro",
+        "body": "Troque o que está entre colchetes. A IA orienta, mas quem confirma é o mecânico e o manual do carro."
+      },
+      {
+        "title": "1. Revisão",
+        "body": "\"Meu [modelo e ano] está com [km]. Que itens costumam ser trocados nessa revisão?\""
+      },
+      {
+        "title": "2. Barulho",
+        "body": "\"Meu carro faz um barulho de [tipo] quando [situação]. Quais as causas mais comuns?\""
+      },
+      {
+        "title": "3. Consumo",
+        "body": "\"Meu carro faz [km/l] na cidade. Que hábitos ajudam a gastar menos combustível?\""
+      },
+      {
+        "title": "4. Viagem",
+        "body": "\"Monte um checklist para revisar o carro antes de uma viagem de [distância] km.\""
+      },
+      {
+        "title": "5. Custos",
+        "body": "\"Monte uma planilha com os gastos anuais do meu carro: [seguro, IPVA, combustível, revisões].\""
+      }
+    ],
+    "keyword": "CARROIA",
+    "caption": "5 prompts para cuidar do carro. 🚗\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. A IA ajuda a entender e se planejar, mas o que vale é o manual do seu carro e a avaliação de um mecânico de confiança.\n\nManda para quem vai pegar a estrada no fim de ano 👇\nSalve e comente CARROIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Carros #DicasDeIA",
+    "tiktokTitle": "5 prompts para cuidar do carro com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem vai pegar a estrada no fim de ano!"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-27",
+  "topic": "Colar as condições da garantia estendida e pedir para a IA dizer o que cobre e se vale o preço",
+  "keyword": "GARANTIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para cuidar do carro com IA",
+      "keyword": "CARROIA",
+      "metricoolId": 442668686,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Colar a ficha técnica de uma TV ou celular e pedir para a IA explicar o que importa antes de comprar",
+      "keyword": "FICHAIA",
+      "metricoolId": 442668763,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Usar a IA para escrever o pedido de devolução de uma compra online dentro dos 7 dias de arrependimento",
+      "keyword": "DEVOLVEIA",
+      "metricoolId": 442668826,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Colar as condições da garantia estendida e pedir para a IA dizer o que cobre e se vale o preço",
+      "keyword": "GARANTIA",
+      "metricoolId": 442668888,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}
