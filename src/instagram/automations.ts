@@ -1728,6 +1728,58 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei o prompt no direct! 🛡️",
   },
+  {
+    keyword: "FESTAIA",
+    message:
+      [
+        "Aqui estão os 5 prompts para organizar uma festa 🎉",
+        "",
+        "1. Orçamento: \"Tenho R$ [valor] para uma festa de [número] pessoas. Como dividir o dinheiro?\"",
+        "2. Comida: \"Quanto de salgado, doce e bebida preciso para [número] adultos e [número] crianças?\"",
+        "3. Convite: \"Escreva um convite curto e animado para o aniversário de [nome], dia [data], em [local].\"",
+        "4. Brincadeiras: \"Sugira 5 brincadeiras baratas para crianças de [idade] num espaço [pequeno/grande].\"",
+        "5. Checklist: \"Monte um checklist do que fazer 2 semanas, 1 semana e no dia da festa.\"",
+        "",
+        "As quantidades são estimativas: confirme com a doceria ou o buffet.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 🎉",
+  },
+  {
+    keyword: "CUPOMIA",
+    message:
+      [
+        "Aqui está o prompt para entender os gastos do mercado 🧾",
+        "",
+        "\"[foto do cupom] Separe os itens deste cupom por categoria (limpeza, carne, hortifrúti, bebidas, besteiras), some o total de cada uma e diga onde eu poderia economizar no próximo mês.\"",
+        "",
+        "Cubra o CPF antes de mandar a foto e confira os totais com o valor pago.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 🧾",
+  },
+  {
+    keyword: "LIVROIA",
+    message:
+      [
+        "Aqui está o prompt para achar o próximo livro 📚",
+        "",
+        "\"Amei os livros [livro 1], [livro 2] e [livro 3]. Indique 5 livros parecidos, disponíveis em português, com uma frase sobre por que eu gostaria de cada um. Depois monte um plano de leitura de 10 páginas por dia.\"",
+        "",
+        "A IA às vezes inventa título ou autor: pesquise antes de comprar.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📚",
+  },
+  {
+    keyword: "BRINDEIA",
+    message:
+      [
+        "Aqui está o prompt para o brinde de fim de ano 🥂",
+        "",
+        "\"Escreva um brinde de 1 minuto para a confraternização [da família / do trabalho]. Vão estar [quem]. Cite estes dois momentos do ano: [momento 1] e [momento 2]. Tom leve e carinhoso, sem piada que constranja ninguém.\"",
+        "",
+        "Leia em voz alta e troque o que não soa como você.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 🥂",
+  },
 ];
 
 const normalize = (text: string) =>

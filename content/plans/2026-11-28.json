@@ -1,0 +1,146 @@
+{
+  "date": "2026-11-28",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Tirar foto do cupom fiscal do mercado e pedir para a IA separar os gastos por categoria",
+      "hook": "Para onde foi o dinheiro do mercado?",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Para onde foi o dinheiro?",
+          "body": "tire foto do cupom fiscal do mercado."
+        },
+        {
+          "kind": "list",
+          "title": "A IA monta",
+          "items": [
+            "Tabela por categoria",
+            "Total de cada uma",
+            "Onde dá para economizar"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "cubra o CPF e confira os valores."
+        }
+      ],
+      "narration": "Para onde foi o dinheiro do mercado? Tire foto do cupom fiscal e mande para o ChatGPT, o Claude ou o Gemini. Peça uma tabela por categoria, com o total de cada uma, e onde dá para economizar no próximo mês. Confira os valores com o cupom. Comente CUPOMIA que eu te mando o prompt.",
+      "keyword": "CUPOMIA",
+      "ctaQuestion": "Manda para quem faz as compras da casa",
+      "caption": "Para onde foi o dinheiro do mercado? 🧾\n\nTire foto do cupom fiscal (cubra o CPF) e mande para o ChatGPT, o Claude ou o Gemini pedindo: \"separe os itens deste cupom por categoria (limpeza, carne, hortifrúti, bebidas, besteiras), some o total de cada uma e diga onde eu poderia economizar no próximo mês\".\n\nCupom amassado ou apagado faz a IA ler errado: confira os totais com o valor pago.\n\nManda para quem faz as compras da casa 👇\nComente CUPOMIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Economia",
+      "tiktokTitle": "Para onde foi o dinheiro do mercado? A IA separa por categoria",
+      "youtubeTitle": "A IA mostra onde foi o dinheiro do mercado #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[foto do cupom] Separe os itens deste cupom por categoria (limpeza, carne, hortifrúti, bebidas, besteiras), some o total de cada uma e diga onde eu poderia economizar no próximo mês.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "dica",
+      "topic": "Pedir para a IA indicar livros parecidos com os que você amou e montar um plano de leitura",
+      "hook": "Não sabe o que ler? A IA indica",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Não sabe o que ler?",
+          "body": "diga 3 livros que você amou."
+        },
+        {
+          "kind": "steps",
+          "title": "Peça para a IA",
+          "steps": [
+            "5 indicações parecidas",
+            "Um motivo para cada",
+            "Plano de 10 páginas por dia"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "confira se o livro existe antes de comprar."
+        }
+      ],
+      "narration": "Não sabe o que ler? A IA indica. Diga para o ChatGPT, o Claude ou o Gemini três livros que você amou. Peça cinco indicações parecidas, com um motivo para cada uma, e um plano de leitura de dez páginas por dia. Confira se o livro existe antes de comprar. Comente LIVROIA que eu te mando o prompt.",
+      "keyword": "LIVROIA",
+      "ctaQuestion": "Manda para quem quer ler mais em 2027",
+      "caption": "Não sabe o que ler? A IA indica. 📚\n\nDiga para o ChatGPT, o Claude ou o Gemini: \"amei os livros [livro 1], [livro 2] e [livro 3]. Indique 5 livros parecidos, disponíveis em português, com uma frase sobre por que eu gostaria de cada um. Depois monte um plano de leitura de 10 páginas por dia\".\n\nA IA às vezes inventa título ou autor: pesquise o livro antes de comprar. E dá para pegar emprestado na biblioteca pública.\n\nManda para quem quer ler mais em 2027 👇\nComente LIVROIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Livros",
+      "tiktokTitle": "Não sabe o que ler? Peça indicações de livros para a IA",
+      "youtubeTitle": "A IA indica livros parecidos com os que você amou #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Amei os livros [livro 1], [livro 2] e [livro 3]. Indique 5 livros parecidos, disponíveis em português, com uma frase sobre por que eu gostaria de cada um. Depois monte um plano de leitura de 10 páginas por dia.\""
+    },
+    {
+      "slot": "19:00",
+      "pillar": "dica",
+      "topic": "Pedir para a IA escrever um brinde curto para a confraternização de fim de ano",
+      "hook": "Vai fazer o brinde do fim de ano? A IA ajuda",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Vai fazer o brinde?",
+          "body": "conte quem vai estar e 2 momentos do ano."
+        },
+        {
+          "kind": "list",
+          "title": "Peça um brinde",
+          "items": [
+            "De 1 minuto",
+            "Leve e carinhoso",
+            "Sem piada constrangedora"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Dica:",
+          "body": "leia em voz alta e ajuste do seu jeito."
+        }
+      ],
+      "narration": "Vai fazer o brinde do fim de ano? A IA ajuda. Conte para o ChatGPT, o Claude ou o Gemini quem estará lá e dois momentos marcantes do ano. Peça um brinde de um minuto, leve e sem piada constrangedora. Depois leia em voz alta e ajuste do seu jeito. Comente BRINDEIA que eu te mando o prompt.",
+      "keyword": "BRINDEIA",
+      "ctaQuestion": "Manda para quem sempre é chamado para falar",
+      "caption": "Vai fazer o brinde do fim de ano? A IA ajuda. 🥂\n\nConte para o ChatGPT, o Claude ou o Gemini: \"escreva um brinde de 1 minuto para a confraternização [da família / do trabalho]. Vão estar [quem]. Cite estes dois momentos do ano: [momento 1] e [momento 2]. Tom leve e carinhoso, sem piada que constranja ninguém\".\n\nLeia em voz alta, corte o que não soa como você e troque por palavras suas. Brinde decorado de IA dá para perceber.\n\nManda para quem sempre é chamado para falar 👇\nComente BRINDEIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #FimDeAno",
+      "tiktokTitle": "Vai fazer o brinde do fim de ano? Peça ajuda para a IA",
+      "youtubeTitle": "A IA escreve o brinde do fim de ano #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Escreva um brinde de 1 minuto para a confraternização [da família / do trabalho]. Vão estar [quem]. Cite estes dois momentos do ano: [momento 1] e [momento 2]. Tom leve e carinhoso, sem piada que constranja ninguém.\""
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para organizar uma festa de aniversário com IA",
+    "slides": [
+      {
+        "title": "5 prompts para organizar uma festa",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Orçamento",
+        "body": "\"Tenho R$ [valor] para uma festa de [número] pessoas. Como dividir o dinheiro?\""
+      },
+      {
+        "title": "2. Comida",
+        "body": "\"Quanto de salgado, doce e bebida preciso para [número] adultos e [número] crianças?\""
+      },
+      {
+        "title": "3. Convite",
+        "body": "\"Escreva um convite curto e animado para o aniversário de [nome], dia [data], em [local].\""
+      },
+      {
+        "title": "4. Brincadeiras",
+        "body": "\"Sugira 5 brincadeiras baratas para crianças de [idade] num espaço [pequeno/grande].\""
+      },
+      {
+        "title": "5. Checklist",
+        "body": "\"Monte um checklist do que fazer 2 semanas, 1 semana e no dia da festa.\""
+      }
+    ],
+    "keyword": "FESTAIA",
+    "caption": "5 prompts para organizar uma festa. 🎉\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. As quantidades de comida são estimativas: confirme com a doceria ou o buffet, que conhecem o seu público.\n\nManda para quem vai fazer festa 👇\nSalve e comente FESTAIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Festa #DicasDeIA",
+    "tiktokTitle": "5 prompts para organizar uma festa de aniversário com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem vai fazer festa!"
+  }
+}

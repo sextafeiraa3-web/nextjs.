@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-28",
+  "topic": "Pedir para a IA escrever um brinde curto para a confraternização de fim de ano",
+  "keyword": "BRINDEIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para organizar uma festa de aniversário com IA",
+      "keyword": "FESTAIA",
+      "metricoolId": 443944790,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Tirar foto do cupom fiscal do mercado e pedir para a IA separar os gastos por categoria",
+      "keyword": "CUPOMIA",
+      "metricoolId": 443944831,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Pedir para a IA indicar livros parecidos com os que você amou e montar um plano de leitura",
+      "keyword": "LIVROIA",
+      "metricoolId": 443944890,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Pedir para a IA escrever um brinde curto para a confraternização de fim de ano",
+      "keyword": "BRINDEIA",
+      "metricoolId": 443944944,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}
