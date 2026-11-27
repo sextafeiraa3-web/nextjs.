@@ -9,10 +9,11 @@
       "keyword": "CARROIA",
       "metricoolId": 442668686,
       "networks": {
-        "instagram": "SCHEDULED",
+        "instagram": "FIXED",
         "tiktok": "SCHEDULED"
       },
-      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11.",
+      "instagramMediaId": "17997207570099006"
     },
     {
       "slot": "12:30",
