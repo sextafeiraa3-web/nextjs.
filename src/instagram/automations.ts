@@ -1780,6 +1780,58 @@ export const automations: Automation[] = [
       ].join("\n") + signature,
     publicReply: "Te mandei o prompt no direct! 🥂",
   },
+  {
+    keyword: "ENFEITEIA",
+    message:
+      [
+        "Aqui estão os 5 prompts para um Natal bonito e barato 🎄",
+        "",
+        "1. Tema: \"Sugira 3 temas de decoração de Natal para uma sala [tamanho] com orçamento de R$ [valor].\"",
+        "2. Faça você mesmo: \"Ensine 5 enfeites de Natal que dá para fazer com [materiais que tenho em casa].\"",
+        "3. Mesa: \"Como montar uma mesa de Natal bonita para [número] pessoas usando o que já tenho?\"",
+        "4. Com as crianças: \"Sugira 3 enfeites simples para fazer com crianças de [idade] numa tarde.\"",
+        "5. Lista de compras: \"Monte uma lista do que comprar para a decoração, com preço estimado, até R$ [valor].\"",
+        "",
+        "Pisca-pisca só com selo do Inmetro, longe de cortina e de criança.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei os 5 prompts no direct! 🎄",
+  },
+  {
+    keyword: "MANUALIA",
+    message:
+      [
+        "Aqui está o prompt para resumir o manual 📘",
+        "",
+        "\"[manual em PDF ou fotos] Resuma este manual em uma página: passo a passo para usar no dia a dia, o que nunca devo fazer, como limpar e o que pode anular a garantia.\"",
+        "",
+        "Avisos de segurança e voltagem: confira no manual original.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 📘",
+  },
+  {
+    keyword: "ALONGAIA",
+    message:
+      [
+        "Aqui está o prompt para a pausa de alongamento 🪑",
+        "",
+        "\"Monte uma pausa de 5 minutos com alongamentos leves para fazer sentado na cadeira do trabalho, para pescoço, ombros, costas e pernas. Explique cada movimento em uma frase e diga quantas vezes por dia fazer.\"",
+        "",
+        "Movimentos leves: se doer, pare. Dor que não passa é com médico ou fisioterapeuta.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! 🪑",
+  },
+  {
+    keyword: "CANCELAIA",
+    message:
+      [
+        "Aqui está o prompt para cancelar a assinatura ✂️",
+        "",
+        "\"Quero cancelar a assinatura de [serviço], que contratei pelo [app/site/telefone]. Me dê o passo a passo provável para cancelar e escreva uma mensagem curta e firme pedindo o cancelamento imediato, a confirmação por escrito e o número de protocolo.\"",
+        "",
+        "Guarde prints e o protocolo. Se não resolver, use o consumidor.gov.br ou o Procon.",
+      ].join("\n") + signature,
+    publicReply: "Te mandei o prompt no direct! ✂️",
+  },
 ];
 
 const normalize = (text: string) =>

@@ -1,0 +1,146 @@
+{
+  "date": "2026-11-29",
+  "videos": [
+    {
+      "slot": "12:30",
+      "pillar": "dica",
+      "topic": "Mandar o manual de um eletrodoméstico novo para a IA resumir como usar, o que evitar e como limpar",
+      "hook": "Comprou eletrodoméstico? A IA resume o manual",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Manual enorme?",
+          "body": "tire foto das páginas ou cole o PDF."
+        },
+        {
+          "kind": "list",
+          "title": "A IA resume",
+          "items": [
+            "Passo a passo para usar",
+            "O que nunca fazer",
+            "Como limpar"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "para segurança, confira no manual original."
+        }
+      ],
+      "narration": "Comprou eletrodoméstico? A IA resume o manual. Tire foto das páginas ou cole o PDF no ChatGPT, no Claude ou no Gemini. Peça um resumo com o passo a passo para usar, o que nunca fazer e como limpar. Para segurança, confira no manual original. Comente MANUALIA que eu te mando o prompt.",
+      "keyword": "MANUALIA",
+      "ctaQuestion": "Manda para quem comprou algo na Black Friday",
+      "caption": "Comprou eletrodoméstico? A IA resume o manual. 📘\n\nTire foto das páginas ou cole o PDF do manual no ChatGPT, no Claude ou no Gemini pedindo: \"resuma este manual em uma página: passo a passo para usar no dia a dia, o que nunca devo fazer, como limpar e o que pode anular a garantia\".\n\nAvisos de segurança e voltagem você confere no manual original. Se faltar página, a IA pode inventar: mande o manual completo.\n\nManda para quem comprou algo na Black Friday 👇\nComente MANUALIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Casa",
+      "tiktokTitle": "Comprou eletrodoméstico? Peça para a IA resumir o manual",
+      "youtubeTitle": "A IA resume o manual do eletrodoméstico novo #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"[manual em PDF ou fotos] Resuma este manual em uma página: passo a passo para usar no dia a dia, o que nunca devo fazer, como limpar e o que pode anular a garantia.\""
+    },
+    {
+      "slot": "17:00",
+      "pillar": "dica",
+      "topic": "Pedir para a IA uma pausa de 5 minutos com alongamentos para quem trabalha sentado",
+      "hook": "Dor nas costas de tanto ficar sentado?",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Muito tempo sentado?",
+          "body": "peça uma pausa de 5 minutos para a IA."
+        },
+        {
+          "kind": "steps",
+          "title": "A IA monta",
+          "steps": [
+            "Alongamentos na cadeira",
+            "Como fazer cada um",
+            "Quantas vezes por dia"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Atenção:",
+          "body": "sentiu dor, pare. Se continuar, procure um profissional."
+        }
+      ],
+      "narration": "Dor nas costas de tanto ficar sentado? Peça para o ChatGPT, o Claude ou o Gemini uma pausa de cinco minutos com alongamentos simples para fazer na cadeira, explicando cada movimento. Pare se sentir dor, e se ela continuar, procure um médico ou fisioterapeuta. Comente ALONGAIA que eu te mando o prompt.",
+      "keyword": "ALONGAIA",
+      "ctaQuestion": "Manda para quem passa o dia no computador",
+      "caption": "Dor nas costas de tanto ficar sentado? 🪑\n\nPeça para o ChatGPT, o Claude ou o Gemini: \"monte uma pausa de 5 minutos com alongamentos leves para fazer sentado na cadeira do trabalho, para pescoço, ombros, costas e pernas. Explique cada movimento em uma frase e diga quantas vezes por dia fazer\".\n\nOs movimentos devem ser leves: se doer, pare. Dor que não passa é com médico ou fisioterapeuta, não com a IA.\n\nManda para quem passa o dia no computador 👇\nComente ALONGAIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Saude",
+      "tiktokTitle": "Dor nas costas? Peça para a IA uma pausa de alongamento",
+      "youtubeTitle": "Alongamento de 5 minutos para quem trabalha sentado #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Monte uma pausa de 5 minutos com alongamentos leves para fazer sentado na cadeira do trabalho, para pescoço, ombros, costas e pernas. Explique cada movimento em uma frase e diga quantas vezes por dia fazer.\""
+    },
+    {
+      "slot": "19:00",
+      "pillar": "dica",
+      "topic": "Pedir para a IA o passo a passo e a mensagem para cancelar uma assinatura difícil de cancelar",
+      "hook": "Não consegue cancelar uma assinatura?",
+      "scenes": [
+        {
+          "kind": "statement",
+          "title": "Assinatura que não cancela?",
+          "body": "diga o serviço e como você contratou."
+        },
+        {
+          "kind": "list",
+          "title": "Peça para a IA",
+          "items": [
+            "O passo a passo",
+            "Uma mensagem firme",
+            "Pedir o protocolo"
+          ]
+        },
+        {
+          "kind": "statement",
+          "title": "Dica:",
+          "body": "guarde prints de tudo."
+        }
+      ],
+      "narration": "Não consegue cancelar uma assinatura? Conte para o ChatGPT, o Claude ou o Gemini qual é o serviço e como você contratou. Peça o passo a passo para cancelar e uma mensagem firme pedindo o cancelamento e o número de protocolo. Guarde os prints de tudo. Comente CANCELAIA que eu te mando o prompt.",
+      "keyword": "CANCELAIA",
+      "ctaQuestion": "Manda para quem paga o que não usa",
+      "caption": "Não consegue cancelar uma assinatura? ✂️\n\nConte para o ChatGPT, o Claude ou o Gemini: \"quero cancelar a assinatura de [serviço], que contratei pelo [app/site/telefone]. Me dê o passo a passo provável para cancelar e escreva uma mensagem curta e firme pedindo o cancelamento imediato, a confirmação por escrito e o número de protocolo\".\n\nOs menus mudam, então se o caminho não bater, peça para a IA ajustar com um print da tela. Guarde prints e o protocolo; se não resolver, o caminho é o consumidor.gov.br ou o Procon.\n\nManda para quem paga o que não usa 👇\nComente CANCELAIA que eu te mando o prompt pronto no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #DicasDeIA #Dinheiro",
+      "tiktokTitle": "Não consegue cancelar uma assinatura? A IA monta o pedido",
+      "youtubeTitle": "Cancele aquela assinatura com a ajuda da IA #shorts",
+      "sources": [],
+      "firstComment": "Prompt: \"Quero cancelar a assinatura de [serviço], que contratei pelo [app/site/telefone]. Me dê o passo a passo provável para cancelar e escreva uma mensagem curta e firme pedindo o cancelamento imediato, a confirmação por escrito e o número de protocolo.\""
+    }
+  ],
+  "carousel": {
+    "slot": "09:00",
+    "pillar": "dica",
+    "topic": "5 prompts para decorar a casa para o Natal gastando pouco com IA",
+    "slides": [
+      {
+        "title": "5 prompts para um Natal bonito e barato",
+        "body": "Troque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini."
+      },
+      {
+        "title": "1. Tema",
+        "body": "\"Sugira 3 temas de decoração de Natal para uma sala [tamanho] com orçamento de R$ [valor].\""
+      },
+      {
+        "title": "2. Faça você mesmo",
+        "body": "\"Ensine 5 enfeites de Natal que dá para fazer com [materiais que tenho em casa].\""
+      },
+      {
+        "title": "3. Mesa",
+        "body": "\"Como montar uma mesa de Natal bonita para [número] pessoas usando o que já tenho?\""
+      },
+      {
+        "title": "4. Com as crianças",
+        "body": "\"Sugira 3 enfeites simples para fazer com crianças de [idade] numa tarde.\""
+      },
+      {
+        "title": "5. Lista de compras",
+        "body": "\"Monte uma lista do que comprar para a decoração, com preço estimado, até R$ [valor].\""
+      }
+    ],
+    "keyword": "ENFEITEIA",
+    "caption": "5 prompts para um Natal bonito e barato. 🎄\n\nTroque o que está entre colchetes e use no ChatGPT, no Claude ou no Gemini. Os preços da IA são estimativas: confira na loja. E pisca-pisca só com selo do Inmetro, longe de cortina e de criança.\n\nManda para quem já quer montar a árvore 👇\nSalve e comente ENFEITEIA que eu te mando os 5 prontos para copiar no direct.\n\nLino IA - Sua ideia. Nosso próximo projeto.\n@linoia.br\n\n#LinoIA #InteligenciaArtificial #ChatGPT #Natal #DicasDeIA",
+    "tiktokTitle": "5 prompts para decorar o Natal gastando pouco com IA",
+    "sources": [],
+    "firstComment": "Os 5 prompts estão nas imagens. Salve e manda para quem já quer montar a árvore!"
+  }
+}

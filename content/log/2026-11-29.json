@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-29",
+  "topic": "Pedir para a IA o passo a passo e a mensagem para cancelar uma assinatura difícil de cancelar",
+  "keyword": "CANCELAIA",
+  "posts": [
+    {
+      "slot": "09:00",
+      "topic": "5 prompts para decorar a casa para o Natal gastando pouco com IA",
+      "keyword": "ENFEITEIA",
+      "metricoolId": 445156420,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "tiktok": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "12:30",
+      "topic": "Mandar o manual de um eletrodoméstico novo para a IA resumir como usar, o que evitar e como limpar",
+      "keyword": "MANUALIA",
+      "metricoolId": 445156452,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "17:00",
+      "topic": "Pedir para a IA uma pausa de 5 minutos com alongamentos para quem trabalha sentado",
+      "keyword": "ALONGAIA",
+      "metricoolId": 445156499,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    },
+    {
+      "slot": "19:00",
+      "topic": "Pedir para a IA o passo a passo e a mensagem para cancelar uma assinatura difícil de cancelar",
+      "keyword": "CANCELAIA",
+      "metricoolId": 445156542,
+      "networks": {
+        "instagram": "SCHEDULED",
+        "facebook": "SCHEDULED",
+        "tiktok": "SCHEDULED",
+        "youtube": "SCHEDULED"
+      },
+      "note": "Instagram via Windsor (send_later); Metricool com limite da conta atingido desde 05/11."
+    }
+  ]
+}
